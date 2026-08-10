@@ -1,4 +1,4 @@
-import ZhangImprovedBound
+import AntichainOfGivenSize.Definitions
 import Mathlib.Data.Finset.Range
 import Mathlib.Tactic.GCongr
 import Mathlib.Tactic.Ring
@@ -14,7 +14,7 @@ that implication from the paper's block-matching construction.
 open Asymptotics Filter
 open scoped BigOperators
 
-namespace ZhangImprovedBound
+namespace AntichainOfGivenSize
 
 /-- The least ladder cutoff strictly above `n`. -/
 noncomputable def firstCutoffIndex (cutoff : ℕ → ℕ)
@@ -155,4 +155,4 @@ theorem rangeBasedImprovedReductionBound_of_rangeLadder
         (mul_nonneg hK (sq_nonneg A))
     _ = (K * A ^ 2) * ‖improvedScale n‖ := by rw [Real.norm_eq_abs]
 
-end ZhangImprovedBound
+end AntichainOfGivenSize

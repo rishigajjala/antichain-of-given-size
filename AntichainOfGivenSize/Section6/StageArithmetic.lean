@@ -1,6 +1,6 @@
 import Mathlib
 
-namespace Zhang
+namespace AntichainOfGivenSize.Section6
 
 /-- One base-`b` digit extension.  If `m` already agrees with `y` modulo
 `a`, and the next increment is `a*z` modulo `a*b`, choosing `z` to be the
@@ -37,4 +37,4 @@ theorem extend_pow_modEq_digit
   rw [pow_block_succ] at hdelta ⊢
   exact extend_modEq_digit hmy hprev hz hdelta
 
-end Zhang
+end AntichainOfGivenSize.Section6

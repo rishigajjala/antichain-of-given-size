@@ -1,4 +1,4 @@
-import ZhangImprovedBound
+import AntichainOfGivenSize.Definitions
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Preimage
 import Mathlib.Data.Finset.Prod
@@ -7,7 +7,7 @@ import Mathlib.Data.Fintype.EquivFin
 
 open Finset
 
-namespace ZhangImprovedBound
+namespace AntichainOfGivenSize
 
 /-! Basic API for `alpha`, including the paper's Splitting and Lifting Lemmas. -/
 
@@ -256,4 +256,4 @@ theorem liftingLemma (t n : ℕ) : alpha (2 ^ t * n) ≤ alpha n := by
   rw [hLsize] at hbound
   exact hbound.trans_eq ((liftFamily_card G).trans hGcard)
 
-end ZhangImprovedBound
+end AntichainOfGivenSize

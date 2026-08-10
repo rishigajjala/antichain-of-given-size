@@ -2,7 +2,7 @@ import Mathlib
 
 open Finset
 
-namespace Zhang
+namespace AntichainOfGivenSize.Section6
 
 /-!
 The arithmetic core of Claim 6.4.  For each bit position `a < q`, the
@@ -170,4 +170,4 @@ theorem exists_remainderZ_modEq (q c : ℕ) :
   refine ⟨d, hd, ?_⟩
   exact (ZMod.natCast_eq_natCast_iff _ _ _).mp heq
 
-end Zhang
+end AntichainOfGivenSize.Section6

@@ -1,11 +1,11 @@
-import ZhangImprovedBoundProof
-import ZhangBasicLemmas
+import AntichainOfGivenSize.AsymptoticBridge
+import AntichainOfGivenSize.BasicLemmas
 import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 import Mathlib.Topology.Algebra.Order.Floor
 import Mathlib.Tactic.NormNum
 
 /-!
-# The explicit range ladder for Zhang's improved bound
+# The explicit range ladder for the improved bound
 
 This file discharges the analytic hypotheses in
 `rangeBasedImprovedReductionBound_of_rangeLadder`.  The ladder is the
@@ -20,7 +20,7 @@ rounding convention for the real parameter `q` is left implicit.
 open Asymptotics Filter
 open scoped BigOperators
 
-namespace ZhangImprovedBound
+namespace AntichainOfGivenSize
 
 /-- The affine parameter underlying the concrete ladder. -/
 noncomputable def ladderT (T : ℝ) (i : ℕ) : ℝ := T + i
@@ -434,4 +434,4 @@ theorem rangeBasedImprovedReductionBound_of_explicitOneRange
   · positivity
   · norm_num
 
-end ZhangImprovedBound
+end AntichainOfGivenSize

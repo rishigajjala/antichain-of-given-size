@@ -1,12 +1,12 @@
-import ZhangClaim65Blocks
+import AntichainOfGivenSize.Section6.Blocks
 
 open scoped BigOperators
 
-namespace ZhangClaim65Modular
+namespace AntichainOfGivenSize.Section6.Modular
 
 open Finset
-open ZhangSection6
-open ZhangClaim65
+open AntichainOfGivenSize.Section6
+open AntichainOfGivenSize.Section6.Blocks
 
 abbrev StageIndex (r q : ℕ) := Fin r ⊕ Fin q
 
@@ -131,7 +131,7 @@ theorem stage_generatorIntersection_card {r q h : ℕ} (w : Fin r → ℕ)
   rw [heq, oldIntersection_card]
 
 def remainderIntersectionCount {q : ℕ} (d : ℕ) (L : Finset (Fin q)) : ℕ :=
-  ∑ a : Fin q, if L ⊆ {a} then Zhang.selectedBlockSize d a else 0
+  ∑ a : Fin q, if L ⊆ {a} then AntichainOfGivenSize.Section6.selectedBlockSize d a else 0
 
 theorem mappedStageSubset_subset_rPattern_iff {r q : ℕ}
     (T : Finset (Fin r)) (d : ℕ) (A : Finset (StageIndex r q))
@@ -189,7 +189,7 @@ theorem remainderCommon_mapped_of_right_nonempty {r q : ℕ}
         intro hf
         have := (hbfalse.1 hf).2 hright
         simp [hbit] at this
-      simp [hsub, ht, hf, Zhang.selectedBlockSize, hbit]
+      simp [hsub, ht, hf, AntichainOfGivenSize.Section6.selectedBlockSize, hbit]
     · have hbitf : d.testBit a = false := Bool.eq_false_of_not_eq_true hbit
       have hf : mappedStageSubset T d A ⊆ rPattern a false :=
         hbfalse.2 ⟨hsub, fun _ => hbitf.symm⟩
@@ -197,7 +197,7 @@ theorem remainderCommon_mapped_of_right_nonempty {r q : ℕ}
         intro ht
         have := (hbtrue.1 ht).2 hright
         simp [hbitf] at this
-      simp [hsub, ht, hf, Zhang.selectedBlockSize, hbitf]
+      simp [hsub, ht, hf, AntichainOfGivenSize.Section6.selectedBlockSize, hbitf]
   · have hf : ¬ mappedStageSubset T d A ⊆ rPattern a false :=
       fun hm => hsub (mappedStageSubset_subset_rPattern_iff T d A a false |>.1 hm).1
     have ht : ¬ mappedStageSubset T d A ⊆ rPattern a true :=
@@ -271,14 +271,14 @@ theorem generatedIdealIdx_card_of_pairwise_disjoint
         omega
 
 abbrev RemainderVertex (q d : ℕ) :=
-  Σ a : Fin q, Fin (Zhang.selectedBlockSize d a)
+  Σ a : Fin q, Fin (AntichainOfGivenSize.Section6.selectedBlockSize d a)
 
 def remainderGenerator {q : ℕ} (d : ℕ) (a : Fin q) :
     Finset (RemainderVertex q d) :=
   Finset.univ.filter fun v => v.1 = a
 
 theorem remainderGenerator_card {q d : ℕ} (a : Fin q) :
-    (remainderGenerator d a).card = Zhang.selectedBlockSize d a := by
+    (remainderGenerator d a).card = AntichainOfGivenSize.Section6.selectedBlockSize d a := by
   let allAtoms : Finset (RemainderVertex q d) :=
     Finset.univ.sigma fun a : Fin q => Finset.univ
   have hall : allAtoms = Finset.univ := by
@@ -301,12 +301,12 @@ theorem remainderGenerator_pairwise_disjoint {q d : ℕ}
 
 theorem remainderIdeal_card {q d : ℕ} (hq : 0 < q) :
     (generatedIdealIdx (Finset.univ : Finset (Fin q))
-      (remainderGenerator d)).card = Zhang.remainderZ q d := by
+      (remainderGenerator d)).card = AntichainOfGivenSize.Section6.remainderZ q d := by
   have hnon : (Finset.univ : Finset (Fin q)).Nonempty := by
     exact ⟨⟨0, hq⟩, Finset.mem_univ _⟩
   rw [generatedIdealIdx_card_of_pairwise_disjoint]
   · rw [if_pos hnon]
-    simp only [remainderGenerator_card, Zhang.remainderZ]
+    simp only [remainderGenerator_card, AntichainOfGivenSize.Section6.remainderZ]
   · intro a _ha b _hb hab
     exact remainderGenerator_pairwise_disjoint a b hab
 
@@ -491,7 +491,7 @@ theorem remainder_signed_sum {q d K : ℕ} (hq : 0 < q) :
     (∑ L : RemainderTerm q,
       (-1 : ZMod (2 ^ K)) ^ (L.1.card + 1) *
         (2 : ZMod (2 ^ K)) ^ (remainderIntersectionCount d L.1)) =
-      (Zhang.remainderZ q d : ZMod (2 ^ K)) := by
+      (AntichainOfGivenSize.Section6.remainderZ q d : ZMod (2 ^ K)) := by
   have hie := generatedIdealIdx_card_zmod
     (Finset.univ : Finset (Fin q)) (remainderGenerator d) K
   rw [remainderIdeal_card hq] at hie
@@ -506,7 +506,7 @@ theorem claim65_modular {r q h : ℕ} (hq : 0 < q)
       (stageOldGenerator w pastT pastD T d)).card :
         ZMod (2 ^ ((h + 1) * q))) =
       (-1 : ZMod (2 ^ ((h + 1) * q))) ^ r *
-        (Zhang.remainderZ q d : ZMod (2 ^ ((h + 1) * q))) *
+        (AntichainOfGivenSize.Section6.remainderZ q d : ZMod (2 ^ ((h + 1) * q))) *
         (2 : ZMod (2 ^ ((h + 1) * q))) ^ (h * q) := by
   classical
   rw [generatedIdealIdx_card_zmod_survivors
@@ -552,4 +552,4 @@ theorem claim65_modular {r q h : ℕ} (hq : 0 < q)
           rw [Finset.mul_sum, Finset.sum_mul]
         _ = _ := by rw [remainder_signed_sum hq]
 
-end ZhangClaim65Modular
+end AntichainOfGivenSize.Section6.Modular

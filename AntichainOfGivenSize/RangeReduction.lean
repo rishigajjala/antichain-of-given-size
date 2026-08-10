@@ -1,16 +1,16 @@
-import ZhangRangeArithmetic
+import AntichainOfGivenSize.RangeArithmetic
 import Mathlib.Analysis.SpecialFunctions.Log.Base
 import Mathlib.Analysis.Complex.ExponentialBounds
 import Mathlib.Data.Nat.Log
 import Mathlib.Topology.Algebra.Order.Floor
 import Mathlib.Tactic
 
-namespace ZhangImprovedBound
+namespace AntichainOfGivenSize
 
 /-- The binary logarithm rounded down, used for the block modulus. -/
 def binaryLog (n : ℕ) : ℕ := Nat.log 2 n
 
-/-- Zhang's block exponent `B = floor(N / (1 + C_B / q))`. -/
+/-- The paper's block exponent `B = floor(N / (1 + C_B / q))`. -/
 noncomputable def blockBits (CB q : ℝ) (n : ℕ) : ℕ :=
   ⌊(binaryLog n : ℝ) / (1 + CB / q)⌋₊
 
@@ -535,4 +535,4 @@ theorem explicitOneRangeReduction_of_matchingSuccessorAtBits_of_initial
     exact hQ0.trans (explicitQ_monotone T (one_le_two.trans hT) (Nat.zero_le i))
   · exact explicitQ_succ_le_wideRangeEndpoint C0 T hT hTwide
 
-end ZhangImprovedBound
+end AntichainOfGivenSize

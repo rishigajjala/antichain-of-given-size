@@ -1,11 +1,11 @@
-import ZhangClaim65Blocks
+import AntichainOfGivenSize.Section6.Blocks
 
 open scoped BigOperators
 
-namespace ZhangClaim65
+namespace AntichainOfGivenSize.Section6.Blocks
 
 open Finset
-open ZhangSection6
+open AntichainOfGivenSize.Section6
 
 abbrev StageIndex (r q : ℕ) := Fin r ⊕ Fin q
 
@@ -171,14 +171,14 @@ theorem stage_generatorIntersection_card {r q h : ℕ} (w : Fin r → ℕ)
 /-! The selected remainder blocks, as genuinely disjoint tagged sets. -/
 
 abbrev RemainderVertex (q d : ℕ) :=
-  Σ a : Fin q, Fin (Zhang.selectedBlockSize d a)
+  Σ a : Fin q, Fin (AntichainOfGivenSize.Section6.selectedBlockSize d a)
 
 def remainderGenerator {q : ℕ} (d : ℕ) (a : Fin q) :
     Finset (RemainderVertex q d) :=
   Finset.univ.filter fun v => v.1 = a
 
 def remainderIntersectionCount {q : ℕ} (d : ℕ) (L : Finset (Fin q)) : ℕ :=
-  ∑ a : Fin q, if L ⊆ {a} then Zhang.selectedBlockSize d a else 0
+  ∑ a : Fin q, if L ⊆ {a} then AntichainOfGivenSize.Section6.selectedBlockSize d a else 0
 
 theorem remainder_generatorIntersection_card {q d : ℕ}
     (t : (Finset.univ : Finset (Fin q)).powerset.filter
@@ -260,9 +260,9 @@ theorem remainderCommon_mappedStageSubset {r q : ℕ}
   by_cases hsub : A.toRight ⊆ {a}
   · rw [if_pos hsub]
     by_cases hbit : d.testBit a
-    · simp [hsub, hbit, Zhang.selectedBlockSize]
+    · simp [hsub, hbit, AntichainOfGivenSize.Section6.selectedBlockSize]
     · have hfalse : d.testBit a = false := Bool.eq_false_of_not_eq_true hbit
-      simp [hsub, hfalse, Zhang.selectedBlockSize]
+      simp [hsub, hfalse, AntichainOfGivenSize.Section6.selectedBlockSize]
   · simp [hsub]
 
-end ZhangClaim65
+end AntichainOfGivenSize.Section6.Blocks

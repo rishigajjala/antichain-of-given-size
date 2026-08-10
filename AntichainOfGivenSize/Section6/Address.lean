@@ -1,9 +1,9 @@
-import ZhangClaim64
+import AntichainOfGivenSize.Section6.Remainder
 
 open Finset
 open scoped BigOperators
 
-namespace Zhang
+namespace AntichainOfGivenSize.Section6
 
 /-!
 The capped binary address system used in Section 6.  There are `s + 1`
@@ -134,4 +134,4 @@ theorem canonicalAddress_injective {H : ℕ} (hH : 1 < H) :
   cappedAddress_injective (two_pow_addressBits_lt hH)
     (H_le_two_pow_addressBits_succ H)
 
-end Zhang
+end AntichainOfGivenSize.Section6

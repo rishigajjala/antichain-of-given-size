@@ -1,12 +1,12 @@
-import ZhangSection6Core
-import ZhangClaim64
+import AntichainOfGivenSize.Section6.Core
+import AntichainOfGivenSize.Section6.Remainder
 
 open scoped BigOperators
 
-namespace ZhangClaim65
+namespace AntichainOfGivenSize.Section6.Blocks
 
 open Finset
-open ZhangSection6
+open AntichainOfGivenSize.Section6
 
 /-! Concrete generator indices and their selected stage subfamilies. -/
 
@@ -499,4 +499,4 @@ theorem generatorIntersection_oldGenerator_card {r q h : ℕ}
       blockCommonCount w pastT pastD t.1 := by
   rw [generatorIntersection_oldGenerator_eq, oldIntersection_card]
 
-end ZhangClaim65
+end AntichainOfGivenSize.Section6.Blocks

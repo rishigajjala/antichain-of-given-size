@@ -1,6 +1,6 @@
-import ZhangLemma68
+import AntichainOfGivenSize.RangeReduction
 
-namespace Zhang
+namespace AntichainOfGivenSize.Section6
 
 /-- Number of stages used by the repaired block construction. -/
 def stageCount (N l : ℕ) : ℕ := (N - 4 * l ^ 2) / (l + 2)
@@ -132,14 +132,14 @@ theorem remainderPolynomial_lt_two_pow_sub_two {l : ℕ} (hl : 16 ≤ l) :
         _ ≤ 2 * 2 ^ (l - 2) := Nat.mul_le_mul_left 2 ih.le
         _ = 2 ^ (l - 2) * 2 := by ring
 
-end Zhang
+end AntichainOfGivenSize.Section6
 
-namespace ZhangImprovedBound
+namespace AntichainOfGivenSize
 
 /-- The block exponent used by the repaired construction:
 `l=⌈q⌉`, `H=(N-4l²)/(l+2)`, and `B=Hl`. -/
 noncomputable def constructionBits (q : ℝ) (n : ℕ) : ℕ :=
-  Zhang.matchingBits (binaryLog n) ⌈q⌉₊
+  AntichainOfGivenSize.Section6.matchingBits (binaryLog n) ⌈q⌉₊
 
 /-- The repaired block exponent satisfies the complete numerical contract of
 Lemma 6.8, uniformly for `q ≥ 16` in the `C₀=10` wide range. -/
@@ -148,7 +148,7 @@ theorem constructionBits_remainderBitBound :
   intro q hq n hrange
   let N : ℕ := binaryLog n
   let l : ℕ := ⌈q⌉₊
-  let H : ℕ := Zhang.stageCount N l
+  let H : ℕ := AntichainOfGivenSize.Section6.stageCount N l
   have hq0 : 0 ≤ q := by linarith
   have hqpos : 0 < q := by linarith
   have hql : q ≤ (l : ℝ) := by
@@ -160,7 +160,7 @@ theorem constructionBits_remainderBitBound :
     exact_mod_cast this
   have hlpos : 0 < l := by omega
   have hbitsle : constructionBits q n ≤ binaryLog n := by
-    simpa [constructionBits, N, l] using Zhang.matchingBits_le N l
+    simpa [constructionBits, N, l] using AntichainOfGivenSize.Section6.matchingBits_le N l
   refine ⟨hbitsle, ?_⟩
   have hlogN : Real.logb 2 (n : ℝ) < (N : ℝ) + 1 := by
     have hfloor := Nat.lt_floor_add_one (Real.logb 2 (n : ℝ))
@@ -169,7 +169,7 @@ theorem constructionBits_remainderBitBound :
     rw [heq] at hfloor
     exact hfloor
   have hpowsmall : 4 * l ^ 2 ≤ 2 ^ (l - 1) :=
-    Zhang.four_sq_le_two_pow_pred (by omega)
+    AntichainOfGivenSize.Section6.four_sq_le_two_pow_pred (by omega)
   have hexpSmall : ((l - 1 : ℕ) : ℝ) < q := by
     rw [Nat.cast_sub (by omega)]
     norm_num
@@ -192,7 +192,7 @@ theorem constructionBits_remainderBitBound :
     calc
       H * l ≤ H * (l + 2) := by gcongr; omega
       _ ≤ N - 4 * l ^ 2 := by
-        simpa [H] using Zhang.stageCount_mul_le N l
+        simpa [H] using AntichainOfGivenSize.Section6.stageCount_mul_le N l
       _ ≤ N := Nat.sub_le _ _
   have hHq : (H : ℝ) * q ≤ (N : ℝ) := by
     calc
@@ -221,7 +221,7 @@ theorem constructionBits_remainderBitBound :
   have htwoH : 2 * (H : ℝ) < (2 : ℝ) ^ q / 512 := by
     nlinarith
   have hpolyNat : 4 * l ^ 2 + l + 2 < 2 ^ (l - 2) :=
-    Zhang.remainderPolynomial_lt_two_pow_sub_two hl16
+    AntichainOfGivenSize.Section6.remainderPolynomial_lt_two_pow_sub_two hl16
   have hexpPoly : ((l - 2 : ℕ) : ℝ) < q - 1 := by
     rw [Nat.cast_sub (by omega)]
     norm_num
@@ -236,13 +236,13 @@ theorem constructionBits_remainderBitBound :
       _ < (2 : ℝ) ^ (q - 1) := hrpowPoly
       _ = (2 : ℝ) ^ q / 2 := by
         rw [Real.rpow_sub zero_lt_two, Real.rpow_one]
-  have hremNat := Zhang.remainderExponent_le (N := N) (l := l) hsmall
-  have hremReal : ((N + 1 - Zhang.matchingBits N l : ℕ) : ℝ) ≤
+  have hremNat := AntichainOfGivenSize.Section6.remainderExponent_le (N := N) (l := l) hsmall
+  have hremReal : ((N + 1 - AntichainOfGivenSize.Section6.matchingBits N l : ℕ) : ℝ) ≤
       ((2 * H + 4 * l ^ 2 + l + 2 : ℕ) : ℝ) := by
     exact_mod_cast (by simpa [H] using hremNat)
   calc
     ((binaryLog n + 1 - constructionBits q n : ℕ) : ℝ) =
-        ((N + 1 - Zhang.matchingBits N l : ℕ) : ℝ) := by
+        ((N + 1 - AntichainOfGivenSize.Section6.matchingBits N l : ℕ) : ℝ) := by
       simp [N, l, constructionBits]
     _ ≤ ((2 * H + 4 * l ^ 2 + l + 2 : ℕ) : ℝ) := hremReal
     _ = 2 * (H : ℝ) + ((4 * l ^ 2 + l + 2 : ℕ) : ℝ) := by
@@ -286,4 +286,4 @@ theorem rangeBasedImprovedReductionBound_of_constructionMatching
     section6T CM section6T_ge_two hCM
     (explicitOneRangeReduction_of_constructionMatching CM hmatch)
 
-end ZhangImprovedBound
+end AntichainOfGivenSize

@@ -1,8 +1,8 @@
 import Mathlib.Data.Nat.Log
 import Mathlib.Tactic
-import ZhangAddress
+import AntichainOfGivenSize.Section6.Address
 
-namespace Zhang
+namespace AntichainOfGivenSize.Section6
 
 theorem four_sq_add_two_mul_le_two_pow_pred {l : ℕ} (hl : 10 ≤ l) :
     4 * l ^ 2 + 2 * (l + 2) ≤ 2 ^ (l - 1) := by
@@ -39,4 +39,4 @@ theorem addressRank_le_of_le_two_pow
   rw [heq]
   exact hc
 
-end Zhang
+end AntichainOfGivenSize.Section6

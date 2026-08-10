@@ -10,13 +10,13 @@ and Daniel J. Zhang.
 For the paper's function `α`, the theorem is
 
 $$
-  \alpha(n) = O\!\left(
+  \alpha(n) = O\left(
     \frac{(\log_2 \log_2 n)^2}{\log_2 \log_2 \log_2 n}
   \right).
 $$
 
-The public entry point is `ZhangImprovedBound.theorem6_10` in
-[`ZhangUnconditional.lean`](ZhangUnconditional.lean):
+The public entry point is `AntichainOfGivenSize.theorem6_10` in
+[`AntichainOfGivenSize/Theorem.lean`](AntichainOfGivenSize/Theorem.lean):
 
 ```lean
 theorem theorem6_10 :
@@ -33,7 +33,7 @@ It has no hypotheses.
 For a finite family of finite sets `S`, the generated ideal is defined as
 
 $$
-  \operatorname{ID}(S) = \bigcup_{A \in S} 2^A.
+  \mathrm{ID}(S) = \bigcup_{A \in S} 2^A.
 $$
 
 `alpha n` is the minimum cardinality of a generating family whose generated
@@ -49,12 +49,12 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 
 | Modules | Role |
 | --- | --- |
-| `ZhangImprovedBound`, `ZhangBasicLemmas` | Definitions of `ID`, `alpha`, the comparison scale, attainment of the minimum, and the Splitting and Lifting Lemmas |
-| `ZhangImprovedBoundProof`, `ZhangRangeArithmetic` | Iteration of the range reduction, an explicit cofinal ladder, the ladder-sum estimate, and the final analytic Big-O argument |
-| `ZhangLemma68`, `ZhangMatchingParameters` | Lemma 6.8 and the explicit numerical parameters needed by the matching construction |
-| `ZhangSection6Core`, `ZhangClaim64`, `ZhangClaim65Blocks`, `ZhangClaim65Survivors`, `ZhangClaim65Modular` | The Section 6 block construction and its exact modular increment calculation |
-| `ZhangAddress`, `ZhangStageArithmetic`, `ZhangIndexedBounds`, `ZhangConstructionNatParams`, `ZhangStageBridge`, `ZhangSection6Construction` | Stage addresses, recursion, cardinality bounds, and the concrete matching theorem |
-| `ZhangUnconditional`, `AntichainOfGivenSize` | Assembly of the hypothesis-free theorem and the package's umbrella module |
+| `AntichainOfGivenSize.Definitions`, `AntichainOfGivenSize.BasicLemmas` | Definitions of `ID`, `alpha`, the comparison scale, attainment of the minimum, and the Splitting and Lifting Lemmas |
+| `AntichainOfGivenSize.AsymptoticBridge`, `AntichainOfGivenSize.RangeArithmetic` | Iteration of the range reduction, an explicit cofinal ladder, the ladder-sum estimate, and the final analytic Big-O argument |
+| `AntichainOfGivenSize.RangeReduction`, `AntichainOfGivenSize.MatchingParameters` | Lemma 6.8 and the explicit numerical parameters needed by the matching construction |
+| `AntichainOfGivenSize.Section6.Core`, `.Remainder`, `.Blocks`, `.Survivors`, `.ModularIncrement` | The Section 6 block construction and its exact modular increment calculation |
+| `AntichainOfGivenSize.Section6.Address`, `.StageArithmetic`, `.IndexedBounds`, `.NatParameters`, `.StageBridge`, `.Construction` | Stage addresses, recursion, cardinality bounds, and the concrete matching theorem |
+| `AntichainOfGivenSize.Theorem`, `AntichainOfGivenSize` | Assembly of the hypothesis-free theorem and the package's umbrella module |
 
 The formalization targets Theorem 6.10 rather than reproducing every stronger
 intermediate statement verbatim. In particular, it makes the paper's
@@ -76,7 +76,7 @@ lake build --wfail
 ```
 
 The source contains no `sorry`, `admit`, or custom axioms. Running
-`#print axioms ZhangImprovedBound.theorem6_10` reports only Lean/mathlib's
+`#print axioms AntichainOfGivenSize.theorem6_10` reports only Lean/mathlib's
 standard foundational principles:
 
 ```text

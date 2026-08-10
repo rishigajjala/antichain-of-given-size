@@ -6,7 +6,7 @@ import Mathlib.Tactic.NormNum
 
 open scoped BigOperators
 
-namespace ZhangSection6
+namespace AntichainOfGivenSize.Section6
 
 variable {ι V : Type*} [DecidableEq V]
 
@@ -394,4 +394,4 @@ theorem indexedStageIdeal_card [DecidableEq ι]
     Finset.card_union_of_disjoint (disjoint_liftedIndexedIdeal_freshIndexedIdeal all chosen G)]
   simp [liftedIndexedIdeal, freshIndexedIdeal]
 
-end ZhangSection6
+end AntichainOfGivenSize.Section6

@@ -1,6 +1,6 @@
 name = "AntichainOfGivenSize"
 version = "0.1.0"
-defaultTargets = ["ZhangFormalization"]
+defaultTargets = ["AntichainOfGivenSize"]
 
 [[require]]
 name = "mathlib"
@@ -8,25 +8,5 @@ scope = "leanprover-community"
 rev = "v4.32.0"
 
 [[lean_lib]]
-name = "ZhangFormalization"
-roots = [
-  "AntichainOfGivenSize",
-  "ZhangImprovedBound",
-  "ZhangBasicLemmas",
-  "ZhangImprovedBoundProof",
-  "ZhangRangeArithmetic",
-  "ZhangLemma68",
-  "ZhangMatchingParameters",
-  "ZhangSection6Core",
-  "ZhangClaim64",
-  "ZhangClaim65Blocks",
-  "ZhangClaim65Survivors",
-  "ZhangClaim65Modular",
-  "ZhangAddress",
-  "ZhangStageArithmetic",
-  "ZhangIndexedBounds",
-  "ZhangConstructionNatParams",
-  "ZhangStageBridge",
-  "ZhangSection6Construction",
-  "ZhangUnconditional",
-]
+name = "AntichainOfGivenSize"
+roots = ["AntichainOfGivenSize"]

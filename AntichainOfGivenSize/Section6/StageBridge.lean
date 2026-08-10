@@ -1,8 +1,8 @@
-import ZhangSection6Core
+import AntichainOfGivenSize.Section6.Core
 
 open Finset
 
-namespace ZhangSection6
+namespace AntichainOfGivenSize.Section6
 
 variable {I V W : Type*}
   [DecidableEq I] [DecidableEq V] [DecidableEq W]
@@ -104,4 +104,4 @@ theorem generatedIdealIdx_card_stage_of_intersection_cards
     _ = (generatedIdealIdx all G).card + (generatedIdealIdx chosen G).card :=
       indexedStageIdeal_card hchosen
 
-end ZhangSection6
+end AntichainOfGivenSize.Section6

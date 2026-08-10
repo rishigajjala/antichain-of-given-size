@@ -1,5 +1,5 @@
-import ZhangSection6Core
-import ZhangBasicLemmas
+import AntichainOfGivenSize.Section6.Core
+import AntichainOfGivenSize.BasicLemmas
 import Mathlib.Tactic
 
 /-!
@@ -7,12 +7,12 @@ import Mathlib.Tactic
 
 The block construction keeps a fixed index type even when two indexed
 generators might coincide.  These lemmas therefore work directly with
-`ZhangSection6.generatedIdealIdx` and never assume injectivity of `G`.
+`AntichainOfGivenSize.Section6.generatedIdealIdx` and never assume injectivity of `G`.
 -/
 
 open scoped BigOperators
 
-namespace ZhangImprovedBound
+namespace AntichainOfGivenSize
 
 variable {I V : Type*} [DecidableEq V]
 
@@ -20,18 +20,18 @@ variable {I V : Type*} [DecidableEq V]
 This is the bridge to the definition of `alpha`. -/
 theorem generatedIdealIdx_eq_generatedIdeal_image
     (s : Finset I) (G : I → Finset V) :
-    ZhangSection6.generatedIdealIdx s G = generatedIdeal (s.image G) := by
+    AntichainOfGivenSize.Section6.generatedIdealIdx s G = generatedIdeal (s.image G) := by
   ext A
-  simp [ZhangSection6.generatedIdealIdx, generatedIdeal]
+  simp [AntichainOfGivenSize.Section6.generatedIdealIdx, generatedIdeal]
 
 /-- Crude but uniform cardinality bound for an indexed family: there are at
 most `s.card` principal ideals, and each contains at most every subset of the
 finite vertex universe. -/
 theorem generatedIdealIdx_card_le_card_mul_pow
     [Fintype V] (s : Finset I) (G : I → Finset V) :
-    (ZhangSection6.generatedIdealIdx s G).card ≤
+    (AntichainOfGivenSize.Section6.generatedIdealIdx s G).card ≤
       s.card * 2 ^ Fintype.card V := by
-  unfold ZhangSection6.generatedIdealIdx
+  unfold AntichainOfGivenSize.Section6.generatedIdealIdx
   apply Finset.card_biUnion_le_card_mul
   intro i hi
   rw [Finset.card_powerset]
@@ -41,7 +41,7 @@ theorem generatedIdealIdx_card_le_card_mul_pow
 the empty set). -/
 theorem generatedIdealIdx_card_pos
     {s : Finset I} (hs : s.Nonempty) (G : I → Finset V) :
-    0 < (ZhangSection6.generatedIdealIdx s G).card := by
+    0 < (AntichainOfGivenSize.Section6.generatedIdealIdx s G).card := by
   apply Finset.card_pos.mpr
   obtain ⟨i, hi⟩ := hs
   refine ⟨∅, Finset.mem_biUnion.mpr ⟨i, hi, ?_⟩⟩
@@ -51,27 +51,27 @@ theorem generatedIdealIdx_card_pos
 needed: collapsing equal generators only decreases the image cardinality. -/
 theorem alpha_generatedIdealIdx_card_le
     [Fintype V] (s : Finset I) (G : I → Finset V) :
-    alpha (ZhangSection6.generatedIdealIdx s G).card ≤ s.card := by
+    alpha (AntichainOfGivenSize.Section6.generatedIdealIdx s G).card ≤ s.card := by
   rw [generatedIdealIdx_eq_generatedIdeal_image]
   exact (alpha_le_of_family (s.image G)).trans Finset.card_image_le
 
 /-- Full-index specialization of the cardinality bound. -/
 theorem generatedIdealIdx_univ_card_le
     [Fintype I] [DecidableEq I] [Fintype V] (G : I → Finset V) :
-    (ZhangSection6.generatedIdealIdx Finset.univ G).card ≤
+    (AntichainOfGivenSize.Section6.generatedIdealIdx Finset.univ G).card ≤
       Fintype.card I * 2 ^ Fintype.card V := by
   simpa using generatedIdealIdx_card_le_card_mul_pow (Finset.univ : Finset I) G
 
 /-- Full-index specialization of positivity. -/
 theorem generatedIdealIdx_univ_card_pos
     [Fintype I] [DecidableEq I] [Nonempty I] (G : I → Finset V) :
-    0 < (ZhangSection6.generatedIdealIdx Finset.univ G).card := by
+    0 < (AntichainOfGivenSize.Section6.generatedIdealIdx Finset.univ G).card := by
   exact generatedIdealIdx_card_pos Finset.univ_nonempty G
 
 /-- Full-index specialization of the `alpha` witness. -/
 theorem alpha_generatedIdealIdx_univ_card_le
     [Fintype I] [DecidableEq I] [Fintype V] (G : I → Finset V) :
-    alpha (ZhangSection6.generatedIdealIdx Finset.univ G).card ≤ Fintype.card I := by
+    alpha (AntichainOfGivenSize.Section6.generatedIdealIdx Finset.univ G).card ≤ Fintype.card I := by
   simpa using alpha_generatedIdealIdx_card_le (Finset.univ : Finset I) G
 
 /-- Convert separate generator-count and universe-size bounds, together with
@@ -84,11 +84,11 @@ theorem generatedIdealIdx_card_lt_of_mul_pow_lt
     (huniverse : Fintype.card V ≤ universeCard)
     (hexponential : generatorCount * 2 ^ universeCard < 2 ^ N)
     (hn : 2 ^ N ≤ n) :
-    (ZhangSection6.generatedIdealIdx s G).card < n := by
+    (AntichainOfGivenSize.Section6.generatedIdealIdx s G).card < n := by
   have hpow : 2 ^ Fintype.card V ≤ 2 ^ universeCard := by
     exact Nat.pow_le_pow_right (by norm_num) huniverse
   calc
-    (ZhangSection6.generatedIdealIdx s G).card ≤
+    (AntichainOfGivenSize.Section6.generatedIdealIdx s G).card ≤
         s.card * 2 ^ Fintype.card V :=
       generatedIdealIdx_card_le_card_mul_pow s G
     _ ≤ generatorCount * 2 ^ universeCard := Nat.mul_le_mul hgenerators hpow
@@ -106,7 +106,7 @@ theorem generatedIdealIdx_card_lt_of_exponent_bounds
     (huniverse : Fintype.card V ≤ universeExponent)
     (hexponents : generatorExponent + universeExponent < N)
     (hn : 2 ^ N ≤ n) :
-    (ZhangSection6.generatedIdealIdx s G).card < n := by
+    (AntichainOfGivenSize.Section6.generatedIdealIdx s G).card < n := by
   apply generatedIdealIdx_card_lt_of_mul_pow_lt hgenerators huniverse
   · calc
       2 ^ generatorExponent * 2 ^ universeExponent =
@@ -115,4 +115,4 @@ theorem generatedIdealIdx_card_lt_of_exponent_bounds
       _ < 2 ^ N := Nat.pow_lt_pow_right (by omega) hexponents
   · exact hn
 
-end ZhangImprovedBound
+end AntichainOfGivenSize
