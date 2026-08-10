@@ -2,10 +2,11 @@
 
 [![CI](https://github.com/rishigajjala/antichain-of-given-size/actions/workflows/ci.yml/badge.svg)](https://github.com/rishigajjala/antichain-of-given-size/actions/workflows/ci.yml)
 
-This repository contains an unconditional Lean 4 formalization of Theorem
-6.10 from *Exponentially Smaller Generating Antichains for an Ideal of
-Prescribed Size* by L. Sunil Chandran, Rishikesh Gajjala, Kuldeep S. Meel,
-and Daniel J. Zhang.
+This repository contains unconditional Lean 4 formalizations of upper and
+lower bounds for the smallest family generating an ideal of prescribed size.
+The upper bound is Theorem 6.10 from *Exponentially Smaller Generating
+Antichains for an Ideal of Prescribed Size* by L. Sunil Chandran, Rishikesh
+Gajjala, Kuldeep S. Meel, and Daniel J. Zhang.
 
 For the paper's function `α`, the theorem is
 
@@ -27,6 +28,28 @@ theorem theorem6_10 :
 ```
 
 It has no hypotheses.
+
+The repository also formalizes the block-count lower bound from
+[*CNFs and DNFs with Exactly k Solutions*](https://arxiv.org/abs/2506.07268)
+by L. Sunil Chandran, Rishikesh Gajjala, and Kuldeep S. Meel. If `bl(n)` is
+the number of maximal blocks of `1`s in the binary expansion of `n`, then
+
+$$
+  \log_2(\mathrm{bl}(n)+1) \leq \alpha(n).
+$$
+
+The explicit integers with binary expansions `1`, `101`, `10101`, and so on
+then give the hypothesis-free infinitely-often lower bound
+
+$$
+  \frac{1}{2}\log_2\log_2 n \leq \alpha(n)
+$$
+
+for arbitrarily large `n`. The corresponding public entry points are
+`AntichainOfGivenSize.logb_binaryBlockCount_le_alpha` and
+`AntichainOfGivenSize.logLog_lower_infinitely_often` in
+[`IdealBlockCount.lean`](AntichainOfGivenSize/LowerBound/IdealBlockCount.lean)
+and [`InfinitelyOften.lean`](AntichainOfGivenSize/LowerBound/InfinitelyOften.lean).
 
 ## Mathematical model
 
@@ -54,7 +77,9 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 | `AntichainOfGivenSize.RangeReduction`, `AntichainOfGivenSize.MatchingParameters` | Lemma 6.8 and the explicit numerical parameters needed by the matching construction |
 | `AntichainOfGivenSize.Section6.Core`, `.Remainder`, `.Blocks`, `.Survivors`, `.ModularIncrement` | The Section 6 block construction and its exact modular increment calculation |
 | `AntichainOfGivenSize.Section6.Address`, `.StageArithmetic`, `.IndexedBounds`, `.NatParameters`, `.StageBridge`, `.Construction` | Stage addresses, recursion, cardinality bounds, and the concrete matching theorem |
-| `AntichainOfGivenSize.Theorem`, `AntichainOfGivenSize` | Assembly of the hypothesis-free theorem and the package's umbrella module |
+| `AntichainOfGivenSize.LowerBound.BinaryBlocks`, `.SignedPowers` | Binary block count, carry and borrow estimates, and the signed-power arithmetic lemma |
+| `AntichainOfGivenSize.LowerBound.IdealBlockCount`, `.InfinitelyOften` | Inclusion-exclusion lower bound for `alpha` and the explicit infinitely-often `Omega(log log n)` family |
+| `AntichainOfGivenSize.Theorem`, `AntichainOfGivenSize` | Assembly of the hypothesis-free upper bound and the package's umbrella module |
 
 The formalization targets Theorem 6.10 rather than reproducing every stronger
 intermediate statement verbatim. In particular, it makes the paper's
