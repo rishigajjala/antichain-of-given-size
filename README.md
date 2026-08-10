@@ -85,8 +85,7 @@ Classical.choice
 Quot.sound
 ```
 
-GitHub Actions runs the warning-free build and rechecks the compiled
-environment with `leanchecker` on every push and pull request.
+GitHub Actions runs the warning-free build on every push and pull request.
 
 ## License
 
