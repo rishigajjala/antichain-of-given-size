@@ -1,4 +1,4 @@
-name = "antichain-of-given-size"
+name = "AntichainOfGivenSize"
 version = "0.1.0"
 defaultTargets = ["ZhangFormalization"]
 
@@ -10,6 +10,7 @@ rev = "v4.32.0"
 [[lean_lib]]
 name = "ZhangFormalization"
 roots = [
+  "AntichainOfGivenSize",
   "ZhangImprovedBound",
   "ZhangBasicLemmas",
   "ZhangImprovedBoundProof",

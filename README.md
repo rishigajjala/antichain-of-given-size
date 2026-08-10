@@ -54,7 +54,7 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 | `ZhangLemma68`, `ZhangMatchingParameters` | Lemma 6.8 and the explicit numerical parameters needed by the matching construction |
 | `ZhangSection6Core`, `ZhangClaim64`, `ZhangClaim65Blocks`, `ZhangClaim65Survivors`, `ZhangClaim65Modular` | The Section 6 block construction and its exact modular increment calculation |
 | `ZhangAddress`, `ZhangStageArithmetic`, `ZhangIndexedBounds`, `ZhangConstructionNatParams`, `ZhangStageBridge`, `ZhangSection6Construction` | Stage addresses, recursion, cardinality bounds, and the concrete matching theorem |
-| `ZhangUnconditional` | Assembly of the hypothesis-free theorem |
+| `ZhangUnconditional`, `AntichainOfGivenSize` | Assembly of the hypothesis-free theorem and the package's umbrella module |
 
 The formalization targets Theorem 6.10 rather than reproducing every stronger
 intermediate statement verbatim. In particular, it makes the paper's
