@@ -1,4 +1,6 @@
-# Zhang's improved generating-ideal bound in Lean
+# Antichain of a Given Size
+
+[![CI](https://github.com/rishigajjala/antichain-of-given-size/actions/workflows/ci.yml/badge.svg)](https://github.com/rishigajjala/antichain-of-given-size/actions/workflows/ci.yml)
 
 This repository contains an unconditional Lean 4 formalization of Theorem
 6.10 from *Exponentially Smaller Generating Antichains for an Ideal of
@@ -67,6 +69,8 @@ The project pins Lean and mathlib to version `v4.32.0`. With
 [Lean](https://lean-lang.org/install/) installed, run:
 
 ```bash
+git clone https://github.com/rishigajjala/antichain-of-given-size.git
+cd antichain-of-given-size
 lake exe cache get
 lake build --wfail
 ```
@@ -83,3 +87,7 @@ Quot.sound
 
 GitHub Actions runs the warning-free build and rechecks the compiled
 environment with `leanchecker` on every push and pull request.
+
+## License
+
+This formalization is released under the [MIT License](LICENSE).

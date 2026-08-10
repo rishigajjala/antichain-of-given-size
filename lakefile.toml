@@ -1,4 +1,4 @@
-name = "zhang-improved-bound"
+name = "antichain-of-given-size"
 version = "0.1.0"
 defaultTargets = ["ZhangFormalization"]
 
