@@ -104,6 +104,16 @@ theorem alpha_le_of_hasGeneratorCount {n k : ℕ}
     (h : HasGeneratorCount n k) : alpha n ≤ k := by
   exact Nat.sInf_le h
 
+/-- The elementary global estimate `alpha n ≤ n`. -/
+theorem alpha_le_self (n : ℕ) : alpha n ≤ n := by
+  cases n with
+  | zero =>
+      apply alpha_le_of_hasGeneratorCount
+      exact ⟨0, ∅, by simp [generatedIdeal]⟩
+  | succ r =>
+      simpa [generatedIdeal_singletonGenerators_card, singletonGenerators_card]
+        using alpha_le_of_family (singletonGenerators r)
+
 /-! The splitting lemma.  Its paper statement uses positive naturals. -/
 
 theorem generatedIdeal_union {V : Type*} [DecidableEq V]

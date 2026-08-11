@@ -10,9 +10,9 @@ encoded intersection has size at least `t`.  It proves an exact binary
 layer-cake identity for the Venn expression and exact binomial-moment
 identities for the face counts of the filtration.
 
-These are structural tools for investigating stronger lower bounds.  In
-particular, this module does **not** assert the open infinitely-often
-`(log log n)^(1 + epsilon)` lower-bound target defined in `VennProfiles`.
+These are structural tools used to study lower bounds.  This module is
+independent of the unconditional quadratic-over-log lower bound assembled in
+`LowerBound.Matching`.
 -/
 
 open scoped BigOperators

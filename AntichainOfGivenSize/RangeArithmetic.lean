@@ -398,16 +398,6 @@ theorem explicit_index_sandwich (T : ℝ) (hT : 2 ≤ T) :
   refine ⟨hQ, hQlt.le, hfour.trans ?_⟩
   exact mul_le_mul_of_nonneg_left hpredQ (by norm_num)
 
-/-- The elementary global estimate used to discharge the finite base range. -/
-theorem alpha_le_self (n : ℕ) : alpha n ≤ n := by
-  cases n with
-  | zero =>
-      apply alpha_le_of_hasGeneratorCount
-      exact ⟨0, ∅, by simp [generatedIdeal]⟩
-  | succ r =>
-      simpa [generatedIdeal_singletonGenerators_card, singletonGenerators_card]
-        using alpha_le_of_family (singletonGenerators r)
-
 /-- The analytic part of Theorem 6.10 with every ladder fact discharged.
 
 The sole substantive premise is the one-range conclusion of Lemma 6.8 for
