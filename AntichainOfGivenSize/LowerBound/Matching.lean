@@ -5,7 +5,9 @@ import AntichainOfGivenSize.LowerBound.ClusterSparsityAssembly
 
 Public, hypothesis-free statements of the connected-cluster obstruction.  The
 first theorem exposes the constant produced by the formal proof.  The second
-states the usual infinitely-often asymptotic lower bound.
+states the usual infinitely-often asymptotic lower bound. The canonical named
+propositions and their compact certificates are in `MainStatement` and
+`MainTheorems`.
 -/
 
 namespace AntichainOfGivenSize
@@ -17,7 +19,7 @@ theorem matchingLowerBoundInfinitelyOften_explicit :
           ((Real.logb 2 (Real.logb 2 (n : ℝ))) ^ 2 /
             Real.logb 2 (Real.logb 2 (Real.logb 2 (n : ℝ)))) ≤
         (alpha n : ℝ) := by
-  simpa [improvedScale] using
+  simpa [quadraticLogLogScale, improvedScale] using
     ClusterLowerBound.matchingLowerBoundInfinitelyOften
 
 /-- There is a fixed positive constant for which the matching lower bound
@@ -29,6 +31,6 @@ theorem matchingLowerBoundInfinitelyOften :
         (alpha n : ℝ) := by
   rcases ClusterLowerBound.hasMatchingLowerBoundInfinitelyOften with
     ⟨c, hc, hbound⟩
-  exact ⟨c, hc, by simpa [improvedScale] using hbound⟩
+  exact ⟨c, hc, by simpa [quadraticLogLogScale, improvedScale] using hbound⟩
 
 end AntichainOfGivenSize

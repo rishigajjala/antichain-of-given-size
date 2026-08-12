@@ -1,10 +1,9 @@
 import AntichainOfGivenSize.LowerBound.InfinitelyOften
 import AntichainOfGivenSize.LowerBound.CarrySensitive
-import AntichainOfGivenSize.LowerBound.Matching
 import AntichainOfGivenSize.LowerBound.ThresholdFiltration
 import AntichainOfGivenSize.LowerBound.VennProfiles
 import AntichainOfGivenSize.LowerBound.Conductor
-import AntichainOfGivenSize.Theorem
+import AntichainOfGivenSize.MainTheorems
 
 /-!
 # Antichain of a Given Size

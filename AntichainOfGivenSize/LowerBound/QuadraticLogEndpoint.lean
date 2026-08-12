@@ -308,15 +308,13 @@ theorem facetBudget_real_lower {t : ℕ} (ht : 11 ≤ t) :
 
 /-! ## Infinitely-often consequence -/
 
-/-- A named proposition for an infinitely-often lower bound matching the
-paper's upper-bound scale. -/
-def HasMatchingLowerBoundInfinitelyOften : Prop :=
-  ∃ c : ℝ, 0 < c ∧ ∀ N : ℕ, ∃ n : ℕ, N ≤ n ∧
-    c * AntichainOfGivenSize.improvedScale n ≤
-      (AntichainOfGivenSize.alpha n : ℝ)
+/-- Compatibility name for the canonical lower-bound statement in
+`MainStatement`. -/
+abbrev HasMatchingLowerBoundInfinitelyOften : Prop :=
+  AntichainOfGivenSize.LowerBoundStatement
 
-/-- The exact finite cardinality estimate still to be supplied by the
-cluster-counting argument. -/
+/-- The finite residue-sparsity statement used by the analytic endpoint.
+It is proved unconditionally in `ClusterSparsityAssembly`. -/
 def EventuallySparseDyadicProfiles : Prop :=
   ∀ᶠ t : ℕ in atTop,
     (boundedResiduesUpTo (facetBudget t) (dyadicB t)).card <

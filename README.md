@@ -8,6 +8,35 @@ The upper bound is Theorem 6.10 from *Exponentially Smaller Generating
 Antichains for an Ideal of Prescribed Size* by L. Sunil Chandran, Rishikesh
 Gajjala, Kuldeep S. Meel, and Daniel J. Zhang.
 
+## Audit surface
+
+The definitions and exact statements of both main bounds are deliberately
+collected in one small, proof-free file:
+
+- [`MainStatement.lean`](AntichainOfGivenSize/MainStatement.lean) defines the
+  generated ideal, inclusion antichains, the representation predicates,
+  `alpha`, the common comparison scale, `UpperBoundStatement`,
+  `LowerBoundStatement`, and `ExplicitLowerBoundStatement`.
+- [`MainTheorems.lean`](AntichainOfGivenSize/MainTheorems.lean) contains only
+  the short certificates `mainAlphaHasAntichainWitness`, `mainUpperBound`,
+  `mainLowerBound`, and `mainLowerBound_explicit` connecting that contract to
+  its proofs.
+
+Thus the complete mathematical contract can be audited by reading
+`MainStatement.lean`; the proof status can then be checked independently with:
+
+```lean
+#print axioms AntichainOfGivenSize.mainUpperBound
+#print axioms AntichainOfGivenSize.mainLowerBound
+#print axioms AntichainOfGivenSize.mainLowerBound_explicit
+#print axioms AntichainOfGivenSize.mainAlphaHasAntichainWitness
+```
+
+All four certificates are unconditional. The axiom reports contain only
+`propext`, `Classical.choice`, and `Quot.sound`.
+
+## Main result
+
 For the paper's function `α`, the theorem is
 
 $$
@@ -16,18 +45,15 @@ $$
   \right).
 $$
 
-The public entry point is `AntichainOfGivenSize.theorem6_10` in
-[`AntichainOfGivenSize/Theorem.lean`](AntichainOfGivenSize/Theorem.lean):
+The canonical certificate is `AntichainOfGivenSize.mainUpperBound`:
 
 ```lean
-theorem theorem6_10 :
-    (fun n : ℕ ↦ (alpha n : ℝ)) =O[atTop]
-      (fun n : ℕ ↦
-        (Real.logb 2 (Real.logb 2 (n : ℝ))) ^ 2 /
-          Real.logb 2 (Real.logb 2 (Real.logb 2 (n : ℝ))))
+theorem mainUpperBound : UpperBoundStatement
 ```
 
-It has no hypotheses.
+The formula is displayed in full in the definition of `UpperBoundStatement`
+in `MainStatement.lean`. The older unfolded entry point `theorem6_10` remains
+available in [`Theorem.lean`](AntichainOfGivenSize/Theorem.lean).
 
 The repository also proves a matching worst-case lower bound. There is a
 fixed constant `c > 0` and arbitrarily large `n` such that
@@ -39,19 +65,16 @@ $$
 $$
 
 Equivalently, the upper-bound scale is attained infinitely often, up to a
-constant factor. The public theorem is
-`AntichainOfGivenSize.matchingLowerBoundInfinitelyOften` in
-[`Matching.lean`](AntichainOfGivenSize/LowerBound/Matching.lean). The formal
-proof gives the explicit constant `c = 1/4096`:
+constant factor. The canonical certificates are:
 
 ```lean
-theorem matchingLowerBoundInfinitelyOften_explicit :
-    ∀ N : ℕ, ∃ n : ℕ, N ≤ n ∧
-      (1 / 4096 : ℝ) *
-          ((Real.logb 2 (Real.logb 2 (n : ℝ))) ^ 2 /
-            Real.logb 2 (Real.logb 2 (Real.logb 2 (n : ℝ)))) ≤
-        (alpha n : ℝ)
+theorem mainLowerBound : LowerBoundStatement
+theorem mainLowerBound_explicit : ExplicitLowerBoundStatement
 ```
+
+The latter uses the explicit constant `c = 1/4096`. The older fully unfolded
+entry points remain in
+[`Matching.lean`](AntichainOfGivenSize/LowerBound/Matching.lean).
 
 This is an infinitely-often statement—the correct worst-case counterpart to
 the pointwise Big-O upper bound—not a lower bound for every integer `n`.
@@ -128,8 +151,11 @@ $$
 $$
 
 `alpha n` is the minimum cardinality of a generating family whose generated
-ideal has exactly `n` members. The ambient universe is represented by a
-finite type `Fin m`, which canonically represents a finite ambient universe.
+ideal has exactly `n` members. Maximal-member pruning is formalized in
+[`AntichainReduction.lean`](AntichainOfGivenSize/AntichainReduction.lean);
+`mainAlphaHasAntichainWitness` certifies that this minimum is attained by an
+inclusion antichain. The ambient universe is represented by a finite type
+`Fin m`, which canonically represents a finite ambient universe.
 
 The asymptotic statement uses `IsBigO` along `Filter.atTop`. Thus it has the
 standard meaning “for all sufficiently large natural numbers,” and the
@@ -140,7 +166,10 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 
 | Modules | Role |
 | --- | --- |
-| `AntichainOfGivenSize.Definitions`, `AntichainOfGivenSize.BasicLemmas` | Definitions of `ID`, `alpha`, the comparison scale, attainment of the minimum, and the Splitting and Lifting Lemmas |
+| `AntichainOfGivenSize.MainStatement` | Proof-free audit surface: the problem definitions, common scale, and exact upper- and lower-bound propositions |
+| `AntichainOfGivenSize.MainTheorems` | Four short, unconditional certificates for the antichain semantics and the main propositions |
+| `AntichainOfGivenSize.AntichainReduction` | Formal certificate that pruning to inclusion-maximal generators preserves the ideal and that `alpha` is attained by an antichain |
+| `AntichainOfGivenSize.Definitions`, `AntichainOfGivenSize.BasicLemmas` | Compatibility import for the audit definitions, attainment of the unrestricted minimum, and the Splitting and Lifting Lemmas |
 | `AntichainOfGivenSize.AsymptoticBridge`, `AntichainOfGivenSize.RangeArithmetic` | Iteration of the range reduction, an explicit cofinal ladder, the ladder-sum estimate, and the final analytic Big-O argument |
 | `AntichainOfGivenSize.RangeReduction`, `AntichainOfGivenSize.MatchingParameters` | Lemma 6.8 and the explicit numerical parameters needed by the matching construction |
 | `AntichainOfGivenSize.Section6.Core`, `.Remainder`, `.Blocks`, `.Survivors`, `.ModularIncrement` | The Section 6 block construction and its exact modular increment calculation |
@@ -153,7 +182,7 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 | `AntichainOfGivenSize.LowerBound.ClusterCore`, `.ClusterEncoding`, `.ClusterProfileCodes`, `.ClusterStateConstruction`, `.ClusterFiber` | Stable connected-cluster packing, exceptional atoms, center transcripts, and the exact fiber-diameter estimate |
 | `AntichainOfGivenSize.LowerBound.SparseEncoding`, `.ClusterState`, `.FiniteFiberBound`, `.ClusterImageBound` | Finite state encoding and entropy-to-image cardinality bounds |
 | `AntichainOfGivenSize.LowerBound.ClusterParameters`, `.QuadraticLogEndpoint`, `.ClusterSparsityAssembly`, `.Matching` | Dyadic parameter ledger, missing-residue argument, unconditional residue sparsity, and the public matching lower bound |
-| `AntichainOfGivenSize.Theorem`, `AntichainOfGivenSize` | Assembly of the hypothesis-free upper bound and the package's umbrella module |
+| `AntichainOfGivenSize.Theorem`, `AntichainOfGivenSize.LowerBound.Matching`, `AntichainOfGivenSize` | Unfolded compatibility theorems and the package's umbrella module |
 
 The formalization targets Theorem 6.10 rather than reproducing every stronger
 intermediate statement verbatim. In particular, it makes the paper's
@@ -174,10 +203,9 @@ lake exe cache get
 lake build --wfail
 ```
 
-The source contains no `sorry`, `admit`, or custom axioms. Running
-`#print axioms AntichainOfGivenSize.theorem6_10` and
-`#print axioms AntichainOfGivenSize.matchingLowerBoundInfinitelyOften`
-reports only Lean/mathlib's standard foundational principles:
+The source contains no `sorry`, `admit`, or custom axioms. Running the four
+`#print axioms` commands from the audit section reports only Lean/mathlib's
+standard foundational principles:
 
 ```text
 propext

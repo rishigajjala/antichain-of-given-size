@@ -139,7 +139,7 @@ theorem rangeBasedImprovedReductionBound_of_rangeLadder
       i n (by simpa [i] using hn)).trans (by simpa [i] using hcost)
   have hscale : q i ^ 2 / Real.logb 2 (q i) ≤ A ^ 2 * improvedScale n := by
     have hs' : 1 < Q ∧ Q ≤ q i ∧ q i ≤ A * Q := by simpa [i, Q] using hs
-    simpa [improvedScale, Q] using
+    simpa [quadraticLogLogScale, improvedScale, Q] using
       ladderScale_le_improvedScale hs'.1 hA hs'.2.1 hs'.2.2
   have hpoint : (alpha n : ℝ) ≤ (K * A ^ 2) * improvedScale n := by
     calc

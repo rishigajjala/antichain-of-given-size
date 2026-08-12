@@ -33,13 +33,16 @@ namespace AntichainOfGivenSize
 
 open Asymptotics Filter
 
-/-- Theorem 6.10, exposed with the complete asymptotic formula unfolded. -/
+/-- Theorem 6.10 with the complete asymptotic formula unfolded.
+The canonical named proposition and certificate are `UpperBoundStatement`
+and `mainUpperBound` in the two audit-surface modules. -/
 theorem theorem6_10 :
     (fun n : ℕ ↦ (alpha n : ℝ)) =O[atTop]
       (fun n : ℕ ↦
         (Real.logb 2 (Real.logb 2 (n : ℝ))) ^ 2 /
           Real.logb 2 (Real.logb 2 (Real.logb 2 (n : ℝ)))) := by
-  simpa [RangeBasedImprovedReductionBound, improvedScale] using
+  simpa [RangeBasedImprovedReductionBound, UpperBoundStatement,
+    quadraticLogLogScale] using
     AntichainOfGivenSize.Section6.Construction.unconditionalRangeBasedImprovedReductionBound
 
 end AntichainOfGivenSize
