@@ -2,239 +2,238 @@
 
 [![CI](https://github.com/rishigajjala/antichain-of-given-size/actions/workflows/ci.yml/badge.svg)](https://github.com/rishigajjala/antichain-of-given-size/actions/workflows/ci.yml)
 
-This repository contains unconditional Lean 4 formalizations of upper and
-lower bounds for the smallest family generating an ideal of prescribed size.
-The upper bound is Theorem 6.10 from *Exponentially Smaller Generating
-Antichains for an Ideal of Prescribed Size* by L. Sunil Chandran, Rishikesh
-Gajjala, Kuldeep S. Meel, and Daniel J. Zhang.
+This repository formalizes bounds on the smallest number of sets needed to
+generate an ideal of a prescribed size. Its sharp block-count result says that
+**for every $b\geq1$, among integers with exactly $b$ binary blocks,
+the largest possible minimum generator count is $b+1$**. The repository also proves matching worst-case
+asymptotic bounds in terms of the size of the integer.
 
-## Audit surface
+## The problem and the meaning of a block
 
-The definitions and exact statements of the main public results are deliberately
-collected in one proof-free file:
+For a finite family of sets S, its **generated ideal** is the collection of all
+subsets of members of S:
 
-- [`MainStatement.lean`](AntichainOfGivenSize/MainStatement.lean) defines the
-  generated ideal, inclusion antichains, the representation predicates,
-  `alpha`, the binary block count, the explicit block-count witness,
-  the common comparison scale, and the named theorem statements.
-- [`MainTheorems.lean`](AntichainOfGivenSize/MainTheorems.lean) contains only
-  short certificates connecting the named statements to their proofs,
-  including the block-count lower bound, upper bound, exact attainment,
-  and explicit witness.
+$$
+\operatorname{ID}(S)=\bigcup_{A\in S}2^A.
+$$
 
-Thus the complete mathematical contract can be audited by reading
-`MainStatement.lean`; the proof status can then be checked independently with:
+Here $2^A$ is the set of all subsets of $A$. Let $\alpha(n)$ be the smallest
+possible number of generators in a family $S$ for which
+$|\operatorname{ID}(S)|=n$. Generators contained in another generator can be
+removed without changing the ideal. Thus a smallest family can be chosen as
+an **inclusion antichain**: no two distinct members contain one another.
+
+Write $\operatorname{bl}(n)$ for the number of maximal runs of `1` bits in the
+binary expansion of $n$. For example, $49=110001_2$ has two runs, `11` and
+`1`, so $\operatorname{bl}(49)=2$. We set $\operatorname{bl}(0)=0$. These binary
+runs are different from the sets called blocks in the Section 6
+upper-bound construction in this repository. All logarithms below have base two.
+
+## Sharp bounds from binary blocks
+
+The pointwise inequalities, valid for every natural number $n$, are
+
+$$
+\boxed{\quad
+\log_2\!\bigl(\operatorname{bl}(n)+1\bigr)
+\;\leq\; \alpha(n)
+\;\leq\; \operatorname{bl}(n)+1.
+\quad}
+$$
+
+The lower inequality comes from
+[*CNFs and DNFs with Exactly k Solutions*](https://arxiv.org/html/2506.07268v1).
+The upper inequality is its simple block-count construction. The
+sharpness result proved in this repository is
+
+$$
+\boxed{\quad
+\text{for every }b\geq 1,\qquad
+\max_{\operatorname{bl}(n)=b}\alpha(n)=b+1.
+\quad}
+$$
+
+In particular, there is an explicit integer $n_b$ with
+$\operatorname{bl}(n_b)=b$ and $\alpha(n_b)=b+1$. Equality is a **worst-case**
+statement at fixed $b$, not a claim about every integer with $b$ blocks:
+$2=10_2$ has one block and $\alpha(2)=1$, while $3=11_2$ has one block and
+$\alpha(3)=2$. For $2$, one singleton generator suffices; for $3$, two
+distinct singleton generators suffice, and one generator cannot work because
+it always produces a power of two subsets. The hypothesis $b\geq1$
+matters: $0$ is the only integer with no `1`-blocks and $\alpha(0)=0$.
+
+Consequently, for every fixed constant $C$, some $n$ has
+$\alpha(n)>C(\log_2(\operatorname{bl}(n)+1))^2$. Thus a uniform
+quadratic-in-logarithm upper bound in the block count is impossible for
+$\alpha$. More generally, a function growing strictly slower than $b$
+cannot be a uniform upper bound in terms of $b=\operatorname{bl}(n)$.
+
+The cited paper also defines $\beta(n)$ for the minimum number of terms or
+clauses in an **unrestricted** Boolean formula in DNF (an OR of AND terms)
+or CNF (an AND of OR clauses). Unrestricted formulas may use negated
+variables; monotone formulas use only positive variables. The paper proves
+$\beta(n)\leq\alpha(n)$ and conjectures an upper bound polynomial in
+$\log\operatorname{bl}(n)$ for $\beta$. The sharpness theorem here concerns
+$\alpha$, equivalently the ideal or monotone-DNF problem; it does not settle
+that conjecture about $\beta$.
+
+### Why the bounds hold
+
+If an ideal has $q$ generators, inclusion-exclusion (counting a union by
+adding the sizes of its parts and correcting for overlaps) expresses its
+size as a signed sum of at most $2^q-1$ powers of two. A positive
+signed sum of $r$ powers of two has at most $r$ runs of `1` bits. Hence
+$\operatorname{bl}(n)+1\leq 2^q$, which gives the logarithmic lower bound.
+
+For the upper bound, a power of two needs one generator and a nonempty run
+of `1` bits needs at most two. **Lifting** appends zero bits by multiplying the
+ideal size by a power of two without increasing its generator count.
+**Splitting** combines two ideals whose only common member is the empty
+set. Applying these operations to successive binary runs adds at most one
+generator for each new run. The Lean proof is in
+[`BlockCount/Upper.lean`](AntichainOfGivenSize/BlockCount/Upper.lean).
+
+### Which integer attains the upper bound?
+
+The formalization defines an explicit sequence, starting with $n_1=3$:
+
+$$
+n_{b+1}=2^{t_b}n_b+1,\qquad
+t_b=\max\{2,\ \operatorname{finiteThreshold}(n_b,b+1)\}
+\quad(b\geq1).
+$$
+
+The natural-number function `finiteThreshold` is defined by a finite
+recursion in [`MainStatement.lean`](AntichainOfGivenSize/MainStatement.lean).
+Because $t_b\geq2$, the new final `1` follows a zero gap, so each step adds
+exactly one binary run. The chosen gap also forces the minimum generator
+count to rise by one.
+
+The hard part is a cost-reduction lemma for **scaled ideal sums**. Such a sum
+adds ideal cardinalities multiplied by integer powers of two; its cost is the
+total number of generators in its components. An ordinary representation
+of a positive-sized ideal is a special case. When $t$ is at least `finiteThreshold(p,k)`,
+the lemma turns any scaled representation of $2^t p+1$ with cost at most $k$
+into one of $p$ with cost at most $k-1$. The base value $3$ has no scaled
+representation of cost one. Induction therefore rules out fewer than $b+1$
+generators for $n_b$, while the pointwise upper bound supplies $b+1$.
+
+The shift is deliberately generous and the resulting integers can be very
+large. The theorem identifies the exact worst case for each block count; it
+does not claim these are the smallest extremal integers.
+
+The public Lean certificates can be inspected with:
 
 ```lean
+import AntichainOfGivenSize
+
+#check AntichainOfGivenSize.mainBlockCountBounds
+#check AntichainOfGivenSize.mainBlockCountTightBound
+#check AntichainOfGivenSize.mainExplicitBlockWitness
+```
+
+All three statement definitions, the binary block count, and the witness
+recursion are in [`MainStatement.lean`](AntichainOfGivenSize/MainStatement.lean).
+The short certificates are in
+[`MainTheorems.lean`](AntichainOfGivenSize/MainTheorems.lean). The proof of
+attainment is in [`BlockCount/Tight.lean`](AntichainOfGivenSize/BlockCount/Tight.lean)
+and the recursive witness proof is in
+[`BlockCount/ExplicitWitness.lean`](AntichainOfGivenSize/BlockCount/ExplicitWitness.lean).
+
+## Bounds in terms of the integer's size
+
+The repository also formalizes Theorem 6.10 of
+*Exponentially Smaller Generating Antichains for an Ideal of Prescribed Size*
+by L. Sunil Chandran, Rishikesh Gajjala, Kuldeep S. Meel, and Daniel J.
+Zhang. Here $f(n)=O(g(n))$ means that $f(n)\leq Cg(n)$ for some
+constant $C$ and all sufficiently large $n$. The theorem states
+
+$$
+\alpha(n)=O\!\left(
+\frac{(\log_2\log_2 n)^2}{\log_2\log_2\log_2 n}
+\right).
+$$
+
+A matching lower bound holds at arbitrarily large inputs: there is a fixed
+$c>0$ such that, for every $N$, some $n\geq N$ satisfies
+
+$$
+c\,\frac{(\log_2\log_2 n)^2}{\log_2\log_2\log_2 n}
+\leq\alpha(n).
+$$
+
+The formalization gives $c=1/4096$. This is an infinitely-often lower bound,
+not a lower bound for every $n$. The canonical certificates are
+`mainUpperBound`, `mainLowerBound`, and `mainLowerBound_explicit`. The
+unfolded earlier entry points are in
+[`Theorem.lean`](AntichainOfGivenSize/Theorem.lean) and
+[`LowerBound/Matching.lean`](AntichainOfGivenSize/LowerBound/Matching.lean).
+
+These size-based bounds are compatible with the sharp block-count result:
+the extremal $n_b$ above can grow very quickly as $b$ grows.
+
+Alternating binary words `1`, `101`, `10101`, and so on combine the
+block-count lower bound with the size of the word to yield
+$\alpha(n)\geq\frac12\log_2\log_2 n$ at arbitrarily large inputs. A separate
+carry-sensitive argument uses the shorter family
+
+$$
+a_q=1+4+\cdots+4^{\,2^q-2}\qquad(q\geq2)
+$$
+
+and proves $q+1\leq\alpha(a_q)$, as well as an infinitely-often
+$\log_2\log_2 n\leq\alpha(n)$ consequence. This improves a witness for the
+log-log lower bound; it is distinct from the $n_b$ attaining $b+1$.
+
+## Where to read and check the formalization
+
+[`MainStatement.lean`](AntichainOfGivenSize/MainStatement.lean) collects
+the problem definitions, explicit block witness, common asymptotic scale,
+and all main theorem claims without importing their proofs.
+[`MainTheorems.lean`](AntichainOfGivenSize/MainTheorems.lean) connects those
+claims to the implementation. The main theorem claims include attainment
+of $\alpha(n)$ by an antichain, both size-based bounds, the pointwise
+block-count bounds, and exact block-count attainment.
+
+To check the axioms of the public theorems, put this in a Lean file in the
+repository and run `lake env lean FileName.lean`:
+
+```lean
+import AntichainOfGivenSize
+
+#print axioms AntichainOfGivenSize.mainAlphaHasAntichainWitness
+#print axioms AntichainOfGivenSize.mainBlockCountBounds
+#print axioms AntichainOfGivenSize.mainBlockCountTightBound
+#print axioms AntichainOfGivenSize.mainExplicitBlockWitness
 #print axioms AntichainOfGivenSize.mainUpperBound
 #print axioms AntichainOfGivenSize.mainLowerBound
 #print axioms AntichainOfGivenSize.mainLowerBound_explicit
-#print axioms AntichainOfGivenSize.mainAlphaHasAntichainWitness
-#print axioms AntichainOfGivenSize.mainBlockCountLowerBound
-#print axioms AntichainOfGivenSize.mainBlockCountUpperBound
-#print axioms AntichainOfGivenSize.mainBlockCountTightBound
-#print axioms AntichainOfGivenSize.mainExplicitBlockWitness
 ```
 
-All certificates are unconditional. The axiom reports contain only
-`propext`, `Classical.choice`, and `Quot.sound`.
+The reports contain only `propext`, `Classical.choice`, and `Quot.sound`.
+The source uses no `sorry`, `admit`, or custom axioms.
 
-## Main result
-
-For the paper's function `α`, the theorem is
-
-$$
-  \alpha(n) = O\left(
-    \frac{(\log_2 \log_2 n)^2}{\log_2 \log_2 \log_2 n}
-  \right).
-$$
-
-The canonical certificate is `AntichainOfGivenSize.mainUpperBound`:
-
-```lean
-theorem mainUpperBound : UpperBoundStatement
-```
-
-The formula is displayed in full in the definition of `UpperBoundStatement`
-in `MainStatement.lean`. The older unfolded entry point `theorem6_10` remains
-available in [`Theorem.lean`](AntichainOfGivenSize/Theorem.lean).
-
-The repository also proves a matching worst-case lower bound. There is a
-fixed constant `c > 0` and arbitrarily large `n` such that
-
-$$
-  c \cdot
-  \frac{(\log_2 \log_2 n)^2}{\log_2 \log_2 \log_2 n}
-  \leq \alpha(n).
-$$
-
-Equivalently, the upper-bound scale is attained infinitely often, up to a
-constant factor. The canonical certificates are:
-
-```lean
-theorem mainLowerBound : LowerBoundStatement
-theorem mainLowerBound_explicit : ExplicitLowerBoundStatement
-```
-
-The latter uses the explicit constant `c = 1/4096`. The older fully unfolded
-entry points remain in
-[`Matching.lean`](AntichainOfGivenSize/LowerBound/Matching.lean).
-
-This is an infinitely-often statement—the correct worst-case counterpart to
-the pointwise Big-O upper bound—not a lower bound for every integer `n`.
-
-The repository also formalizes the block-count lower bound from
-[*CNFs and DNFs with Exactly k Solutions*](https://arxiv.org/abs/2506.07268)
-by L. Sunil Chandran, Rishikesh Gajjala, and Kuldeep S. Meel. If `bl(n)` is
-the number of maximal blocks of `1`s in the binary expansion of `n`, then
-
-$$
-  \log_2(\mathrm{bl}(n)+1) \leq \alpha(n).
-$$
-
-The explicit integers with binary expansions `1`, `101`, `10101`, and so on
-then give the hypothesis-free infinitely-often lower bound
-
-$$
-  \frac{1}{2}\log_2\log_2 n \leq \alpha(n)
-$$
-
-for arbitrarily large `n`. The corresponding public entry points are
-`AntichainOfGivenSize.logb_binaryBlockCount_le_alpha` and
-`AntichainOfGivenSize.logLog_lower_infinitely_often` in
-[`IdealBlockCount.lean`](AntichainOfGivenSize/LowerBound/IdealBlockCount.lean)
-and [`InfinitelyOften.lean`](AntichainOfGivenSize/LowerBound/InfinitelyOften.lean).
-
-The sharp bound in terms of binary blocks is also formalized. For every
-positive integer `b`, every `n` with `bl(n) = b` satisfies
-
-$$
-  \alpha(n) \leq b+1,
-$$
-
-and an explicit recursively defined integer `explicitBlockWitness b` has
-`bl(explicitBlockWitness b) = b` and
-`alpha (explicitBlockWitness b) = b+1`. Thus the maximum generator count
-among integers with exactly `b` blocks is `b+1`. The public certificates are
-`AntichainOfGivenSize.mainBlockCountTightBound` and
-`AntichainOfGivenSize.mainExplicitBlockWitness`. Their proof entry points
-are `AntichainOfGivenSize.BlockCount.blockCount_bound_tight` and
-`AntichainOfGivenSize.BlockCount.explicitBlockWitness_spec` in
-[`Tight.lean`](AntichainOfGivenSize/BlockCount/Tight.lean) and
-[`ExplicitWitness.lean`](AntichainOfGivenSize/BlockCount/ExplicitWitness.lean).
-The witness starts at `3` and repeatedly applies `n \mapsto 2^t n+1`
-with a finite, explicit sufficient shift `t`.
-
-The central reduction is
-`AntichainOfGivenSize.BlockCount.finiteThreshold_costReduction_proved`:
-for a sufficiently large explicit `t`, a scaled-ideal representation of
-`2^t p+1` with at most `k` generators yields one of `p` with at most
-`k-1` generators. Its proof chooses an empty band among finitely many
-intersection exponents, partitions the large generators into clusters,
-and uses a dyadic grid to make the leading coefficient exact. Audit these
-certificates with:
-
-```lean
-#print axioms AntichainOfGivenSize.BlockCount.blockCount_bound_tight
-#print axioms AntichainOfGivenSize.BlockCount.explicitBlockWitness_spec
-#print axioms AntichainOfGivenSize.BlockCount.finiteThreshold_costReduction_proved
-```
-
-A carry-sensitive refinement uses the shorter words
-
-$$
-  a_q = 1+4+\cdots+4^{2^q-2}
-  \qquad (q\geq 2)
-$$
-
-and proves `q + 1 ≤ alpha a_q`. On this shorter family, the formalization
-also records the coefficient-`1` consequence
-
-$$
-  \log_2\log_2 n \leq \alpha(n).
-$$
-
-These unconditional results are
-`AntichainOfGivenSize.carrySensitive_alternatingOnes_lower` and
-`AntichainOfGivenSize.carrySensitive_logLog_lower_infinitely_often` in
-[`CarrySensitive.lean`](AntichainOfGivenSize/LowerBound/CarrySensitive.lean).
-The carry argument improves the explicit witness; the coefficient-`1`
-asymptotic already follows from a slightly longer alternating-word family
-using the block-count theorem alone. Both remain on the `log log n` scale.
-
-## Structural lower-bound tools
-
-[`VennProfiles.lean`](AntichainOfGivenSize/LowerBound/VennProfiles.lean)
-gives an exact arithmetic normal form for ideals generated by a fixed number
-of sets. It also defines an infinitely-often
-`(log log n)^(1 + epsilon)` lower-bound target and proves that the target is
-equivalent to excluding all sufficiently small Venn profiles at arbitrarily
-large inputs. The connected-cluster proof in `Matching.lean` now establishes
-the stronger quadratic-over-logarithm scale above.
-[`ThresholdFiltration.lean`](AntichainOfGivenSize/LowerBound/ThresholdFiltration.lean)
-then expresses each positive-coordinate Venn profile through a nested
-threshold-complex filtration, proving an exact binary layer-cake identity
-and exact binomial-moment identities for its face counts.
-[`Conductor.lean`](AntichainOfGivenSize/LowerBound/Conductor.lean) defines the
-first cardinality `F(q)` with `q < alpha(F(q))` and proves that the power lower
-bound is exactly equivalent to the corresponding bound along cofinally many
-values `F(q)`. It also records the improved carry-sensitive upper bound on
-`F(q)`.
-
-## Problem statement and mathematical model
-
-For a finite family of finite sets `S`, the generated ideal is defined as
-
-$$
-  \mathrm{ID}(S) = \bigcup_{A \in S} 2^A.
-$$
-
-`alpha n` is the minimum cardinality of a generating family whose generated
-ideal has exactly `n` members. Maximal-member pruning is formalized in
-[`AntichainReduction.lean`](AntichainOfGivenSize/AntichainReduction.lean);
-`mainAlphaHasAntichainWitness` certifies that this minimum is attained by an
-inclusion antichain. The ambient universe is represented by a finite type
-`Fin m`, which canonically represents a finite ambient universe.
-
-The asymptotic statement uses `IsBigO` along `Filter.atTop`. Thus it has the
-standard meaning “for all sufficiently large natural numbers,” and the
-totalized values of iterated logarithms at the finitely many small inputs do
-not affect the theorem. All logarithms are base 2, as in the paper.
-
-## Proof organization
-
-| Modules | Role |
+| Module group | Contents |
 | --- | --- |
-| `AntichainOfGivenSize.MainStatement` | Proof-free audit surface: problem definitions, binary blocks, explicit witnesses, common scale, and all main theorem claims |
-| `AntichainOfGivenSize.MainTheorems` | Short, unconditional certificates for the antichain semantics, asymptotic bounds, and block-count results |
-| `AntichainOfGivenSize.AntichainReduction` | Formal certificate that pruning to inclusion-maximal generators preserves the ideal and that `alpha` is attained by an antichain |
-| `AntichainOfGivenSize.Definitions`, `AntichainOfGivenSize.BasicLemmas` | Compatibility import for the audit definitions, attainment of the unrestricted minimum, and the Splitting and Lifting Lemmas |
-| `AntichainOfGivenSize.AsymptoticBridge`, `AntichainOfGivenSize.RangeArithmetic` | Iteration of the range reduction, an explicit cofinal ladder, the ladder-sum estimate, and the final analytic Big-O argument |
-| `AntichainOfGivenSize.RangeReduction`, `AntichainOfGivenSize.MatchingParameters` | Lemma 6.8 and the explicit numerical parameters needed by the matching construction |
-| `AntichainOfGivenSize.Section6.Core`, `.Remainder`, `.Blocks`, `.Survivors`, `.ModularIncrement` | The Section 6 block construction and its exact modular increment calculation |
-| `AntichainOfGivenSize.Section6.Address`, `.StageArithmetic`, `.IndexedBounds`, `.NatParameters`, `.StageBridge`, `.Construction` | Stage addresses, recursion, cardinality bounds, and the concrete matching theorem |
-| `AntichainOfGivenSize.LowerBound.BinaryBlocks`, `.SignedPowers` | Binary block count, carry and borrow estimates, and the signed-power arithmetic lemma |
-| `AntichainOfGivenSize.LowerBound.IdealBlockCount`, `.InfinitelyOften` | Inclusion-exclusion lower bound for `alpha` and the explicit infinitely-often `Omega(log log n)` family |
-| `AntichainOfGivenSize.BlockCount.Upper`, `.Binary`, `.Tight`, `.ExplicitWitness` | Sharp pointwise block-count upper bound, exact worst-case attainment, and explicit extremal integers |
-| `AntichainOfGivenSize.BlockCount.ScaledIdeals`, `.ClusterPartition`, `.ValuationBounds`, `.AssembledError`, `.FiniteIncrement` | Finite dyadic cost-reduction proof used by the extremal construction |
-| `AntichainOfGivenSize.LowerBound.CarrySensitive` | Carry-sensitive strict lower witnesses and the coefficient-`1` infinitely-often log-log bound |
-| `AntichainOfGivenSize.LowerBound.VennProfiles`, `.ThresholdFiltration`, `.Conductor` | Exact Venn-profile normal form, threshold-complex identities, and the first-missing-cardinality formulation |
-| `AntichainOfGivenSize.LowerBound.BoundedProfiles`, `.ProfilePadding` | Finite bounded Venn profiles, transfer from arbitrary ideals, and exact-coordinate padding |
-| `AntichainOfGivenSize.LowerBound.ClusterCore`, `.ClusterEncoding`, `.ClusterProfileCodes`, `.ClusterStateConstruction`, `.ClusterFiber` | Stable connected-cluster packing, exceptional atoms, center transcripts, and the exact fiber-diameter estimate |
-| `AntichainOfGivenSize.LowerBound.SparseEncoding`, `.ClusterState`, `.FiniteFiberBound`, `.ClusterImageBound` | Finite state encoding and entropy-to-image cardinality bounds |
-| `AntichainOfGivenSize.LowerBound.ClusterParameters`, `.QuadraticLogEndpoint`, `.ClusterSparsityAssembly`, `.Matching` | Dyadic parameter ledger, missing-residue argument, unconditional residue sparsity, and the public matching lower bound |
-| `AntichainOfGivenSize.Theorem`, `AntichainOfGivenSize.LowerBound.Matching`, `AntichainOfGivenSize` | Unfolded compatibility theorems and the package's umbrella module |
+| `MainStatement`, `MainTheorems` | Central definitions and theorem claims, then short unconditional certificates |
+| `Definitions`, `BasicLemmas`, `AntichainReduction` | Generator representations, splitting and lifting, and antichain attainment |
+| `BlockCount/Upper`, `BlockCount/Binary` | Pointwise upper bound and binary-run arithmetic |
+| `BlockCount/ScaledIdeals` through `BlockCount/Tight` | Finite scale and cost-reduction argument for worst-case attainment |
+| `BlockCount/ExplicitWitness` | Concrete recursive extremal integer for each positive block count |
+| `LowerBound/BinaryBlocks`, `SignedPowers`, `IdealBlockCount` | Signed-power arithmetic and pointwise logarithmic lower bound |
+| `LowerBound/InfinitelyOften`, `CarrySensitive` | Explicit log-log lower-bound families |
+| `LowerBound/VennProfiles` through `Matching` | Counting argument for the matching size-based lower bound |
+| `Section6/*`, `RangeReduction`, `AsymptoticBridge`, `RangeArithmetic` | Section 6 construction and size-based asymptotic upper bound |
+| `Theorem`, `LowerBound/Matching` | Fully unfolded compatibility theorem names |
 
-The formalization targets Theorem 6.10 rather than reproducing every stronger
-intermediate statement verbatim. In particular, it makes the paper's
-real-parameter rounding explicit by using `B = H * ceil(q)`, proves only the
-successor residue required by Lemma 6.8, bounds the final construction
-directly, and uses the explicit ladder
-`qᵢ = (T + i) * log₂(T + i)`. Every replacement estimate is proved in Lean.
+The Lean definition of `alpha` is noncomputable: the repository proves
+existence, bounds, and an explicit extremal number $n_b$, but does not
+implement an algorithm or establish a time complexity for finding a minimum
+generator family from an arbitrary input $n$.
 
-## Build and verification
+## Build
 
-The project pins Lean and mathlib to version `v4.32.0`. With
+The project pins Lean and mathlib to `v4.32.0`. With
 [Lean](https://lean-lang.org/install/) installed, run:
 
 ```bash
@@ -242,16 +241,6 @@ git clone https://github.com/rishigajjala/antichain-of-given-size.git
 cd antichain-of-given-size
 lake exe cache get
 lake build --wfail
-```
-
-The source contains no `sorry`, `admit`, or custom axioms. Running the
-`#print axioms` commands from the audit section reports only Lean/mathlib's
-standard foundational principles:
-
-```text
-propext
-Classical.choice
-Quot.sound
 ```
 
 GitHub Actions runs the warning-free build on every push and pull request.

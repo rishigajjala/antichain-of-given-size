@@ -41,6 +41,10 @@ theorem mainBlockCountLowerBound : BlockCountLowerBoundStatement :=
 theorem mainBlockCountUpperBound : BlockCountUpperBoundStatement :=
   alpha_le_binaryBlockCount_add_one
 
+/-- The pointwise logarithmic lower and linear upper block-count bounds. -/
+theorem mainBlockCountBounds : BlockCountBoundsStatement :=
+  ⟨mainBlockCountLowerBound, mainBlockCountUpperBound⟩
+
 /-- The upper bound is sharp for each positive number of blocks. -/
 theorem mainBlockCountTightBound : BlockCountTightBoundStatement :=
   BlockCount.blockCount_bound_tight

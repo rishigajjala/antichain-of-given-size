@@ -13,6 +13,8 @@ main public theorem claims. No proof implementation is imported here.
 
 All logarithms are base `2`. The asymptotic upper bound holds for all
 sufficiently large inputs; the matching lower bound holds infinitely often.
+The sharp block-count upper bound holds at every input and is attained for
+every positive block count.
 -/
 
 open Asymptotics Filter
@@ -62,8 +64,13 @@ noncomputable def alpha (n : ℕ) : ℕ :=
 
 /-! ## Binary blocks and explicit extremal integers -/
 
-/-- The number of maximal blocks of `1`s in the binary expansion of `n`.
-In particular, `binaryBlockCount 0 = 0`. -/
+/-- The number of maximal runs of `1`s in the binary expansion of `n`,
+called `bl(n)` in *CNFs and DNFs with Exactly k Solutions*. For example,
+`49 = 110001₂` has two such runs. In particular,
+`binaryBlockCount 0 = 0`.
+
+These binary runs are unrelated to the sets called blocks in the Section 6
+upper-bound construction in this repository. -/
 def binaryBlockCount : ℕ → ℕ :=
   Nat.binaryRec 0 fun b n count ↦
     count + if b && !n.bodd then 1 else 0
@@ -90,8 +97,10 @@ as a simple upper bound for all normalized generator exponents. -/
 def finiteThreshold (p k : ℕ) : ℕ :=
   finiteScale p k (exponentBudget k + 1)
 
-/-- A concrete recursion attaining the block-count bound. The value at zero
-is included only to make the function total. -/
+/-- A concrete recursion attaining the block-count bound. It starts at
+`explicitBlockWitness 1 = 3` and, for `b ≥ 1`, sets
+`n_(b+1) = 2 ^ (explicitWitnessShift b) * n_b + 1`.
+The value at zero is included only to make the function total. -/
 def explicitBlockWitness : ℕ → ℕ
   | 0 => 0
   | 1 => 3
@@ -147,6 +156,11 @@ def BlockCountLowerBoundStatement : Prop :=
 /-- The elementary pointwise upper bound from the binary block count. -/
 def BlockCountUpperBoundStatement : Prop :=
   ∀ n : ℕ, alpha n ≤ binaryBlockCount n + 1
+
+/-- Both pointwise block-count inequalities, for every natural number.
+The lower bound is logarithmic; the upper bound is linear. -/
+def BlockCountBoundsStatement : Prop :=
+  BlockCountLowerBoundStatement ∧ BlockCountUpperBoundStatement
 
 /-- The pointwise upper bound is attained at every positive block count. -/
 def BlockCountTightBoundStatement : Prop :=

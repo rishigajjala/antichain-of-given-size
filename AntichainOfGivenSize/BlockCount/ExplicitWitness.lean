@@ -3,9 +3,10 @@ import AntichainOfGivenSize.BlockCount.Tight
 /-!
 # An explicit extremal integer for each positive block count
 
-Starting with `n₁ = 3`, append one bit after a gap whose length is the explicit
-finite threshold for the preceding integer. The resulting integer with `b`
-binary blocks has minimum generator count exactly `b + 1`.
+Starting with `n₁ = 3`, shift the preceding binary word left by an explicit
+number `t ≥ 2` of places and append a final `1`. This leaves `t - 1` zeroes
+between the old word and the new bit. The resulting integer with `b` binary
+blocks has minimum generator count exactly `b + 1`.
 -/
 
 namespace AntichainOfGivenSize.BlockCount
