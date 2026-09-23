@@ -5,7 +5,7 @@
 This note explains the theorem
 
 $$
-\max_{\operatorname{bl}(n)=b}\alpha(n)=b+1\qquad(b\geq1).
+\max_{\mathrm{bl}(n)=b}\alpha(n)=b+1\qquad(b\geq1).
 $$
 
 It gives the complete numerical definition of an integer attaining the
@@ -15,13 +15,13 @@ the sharpness argument is proved in the linked Lean files.
 ## Definitions and statement
 
 A **generator family** $S$ is a finite collection of finite sets.
-Its generated ideal is $\operatorname{ID}(S)=\bigcup_{A\in S}2^A$,
+Its generated ideal is $\mathrm{ID}(S)=\bigcup_{A\in S}2^A$,
 where $2^A$ denotes all subsets of $A$.
 The number $\alpha(n)$ is the minimum number of generators in a family
 whose ideal has $n$ members. The finite universe containing the generators
 is allowed to vary.
 
-The **block count** $\operatorname{bl}(n)$ is the number of maximal runs
+The **block count** $\mathrm{bl}(n)$ is the number of maximal runs
 of ones in the binary expansion of $n$. For example,
 $110001_2=49$ has two blocks. Zero has block count zero.
 These runs are unrelated to the sets called blocks in the repository's
@@ -30,12 +30,12 @@ Section 6 construction.
 For every $n\geq0$,
 
 $$
-\log_2(\operatorname{bl}(n)+1)\leq\alpha(n)
-\leq\operatorname{bl}(n)+1.
+\log_2(\mathrm{bl}(n)+1)\leq\alpha(n)
+\leq\mathrm{bl}(n)+1.
 $$
 
 For every $b\geq1$, the upper bound is attained at an explicitly defined
-$n_b$ with $\operatorname{bl}(n_b)=b$.
+$n_b$ with $\mathrm{bl}(n_b)=b$.
 The case $b=0$ has only $n=0$, with $\alpha(0)=0$.
 
 The formal definitions and all main theorem claims are in
@@ -65,14 +65,14 @@ arithmetic lemma is in
 Consequently,
 
 $$
-\operatorname{bl}(n)+1\leq 2^q.
+\mathrm{bl}(n)+1\leq 2^q.
 $$
 
 Taking the base-two logarithm and minimizing $q$ gives the lower bound.
 Since $\alpha(n)$ is an integer, the proof also yields
 
 $$
-\left\lceil\log_2(\operatorname{bl}(n)+1)\right\rceil\leq\alpha(n),
+\left\lceil\log_2(\mathrm{bl}(n)+1)\right\rceil\leq\alpha(n),
 $$
 
 where $\lceil x\rceil$ is the least integer at least $x$.
@@ -173,7 +173,7 @@ binary(n_b)   00...00   1
 ```
 
 Since $t_b\geq2$, this creates exactly one new block. Thus
-$\operatorname{bl}(n_b)=b$ by induction from $n_1=11_2$.
+$\mathrm{bl}(n_b)=b$ by induction from $n_1=11_2$.
 
 For example, $E(2)=12$ and $H_{j+1}(3,2)=9H_j(3,2)+46$, so
 
@@ -200,7 +200,7 @@ The proof uses a larger class of representations to make induction work.
 A **scaled ideal sum** is a finite sum
 
 $$
-\sum_i 2^{e_i}\,|\operatorname{ID}(S_i)|,
+\sum_i 2^{e_i}\,|\mathrm{ID}(S_i)|,
 $$
 
 where each $e_i$ is an integer (possibly negative) and each $S_i$ is a
@@ -229,7 +229,7 @@ $b+1$. The reduction lemma, with $p=n_b$ and $k=b+1$, would give a
 representation of $n_b$ with cost at most $b$, contradicting the
 induction assumption. Every ordinary generator family is included among
 these scaled representations, so $\alpha(n_b)\geq b+1$.
-The upper bound and $\operatorname{bl}(n_b)=b$ give the reverse inequality.
+The upper bound and $\mathrm{bl}(n_b)=b$ give the reverse inequality.
 
 This proves both $\alpha(n_b)=b+1$ and the claimed exact maximum.
 The induction is formalized in

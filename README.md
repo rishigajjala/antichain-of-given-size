@@ -7,11 +7,11 @@ with a prescribed number of members. The sharp result in terms of binary
 blocks is
 
 $$
-\boxed{\max_{\operatorname{bl}(n)=b}\alpha(n)=b+1
+\boxed{\max_{\mathrm{bl}(n)=b}\alpha(n)=b+1
 \qquad\text{for every }b\geq1.}
 $$
 
-Here $\alpha(n)$ is the minimum generator count and $\operatorname{bl}(n)$
+Here $\alpha(n)$ is the minimum generator count and $\mathrm{bl}(n)$
 counts runs of ones in the binary expansion of $n$. Both are defined below.
 The repository also proves an upper bound in terms of $n$ and a matching
 lower bound at arbitrarily large inputs.
@@ -28,7 +28,7 @@ lower bound at arbitrarily large inputs.
 For a finite family $S$ of finite sets, define its **generated ideal** by
 
 $$
-\operatorname{ID}(S)=\bigcup_{A\in S}2^A.
+\mathrm{ID}(S)=\bigcup_{A\in S}2^A.
 $$
 
 Here $2^A$ is the collection of all subsets of $A$, and $|X|$ denotes the
@@ -36,7 +36,7 @@ number of members of a finite set $X$. The members of $S$ are its
 **generators**. We define
 
 $$
-\alpha(n)=\min\{|S|:|\operatorname{ID}(S)|=n\}.
+\alpha(n)=\min\{|S|:|\mathrm{ID}(S)|=n\}.
 $$
 
 The underlying finite universe may vary with $S$. Removing a generator
@@ -54,14 +54,14 @@ Thus the minimum is defined for every natural number $n$.
 
 A **binary block** is a maximal consecutive run of `1` bits.
 For example, $49=110001_2$ has the two blocks `11` and `1`, so
-$\operatorname{bl}(49)=2$. Set $\operatorname{bl}(0)=0$.
+$\mathrm{bl}(49)=2$. Set $\mathrm{bl}(0)=0$.
 All logarithms below have base two.
 
 For every natural number $n$,
 
 $$
-\log_2\!\bigl(\operatorname{bl}(n)+1\bigr)
-\leq\alpha(n)\leq\operatorname{bl}(n)+1.
+\log_2\!\bigl(\mathrm{bl}(n)+1\bigr)
+\leq\alpha(n)\leq\mathrm{bl}(n)+1.
 $$
 
 These pointwise bounds appear in *CNFs and DNFs with Exactly k Solutions*:
@@ -72,7 +72,7 @@ The sharpness theorem in this repository supplies, for every $b\geq1$,
 an explicit integer $n_b$ such that
 
 $$
-\operatorname{bl}(n_b)=b,\qquad \alpha(n_b)=b+1.
+\mathrm{bl}(n_b)=b,\qquad \alpha(n_b)=b+1.
 $$
 
 Thus $b+1$ is the exact largest value at a fixed positive block count.
@@ -101,7 +101,7 @@ The paper also studies $\beta(n)$, the minimum number of terms or clauses
 in a Boolean formula with **exactly $n$ satisfying assignments**, using
 DNF (an OR of AND terms) or CNF (an AND of OR clauses). These formulas may
 use negated variables. It proves $\beta(n)\leq\alpha(n)$ and
-[conjectures a bound polynomial in $\log\operatorname{bl}(n)$ for $\beta$](https://arxiv.org/html/2506.07268v1#S1).
+[conjectures a bound polynomial in $\log\mathrm{bl}(n)$ for $\beta$](https://arxiv.org/html/2506.07268v1#S1).
 The result above concerns $\alpha$, which corresponds to ideals and
 monotone DNF formulas (using only positive variables). It does not settle
 the conjecture for $\beta$.
