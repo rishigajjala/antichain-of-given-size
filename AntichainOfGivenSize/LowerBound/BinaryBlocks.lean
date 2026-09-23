@@ -1,4 +1,4 @@
-import Mathlib.Data.Nat.Bits
+import AntichainOfGivenSize.MainStatement
 import Mathlib.Tactic
 
 namespace AntichainOfGivenSize
@@ -11,12 +11,6 @@ binary expansion of a natural number.  In the recursion below, `b` is the
 current low bit and `n.bodd` is the next bit.  Thus
 `b && !n.bodd` marks exactly the high end of a block of `1`s.
 -/
-
-/-- The number of maximal blocks of `1`s in the binary expansion of `n`.
-In particular, `binaryBlockCount 0 = 0`. -/
-def binaryBlockCount : ℕ → ℕ :=
-  Nat.binaryRec 0 fun b n count ↦
-    count + if b && !n.bodd then 1 else 0
 
 /-- Direct list semantics: count starts of maximal `true` runs, where
 `previous` is the bit immediately below the list. -/
