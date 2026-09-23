@@ -77,23 +77,25 @@ def binaryBlockCount : ℕ → ℕ :=
 
 namespace BlockCount
 
-/-- Coarse upper bound for the number of singleton and pair exponents. -/
+/-- Auxiliary size parameter `E(k) = k * (k + k²)` used in the finite recurrence. -/
 def exponentBudget (k : ℕ) : ℕ := k * (k + k * k)
 
-/-- Coarse lower-bound loss for all intersections inside one cluster. -/
+/-- Auxiliary function `R(p,k,H) = H + 2k²(p + 1 + H)`, used to define
+the next value of `finiteScale`. -/
 def finiteClusterRadius (p k H : ℕ) : ℕ :=
   H + k * k * (2 * (p + 1 + H))
 
-/-- Number of extra bits used to separate the grid from all error terms. -/
+/-- The additive increment `E(k) + 2` in the recurrence for `finiteScale`. -/
 def scalePadding (k : ℕ) : ℕ := exponentBudget k + 2
 
-/-- Successive scale cutoffs. The starting cutoff is positive. -/
+/-- The finite recurrence `H₀ = 1`,
+`H_(j+1) = H_j + 2k²(p + 1 + H_j) + E(k) + 2`. -/
 def finiteScale (p k : ℕ) : ℕ → ℕ
   | 0 => 1
   | j + 1 => finiteClusterRadius p k (finiteScale p k j) + scalePadding k
 
-/-- A sufficient shift for the finite reduction lemma, with `p` itself used
-as a simple upper bound for all normalized generator exponents. -/
+/-- A sufficient binary shift for the finite reduction lemma:
+`T(p,k) = H_(E(k)+1)(p,k)`. All parameters and recurrence steps are natural numbers. -/
 def finiteThreshold (p k : ℕ) : ℕ :=
   finiteScale p k (exponentBudget k + 1)
 
