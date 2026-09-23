@@ -10,17 +10,17 @@ Gajjala, Kuldeep S. Meel, and Daniel J. Zhang.
 
 ## Audit surface
 
-The definitions and exact statements of both main bounds are deliberately
-collected in one small, proof-free file:
+The definitions and exact statements of the main public results are deliberately
+collected in one proof-free file:
 
 - [`MainStatement.lean`](AntichainOfGivenSize/MainStatement.lean) defines the
   generated ideal, inclusion antichains, the representation predicates,
-  `alpha`, the common comparison scale, `UpperBoundStatement`,
-  `LowerBoundStatement`, and `ExplicitLowerBoundStatement`.
+  `alpha`, the binary block count, the explicit block-count witness,
+  the common comparison scale, and the named theorem statements.
 - [`MainTheorems.lean`](AntichainOfGivenSize/MainTheorems.lean) contains only
-  the short certificates `mainAlphaHasAntichainWitness`, `mainUpperBound`,
-  `mainLowerBound`, and `mainLowerBound_explicit` connecting that contract to
-  its proofs.
+  short certificates connecting the named statements to their proofs,
+  including the block-count lower bound, upper bound, exact attainment,
+  and explicit witness.
 
 Thus the complete mathematical contract can be audited by reading
 `MainStatement.lean`; the proof status can then be checked independently with:
@@ -30,9 +30,13 @@ Thus the complete mathematical contract can be audited by reading
 #print axioms AntichainOfGivenSize.mainLowerBound
 #print axioms AntichainOfGivenSize.mainLowerBound_explicit
 #print axioms AntichainOfGivenSize.mainAlphaHasAntichainWitness
+#print axioms AntichainOfGivenSize.mainBlockCountLowerBound
+#print axioms AntichainOfGivenSize.mainBlockCountUpperBound
+#print axioms AntichainOfGivenSize.mainBlockCountTightBound
+#print axioms AntichainOfGivenSize.mainExplicitBlockWitness
 ```
 
-All four certificates are unconditional. The axiom reports contain only
+All certificates are unconditional. The axiom reports contain only
 `propext`, `Classical.choice`, and `Quot.sound`.
 
 ## Main result
@@ -101,6 +105,41 @@ for arbitrarily large `n`. The corresponding public entry points are
 [`IdealBlockCount.lean`](AntichainOfGivenSize/LowerBound/IdealBlockCount.lean)
 and [`InfinitelyOften.lean`](AntichainOfGivenSize/LowerBound/InfinitelyOften.lean).
 
+The sharp bound in terms of binary blocks is also formalized. For every
+positive integer `b`, every `n` with `bl(n) = b` satisfies
+
+$$
+  \alpha(n) \leq b+1,
+$$
+
+and an explicit recursively defined integer `explicitBlockWitness b` has
+`bl(explicitBlockWitness b) = b` and
+`alpha (explicitBlockWitness b) = b+1`. Thus the maximum generator count
+among integers with exactly `b` blocks is `b+1`. The public certificates are
+`AntichainOfGivenSize.mainBlockCountTightBound` and
+`AntichainOfGivenSize.mainExplicitBlockWitness`. Their proof entry points
+are `AntichainOfGivenSize.BlockCount.blockCount_bound_tight` and
+`AntichainOfGivenSize.BlockCount.explicitBlockWitness_spec` in
+[`Tight.lean`](AntichainOfGivenSize/BlockCount/Tight.lean) and
+[`ExplicitWitness.lean`](AntichainOfGivenSize/BlockCount/ExplicitWitness.lean).
+The witness starts at `3` and repeatedly applies `n \mapsto 2^t n+1`
+with a finite, explicit sufficient shift `t`.
+
+The central reduction is
+`AntichainOfGivenSize.BlockCount.finiteThreshold_costReduction_proved`:
+for a sufficiently large explicit `t`, a scaled-ideal representation of
+`2^t p+1` with at most `k` generators yields one of `p` with at most
+`k-1` generators. Its proof chooses an empty band among finitely many
+intersection exponents, partitions the large generators into clusters,
+and uses a dyadic grid to make the leading coefficient exact. Audit these
+certificates with:
+
+```lean
+#print axioms AntichainOfGivenSize.BlockCount.blockCount_bound_tight
+#print axioms AntichainOfGivenSize.BlockCount.explicitBlockWitness_spec
+#print axioms AntichainOfGivenSize.BlockCount.finiteThreshold_costReduction_proved
+```
+
 A carry-sensitive refinement uses the shorter words
 
 $$
@@ -166,8 +205,8 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 
 | Modules | Role |
 | --- | --- |
-| `AntichainOfGivenSize.MainStatement` | Proof-free audit surface: the problem definitions, common scale, and exact upper- and lower-bound propositions |
-| `AntichainOfGivenSize.MainTheorems` | Four short, unconditional certificates for the antichain semantics and the main propositions |
+| `AntichainOfGivenSize.MainStatement` | Proof-free audit surface: problem definitions, binary blocks, explicit witnesses, common scale, and all main theorem claims |
+| `AntichainOfGivenSize.MainTheorems` | Short, unconditional certificates for the antichain semantics, asymptotic bounds, and block-count results |
 | `AntichainOfGivenSize.AntichainReduction` | Formal certificate that pruning to inclusion-maximal generators preserves the ideal and that `alpha` is attained by an antichain |
 | `AntichainOfGivenSize.Definitions`, `AntichainOfGivenSize.BasicLemmas` | Compatibility import for the audit definitions, attainment of the unrestricted minimum, and the Splitting and Lifting Lemmas |
 | `AntichainOfGivenSize.AsymptoticBridge`, `AntichainOfGivenSize.RangeArithmetic` | Iteration of the range reduction, an explicit cofinal ladder, the ladder-sum estimate, and the final analytic Big-O argument |
@@ -176,6 +215,8 @@ not affect the theorem. All logarithms are base 2, as in the paper.
 | `AntichainOfGivenSize.Section6.Address`, `.StageArithmetic`, `.IndexedBounds`, `.NatParameters`, `.StageBridge`, `.Construction` | Stage addresses, recursion, cardinality bounds, and the concrete matching theorem |
 | `AntichainOfGivenSize.LowerBound.BinaryBlocks`, `.SignedPowers` | Binary block count, carry and borrow estimates, and the signed-power arithmetic lemma |
 | `AntichainOfGivenSize.LowerBound.IdealBlockCount`, `.InfinitelyOften` | Inclusion-exclusion lower bound for `alpha` and the explicit infinitely-often `Omega(log log n)` family |
+| `AntichainOfGivenSize.BlockCount.Upper`, `.Binary`, `.Tight`, `.ExplicitWitness` | Sharp pointwise block-count upper bound, exact worst-case attainment, and explicit extremal integers |
+| `AntichainOfGivenSize.BlockCount.ScaledIdeals`, `.ClusterPartition`, `.ValuationBounds`, `.AssembledError`, `.FiniteIncrement` | Finite dyadic cost-reduction proof used by the extremal construction |
 | `AntichainOfGivenSize.LowerBound.CarrySensitive` | Carry-sensitive strict lower witnesses and the coefficient-`1` infinitely-often log-log bound |
 | `AntichainOfGivenSize.LowerBound.VennProfiles`, `.ThresholdFiltration`, `.Conductor` | Exact Venn-profile normal form, threshold-complex identities, and the first-missing-cardinality formulation |
 | `AntichainOfGivenSize.LowerBound.BoundedProfiles`, `.ProfilePadding` | Finite bounded Venn profiles, transfer from arbitrary ideals, and exact-coordinate padding |
@@ -203,7 +244,7 @@ lake exe cache get
 lake build --wfail
 ```
 
-The source contains no `sorry`, `admit`, or custom axioms. Running the four
+The source contains no `sorry`, `admit`, or custom axioms. Running the
 `#print axioms` commands from the audit section reports only Lean/mathlib's
 standard foundational principles:
 

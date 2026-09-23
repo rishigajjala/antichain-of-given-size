@@ -1,17 +1,18 @@
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Analysis.SpecialFunctions.Log.Base
 import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Nat.Bits
 import Mathlib.Order.Lattice.Nat
 
 /-!
 # Problem definition and main statements
 
-This is the audit surface for the main result. It contains exactly the
-definitions needed to state the problem, followed by the matching upper and
-lower bounds. No construction or proof implementation is imported here.
+This is the proof-free audit surface for the main results. It contains the
+problem definitions, the explicit block-count witness recursion, and the
+main public theorem claims. No proof implementation is imported here.
 
-All logarithms are base `2`. The upper bound holds for all sufficiently large
-inputs, while the lower bound is a worst-case (infinitely-often) statement.
+All logarithms are base `2`. The asymptotic upper bound holds for all
+sufficiently large inputs; the matching lower bound holds infinitely often.
 -/
 
 open Asymptotics Filter
@@ -59,6 +60,51 @@ generating-antichain definition. -/
 noncomputable def alpha (n : ℕ) : ℕ :=
   sInf {k : ℕ | HasGeneratorCount n k}
 
+/-! ## Binary blocks and explicit extremal integers -/
+
+/-- The number of maximal blocks of `1`s in the binary expansion of `n`.
+In particular, `binaryBlockCount 0 = 0`. -/
+def binaryBlockCount : ℕ → ℕ :=
+  Nat.binaryRec 0 fun b n count ↦
+    count + if b && !n.bodd then 1 else 0
+
+namespace BlockCount
+
+/-- Coarse upper bound for the number of singleton and pair exponents. -/
+def exponentBudget (k : ℕ) : ℕ := k * (k + k * k)
+
+/-- Coarse lower-bound loss for all intersections inside one cluster. -/
+def finiteClusterRadius (p k H : ℕ) : ℕ :=
+  H + k * k * (2 * (p + 1 + H))
+
+/-- Number of extra bits used to separate the grid from all error terms. -/
+def scalePadding (k : ℕ) : ℕ := exponentBudget k + 2
+
+/-- Successive scale cutoffs. The starting cutoff is positive. -/
+def finiteScale (p k : ℕ) : ℕ → ℕ
+  | 0 => 1
+  | j + 1 => finiteClusterRadius p k (finiteScale p k j) + scalePadding k
+
+/-- A sufficient shift for the finite reduction lemma, with `p` itself used
+as a simple upper bound for all normalized generator exponents. -/
+def finiteThreshold (p k : ℕ) : ℕ :=
+  finiteScale p k (exponentBudget k + 1)
+
+/-- A concrete recursion attaining the block-count bound. The value at zero
+is included only to make the function total. -/
+def explicitBlockWitness : ℕ → ℕ
+  | 0 => 0
+  | 1 => 3
+  | b + 2 =>
+      2 ^ (max 2 (finiteThreshold (explicitBlockWitness (b + 1)) (b + 2))) *
+        explicitBlockWitness (b + 1) + 1
+
+/-- The chosen shift is at least two and at least the sufficient threshold. -/
+def explicitWitnessShift (b : ℕ) : ℕ :=
+  max 2 (finiteThreshold (explicitBlockWitness b) (b + 1))
+
+end BlockCount
+
 /-! ## Common asymptotic scale -/
 
 /-- The scale occurring in both main bounds:
@@ -88,6 +134,32 @@ def LowerBoundStatement : Prop :=
 def ExplicitLowerBoundStatement : Prop :=
   ∀ N : ℕ, ∃ n : ℕ, N ≤ n ∧
     (1 / 4096 : ℝ) * quadraticLogLogScale n ≤ (alpha n : ℝ)
+
+/-- The minimum generator count is attained by an inclusion antichain. -/
+def AlphaAntichainWitnessStatement : Prop :=
+  ∀ n : ℕ, HasAntichainGeneratorCount n (alpha n)
+
+/-- The binary block count gives the paper's pointwise logarithmic lower bound. -/
+def BlockCountLowerBoundStatement : Prop :=
+  ∀ n : ℕ,
+    Real.logb 2 ((binaryBlockCount n + 1 : ℕ) : ℝ) ≤ (alpha n : ℝ)
+
+/-- The elementary pointwise upper bound from the binary block count. -/
+def BlockCountUpperBoundStatement : Prop :=
+  ∀ n : ℕ, alpha n ≤ binaryBlockCount n + 1
+
+/-- The pointwise upper bound is attained at every positive block count. -/
+def BlockCountTightBoundStatement : Prop :=
+  ∀ b : ℕ, 0 < b →
+    (∀ n : ℕ, binaryBlockCount n = b → alpha n ≤ b + 1) ∧
+      ∃ n : ℕ, 0 < n ∧ binaryBlockCount n = b ∧ alpha n = b + 1
+
+/-- The explicit recursive integer attains the bound at every positive block count. -/
+def ExplicitBlockWitnessStatement : Prop :=
+  ∀ b : ℕ, 0 < b →
+    0 < BlockCount.explicitBlockWitness b ∧
+      binaryBlockCount (BlockCount.explicitBlockWitness b) = b ∧
+      alpha (BlockCount.explicitBlockWitness b) = b + 1
 
 /-! ## Compatibility name -/
 
