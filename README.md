@@ -22,6 +22,7 @@ lower bound at arbitrarily large inputs.
 | [MainTheorems.lean](AntichainOfGivenSize/MainTheorems.lean) | Short proofs connecting those claims to the implementation |
 | [Block-count proof guide](docs/block-count.md) | The inequalities, proof outline, and complete explicit witness recurrence |
 | [Repository guide](docs/proof-guide.md) | Source navigation, supporting results, and axiom checks |
+| [Statement audit](docs/statement-audit.md) | Checks that the Lean statements express the intended problem, with scope and limitations |
 
 ## The problem
 

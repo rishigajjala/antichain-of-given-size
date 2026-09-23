@@ -18,3 +18,5 @@ jobs:
       - uses: leanprover/lean-action@v1
         with:
           build-args: "--wfail"
+      - name: Check proof dependencies
+        run: lake env lean scripts/check-axioms.lean

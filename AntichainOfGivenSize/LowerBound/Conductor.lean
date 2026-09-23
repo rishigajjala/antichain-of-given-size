@@ -48,7 +48,7 @@ theorem firstMissingCardinality_le_alternatingOnes (q : ℕ) :
   exact alpha_alternatingOnes_two_pow_gt q
 
 /-- For `q ≥ 2`, the carry-sensitive word shortens the baseline witness by
-two binary positions. -/
+four binary positions (two isolated one-bits). -/
 theorem firstMissingCardinality_le_carrySensitive (q : ℕ) (hq : 2 ≤ q) :
     firstMissingCardinality q ≤ alternatingOnes (2 ^ q - 2) := by
   apply firstMissingCardinality_le

@@ -311,8 +311,8 @@ theorem q_pow_eq_two_pow (t d : ℕ) :
     dyadicQ t ^ d = 2 ^ (t * d) := by
   rw [dyadicQ, ← pow_mul]
 
-/-- Every fixed polynomial in `q` of degree at most `32` is bounded by
-`2^h` on the chosen subsequence. -/
+/-- Every power `q^d` with `d ≤ 32` is bounded by `2^h` on the chosen
+subsequence, for `t ≥ 16`. -/
 theorem q_pow_le_two_pow_h {t d : ℕ} (ht : 16 ≤ t) (hd : d ≤ 32) :
     dyadicQ t ^ d ≤ 2 ^ clusterH t := by
   rw [q_pow_eq_two_pow]

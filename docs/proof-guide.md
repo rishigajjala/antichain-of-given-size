@@ -95,6 +95,23 @@ treated as failures.
 
 ## Checking the axioms
 
+The [statement audit](statement-audit.md) explains how the definitions,
+quantifiers, and proof assumptions were checked against the intended
+mathematics. The automated check below addresses a different question:
+which assumed principles do the formal proofs depend on?
+
+After building, run the repository-wide dependency check:
+
+```bash
+lake env lean scripts/check-axioms.lean
+```
+
+It checks every theorem declaration originating in the project library
+modules, including private and automatically generated declarations.
+It rejects unexpected axioms and also prints the dependencies of the nine
+public certificates. This check supports the semantic audit; it cannot
+itself decide whether a definition expresses the intended problem.
+
 To inspect all nine public certificates, save the following as
 `/tmp/AntichainAxioms.lean`:
 
