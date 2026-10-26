@@ -8,13 +8,15 @@ import Lean.Elab.Command
 Run from the repository root after `lake build --wfail`:
 `lake env lean scripts/check-axioms.lean`.
 
-This checks the axioms used by every theorem in the project library,
-including private and generated theorems. It does not verify that a
+This checks the axioms used by every declaration in the project library,
+including private declarations and proof-bearing definitions or instances.
+It does not verify that a
 mathematical definition expresses the intended problem; see
 `docs/statement-audit.md` for that review.
 
 The module list is explicit so a change in the imported library requires
-review. Keep it in sync with the library's Lean source files.
+review. It is checked against both the source files and imported modules,
+so an unimported source file cannot silently escape the audit.
 -/
 
 open Lean Elab Command
@@ -76,6 +78,28 @@ run_cmd do
     `AntichainOfGivenSize.MainStatement,
     `AntichainOfGivenSize.MainTheorems,
     `AntichainOfGivenSize.MatchingParameters,
+    `AntichainOfGivenSize.Paper.AlmostAll,
+    `AntichainOfGivenSize.Paper.BasicResults,
+    `AntichainOfGivenSize.Paper.BitMatching,
+    `AntichainOfGivenSize.Paper.CountingEstimates,
+    `AntichainOfGivenSize.Paper.CountingParameters,
+    `AntichainOfGivenSize.Paper.Density,
+    `AntichainOfGivenSize.Paper.DirectReduction,
+    `AntichainOfGivenSize.Paper.Extremal,
+    `AntichainOfGivenSize.Paper.FirstUpper,
+    `AntichainOfGivenSize.Paper.GeneralCounting,
+    `AntichainOfGivenSize.Paper.PatternGadget,
+    `AntichainOfGivenSize.Paper.RealDensity,
+    `AntichainOfGivenSize.Paper.Representation,
+    `AntichainOfGivenSize.Paper.Results,
+    `AntichainOfGivenSize.Paper.Scale,
+    `AntichainOfGivenSize.Paper.Statements,
+    `AntichainOfGivenSize.Paper.Typical,
+    `AntichainOfGivenSize.Paper.UpperConstructionBounds,
+    `AntichainOfGivenSize.Paper.UpperConstructionCore,
+    `AntichainOfGivenSize.Paper.UpperConstructionGeometry,
+    `AntichainOfGivenSize.Paper.UpperConstructionSteps,
+    `AntichainOfGivenSize.Paper.UpperParameters,
     `AntichainOfGivenSize.RangeArithmetic,
     `AntichainOfGivenSize.RangeReduction,
     `AntichainOfGivenSize.Section6.Address,
@@ -91,6 +115,21 @@ run_cmd do
     `AntichainOfGivenSize.Section6.Survivors,
     `AntichainOfGivenSize.Theorem
   ]
+  let sourceDir : System.FilePath := "AntichainOfGivenSize"
+  let umbrella : System.FilePath := "AntichainOfGivenSize.lean"
+  unless (← sourceDir.isDir) && (← umbrella.pathExists) do
+    throwError "Run this audit from the repository root (library sources not found)"
+  let sourcePaths := ((← sourceDir.walkDir).filter (·.extension == some "lean")).push umbrella
+  let sourceModules := sourcePaths.map fun path ↦
+    (path.withExtension "").components.foldl Name.str Name.anonymous
+  unless expected.toList.eraseDups.length == expected.size do
+    throwError "The tracked module list contains a duplicate"
+  for mod in sourceModules do
+    unless expected.contains mod do
+      throwError "Library source module is not tracked by the audit: {mod}"
+  for mod in expected do
+    unless sourceModules.contains mod do
+      throwError "Tracked module has no library source file: {mod}"
   let actual := env.header.moduleNames.filter (Name.isPrefixOf `AntichainOfGivenSize ·)
   for mod in expected do
     unless actual.contains mod do
@@ -113,20 +152,20 @@ run_cmd do
       allProjectConstants := allProjectConstants + 1
       if info matches .axiomInfo _ then
         throwError "Project declares a custom axiom: {name}"
+      let axs ← collectAxioms name
+      for ax in axs do
+        unless allowed.contains ax do
+          throwError "Unexpected transitive axiom: {name} uses {ax}"
+        unless observed.contains ax do
+          observed := observed.push ax
       if info matches .thmInfo _ then
         checked := checked + 1
         perModule := perModule.insert mod (perModule.getD mod 0 + 1)
-        let axs ← collectAxioms name
         if axs.isEmpty then
           noAxioms := noAxioms + 1
-        for ax in axs do
-          unless allowed.contains ax do
-            throwError "Unexpected transitive axiom: {name} uses {ax}"
-          unless observed.contains ax do
-            observed := observed.push ax
   unless checked > 0 do
     throwError "The audit found no project theorem declarations"
-  logInfo m!"PASS: {checked} theorem declarations checked across {actual.size} project library modules; {allProjectConstants} total project declarations; {noAxioms} theorem declarations require no axioms."
+  logInfo m!"PASS: {allProjectConstants} declarations checked across {actual.size} project library modules and matching source files; {checked} theorem declarations; {noAxioms} theorem declarations require no axioms."
   logInfo m!"Observed axiom union: {observed.qsort Name.lt}"
   for mod in expected do
     logInfo m!"MODULE {mod}: {perModule.getD mod 0} theorem declarations"
@@ -140,3 +179,19 @@ run_cmd do
 #print axioms AntichainOfGivenSize.mainBlockCountBounds
 #print axioms AntichainOfGivenSize.mainBlockCountTightBound
 #print axioms AntichainOfGivenSize.mainExplicitBlockWitness
+
+-- Current-manuscript certificates: all hypotheses are discharged here.
+#print axioms AntichainOfGivenSize.Paper.bitMatching
+#print axioms AntichainOfGivenSize.Paper.bitMatchingInt
+#print axioms AntichainOfGivenSize.Paper.quadraticUpper
+#print axioms AntichainOfGivenSize.Paper.blockMatching
+#print axioms AntichainOfGivenSize.Paper.firstUpper
+#print axioms AntichainOfGivenSize.Paper.directReduction
+#print axioms AntichainOfGivenSize.Paper.countingBound
+#print axioms AntichainOfGivenSize.Paper.typicalLowerBound
+#print axioms AntichainOfGivenSize.Paper.almostAllLowerBound
+#print axioms AntichainOfGivenSize.Paper.almostAllOrder
+#print axioms AntichainOfGivenSize.Paper.almostAllGoodProportion
+#print axioms AntichainOfGivenSize.Paper.realAlmostAllGoodProportion
+#print axioms AntichainOfGivenSize.Paper.extremalOrder
+#print axioms AntichainOfGivenSize.Paper.mainTheorem

@@ -1,5 +1,11 @@
 # Audit of the Lean statements
 
+This is the historical audit of the original public certificates. The
+current manuscript's stronger counting and density-one statements, and
+their independent statement audit, are documented in
+[the manuscript correspondence](current-paper.md). The module count below
+records the historical revision, not the expanded library.
+
 Audit date: 23 September 2026. The starting revision was
 [`6075c1c`](https://github.com/rishigajjala/antichain-of-given-size/tree/6075c1cbd35b568e37721257b39c82d61428acae).
 The accompanying changes correct two comments and add this audit; they do
