@@ -6,11 +6,13 @@ import AntichainOfGivenSize.LowerBound.ThresholdFiltration
 import AntichainOfGivenSize.LowerBound.VennProfiles
 import AntichainOfGivenSize.LowerBound.Conductor
 import AntichainOfGivenSize.MainTheorems
+import AntichainOfGivenSize.Paper.Results
 
 /-!
 # Antichain of a Given Size
 
 Umbrella module for the unconditional upper and lower bounds on the minimum
-size of a family generating an ideal of prescribed cardinality. It also
-exports the sharp worst-case bound at each positive binary block count.
+size of a family generating an ideal of prescribed cardinality, including
+the current manuscript's density-one and real-cutoff extremal results.
+It also exports the sharp worst-case bound at each positive binary block count.
 -/

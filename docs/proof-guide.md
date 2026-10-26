@@ -1,5 +1,11 @@
 # Reading and checking the Lean proofs
 
+For the current manuscript's uniform counting theorem, density-one lower
+bound, and all numbered results, start with the
+[manuscript correspondence](current-paper.md) and
+[`Paper/Results.lean`](../AntichainOfGivenSize/Paper/Results.lean).
+The original certificates described below remain available.
+
 Start with the [README](../README.md) for the problem and results, and the
 [block-count explanation](block-count.md) for the explicit extremal integers.
 This guide maps those statements to their proof files.

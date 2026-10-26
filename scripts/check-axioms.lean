@@ -76,6 +76,27 @@ run_cmd do
     `AntichainOfGivenSize.MainStatement,
     `AntichainOfGivenSize.MainTheorems,
     `AntichainOfGivenSize.MatchingParameters,
+    `AntichainOfGivenSize.Paper.AlmostAll,
+    `AntichainOfGivenSize.Paper.BasicResults,
+    `AntichainOfGivenSize.Paper.BitMatching,
+    `AntichainOfGivenSize.Paper.CountingEstimates,
+    `AntichainOfGivenSize.Paper.CountingParameters,
+    `AntichainOfGivenSize.Paper.Density,
+    `AntichainOfGivenSize.Paper.DirectReduction,
+    `AntichainOfGivenSize.Paper.Extremal,
+    `AntichainOfGivenSize.Paper.FirstUpper,
+    `AntichainOfGivenSize.Paper.GeneralCounting,
+    `AntichainOfGivenSize.Paper.PatternGadget,
+    `AntichainOfGivenSize.Paper.Representation,
+    `AntichainOfGivenSize.Paper.Results,
+    `AntichainOfGivenSize.Paper.Scale,
+    `AntichainOfGivenSize.Paper.Statements,
+    `AntichainOfGivenSize.Paper.Typical,
+    `AntichainOfGivenSize.Paper.UpperConstructionBounds,
+    `AntichainOfGivenSize.Paper.UpperConstructionCore,
+    `AntichainOfGivenSize.Paper.UpperConstructionGeometry,
+    `AntichainOfGivenSize.Paper.UpperConstructionSteps,
+    `AntichainOfGivenSize.Paper.UpperParameters,
     `AntichainOfGivenSize.RangeArithmetic,
     `AntichainOfGivenSize.RangeReduction,
     `AntichainOfGivenSize.Section6.Address,
@@ -140,3 +161,16 @@ run_cmd do
 #print axioms AntichainOfGivenSize.mainBlockCountBounds
 #print axioms AntichainOfGivenSize.mainBlockCountTightBound
 #print axioms AntichainOfGivenSize.mainExplicitBlockWitness
+
+-- Current-manuscript certificates: all hypotheses are discharged here.
+#print axioms AntichainOfGivenSize.Paper.bitMatching
+#print axioms AntichainOfGivenSize.Paper.blockMatching
+#print axioms AntichainOfGivenSize.Paper.firstUpper
+#print axioms AntichainOfGivenSize.Paper.directReduction
+#print axioms AntichainOfGivenSize.Paper.countingBound
+#print axioms AntichainOfGivenSize.Paper.typicalLowerBound
+#print axioms AntichainOfGivenSize.Paper.almostAllLowerBound
+#print axioms AntichainOfGivenSize.Paper.almostAllOrder
+#print axioms AntichainOfGivenSize.Paper.almostAllGoodProportion
+#print axioms AntichainOfGivenSize.Paper.extremalOrder
+#print axioms AntichainOfGivenSize.Paper.mainTheorem

@@ -3,3 +3,4 @@
 *.ilean
 *.olean
 .DS_Store
+/.blueprint/
