@@ -292,6 +292,95 @@ native validator continues to reject certification until every selected binding
 has a valid verified receipt. Ordinary proof reconciliation and handoff remain
 mandatory; this command does not publish a certified snapshot or a Lean relation.
 
+## Optional scope review for later numbered targets
+
+`future-surface-review.cjs` is a separate, fail-closed path. It refuses
+`thm:main` and `thm:attainable-count`; their original fixed rules are unchanged.
+It accepts only frozen LaTeX theorem/lemma/corollary/claim targets; definitions,
+remarks and Lean aliases are rejected. It uses the same single-target,
+independently pinned authority and idle lease.
+Related target records are read-only and never broaden publication authority.
+There is no automatic owner selection or automatic semantic approval.
+
+Before review, let the ordinary planner append the new target and review/bind
+its mathematical obligations. Do not move existing declarations or overwrite
+shared Model files to obtain a smaller inventory. The future operation requires
+every active reportable claim to have a `formalize` plan with one exact headline
+obligation and one semantically approved proposed/verified binding. The active
+claim-set receipt must contain precisely all those claim versions. Exclusions,
+assumptions, unsupported dispositions, alternative obligation groups and missing
+bindings are rejected. It does not create a native helper/subgoal role.
+
+For an inspection, supply `futureSurface` explicitly:
+
+```json
+{
+  "inspect": true,
+  "authority": "/absolute/reviewed-authority.json",
+  "declarations": ["<retained and removed declarations to review>"],
+  "futureSurface": {
+    "relatedTargets": [{
+      "targetId": "<explicit existing owner target>",
+      "targetVersionId": "<active version>",
+      "ledgerDigest": "<exact current native head>",
+      "blueprint": ".blueprint/<owner>/blueprint.json",
+      "blueprintDigest": "sha256-<exact blueprint bytes>",
+      "activeInventoryId": "<currently selected inventory>",
+      "bindingIds": ["<explicit owned binding ID>"]
+    }],
+    "helperPaths": [{
+      "declaration": "<removed internal helper>",
+      "path": ["<retained mathematical binding>", "<compiler dependency>", "<removed internal helper>"]
+    }]
+  }
+}
+```
+
+Empty arrays are allowed when no owner/path is needed. A path rooted in a
+related theorem additionally supplies `ownerTargetId` and `ownerBindingId`.
+The host does not infer either. Every selected related binding must already be
+natively verified with applied semantic/proof decisions and its original proof
+receipt; its mathematical formalize plan, active claim receipt membership and
+selected inventory entry must still exist. The exact head, target version,
+blueprint bytes, source and inventory are checked on every snapshot.
+
+Inspection extends read-only module inspection to the explicitly selected
+owners and path nodes. For every owner, removed helper and path node it calls
+the unchanged native `yr` inspector: build that module, then ask Lean for its
+complete transitive `Lean.collectAxioms` result. Unknown answers, `sorryAx` or
+axioms outside `propext`, `Classical.choice`, `Quot.sound` fail closed. The
+actual compiler graph must contain every edge on the explicit acyclic path.
+Roots, owned endpoints and removed helpers must have compiler theorem/lemma
+kind; intermediate dependencies may be definitions.
+`cr.hasSorry = false` alone is insufficient. Full axiom results, raw outputs and
+complete source/configuration/toolchain pins appear in `fullAxiomEvidence`;
+they are obtained freshly on each inspection/dry-run/apply invocation and
+reused inside that invocation only while the pins remain unchanged.
+
+The future manifest has schema `tex2lean.delegated-future-surface-review/1`.
+Use the same target/head/pins/review/expected-inventory/protected-state fields
+as a fixed surface manifest, plus the exact `targetLabel`, `inspection`
+(selection above), `relatedTargets` and `axiomEvidence` from fresh evidence.
+Its `declarations` must equal all mathematical obligation bindings exactly.
+Its `owners` array must review every explicitly selected owner with the same
+complete declaration/type/definition/paper-quote fields, plus `targetId` and
+`bindingId`. Every addition and removal needs an explicit reason and exact
+before/after identity. Allowed removal categories are:
+
+- `separate-reviewed-target`, with `ownerTargetId` and `ownerBindingId` pointing
+  to that exact declaration in a reviewed related target;
+- `proved-internal-helper`, with exactly one reviewed dependency path. Its root
+  must be a retained mathematical binding or an explicitly selected related
+  owner. A binding for this target's own mathematical claim cannot be removed.
+
+Pass the completed manifest to the ordinary `/ledger-review` dry-run and review
+the full result before explicit apply. Publication uses only the native immutable
+source-evidence, put-inventory and select-inventory operations. All prior
+inventories, mathematical claims/plans/binding statuses and claim receipts remain
+unchanged; related targets receive no writes. The new inventory cannot certify
+anything: the unchanged native validator still requires verified binding
+receipts, followed by ordinary proof reconciliation and handoff.
+
 ## Idle, lease, freshness and cache safeguards
 
 The normal command's `no-run`/batch guards remain. Additional guards reject any
@@ -333,7 +422,7 @@ Run from the repository root with the exact v8 bundle as an explicit argument:
 
 ```sh
 v8_bundle=/tmp/antichain-tex2lean-compat-v8/out/cli.cjs
-for test in test-inspection-prompt test-extension test-integration test-adapter test-surface-review; do
+for test in test-inspection-prompt test-extension test-integration test-adapter test-surface-review test-future-surface-review; do
   node "scripts/tex2lean-compat/extensions/$test.cjs" "$v8_bundle"
 done
 ```
@@ -342,8 +431,8 @@ Use the available Node executable in place of `node`. `extend.cjs` also accepts
 `--node /absolute/path/to/node` for its generated launcher. All tests require
 exactly one bundle-path argument; no temporary prototype paths are embedded.
 `validator-loop.cjs` and all runtime support modules are included in this
-package. The generated optional bundle copies `adapter.cjs`, `surface-review.cjs`
-and `native-host.cjs`, with their hashes recorded in its manifest.
+package. The generated optional bundle copies `adapter.cjs`, `surface-review.cjs`,
+`future-surface-review.cjs` and `native-host.cjs`, with their hashes recorded in its manifest.
 
 The inspection test evaluates actual `dte`/`ste` generation and mocked provider
 invocation. The composition test checks the default bug-fix-only and explicit
@@ -362,7 +451,13 @@ The surface-review test exercises native immutable inventory publication,
 exact seven/eleven-claim coverage, unchanged claims/receipts/statuses, fixed
 justified removals, fresh proof references, interruption safety and authority
 rejection. The unchanged native validator fails on the selected inventory until
-the ordinary verification loop supplies all corresponding receipts.
+the ordinary verification loop supplies all corresponding receipts. The future-target
+suite also tests exact active receipt coverage, explicit related-owner selection,
+full native axiom evidence pins, open/transitive/custom-axiom rejection, immutable
+related state, native dependency paths, mid-publication drift and interrupted
+selection. The host integration suite verifies the actual `yr` bridge and its
+unchanged implementation; its test axiom responses are mocked, with no compiler
+or workflow execution.
 
 These tests do not constitute a successful real-project inspection. Before
 applying any ledger decisions, the optional host must capture current evidence

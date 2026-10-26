@@ -9,7 +9,7 @@ const {patch:patchLedger}=require('./patch.cjs');
 const {patchInspectionPrompt}=require('./inspection-prompt.cjs');
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const EXPECTED='93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7';
-const SUPPORT_MODULES=Object.freeze(['adapter.cjs','surface-review.cjs','native-host.cjs']);
+const SUPPORT_MODULES=Object.freeze(['adapter.cjs','surface-review.cjs','future-surface-review.cjs','native-host.cjs']);
 function section(source,start,end) {
   const a=source.indexOf(start),b=source.indexOf(end,a+start.length);
   assert(a>=0&&b>a,start);return source.slice(a,b);

@@ -166,12 +166,12 @@ async function testLeaseAndAuthority() {
   assert.throws(()=>parseRequest({manifest:'/m',authority:'/a',apply:'true'}),/boolean/);
   assert.throws(()=>parseRequest({manifest:'/m',authority:'/a',verified:true}),/unknown request/);
 }
-async function testInspectionFlow(main=false) {
+async function testInspectionFlow(main=false,future=false) {
   const f=leaseFixture(),native=receiptContext(built.source),root='/virtual/project';
   const put=(file,text)=>f.fs.files.set(root+'/'+file,Buffer.from(text));
   const bundle={origin:'latex',files:['paper.tex'],macros:[],theoremEnvironments:['theorem'],target:{
     body:'Exact mathematical claim.',start:{file:'paper.tex',line:1},end:{file:'paper.tex',line:1},environment:'theorem',
-    ...(main?{label:'thm:main'}:{})}};
+    ...(main?{label:'thm:main'}:future?{label:'thm:future'}:{})}};
   const packet=native.ctx.Pt('paper-packet/1',{origin:bundle.origin,files:bundle.files,macros:bundle.macros,
     theoremEnvironments:bundle.theoremEnvironments,target:{body:bundle.target.body,start:bundle.target.start,end:bundle.target.end,environment:bundle.target.environment}});
   put('paper.tex',bundle.target.body);put('Project/Model.lean','def Spec : Prop := True\ntheorem claim : Spec := trivial');
@@ -186,6 +186,7 @@ async function testInspectionFlow(main=false) {
   const bytes=Buffer.from(JSON.stringify(authority));f.fs.files.set('/virtual/authority.json',bytes);
   const evidence={complete:true,sourceFingerprint:'source-v1',leanProofFactsFingerprint:'source-v1',leanDiagnostics:{complete:true},
     statements:[{name:'Project.claim',file:'Project/Model.lean',header:'theorem claim : Spec'},
+      ...future?[{name:'Project.helper',file:'Project/Model.lean',kind:'theorem',hasSorry:false,references:[]}]:[],
       ...main?[MAIN,HELPER,COUNT,COUNT_OWNER].map(name=>({name,file:'Project/Model.lean',hasSorry:false,
         references:name===MAIN?[HELPER]:name===COUNT?[COUNT_OWNER]:[]})):[]],
     modules:[{module:'Project.Model',file:'Project/Model.lean',imports:[]}]};
@@ -206,7 +207,19 @@ async function testInspectionFlow(main=false) {
     certify:async()=>{assert.equal(clears,1);certifies++;return plain(evidence);},
     scope:()=>({modules:['Project.Model'],files:['Project/Model.lean']}),
     inspectInterfaces:(modules,bindings,ev,opts)=>native.ctx.o4('/probe',modules,bindings,ev,opts)};
-  const result=await executeNativeReview({inspect:true,authority:'/virtual/authority.json',declarations:['Project.claim']},d,{fs:f.fs});
+  const futureSurface=future?{relatedTargets:[],helperPaths:[{declaration:'Project.helper',path:['Project.claim','Project.helper']}]}:undefined;
+  const axiomCalls=[];
+  if(future) {
+    evidence.statements[0].hasSorry=false;evidence.statements[0].references=['Project.helper'];
+    d.inspectFullAxioms=async(name,module)=>{axiomCalls.push([name,module]);return {answered:true,sorried:false,axioms:['propext'],output:name+' kernel axiom evidence'};};
+    const oldInspect=d.inspectInterfaces;
+    d.inspectInterfaces=async(modules,bindings,ev,opts)=>{
+      const result=await oldInspect(modules,bindings.filter(b=>b.declaration==='Project.claim'),ev,opts);
+      result.reviewMaterial.push({declaration:'Project.helper',file:'Project/Model.lean',elaboratedType:'HelperType',semanticDefinitions:[]});return result;
+    };
+  }
+  const request={inspect:true,authority:'/virtual/authority.json',declarations:['Project.claim'],...future?{futureSurface}:{}};
+  const result=await executeNativeReview(request,d,{fs:f.fs});
   assert.equal(result.mode,'inspect');assert.equal(certifies,1);assert.equal(clears,1);assert.equal(publications,0);
   assert.equal(result.declarations['Project.claim'].elaboratedType,'Expr(ClaimType)');
   assert(result.elaboratedDefinitionBodies[0].semanticDefinitions.some(x=>x.elaboratedValue==='Expr(HiddenBody)'));
@@ -215,6 +228,14 @@ async function testInspectionFlow(main=false) {
   assert.equal(result.unapprovedProposals[0].expectedBindingDigest,
     native.ctx.Pt('delegated-binding-proposal/1',result.unapprovedProposals[0].binding));
   assert.equal(result.pins.paperPacket,packet);assert.equal(f.controls(),0);assert(!f.fs.files.has(f.d.leaseFile()));
+  if(future) {
+    assert.deepEqual(axiomCalls,[['Project.claim','Project.Model'],['Project.helper','Project.Model']]);
+    assert.deepEqual(result.futureInspection,futureSurface);assert.deepEqual(result.relatedTargets,[]);
+    assert.deepEqual(result.fullAxiomEvidence.declarations['Project.helper'].pins,result.pins);
+    assert.equal(result.fullAxiomEvidence.declarations['Project.helper'].method,'native Lean.collectAxioms after module build');
+    assert.deepEqual(result.proofFacts.declarations['Project.claim'].references,['Project.helper']);
+    assert.equal(publications,0);
+  }
   if(main) {
     assert.equal(result.relatedCountingTarget.targetId,'counting-target');
     assert.equal(result.relatedCountingTarget.ledgerDigest,'counting-head');
@@ -245,6 +266,8 @@ function testUnchangedAndCache() {
   const marker='for(let Zt of un.ledger.bindings){let nt=nr.get(Zt.id);',suffix='un=await it.readCurrent(Ge.ledger.target.id)??un}';
   const loop=s=>s.slice(s.indexOf(marker),s.indexOf(suffix,s.indexOf(marker))+suffix.length);
   assert.equal(loop(source),loop(built.source),'native validator loop unchanged');
+  assert.equal(between(source,'async function yr(','var ak,Qa='),between(built.source,'async function yr(','var ak,Qa='),'native full axiom checker unchanged');
+  assert(built.source.includes('inspectFullAxioms:(declaration,module)=>yr(project,declaration,module)'),'actual native full axiom function bridge missing');
   const ctx=vm.createContext({});vm.runInContext(fs.readFileSync(path.join(__dirname,'cli-helpers.js'),'utf8'),ctx);
   const f=new Map([['/project:abc',1],['/project:xyz',2],['/project-other:abc',3]]);
   const h=new Map([['/project\0A.lean\0digest',1],['/project-other\0A.lean\0digest',2]]);
@@ -254,7 +277,7 @@ function testUnchangedAndCache() {
   assert(pinned.source.includes('var compatLedgerReviewAuthorityDigest = '+JSON.stringify(sha('reviewed authority'))+';'));
 }
 (async()=>{
-  testUnchangedAndCache();await testReceipts();await testActualWrapper();await testLeaseAndAuthority();await testInspectionFlow();await testInspectionFlow(true);
+  testUnchangedAndCache();await testReceipts();await testActualWrapper();await testLeaseAndAuthority();await testInspectionFlow();await testInspectionFlow(true);await testInspectionFlow(false,true);
   console.log(JSON.stringify({ok:true,candidateBundleSha256:built.after,
     tests:['actual native o4 ordinary receipt equivalence and optional type/body extraction',
     'identical normalized probe rows and values accepted; conflicting types/dependencies/values rejected',

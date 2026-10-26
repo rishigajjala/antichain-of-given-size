@@ -75,6 +75,7 @@ async function compatRunLedgerReview(session, request) {
       clearProjectEvidenceCaches:()=>compatClearReviewCaches(project.fsPath,Fl,Hc),
       certify:token=>cr(root,cfg.leanProjectPath,token),
       scope:Kh,
+      inspectFullAxioms:(declaration,module)=>yr(project,declaration,module),
       inspectInterfaces:(modules,bindings,evidence,options)=>o4(project,modules,bindings,evidence,options),
     });
     const fs=require("node:fs/promises"),path=require("node:path"),os=require("node:os");

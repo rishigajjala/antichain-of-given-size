@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 assert(process.argv.length === 3 && process.argv[2], 'Usage: node test-extension.cjs /path/to/v8/out/cli.cjs');
 const {buildSource,SUPPORT_MODULES}=require('./extend.cjs');
-assert.deepEqual(SUPPORT_MODULES,['adapter.cjs','surface-review.cjs','native-host.cjs']);
+assert.deepEqual(SUPPORT_MODULES,['adapter.cjs','surface-review.cjs','future-surface-review.cjs','native-host.cjs']);
 const source=fs.readFileSync(process.argv[2],'utf8');
 const repair=buildSource(source);
 assert.equal(repair.optionalLedger.enabled,false);
