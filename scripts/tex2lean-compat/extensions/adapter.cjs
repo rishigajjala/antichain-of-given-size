@@ -264,4 +264,5 @@ async function runReview(manifest, host, {apply=false}={}) {
     return {...summary,publications,finalLedgerDigest:expectedHead};
   });
 }
-module.exports={runReview,PROVENANCE,NONMATHEMATICAL:new Map(NONMATHEMATICAL),isUnapprovedProposal,proposalDigest};
+module.exports={runReview,PROVENANCE,NONMATHEMATICAL:new Map(NONMATHEMATICAL),isUnapprovedProposal,proposalDigest,
+  reviewChecks:{keys,requiredText,pinInputs,quote,activeVersion,requirements}};

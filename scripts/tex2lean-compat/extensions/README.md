@@ -161,7 +161,7 @@ Review the resulting `dry-run.json`. Only an explicit boolean requests applicati
 /ledger-review {"authority":"/absolute/authority.json","manifest":"/absolute/review-manifest.json","apply":true}
 ```
 
-Application publishes only native `put-evidence`, `put-binding` with
+Binding-review application publishes only native `put-evidence`, `put-binding` with
 `status:"proposed"`, semantic approval decisions, and the two specifically allowed
 metadata exclusions. The first eleven mathematical counting rows cannot be
 excluded. All receipt membership, mathematical obligations and immutable history
@@ -213,6 +213,85 @@ obligation, or bypasses native proof certification. Reusing one capstone for two
 headline bindings is not a workaround: the native certified-surface validator
 requires exactly one verified binding per surface declaration and role.
 
+### Reviewing the target's declaration inventory
+
+The native planner records every theorem in the shared `Model/Theorem.lean` as
+part of each new target's inventory. This can include an earlier target or a
+conditional helper, and omit a target's separately defined semantic equivalences.
+The optional `surface-review.cjs` corrects that ownership record through native
+`put-surface-inventory` and author-authorized `select-surface-inventory` decisions.
+It does not edit a Lean file, change any claim or binding, or certify a proof.
+
+This operation is deliberately limited to the two reviewed targets. Main must
+retain exactly seven mathematical obligation bindings; its only permitted
+removals are `attainable_count` (owned by the separate counting target) and
+`alpha_simultaneous_density_one` (a proved conditional helper directly used by
+the unconditional main capstone). Counting must expand from its one headline
+to all eleven mathematical bindings, after the two exact metadata rows already
+have their separately reviewed exclusions. Every claim and original receipt
+remains recorded. No mathematical claim may be excluded by this operation.
+
+Obtain a fresh `inspect` artifact after binding review and after the sources
+settle. For main, inspect the seven bound names **and** the two removed names.
+For counting, inspect all eleven bound names. The artifact now also includes:
+
+- `activeInventory.inventory` and `activeInventory.expectedInventoryDigest`;
+- `expectedPreservedStateDigest`, pinning every claim, plan, obligation, binding
+  status, claim-set receipt, and relation;
+- native `cr` declaration references under `proofFacts`, tied to the complete
+  source fingerprint;
+- for main, `relatedCountingTarget`, read from the sole finalized counting
+  blueprint and its current native ledger, including its actual reviewed counting
+  binding, headline obligation, formalize plan, active claim/version and receipt
+  membership. Its historical binding status and receipt are preserved as reported;
+  current verification is not inferred. This is read-only evidence; the
+  authority scope still permits publication only to the selected target.
+
+The separate manifest has this shape:
+
+```json
+{
+  "schema": "tex2lean.delegated-surface-review/1",
+  "targetId": "<current target>",
+  "targetVersionId": "<current target version>",
+  "baseLedgerDigest": "<current ledgerDigest>",
+  "pins": {"paperPacket": "...", "leanSources": "...", "configuration": "...", "toolchain": "..."},
+  "review": {"authority": "user-delegated-author", "authorizationDigest": "...", "provenance": "Codex assistant review under user-authorized formalization; no human review asserted"},
+  "expectedInventory": {"id": "<complete exact old inventory record>"},
+  "expectedInventoryDigest": "<artifact value>",
+  "expectedPreservedStateDigest": "<artifact value>",
+  "declarations": [
+    {"declaration": "<bound name>", "role": "headline", "file": "...", "module": "...", "elaboratedType": "...", "semanticDefinitions": [], "sourceQuote": {"file": "...", "from": 1, "to": 1, "text": "...", "fileDigest": "..."}, "reason": "<exact statement/ownership review>"}
+  ],
+  "changes": {
+    "additions": [{"declaration": "<each added name>", "reason": "<review reason>"}],
+    "removals": []
+  },
+  "reason": "<why the old shared-file inventory differs from this paper target>"
+}
+```
+
+Use complete artifact values, not the placeholder values above. Every declaration
+must have a complete exact type/definition review and paper quote. Each main
+removal carries the same declaration fields plus `category`: either
+`separate-counting-target` with `ownership` equal to the artifact's complete
+`relatedCountingTarget`, or `proved-conditional-helper` with no ownership field.
+The host rechecks the counting ownership and the compiler-reported direct edges
+`attainable_count → Analysis.AttainableCountProof.attainableCount` and
+`alpha_asymptotic_order → alpha_simultaneous_density_one`. It does not assert
+that the public counting wrapper itself is a dependency of the main theorem.
+
+Pass this manifest to the same default-dry-run `/ledger-review` command. Review
+its complete before/after inventory before explicitly applying. Application
+publishes exactly three fresh-head decisions: source evidence, the new inventory,
+then its selection. The new origin is truthfully `author-reviewed-target-scope`;
+the old sealed inventory and its original blueprint digest remain immutable.
+An interruption before selection leaves the old inventory active. Native
+publication invalidates any earlier certified snapshot pointer. The unchanged
+native validator continues to reject certification until every selected binding
+has a valid verified receipt. Ordinary proof reconciliation and handoff remain
+mandatory; this command does not publish a certified snapshot or a Lean relation.
+
 ## Idle, lease, freshness and cache safeguards
 
 The normal command's `no-run`/batch guards remain. Additional guards reject any
@@ -254,7 +333,7 @@ Run from the repository root with the exact v8 bundle as an explicit argument:
 
 ```sh
 v8_bundle=/tmp/antichain-tex2lean-compat-v8/out/cli.cjs
-for test in test-inspection-prompt test-extension test-integration test-adapter; do
+for test in test-inspection-prompt test-extension test-integration test-adapter test-surface-review; do
   node "scripts/tex2lean-compat/extensions/$test.cjs" "$v8_bundle"
 done
 ```
@@ -263,8 +342,8 @@ Use the available Node executable in place of `node`. `extend.cjs` also accepts
 `--node /absolute/path/to/node` for its generated launcher. All tests require
 exactly one bundle-path argument; no temporary prototype paths are embedded.
 `validator-loop.cjs` and all runtime support modules are included in this
-package. The generated optional bundle copies only `adapter.cjs` and
-`native-host.cjs`, with their hashes recorded in its manifest.
+package. The generated optional bundle copies `adapter.cjs`, `surface-review.cjs`
+and `native-host.cjs`, with their hashes recorded in its manifest.
 
 The inspection test evaluates actual `dte`/`ste` generation and mocked provider
 invocation. The composition test checks the default bug-fix-only and explicit
@@ -279,6 +358,11 @@ multi-binding validator, plus the adapter's full negative controls. Replacement
 regressions use the actual native store/replay and validator, retaining original
 events, rejecting changed records/heads and protected states, preserving the
 ordinary existing-proposal flow, and checking the final certified surface.
+The surface-review test exercises native immutable inventory publication,
+exact seven/eleven-claim coverage, unchanged claims/receipts/statuses, fixed
+justified removals, fresh proof references, interruption safety and authority
+rejection. The unchanged native validator fails on the selected inventory until
+the ordinary verification loop supplies all corresponding receipts.
 
 These tests do not constitute a successful real-project inspection. Before
 applying any ledger decisions, the optional host must capture current evidence

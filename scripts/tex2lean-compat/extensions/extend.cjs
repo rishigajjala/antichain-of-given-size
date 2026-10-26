@@ -9,6 +9,7 @@ const {patch:patchLedger}=require('./patch.cjs');
 const {patchInspectionPrompt}=require('./inspection-prompt.cjs');
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const EXPECTED='93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7';
+const SUPPORT_MODULES=Object.freeze(['adapter.cjs','surface-review.cjs','native-host.cjs']);
 function section(source,start,end) {
   const a=source.indexOf(start),b=source.indexOf(end,a+start.length);
   assert(a>=0&&b>a,start);return source.slice(a,b);
@@ -40,7 +41,7 @@ function buildSource(source,{ledgerAuthorityPin}={}) {
     optionalLedger:ledger?{enabled:true,authorityRecordPin:ledgerAuthorityPin,changes:ledger.changes}:{enabled:false},
     unchanged,cliExecuted:false,compilerExecuted:false};
 }
-module.exports={buildSource};
+module.exports={buildSource,SUPPORT_MODULES};
 if(require.main===module) {
   const args=process.argv.slice(2),options={};
   for(let i=0;i<args.length;i+=2) {
@@ -57,7 +58,7 @@ if(require.main===module) {
   const supportModules={};
   if(result.optionalLedger.enabled) {
     fs.mkdirSync(path.join(out,'ledger-review'));
-    for(const file of ['adapter.cjs','native-host.cjs']) {
+    for(const file of SUPPORT_MODULES) {
       const bytes=fs.readFileSync(path.join(__dirname,file));fs.writeFileSync(path.join(out,'ledger-review',file),bytes);
       supportModules[file]=sha(bytes);
     }

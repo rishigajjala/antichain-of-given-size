@@ -7,6 +7,7 @@ const path=require('node:path');
 const crypto=require('node:crypto');
 const {patch}=require('./patch.cjs');
 const {parseRequest,withStrictNativeLease,executeNativeReview}=require('./native-host.cjs');
+const {COUNT,MAIN,HELPER,COUNT_OWNER}=require('./surface-review.cjs');
 const source=fs.readFileSync(process.argv[2],'utf8');
 const built=patch(source);
 function between(s,start,end) {const a=s.indexOf(start),b=s.indexOf(end,a+start.length);assert(a>=0&&b>a,start);return s.slice(a,b);}
@@ -116,6 +117,9 @@ class MemoryFS {
   async open(p,flag){assert.equal(flag,'wx');if(this.files.has(p))throw Object.assign(Error('lease exists'),{code:'EEXIST'});this.files.set(p,Buffer.alloc(0));return {writeFile:x=>this.writeFile(p,x),close:async()=>{}};}
   async unlink(p){if(!this.files.delete(p))throw Object.assign(Error('missing'),{code:'ENOENT'});}
   async realpath(p){return p;}
+  async readdir(p){return [...new Set([...this.files.keys()].filter(f=>f.startsWith(p+'/'))
+    .map(f=>f.slice(p.length+1).split('/')[0]))].map(name=>({name,isDirectory:()=>
+      [...this.files.keys()].some(f=>f.startsWith(p+'/'+name+'/'))}));}
 }
 function leaseFixture(){
   const fs=new MemoryFS();let controls=0,releases=0;
@@ -162,27 +166,40 @@ async function testLeaseAndAuthority() {
   assert.throws(()=>parseRequest({manifest:'/m',authority:'/a',apply:'true'}),/boolean/);
   assert.throws(()=>parseRequest({manifest:'/m',authority:'/a',verified:true}),/unknown request/);
 }
-async function testInspectionFlow() {
+async function testInspectionFlow(main=false) {
   const f=leaseFixture(),native=receiptContext(built.source),root='/virtual/project';
   const put=(file,text)=>f.fs.files.set(root+'/'+file,Buffer.from(text));
   const bundle={origin:'latex',files:['paper.tex'],macros:[],theoremEnvironments:['theorem'],target:{
-    body:'Exact mathematical claim.',start:{file:'paper.tex',line:1},end:{file:'paper.tex',line:1},environment:'theorem'}};
+    body:'Exact mathematical claim.',start:{file:'paper.tex',line:1},end:{file:'paper.tex',line:1},environment:'theorem',
+    ...(main?{label:'thm:main'}:{})}};
   const packet=native.ctx.Pt('paper-packet/1',{origin:bundle.origin,files:bundle.files,macros:bundle.macros,
     theoremEnvironments:bundle.theoremEnvironments,target:{body:bundle.target.body,start:bundle.target.start,end:bundle.target.end,environment:bundle.target.environment}});
   put('paper.tex',bundle.target.body);put('Project/Model.lean','def Spec : Prop := True\ntheorem claim : Spec := trivial');
   put('lean-toolchain','leanprover/lean4:v4.32.0\n');
-  put('.blueprint/blueprint.json',JSON.stringify({bundle,paperProofMapping:{targetId:'target'},filePlan:{capstone:'Project.claim'}}));
+  const bpFile=main?'.blueprint/main/blueprint.json':'.blueprint/blueprint.json';
+  put(bpFile,JSON.stringify({bundle,paperProofMapping:{targetId:'target'},filePlan:{capstone:main?MAIN:'Project.claim'}}));
+  if(main)put('.blueprint/count/blueprint.json',JSON.stringify({bundle:{...bundle,target:{...bundle.target,label:'thm:attainable-count'}},
+    paperProofMapping:{targetId:'counting-target'},filePlan:{capstone:COUNT}}));
   const authority={schema:'tex2lean.delegated-authority-record/1',scope:'formalization-and-correspondence-review',
     recordedBy:'Codex assistant',noHumanSemanticReviewAsserted:true,userRequest:'The user authorized faithful formalization.',
-    projectRoot:root,blueprint:'.blueprint/blueprint.json',targetIds:['target']};
+    projectRoot:root,blueprint:bpFile,targetIds:['target']};
   const bytes=Buffer.from(JSON.stringify(authority));f.fs.files.set('/virtual/authority.json',bytes);
   const evidence={complete:true,sourceFingerprint:'source-v1',leanProofFactsFingerprint:'source-v1',leanDiagnostics:{complete:true},
-    statements:[{name:'Project.claim',file:'Project/Model.lean',header:'theorem claim : Spec'}],
+    statements:[{name:'Project.claim',file:'Project/Model.lean',header:'theorem claim : Spec'},
+      ...main?[MAIN,HELPER,COUNT,COUNT_OWNER].map(name=>({name,file:'Project/Model.lean',hasSorry:false,
+        references:name===MAIN?[HELPER]:name===COUNT?[COUNT_OWNER]:[]})):[]],
     modules:[{module:'Project.Model',file:'Project/Model.lean',imports:[]}]};
   let certifies=0,clears=0,publications=0;
+  const countingLedger={target:{id:'counting-target',activeVersionId:'ctv'},targetVersions:[{id:'ctv',paperPacketDigest:packet}],
+    bindings:[{id:'cb',declaration:COUNT,role:'headline',status:'verified',obligationId:'co',semanticApprovalDecisionId:'count-approval',
+      receipt:{historical:true},leanEvidenceSnapshotId:'historical-source'}],appliedDecisionIds:['count-approval'],
+    obligations:[{id:'co',kind:'headline'}],plans:[{claimVersionId:'ccv',disposition:'formalize',requirements:{allOf:[{anyOf:['co']}]}}],
+    claimVersions:[{id:'ccv',claimId:'cc',targetVersionId:'ctv'}],claims:[{id:'cc',activeVersionId:'ccv',role:'reportable'}],
+    activeClaimSetReceiptId:'cr',claimSetReceipts:[{id:'cr',targetVersionId:'ctv',paperPacketDigest:packet,claimVersionIds:['ccv']}]};
   const d={...f.d,authorityRecordDigest:sha(bytes),rootPath:()=>root,projectPath:()=>root,
     Pt:native.ctx.Pt,Sf:native.ctx.Sf,
-    newStore:()=>({readCurrent:async()=>({head:{ledgerDigest:'ledger-v1'},ledger:{target:{id:'target',activeVersionId:'tv'},
+    newStore:()=>({readCurrent:async id=>id==='counting-target'?{head:{ledgerDigest:'counting-head'},ledger:countingLedger}:
+      ({head:{ledgerDigest:'ledger-v1'},ledger:{target:{id:'target',activeVersionId:'tv'},
       targetVersions:[{id:'tv',paperPacketDigest:packet}],bindings:[{id:'old-proposal',obligationId:'ob0',
         declaration:'Project.oldClaim',file:'Project/Model.lean',module:'Project.Model',role:'headline',status:'proposed'}]}}),publishDecision:async()=>{publications++;}}),
     scan:async()=>plain(evidence),clearProjectEvidenceCaches:()=>{clears++;},
@@ -198,6 +215,25 @@ async function testInspectionFlow() {
   assert.equal(result.unapprovedProposals[0].expectedBindingDigest,
     native.ctx.Pt('delegated-binding-proposal/1',result.unapprovedProposals[0].binding));
   assert.equal(result.pins.paperPacket,packet);assert.equal(f.controls(),0);assert(!f.fs.files.has(f.d.leaseFile()));
+  if(main) {
+    assert.equal(result.relatedCountingTarget.targetId,'counting-target');
+    assert.equal(result.relatedCountingTarget.ledgerDigest,'counting-head');
+    assert.equal(result.relatedCountingTarget.capstone,COUNT);
+    assert.equal(result.relatedCountingTarget.ownership.binding.status,'verified');
+    assert.equal(result.relatedCountingTarget.ownership.binding.leanEvidenceSnapshotId,'historical-source');
+    assert.equal(result.relatedCountingTarget.ownership.plan.disposition,'formalize');
+    assert(result.relatedCountingTarget.ownership.claimSetReceipt.claimVersionIds.includes('ccv'));
+    assert.equal(result.relatedCountingTarget.blueprintDigest,sha(await f.fs.readFile(root+'/.blueprint/count/blueprint.json')));
+    assert.deepEqual(result.proofFacts.declarations[MAIN].references,[HELPER]);
+    assert.deepEqual(result.proofFacts.declarations[COUNT].references,[COUNT_OWNER]);
+    assert.equal(result.proofFacts.sourceFingerprint,result.pins.leanSources);
+    // The exact host must refuse a blueprint whose ledger no longer owns COUNT.
+    const savedBindings=countingLedger.bindings;countingLedger.bindings=[];
+    await assert.rejects(()=>executeNativeReview({inspect:true,authority:'/virtual/authority.json',declarations:['Project.claim']},d,{fs:f.fs}),
+      /must retain one active counting binding/);
+    assert.equal(publications,0);assert.equal(f.controls(),0);
+    countingLedger.bindings=savedBindings;
+  }
   // Inputs changing during the native inspection are rejected before producing review evidence.
   d.certify=async()=>{put('paper.tex','Changed source');return plain(evidence);};
   await assert.rejects(()=>executeNativeReview({inspect:true,authority:'/virtual/authority.json',declarations:['Project.claim']},d,{fs:f.fs}),/target body changed/);
@@ -218,7 +254,7 @@ function testUnchangedAndCache() {
   assert(pinned.source.includes('var compatLedgerReviewAuthorityDigest = '+JSON.stringify(sha('reviewed authority'))+';'));
 }
 (async()=>{
-  testUnchangedAndCache();await testReceipts();await testActualWrapper();await testLeaseAndAuthority();await testInspectionFlow();
+  testUnchangedAndCache();await testReceipts();await testActualWrapper();await testLeaseAndAuthority();await testInspectionFlow();await testInspectionFlow(true);
   console.log(JSON.stringify({ok:true,candidateBundleSha256:built.after,
     tests:['actual native o4 ordinary receipt equivalence and optional type/body extraction',
     'identical normalized probe rows and values accepted; conflicting types/dependencies/values rejected',

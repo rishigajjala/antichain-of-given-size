@@ -3,6 +3,7 @@ const assert=require('node:assert/strict');
 const path=require('node:path');
 const crypto=require('node:crypto');
 const {runReview,PROVENANCE,isUnapprovedProposal,proposalDigest}=require('./adapter.cjs');
+const {runSurfaceReview,inventoryDigest,stateDigest,countingOwnership,COUNT,MAIN,HELPER,COUNT_OWNER}=require('./surface-review.cjs');
 const hash=bytes=>'sha256-'+crypto.createHash('sha256').update(bytes).digest('hex');
 function parseRequest(raw) {
   const q=typeof raw==='string'?JSON.parse(raw):raw;
@@ -95,7 +96,10 @@ async function executeNativeReview(raw,d,options={}) {
   const store=d.newStore();
   const manifest=q.inspect?undefined:JSON.parse(await fs.readFile(q.manifest,'utf8'));
   if(manifest) assert.equal(manifest.targetId,targetId,'manifest target differs from the reviewed blueprint');
-  const names=q.inspect?q.declarations:manifest.bindings.map(b=>b.declaration);
+  const surfaceReview=manifest?.schema==='tex2lean.delegated-surface-review/1';
+  const reviewedRows=surfaceReview?manifest.declarations:manifest?.bindings;
+  const removals=surfaceReview?manifest.changes.removals:[];
+  const names=q.inspect?q.declarations:[...reviewedRows,...removals].map(b=>b.declaration);
   assert(new Set(names).size===names.length,'duplicate declarations requested');
   const initial=await store.readCurrent(targetId);assert(initial,'native mapping target absent');
   const target=initial.ledger.targetVersions.find(v=>v.id===initial.ledger.target.activeVersionId);
@@ -106,11 +110,27 @@ async function executeNativeReview(raw,d,options={}) {
   assert.equal(target.paperPacketDigest,paperPacket,'sealed blueprint and native paper packet disagree');
   const capstone=blueprint.filePlan?.capstone ?? blueprint.decomposition?.capstone?.name;
   assert(typeof capstone==='string','blueprint capstone absent');
-  const quoteFiles=new Set(manifest?[...manifest.bindings.map(b=>b.sourceQuote.file),
-    ...manifest.exclusions.flatMap(e=>[e.metadataQuote.file,...e.sourceQuotes.map(x=>x.file)])]:[]);
+  const quoteFiles=new Set(manifest?[...reviewedRows.map(b=>b.sourceQuote.file),...removals.map(b=>b.sourceQuote.file),
+    ...(surfaceReview?[]:manifest.exclusions.flatMap(e=>[e.metadataQuote.file,...e.sourceQuotes.map(x=>x.file)]))]:[]);
   const paperFiles=new Set(bundle.files);
   for(const file of paperFiles) quoteFiles.add(file);
   quoteFiles.add(bpFile);
+  // Read-only ownership evidence for the one permitted separate-target removal.
+  // This never authorizes writes to, or changes the authority scope of, that target.
+  let relatedBlueprint;
+  if(bundle.target.label==='thm:main') {
+    const output=path.posix.dirname(path.posix.dirname(bpFile)),found=[];
+    for(const entry of await fs.readdir(inside(root,output),{withFileTypes:true})) {
+      if(!entry.isDirectory())continue;
+      const file=path.posix.join(output,entry.name,'blueprint.json'),record=await readProject(file,true);
+      if(record.missing)continue;
+      const candidate=JSON.parse(record.text);
+      if(candidate.bundle?.target?.label==='thm:attainable-count' && !candidate.inProgress)
+        found.push({file,record,blueprint:candidate});
+    }
+    assert.equal(found.length,1,'one finalized counting blueprint is required for ownership review');
+    relatedBlueprint=found[0];quoteFiles.add(relatedBlueprint.file);
+  }
   const configFiles=['formalize.json','lakefile.toml','lakefile.lean','lake-manifest.json'];
   let certified,material,firstPins,scope;
   return withStrictNativeLease(d,fs,async lease=>{
@@ -130,8 +150,26 @@ async function executeNativeReview(raw,d,options={}) {
       for(const file of paperFiles) configuration.paperFiles[file]=files[file].digest;
       for(const file of configFiles) configuration.files[file]=(await readProject(file,true)).digest;
       const toolchain=await readProject('lean-toolchain');
+      let relatedCountingTarget;
+      if(relatedBlueprint) {
+        const b=relatedBlueprint.blueprint;
+        assert.equal(files[relatedBlueprint.file].digest,relatedBlueprint.record.digest,'counting blueprint changed');
+        const id=b.paperProofMapping?.targetId,related=await store.readCurrent(id);
+        assert(related && id!==targetId,'independent counting target missing');
+        const version=related.ledger.targetVersions.find(v=>v.id===related.ledger.target.activeVersionId);
+        const packet=d.Pt('paper-packet/1',{origin:b.bundle.origin,files:b.bundle.files,macros:b.bundle.macros,
+          theoremEnvironments:b.bundle.theoremEnvironments,target:{body:b.bundle.target.body,start:b.bundle.target.start,
+            end:b.bundle.target.end,environment:b.bundle.target.environment}});
+        assert.equal(version?.paperPacketDigest,packet,'counting target paper packet changed');
+        const ownCapstone=b.filePlan?.capstone??b.decomposition?.capstone?.name;
+        assert.equal(ownCapstone,COUNT,'counting target capstone changed');
+        relatedCountingTarget={label:'thm:attainable-count',targetId:id,targetVersionId:version.id,
+          ledgerDigest:related.head.ledgerDigest,paperPacketDigest:packet,capstone:ownCapstone,
+          blueprint:relatedBlueprint.file,blueprintDigest:relatedBlueprint.record.digest,
+          ownership:countingOwnership(related.ledger)};
+      }
       return {files,configuration:d.Pt('delegated-review-configuration/1',configuration),
-        toolchain:d.Pt('lean-toolchain/1',toolchain.text)};
+        toolchain:d.Pt('lean-toolchain/1',toolchain.text),relatedCountingTarget};
     }
     async function captureSnapshot() {
       const inputs=await readInputs();
@@ -167,10 +205,17 @@ async function executeNativeReview(raw,d,options={}) {
         declarations[row.declaration]={file:row.file,module,elaboratedType:row.elaboratedType,
           semanticDefinitions:row.semanticDefinitions,inCertifiedModuleClosure:true};
       }
+      const proofFacts={sourceFingerprint:certified.leanProofFactsFingerprint,declarations:{}};
+      for(const name of new Set([...names,COUNT,MAIN,HELPER,COUNT_OWNER])) {
+        const row=certified.statements.find(s=>s.name===name);
+        if(row && scope.files.includes(row.file))proofFacts.declarations[name]={file:row.file,kind:row.kind,
+          hasSorry:row.hasSorry,references:[...(row.references??[])]};
+      }
       return {complete:true,diagnosticsComplete:true,pins,interfaceEvidenceSourceFingerprint:material.sourceFingerprint,
         leanProofFactsFingerprint:certified.leanProofFactsFingerprint,buildFingerprint:material.buildFingerprint,
         idle:{workers:d.go()-1,liveTransactions:d.hasLiveTransaction()?1:0,otherLease:false,workflowRunning:d.isBatchWorking()},
-        files:inputs.files,declarations};
+        files:inputs.files,declarations,targetLabel:bundle.target.label,capstone,proofFacts,
+        relatedCountingTarget:inputs.relatedCountingTarget};
     }
     const snapshot=await captureSnapshot();
     if(q.inspect) {
@@ -184,6 +229,11 @@ async function executeNativeReview(raw,d,options={}) {
         authorizationDigest:d.Pt('user-authorized-formalization/1',authority.userRequest),
         targetId,ledgerDigest:initial.head.ledgerDigest,pins:snapshot.pins,
         ledger:initial.ledger,declarations:snapshot.declarations,
+        targetLabel:snapshot.targetLabel,capstone,proofFacts:snapshot.proofFacts,
+        relatedCountingTarget:snapshot.relatedCountingTarget,
+        expectedPreservedStateDigest:stateDigest(d,initial.ledger),
+        activeInventory:(()=>{const inventory=initial.ledger.surfaceInventories?.find(x=>x.id===initial.ledger.activeSurfaceInventoryId);
+          return inventory?{inventory,expectedInventoryDigest:inventoryDigest(d,inventory)}:undefined;})(),
         unapprovedProposals:initial.ledger.bindings.filter(isUnapprovedProposal).map(binding=>({
           binding,expectedBindingDigest:proposalDigest(d,binding)})),
         elaboratedDefinitionBodies:material.reviewMaterial,sourceBodies,paperSources:snapshot.files,
@@ -193,7 +243,7 @@ async function executeNativeReview(raw,d,options={}) {
     const host={native:{Pt:d.Pt,Sf:d.Sf},store,
       authorizedUserRequestDigest:d.Pt('user-authorized-formalization/1',authority.userRequest),
       captureSnapshot,withIdleLease:async fn=>{idleRuntime(d,true);await lease.assertOwner();return fn();}};
-    return runReview(manifest,host,{apply:q.apply===true});
+    return (surfaceReview?runSurfaceReview:runReview)(manifest,host,{apply:q.apply===true});
   });
 }
 module.exports={executeNativeReview,parseRequest,withStrictNativeLease,idleRuntime};
