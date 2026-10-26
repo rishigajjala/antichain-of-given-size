@@ -1,0 +1,18 @@
+{
+  "id": "sha256-bae823e8f6a07329c45c424c4cb21c1abbd9892fbb7af58127429b32682f9dc9",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-00e0079c737a1fac217543437f4285c25d03bfb20b7fb23e12d5f7b3708d600d",
+  "actor": "author",
+  "mode": "automatic",
+  "provenance": "Codex assistant review under user-authorized formalization; no human review asserted\n{\"manifestDigest\":\"sha256-ac0267c257fbe611811490b34c733b4e8a1a59bb3849eed1137932946850f26f\",\"authorizationDigest\":\"sha256-6db72c5aca96669c1ebe9b93c10d7645f3966dd8f305651d3b8b828f596fb735\",\"claimVersionId\":\"claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95\",\"category\":\"implementation-provenance\",\"reason\":\"This is a statement about which Lean implementation was reused, not a mathematical claim in the manuscript. The old Paper.countingBound remains a complete alternative proof. Current headline owner uses FaithfulLower.exists_paper_counting_threshold, so old-route attribution must not be presented as the current proof. No mathematical row1-11 is excluded.\"}",
+  "kind": "set-disposition",
+  "claimVersionId": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+  "plan": {
+    "claimVersionId": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+    "disposition": "exclude",
+    "evidenceIds": [
+      "sha256-f2d8d9eb8b8852b087bbbbd82b32865553165880aa6b886bb1ea69c4ca8122b3"
+    ],
+    "reason": "This is a statement about which Lean implementation was reused, not a mathematical claim in the manuscript. The old Paper.countingBound remains a complete alternative proof. Current headline owner uses FaithfulLower.exists_paper_counting_threshold, so old-route attribution must not be presented as the current proof. No mathematical row1-11 is excluded."
+  }
+}

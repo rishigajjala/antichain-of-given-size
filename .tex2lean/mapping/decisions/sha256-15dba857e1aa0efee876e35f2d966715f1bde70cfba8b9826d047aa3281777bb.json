@@ -1,0 +1,33 @@
+{
+  "id": "sha256-15dba857e1aa0efee876e35f2d966715f1bde70cfba8b9826d047aa3281777bb",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-552f71923dee6f69cb8c86288f84ad0ef7186581395526f370e2103268718542",
+  "actor": "author",
+  "mode": "automatic",
+  "provenance": "Codex assistant review under user-authorized formalization; no human review asserted\n{\"manifestDigest\":\"sha256-ac0267c257fbe611811490b34c733b4e8a1a59bb3849eed1137932946850f26f\",\"authorizationDigest\":\"sha256-6db72c5aca96669c1ebe9b93c10d7645f3966dd8f305651d3b8b828f596fb735\",\"claimVersionId\":\"claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f\",\"exactClaimText\":\"This target asserts no probabilistic or computational resource result; the following uniformly sampled dyadic corollary is separate.\",\"category\":\"scope-metadata\",\"reason\":\"The counting target is the deterministic cardinality inequality of Theorem7.1. Uniform sampling and probability are introduced in a separately numbered Corollary10.1, with its own proof. Computational resource guarantees are absent from the target; AGENTS.md14-15 additionally warns not to invent runtime/memory claims. Excluding this scope note does not exclude the separate corollary from full-manuscript work.\",\"exactQuotes\":[{\"file\":\".blueprint/thm-attainable-count-04ffa9e627/BLUEPRINT.md\",\"from\":125,\"to\":125,\"text\":\"- This target asserts no probabilistic or computational resource result; the following uniformly sampled dyadic corollary is separate. (other, Handoff; Paper:987–997 versus 1365–1390.)\",\"fileDigest\":\"sha256-465cf6898caaf4d3cdebd63917ee25d1d7225026f58d479b6b167498739a9d36\"},{\"file\":\"paper/Generating_Antichains_Simplified.tex\",\"from\":987,\"to\":997,\"text\":\"\\\\begin{theorem}[Counting attainable ideal sizes]\\\\label{thm:attainable-count}\\nThere exists an absolute integer $B_{\\\\mathrm{cnt}}$ such that, for all integers\\n$B\\\\ge B_{\\\\mathrm{cnt}}$ and $K$ satisfying\\n\\\\[\\n  1\\\\le K\\\\le\\\\frac{(\\\\log B)^2}{100\\\\log\\\\log B},\\n\\\\]\\none has\\n\\\\[\\n  |\\\\V(B,K)|\\\\le2^{B-\\\\sqrt B}.\\n\\\\]\\n\\\\end{theorem}\",\"fileDigest\":\"sha256-137f3d51bc6dee4e62a4897bf4da0584cd7ff247aa6003811ff239794c295b1f\"},{\"file\":\"paper/Generating_Antichains_Simplified.tex\",\"from\":1365,\"to\":1390,\"text\":\"\\\\subsection{Typical and almost-all lower bounds}\\n\\nThe exact count has a direct probabilistic interpretation.\\n\\n\\\\begin{corollary}[Typical lower bound in one dyadic block]\\\\label{cor:block-probability}\\nUnder the assumptions of Theorem~\\\\ref{thm:attainable-count}, let\\n\\\\[\\n  H_B=[2^{B-1},2^B)\\\\cap\\\\mathbb Z\\n\\\\]\\nand choose $Y_B$ uniformly from $H_B$. Then\\n\\\\[\\n  \\\\Pr\\\\bigl(\\\\alpha(Y_B)>K\\\\bigr)\\\\ge 1-2^{1-\\\\sqrt B}.\\n\\\\]\\n\\\\end{corollary}\\n\\n\\\\begin{proof}\\nIf $n\\\\in H_B$ and $\\\\alpha(n)\\\\le K$, take a witnessing generating family\\n$A_1,\\\\ldots,A_s$, where $s\\\\le K$. Since each $2^{A_i}$ is contained in\\nthe ideal,\\n\\\\[\\n  2^{|A_i|}\\\\le n<2^B,\\n\\\\]\\nso $|A_i|\\\\le B-1$. Hence $n\\\\in\\\\V(B,K)$. Theorem~\\\\ref{thm:attainable-count}\\ntherefore shows that at most $2^{B-\\\\sqrt B}$ of the $2^{B-1}$ integers in\\n$H_B$ have $\\\\alpha(n)\\\\le K$. Dividing by $2^{B-1}$ proves the claim.\\n\\\\end{proof}\",\"fileDigest\":\"sha256-137f3d51bc6dee4e62a4897bf4da0584cd7ff247aa6003811ff239794c295b1f\"}]}",
+  "kind": "put-evidence",
+  "evidence": {
+    "kind": "source-reading",
+    "anchors": [
+      {
+        "file": ".blueprint/thm-attainable-count-04ffa9e627/BLUEPRINT.md",
+        "from": 125,
+        "to": 125,
+        "excerptDigest": "sha256-c867d86c519428c2a8ebc1c00e7ac00e5dbd5d693ebea4b485f7ec6bae3a4e47"
+      },
+      {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "from": 987,
+        "to": 997,
+        "excerptDigest": "sha256-eef5a44a47d9e17985e32093ac9d93d3cb240c26d01d250411486fad68d3cdf9"
+      },
+      {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "from": 1365,
+        "to": 1390,
+        "excerptDigest": "sha256-8aa865fdd831f35a608a0b19aeee2c5125f7da08eb12503dab9b2843006dbe81"
+      }
+    ],
+    "id": "sha256-0f397e206e6404e8214836125aac5a275830b5c20a7fa265a46e4bf4d511bdb4"
+  }
+}
