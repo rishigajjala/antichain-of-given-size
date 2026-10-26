@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
-  "slug": "antichainofgivensize-alpha-simultaneous-density-one-17m0gou",
-  "updatedAt": "2026-10-26T21:35:45.324Z",
+  "slug": "antichainofgivensize-alpha-maximum-order-1s9pkid",
+  "updatedAt": "2026-10-26T21:37:40.140Z",
   "sourceFingerprint": "sha256:67e554dfae2915f7dbf13061d33ed52807dd759ac8e0742f7671c956b7ac91ca",
   "buildFingerprint": "sha256:67e554dfae2915f7dbf13061d33ed52807dd759ac8e0742f7671c956b7ac91ca",
   "dependencyFingerprint": "sha256:67e554dfae2915f7dbf13061d33ed52807dd759ac8e0742f7671c956b7ac91ca",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-26T21:35:45.324Z",
+  "elaboratedAt": "2026-10-26T21:37:40.140Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -104,11 +104,11 @@
     "AntichainOfGivenSize.Theorem"
   ],
   "target": {
-    "key": "lean:.:AntichainOfGivenSize.alpha_simultaneous_density_one",
-    "id": "lean:.:AntichainOfGivenSize.alpha_simultaneous_density_one",
-    "title": "AntichainOfGivenSize.alpha_simultaneous_density_one",
-    "location": "AntichainOfGivenSize/Model/Theorem.lean:91",
-    "paperDigest": "a1d02b75bb1d"
+    "key": "lean:.:AntichainOfGivenSize.alpha_maximum_order",
+    "id": "lean:.:AntichainOfGivenSize.alpha_maximum_order",
+    "title": "AntichainOfGivenSize.alpha_maximum_order",
+    "location": "AntichainOfGivenSize/Model/Theorem.lean:110",
+    "paperDigest": "e846f26d72f2"
   },
   "nodes": [
     {
@@ -27171,12 +27171,12 @@
       "paperRefs": []
     },
     {
-      "id": "paper:AntichainOfGivenSize/Model/Theorem.lean:91",
+      "id": "paper:AntichainOfGivenSize/Model/Theorem.lean:110",
       "kind": "paper",
-      "label": "AntichainOfGivenSize/Model/Theorem.lean:91",
+      "label": "AntichainOfGivenSize/Model/Theorem.lean:110",
       "status": "target",
       "paperRefs": [
-        "AntichainOfGivenSize/Model/Theorem.lean:91"
+        "AntichainOfGivenSize/Model/Theorem.lean:110"
       ]
     },
     {
@@ -67621,10 +67621,10 @@
       "id": "imports:file:AntichainOfGivenSize/Theorem.lean->file:AntichainOfGivenSize/Section6/ModularIncrement.lean"
     },
     {
-      "from": "lean:AntichainOfGivenSize.alpha_simultaneous_density_one",
-      "to": "paper:AntichainOfGivenSize/Model/Theorem.lean:91",
+      "from": "lean:AntichainOfGivenSize.alpha_maximum_order",
+      "to": "paper:AntichainOfGivenSize/Model/Theorem.lean:110",
       "kind": "renders",
-      "id": "renders:lean:AntichainOfGivenSize.alpha_simultaneous_density_one->paper:AntichainOfGivenSize/Model/Theorem.lean:91"
+      "id": "renders:lean:AntichainOfGivenSize.alpha_maximum_order->paper:AntichainOfGivenSize/Model/Theorem.lean:110"
     },
     {
       "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper",
