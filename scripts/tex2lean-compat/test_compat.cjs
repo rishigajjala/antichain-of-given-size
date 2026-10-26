@@ -170,6 +170,65 @@ async function checkInventory() {
   for (const name of reservedNames) assert(!kept.includes('/mock-project/' + name));
 }
 
+const handoffRequests = [];
+const handoffContext = vm.createContext({
+  x:(root, name) => ({fsPath:root.fsPath + '/' + name}),
+  A:{
+    list:async root => {
+      if (root.fsPath.endsWith('/missing')) throw new Error('not found');
+      if (root.fsPath.endsWith('/empty')) return [];
+      return [['axioms.txt', 'file'], ['paper-statements.txt', 'file']];
+    },
+    read:async file => Buffer.from(file.fsPath.endsWith('axioms.txt') ? 'Recorded axiom output' : ''),
+  },
+  HG:() => 'ORIGINAL_SHARED_AUDIT_PROMPT', mde:() => '\nCAPTURED_AXIOM_OUTPUT',
+  g:() => {}, GG:() => 'correspondence request', KG:() => 'assumption request',
+  VG:() => 'probability request', dd:() => [], BG:{}, qG:{}, zG:{},
+  St:() => ({model:'gpt-6-astra', effort:'high'}), fde:() => [],
+  It:async (_context, label, request) => {
+    handoffRequests.push({label, request});
+    if (label === 'Final audit writer') return {narrative:'Preserved reader findings.'};
+    return {reader:label, verdict:'unknown'};
+  },
+});
+vm.runInContext(between('async function compatHandoffSourceAccess(', 'function fde('), handoffContext);
+async function checkHandoffEvidence() {
+  const workspace = {fsPath:'/absolute/repo'};
+  const project = {fsPath:'/absolute/repo/lean'};
+  const paper = {fsPath:'/absolute/repo/paper/main.tex'};
+  const verification = {fsPath:'/absolute/repo/.blueprint/verification'};
+  const sourceAccess = await handoffContext.compatHandoffSourceAccess(workspace, project, paper, verification);
+  assert(sourceAccess.includes('/absolute/repo/.blueprint/verification/axioms.txt'));
+  assert(sourceAccess.includes('/absolute/repo/.blueprint/verification/paper-statements.txt (empty; not evidence of a successful check)'));
+  assert(!sourceAccess.includes('/verification/build.txt'));
+  const missing = await handoffContext.compatHandoffSourceAccess(workspace, project, paper, {fsPath:'/absolute/repo/missing'});
+  assert(missing.includes('could not be listed'));
+  assert(!missing.includes('axioms.txt'));
+  const empty = await handoffContext.compatHandoffSourceAccess(workspace, project, paper, {fsPath:'/absolute/repo/empty'});
+  assert(empty.includes('No verification files or subdirectories were found'));
+  const result = await handoffContext.YG({
+    sourceAccess, provider:{id:'codex-cli'}, providerLabel:'test provider',
+    playbook:{}, bundle:{target:{label:'test-target'}}, inventory:[],
+    evidence:{projectPath:'.'}, progress:{report:() => {}},
+  });
+  assert.equal(handoffRequests.length, 4);
+  for (const {request} of handoffRequests.slice(0, 3)) {
+    assert(request.system.startsWith('ORIGINAL_SHARED_AUDIT_PROMPT\nCAPTURED_AXIOM_OUTPUT'));
+    for (const uri of [workspace, project, paper, verification]) assert(request.system.includes(uri.fsPath));
+    assert(request.system.includes('temporary directory'));
+    assert(request.system.includes('Read the complete relevant source files'));
+    assert(request.system.includes('Use read-only filesystem inspection'));
+    assert(request.system.includes('recorded commands, exit status, and source version'));
+    assert(request.system.includes('empty; not evidence of a successful check'));
+  }
+  assert.equal(new Set(handoffRequests.slice(0, 3).map(call => call.request.system)).size, 1);
+  assert.equal(result.correspondence.verdict, 'unknown');
+  assert.equal(result.assumptions.verdict, 'unknown');
+  assert.equal(result.probability.verdict, 'unknown');
+  assert(handoffRequests[3].request.system.includes('Do not redo their work or change their verdicts.'));
+  assert.equal(result.narrative, 'Preserved reader findings.');
+}
+
 const launches = [];
 const providerContext = vm.createContext({
   rl: (_kind, command) => ({command, source:'test'}), il: () => true, g: () => {},
@@ -196,8 +255,9 @@ async function checkProvider(request, expectedModel, expectedEffort) {
   await checkDiagnostics();
   await checkPlanningClaims();
   await checkInventory();
+  await checkHandoffEvidence();
   await checkProvider({}, 'gpt-6-astra', 'high');
   await checkProvider({model:'gpt-6-sol', effort:'medium'}, 'gpt-6-sol', 'medium');
   await checkProvider({model:'gpt-6-astra', effort:'high'}, 'gpt-6-astra', 'high');
-  console.log('PASS: library-only audit imports; configured/tier worker effort; structured request/config effort; models preserved; ModelClosure classifies private names and expands only project inductive constructors without changing lookup keys; all diagnostic files checked with peak concurrency two; planning retains registered and current claims without duplicates; inventory excludes only exact known root helper names and retains authored/nested Lean files. No Lean or workflow started.');
+  console.log('PASS: library-only audit imports; configured/tier worker effort; structured request/config effort; models preserved; ModelClosure classifies private names and expands only project inductive constructors without changing lookup keys; all diagnostic files checked with peak concurrency two; planning retains registered and current claims without duplicates; inventory excludes only exact known root helper names and retains authored/nested Lean files; all three handoff gates receive absolute read-only source access and honest log inventory, with unknown verdicts preserved. No Lean or workflow started.');
 })().catch(error => {console.error(error); process.exitCode = 1;});

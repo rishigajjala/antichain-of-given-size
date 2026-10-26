@@ -182,8 +182,10 @@ These differences preserve the target conclusions and their quantifiers.
   widening the closure check's permitted modules. The structural finite-type
   instances use term-form library constructors. The representation equivalence
   and counting proofs remain in their original proof modules. The Model
-  membership cross-check and headline are still proof-pass placeholders;
-  relocating definitions does not constitute a new counting proof.
+  membership equivalence and headline reuse the checked theorems
+  `Paper.mem_attainableValues_iff` and `Paper.countingBound`. The headline's
+  `Prior` parameter is an empty structure and adds no assumption. These are
+  interfaces to the existing proofs; they do not replace the counting argument.
 * **Direct reduction.**
   [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean)
   uses the previously checked unconditional range-matching construction,

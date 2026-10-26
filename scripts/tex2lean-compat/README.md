@@ -7,7 +7,7 @@ The reviewed source SHA-256 is
 `ae68bb68d8b7d1333660add1a39474e007d43136b8ddab923850594ff79bc99d`.
 The builder refuses a different bundle until its source is reviewed.
 
-Nine replacements address integration bugs, strengthen one check, and reduce
+Twelve replacements address integration bugs, strengthen one check, and reduce
 peak memory use:
 
 - Restrict generated `Meta.Audit` imports to the selected library's modules,
@@ -38,6 +38,14 @@ peak memory use:
   including them in concurrent source scans changes the fingerprint despite
   unchanged author sources. Ordinary hidden Lean files, lookalike names, and
   all nested Lean files remain subject to the existing inventory rules.
+- Give the three independent handoff readers absolute workspace, Lean project,
+  and complete paper paths, plus a dynamic inventory of files actually present
+  under the configured output directory's `verification/`. The Codex
+  structured provider keeps its temporary working directory and read-only
+  sandbox. The context asks readers to inspect relevant complete sources and
+  actual log contents, flags empty/unavailable logs honestly, and preserves
+  unknown findings when evidence is missing. Steering notes alone do not reach
+  these gates in this CLI version.
 
 Model selection is unchanged. The existing Codex effort mapping is preserved:
 low and medium pass through; other configured levels map to high. Thus the
@@ -75,7 +83,10 @@ checked with peak concurrency two. They execute the planning-boundary helper
 with mocked registry reads and regeneration to verify that registered and
 current claims are both retained. Mocked filesystem tests run the actual
 collector against every reserved helper family and check that authored and
-nested Lean files are retained. They neither run Lean, launch a model, nor
+nested Lean files are retained. The actual shared handoff runner is exercised
+with mocked providers: every independent gate receives the absolute paths and
+read-only access instructions, missing/empty logs are not described as passes,
+and `unknown` verdicts remain unchanged. They neither run Lean, launch a model, nor
 start a Tex2Lean workflow. After switching to this copy, re-run the Lean check
 controls and the complete project validation.
 
@@ -117,6 +128,24 @@ under `source_inventory` and verifies that its only change is the narrow
 root-helper filter. The complete before/after-build and inspection source
 fingerprint checks are byte-identical to the original bundle and are also
 recorded in `unchanged_check_sha256`.
+
+## Handoff source evidence
+
+The handoff patch does not add a new command-line option. Keep the normal
+project, Lean-directory, and output-directory arguments. Before handoff, place
+captured verification results in `<output directory>/verification/` with
+commands, exit codes, timestamps, and source hashes where available. The
+locator lists what exists when the handoff runs; it does not create logs,
+assume named files exist, or certify their freshness or contents. Empty logs
+can be interpreted alongside a separate recorded exit status, but are not
+success evidence on their own.
+
+The builder verifies that the complete handoff runner differs only by appending
+this source-access context to the existing shared prompt. The independent
+requests, schemas, verdict aggregation, and final writer's instructions remain
+unchanged. Before/after runner and locator hashes are recorded under
+`handoff_evidence` in the manifest. The provider's sandbox and temporary
+working-directory behavior are unchanged.
 
 ## Strengthened ModelClosure check
 
