@@ -61,7 +61,13 @@ The only change to `o4` is optional read-only return material when
 `includeReviewMaterial:true`: exact elaborated types and the semantic-root types,
 values and canonical value digests already obtained by its native Lean probes.
 Ordinary calls return identical receipt data. No Lean probe or receipt policy is
-changed. Duplicate public declaration names are rejected in inspection mode.
+changed. Repeated normalized rows are accepted only when their full type and dependency
+records agree exactly; repeated selected values must also agree exactly.
+A duplicated selected value with no body is also rejected, since equal types
+without bodies cannot establish identity. Conflicting records fail closed with
+the declaration name and both records in
+the diagnostic. This handles generated equations that Lean enumerates more than
+once, without choosing between different declarations sharing a display name.
 
 ## Inspection precedes any semantic review
 
@@ -222,7 +228,8 @@ The inspection test evaluates actual `dte`/`ste` generation and mocked provider
 invocation. The composition test checks the default bug-fix-only and explicit
 optional-ledger builds. The integration test evaluates the actual native `o4`
 and registration wrapper, checks
-ordinary receipt equivalence, successful/failing dry-run cleanup paths, retained
+ordinary receipt equivalence, identical-row/value repeats, conflicting type,
+dependency and value rejection, successful/failing dry-run cleanup paths, retained
 entry guards, authority mismatch, exclusive lease behavior, exact cache prefixes,
 and an inspection flow with current type/body/source output and no publication.
 The adapter test checks the actual native ledger store/replay and unchanged

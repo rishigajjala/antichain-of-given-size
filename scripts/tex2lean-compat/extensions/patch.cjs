@@ -19,15 +19,21 @@ function patch(source,{authorityDigest=""}={}) {
   const begin=result.indexOf('async function o4('),end=result.indexOf('var r4,',begin);
   assert(begin>=0 && end>begin);
   let o4=result.slice(begin,end);
-  assert.equal(o4.split('let R=[];').length-1,1);
-  o4=o4.replace('let R=[];',
-    'if(i.includeReviewMaterial&&y.size!==f.rows.length)throw new Error("ambiguous duplicate declaration names in review evidence");let R=[];');
+  const rowMap='y=new Map(f.rows.map($=>[$.declaration,$]))';
+  assert.equal(o4.split(rowMap).length-1,1);
+  o4=o4.replace(rowMap,
+    'y=i.includeReviewMaterial?compatReviewInterfaceRows(f.rows):new Map(f.rows.map($=>[$.declaration,$]))');
+  const valueParse='let S=Rue(await n4(h,"Lean selected interface-value probe"));';
+  assert.equal(o4.split(valueParse).length-1,1);
+  o4=o4.replace(valueParse,
+    'let S=(i.includeReviewMaterial?compatReviewInterfaceValues:Rue)(await n4(h,"Lean selected interface-value probe"));');
   const receipt='interfaceReceipts:R,relationEvidence:[]}';
   assert.equal(o4.split(receipt).length-1,1);
   o4=o4.replace(receipt,
     'interfaceReceipts:R,relationEvidence:[],...(i.includeReviewMaterial?{reviewMaterial:compatInterfaceReviewMaterial(n,k,y,w,v)}:{})}');
   result=result.slice(0,begin)+o4+result.slice(end);
   changes.push('Expose actual elaborated review types/bodies only when explicitly requested; ordinary receipts unchanged');
+  changes.push('Accept identical normalized probe rows and selected values only; reject conflicting duplicates with exact diagnostics');
   replace('remap:{command:"formalize.remapStatements",',
     '"ledger-review":{command:"formalize.reviewLedger",what:"reviewing a paper-to-Lean ledger",writes:!0,summary:"inspect or review exact ledger bindings; default dry-run",args:"<JSON request>",group:"Read the paper"},remap:{command:"formalize.remapStatements",',
     'Register optional command metadata');

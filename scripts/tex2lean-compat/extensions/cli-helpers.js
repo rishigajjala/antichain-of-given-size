@@ -4,6 +4,31 @@ function compatClearReviewCaches(project, proofFacts, diagnostics) {
   for(const key of [...proofFacts.keys()]) if(key.startsWith(project+":")) proofFacts.delete(key);
   for(const key of [...diagnostics.keys()]) if(key.startsWith(project+"\0")) diagnostics.delete(key);
 }
+// Optional review evidence accepts only identical repeats of a normalized record.
+// Native probes can enumerate generated equations more than once; conflicting
+// types/dependencies or selected values must never be silently overwritten.
+function compatReviewInterfaceRows(rows) {
+  const index=new Map();
+  for(const row of rows) {
+    const previous=index.get(row.declaration);
+    if(previous && JSON.stringify(previous)!==JSON.stringify(row))
+      throw new Error("conflicting duplicate declaration in review evidence: "+row.declaration+
+        "\n"+JSON.stringify({first:previous,repeated:row}));
+    index.set(row.declaration,row);
+  }
+  return index;
+}
+function compatReviewInterfaceValues(text) {
+  const parsed=Rue(text); // Retain the native format validation before checking repeats.
+  const seen=new Map();
+  for(const [name,value] of JSON.parse(text).rows) {
+    if(seen.has(name) && (seen.get(name)!==value || value===""))
+      throw new Error("conflicting or bodyless duplicate declaration value in review evidence: "+name+
+        "\n"+JSON.stringify({first:seen.get(name),repeated:value}));
+    seen.set(name,value);
+  }
+  return parsed;
+}
 function compatInterfaceReviewMaterial(bindings, roots, rows, statements, values) {
   return bindings.map(binding => {
     const row=rows.get(binding.declaration), statement=statements.get(binding.declaration);

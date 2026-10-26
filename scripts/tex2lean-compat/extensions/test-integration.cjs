@@ -26,11 +26,11 @@ function receiptContext(s) {
       const input=files.get(root+'/'+request.args[2]).toString();
       const output=input.match(/IO\.FS\.writeFile "([^"]+)"/)[1];
       const value=request.args[2].includes('interface-values')?
-        {leanVersion:'fixture-version',rows:[['Project.Spec','Expr(SpecBody)'],['Project.Hidden','Expr(HiddenBody)']]}:
+        {leanVersion:'fixture-version',rows:ctx.valueRows}:
         {leanVersion:'fixture-version',rows:ctx.rows};
       files.set(root+'/'+output,Buffer.from(JSON.stringify(value)));return {code:0};
     }});
-  ctx.rows=rows;
+  ctx.rows=rows;ctx.valueRows=[['Project.Spec','Expr(SpecBody)'],['Project.Hidden','Expr(HiddenBody)']];
   vm.runInContext(between(source,'function G0(','var J2,'),ctx);
   vm.runInContext(fs.readFileSync(path.join(__dirname,'cli-helpers.js'),'utf8'),ctx);
   vm.runInContext(between(s,'function Sue(','var r4,'),ctx);
@@ -52,8 +52,30 @@ async function testReceipts() {
   assert.deepEqual(reviewMaterial[0].semanticDefinitions.map(x=>({declaration:x.declaration,valueDigest:x.valueDigest})),
     plain(a.interfaceReceipts[0].receipt.semanticRootDigests));
   assert.equal(next.files.size,0,'all native temporary probe files cleaned up');
-  next.ctx.rows.push(['Project.Hidden','ambiguous duplicate',[],[]]);
-  await assert.rejects(()=>next.ctx.o4('/virtual',['Project.Model'],bindings,evidence,{...opts,includeReviewMaterial:true}),/ambiguous duplicate/);
+  // Lean's environment can enumerate the same generated equation more than once.
+  // Accept byte-identical normalized rows/values and preserve the actual receipts.
+  next.ctx.rows.push(...plain(next.ctx.rows));
+  next.ctx.rows.push(['Project.Spec','Expr(Prop)',[],['Project.Hidden','Project.Hidden']]);
+  next.ctx.valueRows.push(...plain(next.ctx.valueRows));
+  const repeated=await next.ctx.o4('/virtual',['Project.Model'],bindings,evidence,{...opts,includeReviewMaterial:true});
+  assert.deepEqual(plain(repeated),plain(r),'identical normalized duplicates must not change receipts or review material');
+  const rejectDuplicate=async(row,pattern)=>{
+    next.ctx.rows.push(row);
+    await assert.rejects(()=>next.ctx.o4('/virtual',['Project.Model'],bindings,evidence,{...opts,includeReviewMaterial:true}),pattern);
+    next.ctx.rows.pop();assert.equal(next.files.size,0,'conflicting-row probe artifacts cleaned');
+  };
+  await rejectDuplicate(['Project.Hidden','ConflictingType',[],[]],/conflicting duplicate declaration.*Project.Hidden/);
+  await rejectDuplicate(['Project.Spec','Expr(Prop)',[],['Project.Other']],/conflicting duplicate declaration.*Project.Spec/);
+  await rejectDuplicate(['Project.Spec','Expr(Prop)',['Project.Other'],['Project.Hidden']],/conflicting duplicate declaration.*Project.Spec/);
+  next.ctx.valueRows.push(['Project.Hidden','ConflictingValue']);
+  await assert.rejects(()=>next.ctx.o4('/virtual',['Project.Model'],bindings,evidence,{...opts,includeReviewMaterial:true}),
+    /conflicting or bodyless duplicate declaration value.*Project.Hidden/);
+  assert.equal(next.files.size,0,'conflicting-value probe artifacts cleaned');
+  next.ctx.valueRows.pop();
+  next.ctx.valueRows=next.ctx.valueRows.map(([name,value])=>[name,name==='Project.Hidden'?'':value]);
+  await assert.rejects(()=>next.ctx.o4('/virtual',['Project.Model'],bindings,evidence,{...opts,includeReviewMaterial:true}),
+    /conflicting or bodyless duplicate declaration value.*Project.Hidden/);
+  assert.equal(next.files.size,0,'bodyless-value probe artifacts cleaned');
   assert.equal(next.files.size,0);
 }
 function wrapper(s) {
@@ -195,6 +217,7 @@ function testUnchangedAndCache() {
   testUnchangedAndCache();await testReceipts();await testActualWrapper();await testLeaseAndAuthority();await testInspectionFlow();
   console.log(JSON.stringify({ok:true,candidateBundleSha256:built.after,
     tests:['actual native o4 ordinary receipt equivalence and optional type/body extraction',
+    'identical normalized probe rows and values accepted; conflicting types/dependencies/values rejected',
       'actual T8 wrapper success/failure skip only review reconciliation; entry guards unchanged',
       'strict exclusive lease rejects live/stale/malformed/existing leases; cleanup preserves replacement owner',
       'independent authority pin mismatch, including changed authority plus self-consistent manifest',
