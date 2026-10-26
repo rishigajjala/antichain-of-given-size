@@ -2,3 +2,8 @@
 # The axiom profile of each is read from Lean whenever the checks run.
 AntichainOfGivenSize.attainable_count
 AntichainOfGivenSize.Model.attainableValues_membership
+AntichainOfGivenSize.alpha_eventual_upper
+AntichainOfGivenSize.alpha_lower_density_one
+AntichainOfGivenSize.alpha_simultaneous_density_one
+AntichainOfGivenSize.alpha_maximum_order
+AntichainOfGivenSize.alpha_asymptotic_order

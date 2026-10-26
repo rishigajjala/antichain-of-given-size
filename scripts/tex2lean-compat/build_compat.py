@@ -2,7 +2,7 @@
 """Extract and narrowly patch this task's installed Tex2Lean CLI bundle.
 
 Only the destination directory is written. The installed executable, project,
-settings, and workflow state are not modified. The twelve exact replacements
+settings, and workflow state are not modified. The exact replacements
 fail closed if the installed source differs from the reviewed version.
 """
 from pathlib import Path
@@ -59,6 +59,101 @@ handoff_context_helper = r'''async function compatHandoffSourceAccess(workspace,
   return lines.join("\n");
 }
 '''
+
+recovery_helpers = r'''var compatLiveTransactions = new Map;
+var compatRecoveryInFlight = new Map;
+var compatTransactionDirectories = new Set;
+function compatMissingFile(error) {
+  return error && (error.code === "ENOENT" || error.code === "FileNotFound");
+}
+function compatHasLiveTransaction(project) {
+  return [...compatLiveTransactions.values()].includes(project);
+}
+function compatSnapshotTransient(directory, name) {
+  const file = x(directory, name).fsPath;
+  return /^.+\.writing-[0-9]+-[0-9a-f]*$/.test(name)
+    || [...compatTransactionDirectories].some(dir => file === dir || file.startsWith(dir + "/"));
+}
+function compatValidateSnapshot(snapshot) {
+  if (!snapshot.scope && snapshot.files.size === 0
+      && !["project-missing", "project-empty"].includes(snapshot.emptySnapshotReason)) {
+    throw new Error("Refusing an empty unscoped transaction snapshot without a verified empty-project baseline; preserve the journal for recovery review.");
+  }
+}
+async function compatRemoveIfPresent(file) {
+  try { await A.remove(file); }
+  catch (error) { if (!compatMissingFile(error)) throw error; }
+}
+'''
+
+def reviewed_section(start, end_marker):
+    assert original.count(start) == 1, start
+    at = original.index(start)
+    return original[at:original.index(end_marker, at + len(start))]
+
+new_rf = r'''async function rf(e,t,n,r){
+  const project = x(e,t.leanProjectPath), key = project.fsPath;
+  const directory = NW(e,t);
+  compatTransactionDirectories.add(directory.fsPath);
+  while (compatRecoveryInFlight.has(key)) await compatRecoveryInFlight.get(key);
+  const id = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const journal = x(directory,`${id}.json`);
+  compatLiveTransactions.set(journal.fsPath,key);
+  let journalStarted = false;
+  try {
+    let missing = false;
+    try { await A.stat(project); }
+    catch (error) { if (!compatMissingFile(error)) throw error; missing = true; }
+    let before = missing ? {files:new Map,emptySnapshotReason:"project-missing"}
+      : r ? await ad(project,r) : await Kk(project);
+    if (!before.scope && before.files.size === 0 && !before.emptySnapshotReason)
+      before.emptySnapshotReason = "project-empty";
+    compatValidateSnapshot(before);
+    await A.mkdirp(directory);
+    journalStarted = true;
+    await Jk(journal,{schema:my,id,targetKey:n,state:"open",createdAt:new Date().toISOString(),files:EE(before),scope:before.scope?[...before.scope]:void 0,emptySnapshotReason:before.emptySnapshotReason});
+    await du(e,t.leanProjectPath,`opened Lean transaction ${n}`);
+    g(`batch transaction: opened ${id} for ${n}`);
+    return {id,targetKey:n,root:e,leanProjectPath:t.leanProjectPath,projectDir:project,journal,before};
+  } catch (error) {
+    if (!journalStarted) compatLiveTransactions.delete(journal.fsPath);
+    throw error;
+  }
+}'''
+
+new_af = r'''async function af(e,t){
+  const project = x(e,t.leanProjectPath), key = project.fsPath, directory = NW(e,t);
+  compatTransactionDirectories.add(directory.fsPath);
+  if (compatHasLiveTransaction(key)) return 0;
+  const pending = compatRecoveryInFlight.get(key);
+  if (pending) return pending;
+  const recovery = (async()=>{
+    let entries;
+    try { entries = await A.list(directory); }
+    catch (error) { if (compatMissingFile(error)) return 0; throw error; }
+    let recovered = 0;
+    for (const [name,kind] of entries) {
+      if (kind !== "file" || !name.endsWith(".json")) continue;
+      const journal = x(directory,name);
+      if (compatLiveTransactions.has(journal.fsPath)) continue;
+      try {
+        const record = JSON.parse(Buffer.from(await A.read(journal)).toString("utf8"));
+        if (record.schema !== my || record.state === "committed") {
+          await compatRemoveIfPresent(journal); continue;
+        }
+        await _W(project,oie(record.files,record.scope,record.emptySnapshotReason));
+        await compatRemoveIfPresent(journal);
+        recovered++;
+        g(`batch transaction: recovered interrupted surface for ${record.targetKey}`);
+      } catch (error) { W(`could not recover batch transaction ${name}`,error); throw error; }
+    }
+    if (recovered > 0) await du(e,t.leanProjectPath,`recovered ${recovered} interrupted Lean transaction(s)`);
+    return recovered;
+  })();
+  compatRecoveryInFlight.set(key,recovery);
+  try { return await recovery; }
+  finally { if (compatRecoveryInFlight.get(key) === recovery) compatRecoveryInFlight.delete(key); }
+}'''
 
 patches = [
     (
@@ -127,7 +222,53 @@ patches = [
         'return YG({provider:d,providerLabel:Mo(d),playbook:l,bundle:c,inventory:o,evidence:h,',
         'return YG({sourceAccess:await compatHandoffSourceAccess(n,a,x(n,s.start.file),x(n,r.outputDirectory,"verification")),provider:d,providerLabel:Mo(d),playbook:l,bundle:c,inventory:o,evidence:h,',
     ),
+    (
+        "Keep whole-model surplus checks in registry-seeded Meta.Audit, not individual theorem files",
+        'return[...r.map(i=>`#modelClosureOfType ${i}`),...r.length?[`#surplusIn ${e}.Model from ${r.join(" ")}`]:[]]',
+        'return r.map(i=>`#modelClosureOfType ${i}`)',
+    ),
 ]
+
+recovery_sections = [
+    ("Snapshot traversal", "async function OW(", "async function Kk("),
+    ("Snapshot restore", "async function nf(", "function TE("),
+    ("Snapshot restore guard", "async function _W(", "async function rf("),
+    ("Transaction open", "async function rf(", "async function BW("),
+    ("Transaction scope", "async function BW(", "async function of("),
+    ("Transaction prepare", "async function Vk(", "function NW("),
+    ("Transaction decode", "function oie(", "async function Jk("),
+    ("Transaction commit", "async function of(", "async function Vt("),
+    ("Transaction rollback", "async function Vt(", "async function af("),
+    ("Transaction recovery", "async function af(", "var my,"),
+    ("Checkpoint refresh", "async function Pf(", "async function "),
+]
+patches.append(("Add transaction lifetime, empty-baseline, and recovery serialization guards", "async function OW(", recovery_helpers + "async function OW("))
+for label, start, stop in recovery_sections:
+    old = reviewed_section(start, stop)
+    new = old
+    if label == "Snapshot traversal":
+        new = old.replace('if([".git",', 'if(compatSnapshotTransient(i,o))continue;if([".git",', 1)
+    elif label == "Snapshot restore":
+        new = old.replace('async function nf(e,t){', 'async function nf(e,t){compatValidateSnapshot(t);', 1).replace('await A.remove(', 'await compatRemoveIfPresent(')
+        new = new.replace('for(let[r,i]of t.files){', 'for(let[r,i]of t.files){if(compatSnapshotTransient(x(e,...r.split("/").slice(0,-1)),r.split("/").pop()))continue;', 1)
+    elif label == "Snapshot restore guard":
+        new = old.replace('async function _W(e,t){', 'async function _W(e,t){compatValidateSnapshot(t);', 1)
+    elif label == "Transaction open":
+        new = new_rf
+    elif label in ("Transaction scope", "Transaction prepare"):
+        new = old.replace('files:EE(e.before),scope:', 'files:EE(e.before),emptySnapshotReason:e.before.emptySnapshotReason,scope:', 1)
+    elif label == "Transaction decode":
+        new = old.replace('function oie(e,t){', 'function oie(e,t,n){', 1).replace('return{files:', 'return{emptySnapshotReason:n,files:', 1)
+    elif label == "Transaction commit":
+        new = old.replace('await A.remove(e.journal),g(', 'await compatRemoveIfPresent(e.journal),compatLiveTransactions.delete(e.journal.fsPath),g(', 1)
+    elif label == "Transaction rollback":
+        new = old.replace('await A.remove(e.journal),await du(', 'await compatRemoveIfPresent(e.journal),compatLiveTransactions.delete(e.journal.fsPath),await du(', 1)
+    elif label == "Transaction recovery":
+        new = new_af
+    elif label == "Checkpoint refresh":
+        new = old.replace('if(!t)return;let n=me();await af(t,n);', 'if(!t)return;if(go()>0){e.setResumable(void 0);return}let n=me();if(compatHasLiveTransaction(x(t,n.leanProjectPath).fsPath)){e.setResumable(void 0);return}await af(t,n);', 1)
+    assert old != new, label
+    patches.append(("Recovery safety: " + label, old, new))
 expected_source_sha256 = "ae68bb68d8b7d1333660add1a39474e007d43136b8ddab923850594ff79bc99d"
 assert hashlib.sha256(original.encode()).hexdigest() == expected_source_sha256, "Installed bundle differs from the reviewed Tex2Lean 1.0.2 build"
 patched = original
@@ -142,6 +283,8 @@ check_sections = [
     ("Meta phase regeneration", "async function qD(", "async function iC("),
     ("Audit template", "function XA(e,t,n)", "var ph="),
     ("Proof-fact source fingerprint checks", "async function cr(", "var Fl,"),
+    ("Root aggregation imports Meta.Audit", "function TX(", "function EX("),
+    ("Mandatory seal invocation check", "function Whe(", "function Uhe("),
 ]
 unchanged_checks = {}
 for label, start, end_marker in check_sections:
@@ -232,6 +375,37 @@ handoff_evidence = {
     "change": "Absolute read-only source access and actual verification-file inventory shared by all three independent gates; verdict and sandbox logic unchanged",
 }
 
+# Per-file repair keeps each closure invocation; the global surplus template,
+# registered-root union, root import, and mandatory seal check remain in force.
+surface_start = "function yX("
+surface_end = "function pg("
+old_begin = original.index(surface_start)
+new_begin = patched.index(surface_start)
+old_surface = original[old_begin:original.index(surface_end, old_begin)]
+new_surface = patched[new_begin:patched.index(surface_end, new_begin)]
+_, surface_before, surface_after = patches[12]
+assert old_surface.count(surface_before) == 1, "Surface check placement anchor mismatch"
+assert new_surface == old_surface.replace(surface_before, surface_after, 1), "Unexpected per-file check change"
+surface_check_placement = {
+    "original_sha256": hashlib.sha256(old_surface.encode()).hexdigest(),
+    "patched_sha256": hashlib.sha256(new_surface.encode()).hexdigest(),
+    "change": patches[12][0],
+}
+
+transaction_recovery = {
+    "support_sha256": hashlib.sha256(recovery_helpers.encode()).hexdigest(),
+    "sections": {},
+    "changes": [label for label, _, _ in patches[13:]],
+}
+for label, start, stop in recovery_sections:
+    old = reviewed_section(start, stop)
+    at = patched.index(start)
+    new = patched[at:patched.index(stop, at + len(start))]
+    transaction_recovery["sections"][label] = {
+        "original_sha256": hashlib.sha256(old.encode()).hexdigest(),
+        "patched_sha256": hashlib.sha256(new.encode()).hexdigest(),
+    }
+
 out = args.output.resolve()
 assert out != args.installed.parent.resolve(), "Do not write beside the installed CLI"
 out.mkdir(parents=True, exist_ok=True)
@@ -259,6 +433,8 @@ manifest = {
     "resource_tuning": resource_tuning,
     "source_inventory": source_inventory,
     "handoff_evidence": handoff_evidence,
+    "surface_check_placement": surface_check_placement,
+    "transaction_recovery": transaction_recovery,
 }
 (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 wrapper = '#!/bin/sh\nexec ' + shlex.quote(str(args.node.resolve())) + ' ' + shlex.quote(str(out / "out/cli.cjs")) + ' "$@"\n'

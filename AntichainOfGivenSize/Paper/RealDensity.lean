@@ -14,10 +14,6 @@ open scoped Topology
 
 namespace AntichainOfGivenSize.Paper
 
-/-- The integers satisfying both bounds and `5 ≤ n ≤ X`. -/
-noncomputable def realGoodInputs (c C X : ℝ) : Finset ℕ :=
-  goodInputs c C ⌊X⌋₊
-
 theorem mem_realGoodInputs_iff {c C X : ℝ} {n : ℕ} (hX : 0 ≤ X) :
     n ∈ realGoodInputs c C X ↔
       5 ≤ n ∧ (n : ℝ) ≤ X ∧

@@ -7,7 +7,7 @@ The reviewed source SHA-256 is
 `ae68bb68d8b7d1333660add1a39474e007d43136b8ddab923850594ff79bc99d`.
 The builder refuses a different bundle until its source is reviewed.
 
-Twelve replacements address integration bugs, strengthen one check, and reduce
+Exact replacements address integration bugs, strengthen one check, and reduce
 peak memory use:
 
 - Restrict generated `Meta.Audit` imports to the selected library's modules,
@@ -46,6 +46,20 @@ peak memory use:
   actual log contents, flags empty/unavailable logs honestly, and preserves
   unknown findings when evidence is missing. Steering notes alone do not reach
   these gates in this CLI version.
+- Stop the missing-invocation repair from adding a whole-`Model` surplus check
+  seeded only by the current theorem file. In a project with multiple results,
+  that incorrectly flags definitions used by other registered claims. Each
+  theorem retains its `#modelClosureOfType` and existing `#print axioms` checks.
+  The global surplus check remains in `Meta/Audit`, imports the full library,
+  and uses the union of all registered and current claims. The default root
+  still imports that audit, and the mandatory seal check still rejects a
+  project with no surplus invocation. Existing source commands are not deleted
+  by this patch; it only suppresses the redundant generated insertion.
+- Protect transaction recovery from concurrent checkpoint refresh and snapshot
+  failures. A missing child file cannot be mistaken for a missing project;
+  live transactions cannot be recovered as interrupted runs; and an old empty
+  unscoped journal is rejected before deleting any files. The details and
+  regression coverage are below.
 
 Model selection is unchanged. The existing Codex effort mapping is preserved:
 low and medium pass through; other configured levels map to high. Thus the
@@ -90,12 +104,75 @@ and `unknown` verdicts remain unchanged. They neither run Lean, launch a model, 
 start a Tex2Lean workflow. After switching to this copy, re-run the Lean check
 controls and the complete project validation.
 
+The per-file repair test covers two theorem claims, preserving their closure
+and axiom commands without inserting a global surplus command. It also checks
+the actual global Audit and root templates, the registry/current-claim union,
+and the unchanged mechanical check's rejection when surplus checking is absent.
+
+The recovery tests execute the actual snapshot, open, prepare, commit, rollback,
+recovery, and checkpoint-refresh functions against an in-memory filesystem.
+They reproduce descendant `ENOENT`, an atomic-write temporary disappearing,
+recovery during journal publication, concurrent recovery callers, and opening
+a new transaction while old recovery is pending. They check that bogus empty
+journals fail before mutation, ordinary files and completed work survive,
+valid scoped and verified empty/missing-project rollback still work, and only
+missing-file deletion errors are tolerated. They also test preservation of live
+protection after failed publication/rollback, and reject restoration of stale
+atomic temporaries or transaction journals recorded in a legacy snapshot.
+
 Stop the existing workflow and its workers before resuming through the local
 launcher with the same project and target arguments. Keep using that launcher
 for subsequent gates; the unpatched CLI would regenerate the import cycle.
 Do not add a model override unless one is intended.
 
+## Transaction recovery
+
+The original `rf` catches errors from both the root-directory check and the
+entire snapshot in one `try`. If a temporary checkpoint file disappears during
+that snapshot, its `ENOENT` is treated as an absent project and an empty journal
+is written. Restoring that unscoped journal would delete project files. The
+patched function catches missing-root errors only around the root check;
+descendant snapshot errors abort before journal creation.
+
+The original checkpoint refresh calls recovery before checking whether a run
+is active. Recovery can therefore restore a live planning snapshot. The patch
+returns early while workers or a transaction are active, registers each live
+transaction before journal publication, and releases it only after successful
+commit or rollback cleanup. Recovery runs once at a time per project; opening
+a transaction waits for pending recovery. This coordination is process-local;
+the CLI's existing project lease remains responsible for excluding another CLI.
+
+Full snapshots omit only native `*.writing-<milliseconds>-<hex>` atomic-write
+temporaries and the configured transaction directory. Other output files are
+still covered by rollback. Legacy snapshots cannot restore these temporary or
+journal paths either. A disappearance during deletion is harmless only for
+`ENOENT`/`FileNotFound`; permission and other I/O errors still abort.
+
+Empty unscoped snapshots require an explicit `emptySnapshotReason` recorded by
+a successful root check/snapshot (`project-missing` or `project-empty`). That
+reason survives preparation and reload. Unmarked legacy empty journals are
+preserved and rejected before mutation; scoped empty snapshots retain their
+ordinary meaning. These guards change recovery bookkeeping, not proof status,
+mathematical checks, correspondence decisions, or completion criteria.
+
+If an earlier CLI already produced an invalid journal, stop its process and
+workers and preserve the working tree first. Review the journal against that
+backup. Move a confirmed invalid journal intact to a separate recovery backup,
+record its SHA-256 and the reason, and verify the destination before restarting.
+Do not fabricate a replacement baseline or mark a theorem complete. This
+builder does not move, repair, or delete any existing workflow record.
+
+The output manifest records before/after hashes for every changed recovery
+function under `transaction_recovery`. All previously listed mathematical
+checker hashes and source-fingerprint checks remain unchanged by these fixes.
+
 ## Project setup
+
+Resolve directory symlinks before starting a run. From the repository checkout,
+use `project_dir="$(pwd -P)"`, then `cd "$project_dir"` and pass
+`--project "$project_dir"` to the launcher. The working directory and project
+argument must identify the same physical directory: a symlink alias can be
+rejected by a nested Codex worker's writable-root check.
 
 `formalize.json` keeps the repository's Lean and Mathlib v4.32.0 pins. Run
 `setup` through the patched launcher before resuming a workflow if that base
@@ -128,6 +205,11 @@ under `source_inventory` and verifies that its only change is the narrow
 root-helper filter. The complete before/after-build and inspection source
 fingerprint checks are byte-identical to the original bundle and are also
 recorded in `unchanged_check_sha256`.
+
+The root-module template and mandatory seal-invocation check are also verified
+byte-identical. `surface_check_placement` records the sole change to the
+per-file invocation generator. No surplus-check implementation or global
+coverage is removed.
 
 ## Handoff source evidence
 

@@ -247,3 +247,17 @@ The snapshot digest is also checked in CI against
 statement-to-paper comparison; they do not replace it. The background
 literature discussion, bibliography, and authors' account of AI assistance
 are not mathematical propositions certified by Lean.
+
+## Main-theorem surface ownership
+
+`Model/MainVocabulary.lean` now owns `HasGeneratorCount`, `alpha`,
+`quadraticLogLogScale`, `Paper.goodInputs`, `Paper.realGoodInputs`, and
+`Paper.maximumBelow`, with their original qualified names and definition
+bodies unchanged. Their former modules import this vocabulary transitively.
+Exception sets remain in `Paper/Statements.lean`: the literal density-one
+surface does not reach them. No proof module is moved into Model.
+
+`alpha_asymptotic_order` assembles the four separate main-theorem interfaces;
+their current proof placeholders remain open. This ownership repair does not
+certify those interfaces or constitute a new proof of Theorem 1.1. The
+previously proved counting interface `attainable_count` is unchanged.

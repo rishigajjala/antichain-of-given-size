@@ -65,21 +65,11 @@ def AlmostAllOrderStatement : Prop :=
     (fun X : ℕ ↦ ((orderExceptions c C X).card : ℝ) / (X : ℝ))
     atTop (nhds 0)
 
-/-- The simultaneous good inputs, for the literal proportion formulation. -/
-noncomputable def goodInputs (c C : ℝ) (X : ℕ) : Finset ℕ :=
-  (Finset.Icc 5 X).filter fun n ↦
-    c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ) ∧
-      (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)
-
 /-- The displayed limit in Corollary 10.2, with the finite endpoints retained. -/
 def AlmostAllGoodProportionStatement : Prop :=
   ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ Tendsto
     (fun X : ℕ ↦ ((goodInputs c C X).card : ℝ) / (X : ℝ))
     atTop (nhds 1)
-
-/-- The exact maximum over positive integers strictly below a real cutoff. -/
-noncomputable def maximumBelow (X : ℝ) : ℕ :=
-  (Finset.Ico 1 ⌈X⌉₊).sup alpha
 
 /-- The extremal conclusion of Theorem 1.1 with real cutoffs. -/
 def ExtremalOrderStatement : Prop :=

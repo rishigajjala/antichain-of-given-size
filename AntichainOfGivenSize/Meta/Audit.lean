@@ -10,6 +10,10 @@ development does so the model-closure report sees the declarations available at
 that boundary.
 -/
 import AntichainOfGivenSize.Meta.ModelClosure
+import AntichainOfGivenSize.Analysis.AlphaEventualUpperProof
+import AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof
+import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
+import AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof
 import AntichainOfGivenSize.Analysis.AttainableCountProof
 import AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof
 import AntichainOfGivenSize.AntichainReduction
@@ -64,6 +68,7 @@ import AntichainOfGivenSize.MainStatement
 import AntichainOfGivenSize.MainTheorems
 import AntichainOfGivenSize.MatchingParameters
 import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.MainVocabulary
 import AntichainOfGivenSize.Model.Prelude
 import AntichainOfGivenSize.Model.Prior
 import AntichainOfGivenSize.Model.Theorem
@@ -106,6 +111,6 @@ import AntichainOfGivenSize.Theorem
 
 namespace AntichainOfGivenSize.Meta
 
-#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.attainable_count AntichainOfGivenSize.Model.attainableValues_membership
+#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.attainable_count AntichainOfGivenSize.Model.attainableValues_membership AntichainOfGivenSize.alpha_eventual_upper AntichainOfGivenSize.alpha_lower_density_one AntichainOfGivenSize.alpha_simultaneous_density_one AntichainOfGivenSize.alpha_maximum_order AntichainOfGivenSize.alpha_asymptotic_order
 
 end AntichainOfGivenSize.Meta

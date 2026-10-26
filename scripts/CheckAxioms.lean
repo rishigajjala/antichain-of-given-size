@@ -36,6 +36,10 @@ run_cmd do
   let env ← getEnv
   let expected : Array Name := #[
     `AntichainOfGivenSize,
+    `AntichainOfGivenSize.Analysis.AlphaEventualUpperProof,
+    `AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof,
+    `AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof,
+    `AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof,
     `AntichainOfGivenSize.Analysis.AttainableCountProof,
     `AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof,
     `AntichainOfGivenSize.AntichainReduction,
@@ -93,6 +97,7 @@ run_cmd do
     `AntichainOfGivenSize.Meta.CostSeal,
     `AntichainOfGivenSize.Meta.ModelClosure,
     `AntichainOfGivenSize.Model.CountingVocabulary,
+    `AntichainOfGivenSize.Model.MainVocabulary,
     `AntichainOfGivenSize.Model.Prelude,
     `AntichainOfGivenSize.Model.Prior,
     `AntichainOfGivenSize.Model.Theorem,
