@@ -69,6 +69,13 @@ example : ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →
     ((attainableValues B K).card : ℝ) ≤
       (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ)) := countingBound
 
+-- The same expanded contract must hold for the manuscript's shorter proof.
+example : ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →
+    (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /
+      (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) →
+    ((attainableValues B K).card : ℝ) ≤
+      (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ)) := faithfulCountingBound
+
 -- Corollary 10.1: the exact probability bound on the half-open dyadic block.
 example : ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →
     (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /
@@ -85,7 +92,7 @@ example : Tendsto (fun X : ℕ ↦
       (alpha n : ℝ) < (1 / 800 : ℝ) * paperScale (n : ℝ)).card : ℝ) / (X : ℝ))
     atTop (nhds 0) := by
   classical
-  exact density_of_countingBound countingBound
+  exact density_of_countingBound faithfulCountingBound
 
 -- Corollary 10.2: the proportion tends to one for arbitrary real cutoffs.
 example : ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ Tendsto

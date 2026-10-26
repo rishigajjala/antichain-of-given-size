@@ -91,15 +91,16 @@ theorem idealCard_bound {r ell : ℕ} (hr : 0 < r)
       (2 * r + ell + 1) * 2 ^ (ell * (2 ^ r + r) + 2 ^ r) := by
   classical
   unfold idealCard generatedIdealIdx
-  have h := Finset.card_biUnion_le_card_mul (s := (Finset.univ :
-    Finset (Index r (PatternGadget.Index ell))))
-    (f := fun p => (generator (ell := ell) active hist PatternGadget.generator p).powerset)
-    (n := 2 ^ (ell * (2 ^ r + r) + 2 ^ r)) (by
+  calc
+    _ ≤ (Finset.univ : Finset (Index r (PatternGadget.Index ell))).card *
+        2 ^ (ell * (2 ^ r + r) + 2 ^ r) := by
+      refine @Finset.card_biUnion_le_card_mul _ _ Finset.decidableEq _ _ _ ?_
       intro p _hp
       rw [Finset.card_powerset]
-      exact Nat.pow_le_pow_right (by norm_num) (card_generator_le hr active hist p))
-  simpa [Index, BitMatching.Index, PatternGadget.Index, Nat.mul_comm,
-    Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using h
+      exact Nat.pow_le_pow_right (by norm_num) (card_generator_le hr active hist p)
+    _ = _ := by
+      simp [Index, BitMatching.Index, PatternGadget.Index, Nat.mul_comm,
+        Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
 
 theorem idealCard_pos {r ell : ℕ}
     (active : Finset (BitMatching.Stage r))

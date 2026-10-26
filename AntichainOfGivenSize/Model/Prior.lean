@@ -10,9 +10,9 @@ When a later theorem needs assumptions the earlier theorems do not need, this
 file may also hold another theorem-specific structure. Existing structures are
 not widened just to state a new result.
 
-It is empty because nothing has been surveyed yet. The pass that reads the
-paper for what the proof leans on fills it in; until then the theorem assumes
-nothing and `hprior` is discharged by `⟨⟩`.
+It remains empty after reviewing the paper: the project proves the required
+mathematical results using Lean and Mathlib, with no additional unproved
+hypotheses. The value `hprior` is therefore discharged by `⟨⟩`.
 -/
 
 namespace AntichainOfGivenSize

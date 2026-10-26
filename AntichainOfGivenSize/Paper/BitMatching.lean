@@ -2,7 +2,9 @@ import AntichainOfGivenSize.Section6.StageBridge
 import AntichainOfGivenSize.Section6.IndexedBounds
 import AntichainOfGivenSize.Section6.Remainder
 import AntichainOfGivenSize.Section6.StageArithmetic
-import Mathlib
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Fintype.Sigma
+import Mathlib.Data.Fintype.Sum
 
 /-!
 # The paper's bit-matching construction

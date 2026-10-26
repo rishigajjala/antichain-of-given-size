@@ -17,6 +17,8 @@ running-time or memory claims that the manuscript does not make.
 Let Tex2Lean produce its own plans, proof status, and handoff evidence. Do not
 manually mark a target proved or fabricate workflow output. Distinguish new
 proofs from interfaces that reuse earlier proofs.
+Retain proved modules belonging to other results: a single target's dependency
+graph need not reach every result in this multi-theorem project.
 
 Register every checked claim in `scripts/capstones.txt`, including semantic
 representation equivalences. Keep the individual `#modelClosureOfType` checks.

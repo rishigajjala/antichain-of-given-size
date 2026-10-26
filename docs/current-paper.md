@@ -20,11 +20,13 @@ The namespace prefix `Paper.` in this document abbreviates
 `AntichainOfGivenSize.Paper.`. Unprefixed names from the earlier development
 have namespace prefix `AntichainOfGivenSize.`.
 
-**Integration status:** all mathematical integrations listed below are
-complete. The block construction, its complete residue induction, and the
-uniform parameter bounds are connected in the unconditional certificate
-`Paper.blockMatching`. The counting and matching hypotheses in the
-intermediate analytic files are discharged in `Paper.Results`.
+**Current integration:** `Paper.blockMatching` connects the block construction,
+its residue induction, and the existing uniform parameter bounds. The current
+Tex2Lean run adds explicit main-theorem interfaces and the manuscript's shorter
+counting proof. Its native proof and handoff records remain separate from the
+historical verification below. The literal floor/ceiling bridge for Claim 6.5
+is prepared for its upcoming native target; the existing integral parameter
+implementation is described below.
 
 **Repository-wide verification, 26 October 2026:** the independent upper,
 lower, and statement-coverage reviews found no mathematical defect in the
@@ -56,8 +58,8 @@ expanded contracts. CI runs these checks and the snapshot checksum
 | Manuscript result | Lean declaration and implementation |
 | --- | --- |
 | Theorem 1.1: universal upper bound, almost-all order, and extremal order | `Paper.mainTheorem` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), combining `Paper.universalUpper_from_five`, `Paper.almostAllOrder`, and `Paper.extremalOrder`. |
-| Definition 2.1: generated ideal and downward closure | `generatedIdeal` in [`MainStatement.lean`](../AntichainOfGivenSize/MainStatement.lean): the union of the generators' powersets. `Paper.generatedIdeal_isLowerSet` in [`BasicResults.lean`](../AntichainOfGivenSize/Paper/BasicResults.lean) proves downward closure under inclusion. |
-| Definition 2.2: minimum generator number | `alpha` and `HasGeneratorCount` in [`MainStatement.lean`](../AntichainOfGivenSize/MainStatement.lean); `alpha_hasGeneratorCount` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean) proves attainment. `mainAlphaHasAntichainWitness` certifies an antichain attaining the same minimum. |
+| Definition 2.1: generated ideal and downward closure | `generatedIdeal` in [`Model/CountingVocabulary.lean`](../AntichainOfGivenSize/Model/CountingVocabulary.lean): the union of the generators' powersets. `Paper.generatedIdeal_isLowerSet` in [`BasicResults.lean`](../AntichainOfGivenSize/Paper/BasicResults.lean) proves downward closure under inclusion. |
+| Definition 2.2: minimum generator number | `alpha` and `HasGeneratorCount` in [`Model/MainVocabulary.lean`](../AntichainOfGivenSize/Model/MainVocabulary.lean); `alpha_hasGeneratorCount` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean) proves attainment. `mainAlphaHasAntichainWitness` certifies an antichain attaining the same minimum. |
 | Lemma 3.1: splitting | `splittingLemma` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean). The first ideal size has the required positivity hypothesis. |
 | Lemma 3.2: lifting | `liftingLemma` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean). |
 | Theorem 4.1: bit matching | `Paper.bitMatchingInt` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using `Paper.BitMatching.exists_matching_int`, for every integer target including negative targets. `Paper.bitMatching` is the natural-target interface used in the reduction. |
@@ -72,7 +74,7 @@ expanded contracts. CI runs these checks and the snapshot checksum
 | Claim 6.5: uniform generator and ideal-size bounds | `Paper.UpperConstruction.card_generator_le`, `alpha_idealCard_le`, and `idealCard_bound` in [`UpperConstructionBounds.lean`](../AntichainOfGivenSize/Paper/UpperConstructionBounds.lean), followed by `Paper.block_small_cost` and `Paper.block_uniform_size` in [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean). |
 | Lemma 6.6: direct reduction | `Paper.directReduction` in [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean), with the complete positivity, strict-decrease, and logarithmic-quotient requirements. Its explicit constants are `a=8`, `C₁=4096`. |
 | Theorem 6.7: upper bound for every integer `n≥5` | `Paper.universalUpper_from_five` in [`Extremal.lean`](../AntichainOfGivenSize/Paper/Extremal.lean). This is stronger than merely restating an unspecified eventual bound. |
-| Theorem 7.1: counting attainable values | `Paper.countingBound` in [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean), proving `Paper.CountingBoundStatement` from [`Statements.lean`](../AntichainOfGivenSize/Paper/Statements.lean). It retains the budget denominator `100`, all sufficiently large integers `B`, every admissible `K`, and the real exponent `B−sqrt(B)`. |
+| Theorem 7.1: counting attainable values | `Paper.faithfulCountingBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using [`FaithfulCounting/CompleteCounting.lean`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean). The Model interface `attainable_count` uses the same proof. It retains the budget denominator `100`, a threshold uniform in `K`, arbitrary sufficiently large integers `B`, and the real exponent `B−sqrt(B)`. |
 | Corollary 10.1: probability in a dyadic block | `Paper.typicalLowerBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), implemented by `typicalLowerBound_of_countingBound` in [`Typical.lean`](../AntichainOfGivenSize/Paper/Typical.lean). The finite probability of `alpha≤K` is at most `2^(1−sqrt(B))`; equivalently the complementary event has the paper's lower bound. |
 | Corollary 10.2: simultaneous almost-all bounds | `Paper.almostAllOrder`, `Paper.almostAllGoodProportion`, and `Paper.realAlmostAllGoodProportion` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean). The first is the density-zero exceptional-set statement, the second is the integer-cutoff proportion, and the third is the displayed limit over arbitrary real cutoffs, implemented in [`RealDensity.lean`](../AntichainOfGivenSize/Paper/RealDensity.lean). |
 
@@ -163,16 +165,26 @@ These differences preserve the target conclusions and their quantifiers.
   `BlockMatchingConstructionStatement`; `Paper.blockMatching` supplies
   its proof `UpperConstruction.blockMatchingConstruction`, including the
   complete finite-stage residue induction and negative integer targets.
-* **The counting proof.**
-  [`GeneralCounting.lean`](../AntichainOfGivenSize/Paper/GeneralCounting.lean)
-  generalizes the previously checked clustered encoding to arbitrary
-  natural `B,K`. This encoding retains more information than the paper's
-  streamlined fixed-header product. The resulting larger record count is
-  still small enough: [`CountingEstimates.lean`](../AntichainOfGivenSize/Paper/CountingEstimates.lean)
-  and [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean)
-  prove the exact final `2^(B−sqrt(B))` bound under the unchanged budget
-  `K≤(log₂B)²/(100 log₂log₂B)`. No restriction to the older dyadic parameter
-  subsequence remains.
+* **The counting proof.** The twelve modules in
+  [`Paper/FaithfulCounting/`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean)
+  formalize Sections 8--10.1: the maximum-packing plateau, connected clusters
+  of exactly `h` vertices, the partition count `(J+1)K^K`, the intrinsic
+  exceptional set with bound `2Kρ'`, the incidence and exponent records,
+  original signed inclusion--exclusion terms, and the integer tail interval.
+  `NumericalParameters` uses the exact real logarithm, floor, scale sequence,
+  and denominator `100`. `CompleteCounting` exports both the `Γ/4` and
+  square-root savings above one absolute threshold.
+  Least-element block labels encode the paper's canonical ordering. Pattern
+  multiplicities encode its sorted incidence words. Taking `ceil(ρ)` gives
+  exactly the real-threshold proximity graph; this equivalence is proved.
+  The numerical absorption uses an explicit polynomial times `2^(3λ/10)`
+  bound for the recording cost. These representations preserve the paper's
+  counting argument.
+  The earlier larger encoding remains as `Paper.countingBound` in
+  [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean).
+  The public dyadic, density, and extremal certificates in `Paper.Results`
+  now use `Paper.faithfulCountingBound`. The new Model lower-density and
+  extremal interfaces use the same route through `attainableCount`.
 * **Counting audit vocabulary.**
   [`Model/CountingVocabulary.lean`](../AntichainOfGivenSize/Model/CountingVocabulary.lean)
   owns the existing generated-ideal and bounded-profile vocabulary, including
@@ -182,10 +194,10 @@ These differences preserve the target conclusions and their quantifiers.
   widening the closure check's permitted modules. The structural finite-type
   instances use term-form library constructors. The representation equivalence
   and counting proofs remain in their original proof modules. The Model
-  membership equivalence and headline reuse the checked theorems
-  `Paper.mem_attainableValues_iff` and `Paper.countingBound`. The headline's
-  `Prior` parameter is an empty structure and adds no assumption. These are
-  interfaces to the existing proofs; they do not replace the counting argument.
+  membership equivalence reuses `Paper.mem_attainableValues_iff`. The headline
+  uses the new proof in `FaithfulCounting/CompleteCounting`. Its `Prior`
+  parameter is an empty structure and adds no assumption. The quantity's
+  definition and the public counting statement are unchanged.
 * **Direct reduction.**
   [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean)
   uses the previously checked unconditional range-matching construction,
@@ -235,7 +247,8 @@ modules, while the standalone audit scripts consume it: importing those
 scripts back into `Meta/Audit.lean` creates an import cycle.
 
 [`scripts/CheckPaperStatements.lean`](../scripts/CheckPaperStatements.lean)
-separately spells out twelve mathematical contracts from the manuscript.
+separately spells out twelve distinct mathematical contracts from the manuscript,
+checking the counting contract against both complete proofs.
 It checks the integer-residue domain, exact constants and endpoints,
 the intended meaning of `V(B,K)`, density one, and real cutoffs against
 the unconditional certificates. Thus changing a library statement alias
@@ -257,7 +270,11 @@ bodies unchanged. Their former modules import this vocabulary transitively.
 Exception sets remain in `Paper/Statements.lean`: the literal density-one
 surface does not reach them. No proof module is moved into Model.
 
-`alpha_asymptotic_order` assembles the four separate main-theorem interfaces;
-their current proof placeholders remain open. This ownership repair does not
-certify those interfaces or constitute a new proof of Theorem 1.1. The
-previously proved counting interface `attainable_count` is unchanged.
+`alpha_asymptotic_order` assembles four separate main-theorem interfaces.
+Tex2Lean's proof workers completed all four owners: the eventual upper bound,
+the lower-good density limit, the simultaneous natural/real limits at fixed
+constants, and the real-cutoff extremal inequalities. The first and last reuse
+existing upper/extremal estimates; the density transfer retains an explicit
+finite-prefix error. Their statements and the empty `Prior` are unchanged.
+After the counting-proof integration, the whole repository and native handoff
+must be rechecked before reporting the current workflow as complete.

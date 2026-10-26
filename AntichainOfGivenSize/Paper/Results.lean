@@ -1,4 +1,5 @@
 import AntichainOfGivenSize.Paper.CountingParameters
+import AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting
 import AntichainOfGivenSize.Paper.Representation
 import AntichainOfGivenSize.Paper.BitMatching
 import AntichainOfGivenSize.Paper.FirstUpper
@@ -20,6 +21,13 @@ in `docs/current-paper.md`.
 -/
 
 namespace AntichainOfGivenSize.Paper
+
+/-- Theorem 7.1, using the partition and record argument in Sections 8--10.1. -/
+theorem faithfulCountingBound : CountingBoundStatement := by
+  obtain ⟨B₀, _hB₀, hbound⟩ := FaithfulLower.exists_paper_counting_threshold
+  refine ⟨B₀, ?_⟩
+  intro B K hB hK
+  exact hbound B hB K hK.1 hK.2
 
 theorem bitMatching : BitMatchingStatement :=
   fun q y hq ↦ BitMatching.exists_matching q y hq
@@ -47,28 +55,28 @@ theorem quadraticUpper :
 
 /-- Corollary 10.1 with the explicit square-root error exponent. -/
 theorem typicalLowerBound : TypicalLowerBoundStatement :=
-  typicalLowerBound_of_countingBound countingBound
+  typicalLowerBound_of_countingBound faithfulCountingBound
 
 /-- The lower-bound assertion of Theorem 1.1(ii). -/
 theorem almostAllLowerBound : AlmostAllLowerBoundStatement :=
-  almostAllLowerBound_of_countingBound countingBound
+  almostAllLowerBound_of_countingBound faithfulCountingBound
 
 /-- Corollary 10.2: exceptions to either inequality have density zero. -/
 theorem almostAllOrder : AlmostAllOrderStatement :=
-  almostAllOrder_of_countingBound countingBound
+  almostAllOrder_of_countingBound faithfulCountingBound
 
 /-- Equivalently, the proportion satisfying both bounds tends to one. -/
 theorem almostAllGoodProportion : AlmostAllGoodProportionStatement :=
-  almostAllGoodProportion_of_countingBound countingBound
+  almostAllGoodProportion_of_countingBound faithfulCountingBound
 
 /-- The same proportion limit for arbitrary real cutoffs, as displayed
 in Corollary 10.2. -/
 theorem realAlmostAllGoodProportion : RealAlmostAllGoodProportionStatement :=
-  realAlmostAllGoodProportion_of_countingBound countingBound
+  realAlmostAllGoodProportion_of_countingBound faithfulCountingBound
 
 /-- The extremal conclusion for every sufficiently large real cutoff. -/
 theorem extremalOrder : ExtremalOrderStatement :=
-  extremalOrder_of_countingBound countingBound
+  extremalOrder_of_countingBound faithfulCountingBound
 
 /-- Theorem 1.1, including the upper bound for all integers at least five,
 the density-one order assertion, and the real-cutoff extremal order. -/

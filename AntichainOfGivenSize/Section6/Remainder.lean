@@ -1,4 +1,9 @@
-import Mathlib
+import Mathlib.Data.Nat.BitIndices
+import Mathlib.Algebra.Ring.GeomSum
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Abel
 
 open Finset
 

@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
-  "slug": "antichainofgivensize-model-attainablevalues-membership-1f4dbex",
-  "updatedAt": "2026-10-26T18:36:33.231Z",
-  "sourceFingerprint": "sha256:337a7ef5584ff2c0a252ab718a0e91e0e60a0c7ff2ef00952aefa8d861a6ba70",
-  "buildFingerprint": "sha256:337a7ef5584ff2c0a252ab718a0e91e0e60a0c7ff2ef00952aefa8d861a6ba70",
-  "dependencyFingerprint": "sha256:337a7ef5584ff2c0a252ab718a0e91e0e60a0c7ff2ef00952aefa8d861a6ba70",
+  "slug": "antichainofgivensize-model-attainablevalues-membership-1dcq6u8",
+  "updatedAt": "2026-10-26T20:40:28.078Z",
+  "sourceFingerprint": "sha256:ec2d2032f32fa97a1546fd74fb99870edef4aca968072242ed92abd6de9d8cdf",
+  "buildFingerprint": "sha256:ec2d2032f32fa97a1546fd74fb99870edef4aca968072242ed92abd6de9d8cdf",
+  "dependencyFingerprint": "sha256:ec2d2032f32fa97a1546fd74fb99870edef4aca968072242ed92abd6de9d8cdf",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-26T18:36:33.231Z",
+  "elaboratedAt": "2026-10-26T20:40:28.078Z",
   "rootModule": "AntichainOfGivenSize.Model.Prelude",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof",
@@ -21,6 +21,7 @@
     "AntichainOfGivenSize.LowerBound.VennProfiles",
     "AntichainOfGivenSize.MainStatement",
     "AntichainOfGivenSize.Model.CountingVocabulary",
+    "AntichainOfGivenSize.Model.MainVocabulary",
     "AntichainOfGivenSize.Model.Prelude",
     "AntichainOfGivenSize.Paper.Representation",
     "AntichainOfGivenSize.Paper.Statements",
@@ -32,7 +33,7 @@
     "id": "lean:.:AntichainOfGivenSize.Model.attainableValues_membership",
     "title": "AntichainOfGivenSize.Model.attainableValues_membership",
     "location": "AntichainOfGivenSize/Model/Prelude.lean:56",
-    "paperDigest": "eb0ed2c27276"
+    "paperDigest": "b90a1591e1e1"
   },
   "nodes": [
     {
@@ -146,6 +147,15 @@
       "paperRefs": []
     },
     {
+      "id": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "kind": "file",
+      "label": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "module": "AntichainOfGivenSize.Model.MainVocabulary",
+      "status": "unknown",
+      "paperRefs": []
+    },
+    {
       "id": "file:AntichainOfGivenSize/Model/Prelude.lean",
       "kind": "file",
       "label": "AntichainOfGivenSize/Model/Prelude.lean",
@@ -212,8 +222,8 @@
       "id": "lean:AntichainOfGivenSize.alpha",
       "kind": "lean",
       "label": "AntichainOfGivenSize.alpha",
-      "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 57,
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "line": 32,
       "declaration": "AntichainOfGivenSize.alpha",
       "statementKind": "def",
       "role": "definition",
@@ -222,7 +232,7 @@
         "AntichainOfGivenSize.HasGeneratorCount"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -359,7 +369,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.AlphaAntichainWitnessStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 145,
+      "line": 121,
       "declaration": "AntichainOfGivenSize.AlphaAntichainWitnessStatement",
       "statementKind": "def",
       "role": "definition",
@@ -400,7 +410,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.binaryBlockCount",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 69,
+      "line": 51,
       "declaration": "AntichainOfGivenSize.binaryBlockCount",
       "statementKind": "def",
       "role": "definition",
@@ -416,7 +426,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.explicitBlockWitness",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 101,
+      "line": 83,
       "declaration": "AntichainOfGivenSize.BlockCount.explicitBlockWitness",
       "statementKind": "def",
       "role": "definition",
@@ -434,7 +444,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.explicitWitnessShift",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 109,
+      "line": 91,
       "declaration": "AntichainOfGivenSize.BlockCount.explicitWitnessShift",
       "statementKind": "def",
       "role": "definition",
@@ -453,7 +463,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.exponentBudget",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 76,
+      "line": 58,
       "declaration": "AntichainOfGivenSize.BlockCount.exponentBudget",
       "statementKind": "def",
       "role": "definition",
@@ -469,7 +479,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.finiteClusterRadius",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 80,
+      "line": 62,
       "declaration": "AntichainOfGivenSize.BlockCount.finiteClusterRadius",
       "statementKind": "def",
       "role": "definition",
@@ -485,7 +495,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.finiteScale",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 88,
+      "line": 70,
       "declaration": "AntichainOfGivenSize.BlockCount.finiteScale",
       "statementKind": "def",
       "role": "definition",
@@ -504,7 +514,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.finiteThreshold",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 94,
+      "line": 76,
       "declaration": "AntichainOfGivenSize.BlockCount.finiteThreshold",
       "statementKind": "def",
       "role": "definition",
@@ -523,7 +533,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCount.scalePadding",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 84,
+      "line": 66,
       "declaration": "AntichainOfGivenSize.BlockCount.scalePadding",
       "statementKind": "def",
       "role": "definition",
@@ -541,7 +551,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCountBoundsStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 159,
+      "line": 135,
       "declaration": "AntichainOfGivenSize.BlockCountBoundsStatement",
       "statementKind": "def",
       "role": "definition",
@@ -560,7 +570,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCountLowerBoundStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 149,
+      "line": 125,
       "declaration": "AntichainOfGivenSize.BlockCountLowerBoundStatement",
       "statementKind": "def",
       "role": "definition",
@@ -579,7 +589,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCountTightBoundStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 163,
+      "line": 139,
       "declaration": "AntichainOfGivenSize.BlockCountTightBoundStatement",
       "statementKind": "def",
       "role": "definition",
@@ -598,7 +608,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.BlockCountUpperBoundStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 154,
+      "line": 130,
       "declaration": "AntichainOfGivenSize.BlockCountUpperBoundStatement",
       "statementKind": "def",
       "role": "definition",
@@ -3405,7 +3415,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.ExplicitBlockWitnessStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 169,
+      "line": 145,
       "declaration": "AntichainOfGivenSize.ExplicitBlockWitnessStatement",
       "statementKind": "def",
       "role": "definition",
@@ -3425,7 +3435,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.ExplicitLowerBoundStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 140,
+      "line": 116,
       "declaration": "AntichainOfGivenSize.ExplicitLowerBoundStatement",
       "statementKind": "def",
       "role": "definition",
@@ -3766,8 +3776,8 @@
       "id": "lean:AntichainOfGivenSize.HasGeneratorCount",
       "kind": "lean",
       "label": "AntichainOfGivenSize.HasGeneratorCount",
-      "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 48,
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "line": 23,
       "declaration": "AntichainOfGivenSize.HasGeneratorCount",
       "statementKind": "def",
       "role": "definition",
@@ -3776,7 +3786,7 @@
         "AntichainOfGivenSize.generatedIdeal"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -3807,7 +3817,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.improvedScale",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 123,
+      "line": 99,
       "declaration": "AntichainOfGivenSize.improvedScale",
       "statementKind": "def",
       "role": "definition",
@@ -3903,7 +3913,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.LowerBoundStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 135,
+      "line": 111,
       "declaration": "AntichainOfGivenSize.LowerBoundStatement",
       "statementKind": "def",
       "role": "definition",
@@ -4013,7 +4023,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.AlmostAllGoodProportionStatement",
       "file": "AntichainOfGivenSize/Paper/Statements.lean",
-      "line": 75,
+      "line": 69,
       "declaration": "AntichainOfGivenSize.Paper.AlmostAllGoodProportionStatement",
       "statementKind": "def",
       "role": "definition",
@@ -4158,7 +4168,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.ExtremalOrderStatement",
       "file": "AntichainOfGivenSize/Paper/Statements.lean",
-      "line": 85,
+      "line": 75,
       "declaration": "AntichainOfGivenSize.Paper.ExtremalOrderStatement",
       "statementKind": "def",
       "role": "definition",
@@ -4176,8 +4186,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.goodInputs",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.goodInputs",
-      "file": "AntichainOfGivenSize/Paper/Statements.lean",
-      "line": 69,
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "line": 44,
       "declaration": "AntichainOfGivenSize.Paper.goodInputs",
       "statementKind": "def",
       "role": "definition",
@@ -4187,7 +4197,7 @@
         "AntichainOfGivenSize.quadraticLogLogScale"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -4248,8 +4258,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.maximumBelow",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.maximumBelow",
-      "file": "AntichainOfGivenSize/Paper/Statements.lean",
-      "line": 81,
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "line": 54,
       "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
       "statementKind": "def",
       "role": "definition",
@@ -4258,7 +4268,7 @@
         "AntichainOfGivenSize.alpha"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -4332,6 +4342,24 @@
       "paperRefs": []
     },
     {
+      "id": "lean:AntichainOfGivenSize.Paper.realGoodInputs",
+      "kind": "lean",
+      "label": "AntichainOfGivenSize.Paper.realGoodInputs",
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "line": 50,
+      "declaration": "AntichainOfGivenSize.Paper.realGoodInputs",
+      "statementKind": "def",
+      "role": "definition",
+      "header": "noncomputable def realGoodInputs (c C X : ℝ) : Finset ℕ :=",
+      "references": [
+        "AntichainOfGivenSize.Paper.goodInputs"
+      ],
+      "status": "closed",
+      "inAuditSurface": true,
+      "hasSorry": false,
+      "paperRefs": []
+    },
+    {
       "id": "lean:AntichainOfGivenSize.Paper.TypicalLowerBoundStatement",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.TypicalLowerBoundStatement",
@@ -4355,15 +4383,15 @@
       "id": "lean:AntichainOfGivenSize.quadraticLogLogScale",
       "kind": "lean",
       "label": "AntichainOfGivenSize.quadraticLogLogScale",
-      "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 118,
+      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "line": 37,
       "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
       "statementKind": "def",
       "role": "definition",
       "header": "noncomputable def quadraticLogLogScale (n : ℝ) : ℝ :=",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -4372,7 +4400,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.RangeBasedImprovedReductionBound",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 178,
+      "line": 154,
       "declaration": "AntichainOfGivenSize.RangeBasedImprovedReductionBound",
       "statementKind": "def",
       "role": "definition",
@@ -5325,7 +5353,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.UpperBoundStatement",
       "file": "AntichainOfGivenSize/MainStatement.lean",
-      "line": 129,
+      "line": 105,
       "declaration": "AntichainOfGivenSize.UpperBoundStatement",
       "statementKind": "def",
       "role": "definition",
@@ -5957,9 +5985,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.alpha",
-      "to": "file:AntichainOfGivenSize/MainStatement.lean",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.alpha->file:AntichainOfGivenSize/MainStatement.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.alpha->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.AlphaAntichainWitnessStatement",
@@ -6953,9 +6981,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.HasGeneratorCount",
-      "to": "file:AntichainOfGivenSize/MainStatement.lean",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.HasGeneratorCount->file:AntichainOfGivenSize/MainStatement.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.HasGeneratorCount->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.improvedScale",
@@ -7079,9 +7107,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.goodInputs",
-      "to": "file:AntichainOfGivenSize/Paper/Statements.lean",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.goodInputs->file:AntichainOfGivenSize/Paper/Statements.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.goodInputs->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.hasBoundedGeneratingFamily_of_mem_attainableValues",
@@ -7097,9 +7125,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.maximumBelow",
-      "to": "file:AntichainOfGivenSize/Paper/Statements.lean",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.maximumBelow->file:AntichainOfGivenSize/Paper/Statements.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.maximumBelow->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.mem_attainableValues_iff",
@@ -7120,6 +7148,12 @@
       "id": "declared-in:lean:AntichainOfGivenSize.Paper.orderExceptions->file:AntichainOfGivenSize/Paper/Statements.lean"
     },
     {
+      "from": "lean:AntichainOfGivenSize.Paper.realGoodInputs",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "kind": "declared-in",
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.realGoodInputs->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+    },
+    {
       "from": "lean:AntichainOfGivenSize.Paper.TypicalLowerBoundStatement",
       "to": "file:AntichainOfGivenSize/Paper/Statements.lean",
       "kind": "declared-in",
@@ -7127,9 +7161,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.quadraticLogLogScale",
-      "to": "file:AntichainOfGivenSize/MainStatement.lean",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.quadraticLogLogScale->file:AntichainOfGivenSize/MainStatement.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.quadraticLogLogScale->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.RangeBasedImprovedReductionBound",
@@ -12040,6 +12074,12 @@
       "id": "depends-on:lean:AntichainOfGivenSize.Paper.orderExceptions->lean:AntichainOfGivenSize.quadraticLogLogScale"
     },
     {
+      "from": "lean:AntichainOfGivenSize.Paper.realGoodInputs",
+      "to": "lean:AntichainOfGivenSize.Paper.goodInputs",
+      "kind": "depends-on",
+      "id": "depends-on:lean:AntichainOfGivenSize.Paper.realGoodInputs->lean:AntichainOfGivenSize.Paper.goodInputs"
+    },
+    {
       "from": "lean:AntichainOfGivenSize.Paper.TypicalLowerBoundStatement",
       "to": "lean:AntichainOfGivenSize.Paper.AdmissibleBudget",
       "kind": "depends-on",
@@ -13631,9 +13671,15 @@
     },
     {
       "from": "file:AntichainOfGivenSize/MainStatement.lean",
+      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "kind": "imports",
+      "id": "imports:file:AntichainOfGivenSize/MainStatement.lean->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+    },
+    {
+      "from": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
       "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/MainStatement.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/Model/MainVocabulary.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Model/Prelude.lean",

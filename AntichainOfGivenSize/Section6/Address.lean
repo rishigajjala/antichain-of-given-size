@@ -1,4 +1,5 @@
 import AntichainOfGivenSize.Section6.Remainder
+import Mathlib.Algebra.BigOperators.Fin
 
 open Finset
 open scoped BigOperators

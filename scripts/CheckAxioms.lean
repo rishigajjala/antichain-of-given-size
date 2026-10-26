@@ -109,6 +109,18 @@ run_cmd do
     `AntichainOfGivenSize.Paper.Density,
     `AntichainOfGivenSize.Paper.DirectReduction,
     `AntichainOfGivenSize.Paper.Extremal,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.ActualCounting,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.CanonicalHeader,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.ConnectedSubset,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.HeaderExistence,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.IncidenceCount,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.LiteralScales,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.NumericalParameters,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.OriginalQueryReconstruction,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.PartitionHeader,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.RealTailFiberCore,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.ScalarNormalization,
     `AntichainOfGivenSize.Paper.FirstUpper,
     `AntichainOfGivenSize.Paper.GeneralCounting,
     `AntichainOfGivenSize.Paper.PatternGadget,
@@ -218,6 +230,13 @@ run_cmd do
 #print axioms AntichainOfGivenSize.Paper.firstUpper
 #print axioms AntichainOfGivenSize.Paper.directReduction
 #print axioms AntichainOfGivenSize.Paper.countingBound
+#print axioms AntichainOfGivenSize.Paper.faithfulCountingBound
+#print axioms AntichainOfGivenSize.FaithfulLower.paper_counting_at_parameters
+#print axioms AntichainOfGivenSize.FaithfulLower.exists_paper_counting_threshold_strong
+#print axioms AntichainOfGivenSize.FaithfulLower.exists_paper_counting_threshold
+#print axioms AntichainOfGivenSize.attainable_count
+#print axioms AntichainOfGivenSize.Model.attainableValues_membership
+#print axioms AntichainOfGivenSize.alpha_asymptotic_order
 #print axioms AntichainOfGivenSize.Paper.typicalLowerBound
 #print axioms AntichainOfGivenSize.Paper.almostAllLowerBound
 #print axioms AntichainOfGivenSize.Paper.almostAllOrder

@@ -12,10 +12,10 @@ import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
 # Counting attainable ideal sizes
 
 Theorem 7.1 (`thm:attainable-count`) has one deterministic cardinality claim.
-Its intended proof interface reuses `AntichainOfGivenSize.Paper.countingBound`;
-it does not rederive the counting argument. The existing proof uses the larger
-clustered encoding documented in `docs/current-paper.md`, rather than a
-line-by-line transcription of the manuscript's fixed-header product.
+Its proof interface now uses the formalization in `Paper/FaithfulCounting/`:
+the partition header, intrinsic exceptional set, original-query reconstruction,
+integer tail interval, literal scale sequence, and uniform numerical estimates.
+The earlier larger encoding remains available as `Paper.countingBound`.
 
 Natural parameters represent the paper's integers on the positive range:
 the absolute existential threshold may be enlarged to make `B` positive,
