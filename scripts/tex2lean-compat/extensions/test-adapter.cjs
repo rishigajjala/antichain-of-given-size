@@ -154,6 +154,116 @@ async function testAdapter() {
   assert.equal(race.getWrites(),1,'only simulated outside publication exists');
   return f;
 }
+async function setupReplacement(oldDeclaration='Project.oldClaim') {
+  const f=await setup(),current=await f.store.readCurrent('target');
+  const old={id:'old-unapproved-binding',obligationId:'ob0',declaration:oldDeclaration,
+    file:'Project/Old.lean',module:'Project.Old',role:'headline',status:'proposed'};
+  const seed={id:'original-proposal',ledgerId:'ledger',baseLedgerDigest:current.head.ledgerDigest,
+    actor:'planner',mode:'automatic',provenance:'original planner proposal',kind:'put-binding',binding:old};
+  await f.store.publishDecision(seed);
+  f.manifest.baseLedgerDigest=(await f.store.readCurrent('target')).head.ledgerDigest;
+  f.manifest.bindings[0].replaceUnapprovedProposal={expectedBinding:clone(old),
+    expectedBindingDigest:f.ctx.Pt('delegated-binding-proposal/1',old),
+    reason:'The original unapproved whole-capstone guess is replaced by the exact reviewed component theorem.'};
+  return {...f,old,seed};
+}
+async function rejectReplacement(change,pattern,externalWrites=0) {
+  const f=await setupReplacement();await change(f);const before=f.getWrites();
+  await assert.rejects(()=>runReview(f.manifest,f.host,{apply:true}),pattern);
+  assert.equal(f.getWrites(),before+externalWrites,'rejected replacement must publish nothing beyond the simulated outside writer');
+}
+async function testReplacement() {
+  const f=await setupReplacement(),before=JSON.stringify([...f.files]),writes=f.getWrites();
+  const dry=await runReview(f.manifest,f.host);
+  assert.equal(dry.replacements.length,1);assert.equal(dry.replacements[0].bindingId,f.old.id);
+  assert.deepEqual(dry.replacements[0].before,f.old);assert.equal(dry.replacements[0].after.declaration,'Project.claim0');
+  assert.equal(dry.publications.length,0);assert.equal(f.getWrites(),writes);
+  assert.equal(JSON.stringify([...f.files]),before,'replacement dry-run preserves the native store');
+  const result=await runReview(f.manifest,f.host,{apply:true});
+  const after=await f.store.readCurrent('target'),current=after.ledger.bindings.find(b=>b.id===f.old.id);
+  assert.equal(current.obligationId,f.old.obligationId);assert.equal(current.status,'proposed');
+  assert.equal(current.declaration,'Project.claim0');assert(current.semanticApprovalDecisionId);
+  assert.equal(after.ledger.claims.length,4);assert.equal(after.ledger.claimSetReceipts[0].claimVersionIds.length,4);
+  assert.equal(after.ledger.bindings.length,2);assert.equal(f.ctx.Vy(after.ledger).length,0);
+  const decisions=[...f.files].filter(([p])=>p.includes('/decisions/')).map(([,v])=>JSON.parse(v));
+  assert.deepEqual(decisions.find(d=>d.id==='original-proposal'),f.seed,'original proposal event remains intact');
+  const updates=decisions.filter(d=>d.kind==='put-binding' && d.binding.id===f.old.id && d.id!==f.seed.id);
+  assert.equal(updates.length,2,'replacement and semantic approval are separate immutable events');
+  assert(updates.every(d=>d.actor==='author' && d.binding.status==='proposed' && d.binding.obligationId===f.old.obligationId));
+  assert.equal(updates.filter(d=>!d.binding.semanticApprovalDecisionId).length,1);
+  assert(updates.every(d=>d.provenance.includes('expectedBindingDigest') && d.provenance.includes('original unapproved')));
+  assert.equal(new Set(result.publications.map(p=>p.decisionId)).size,result.publications.length);
+  assert.equal(new Set(decisions.map(d=>d.baseLedgerDigest)).size,decisions.length,'fresh native head per immutable event');
+  // The pre-existing ordinary approval path remains unchanged when no correction is requested.
+  const ordinary=await setup(),ordinaryHead=await ordinary.store.readCurrent('target');
+  const ordinaryBinding={id:'ordinary-existing',obligationId:'ob0',declaration:'Project.claim0',
+    file:'Project/Model.lean',module:'Project.Model',role:'headline',status:'proposed'};
+  await ordinary.store.publishDecision({id:'ordinary-seed',ledgerId:'ledger',baseLedgerDigest:ordinaryHead.head.ledgerDigest,
+    actor:'planner',mode:'automatic',provenance:'fixture',kind:'put-binding',binding:ordinaryBinding});
+  ordinary.manifest.baseLedgerDigest=(await ordinary.store.readCurrent('target')).head.ledgerDigest;
+  const ordinaryResult=await runReview(ordinary.manifest,ordinary.host,{apply:true});
+  assert.equal(ordinaryResult.replacements.length,0);assert.equal(ordinaryResult.publications.length,9);
+  assert.equal((await ordinary.store.readCurrent('target')).ledger.bindings.find(b=>b.id==='ordinary-existing').declaration,'Project.claim0');
+  // All replacement pins and review intent are mandatory.
+  await rejectReplacement(f=>{delete f.manifest.bindings[0].replaceUnapprovedProposal;},/explicit replacement review required/);
+  await rejectReplacement(f=>{f.manifest.bindings[0].replaceUnapprovedProposal.reason=' ';},/replacement reason/);
+  await rejectReplacement(f=>{f.manifest.bindings[0].replaceUnapprovedProposal.expectedBindingDigest='wrong';},/record does not match its digest/);
+  await rejectReplacement(f=>{f.manifest.bindings[0].replaceUnapprovedProposal.expectedBinding.declaration='invented';},/record does not match its digest/);
+  await rejectReplacement(f=>{const r=f.manifest.bindings[0].replaceUnapprovedProposal;r.expectedBinding.declaration='invented';
+    r.expectedBindingDigest=f.ctx.Pt('delegated-binding-proposal/1',r.expectedBinding);},/reviewed old proposal changed/);
+  await rejectReplacement(f=>{f.manifest.bindings[1].replaceUnapprovedProposal=clone(f.manifest.bindings[0].replaceUnapprovedProposal);},/existing unapproved proposal/);
+  await rejectReplacement(f=>{f.manifest.bindings[0].replaceUnapprovedProposal.status='verified';},/forbidden field status/);
+  await rejectReplacement(f=>{
+    const b=f.manifest.bindings[0];Object.assign(b,{declaration:f.old.declaration,file:f.old.file,module:f.old.module});
+    f.snapshot.declarations[f.old.declaration]={...clone(f.snapshot.declarations['Project.claim0']),file:f.old.file,module:f.old.module};
+  },/replacement requested without a binding change/);
+  await rejectReplacement(f=>{f.manifest.bindings.push(clone(f.manifest.bindings[0]));},/duplicate binding/);
+  await rejectReplacement(f=>{f.manifest.baseLedgerDigest='old';},/ledger head changed/);
+  // Native-store observations in protected states must never be editable here.
+  for(const change of [b=>b.status='verified',b=>b.status='stale',
+    ...['semanticApprovalDecisionId','receipt','leanEvidenceSnapshotId','verifiedByDecisionId','staleReason'].map(k=>b=>b[k]=null)]) {
+    await rejectReplacement(f=>{
+      const read=f.store.readCurrent.bind(f.store);
+      f.store.readCurrent=async id=>{const cur=clone(await read(id));change(cur.ledger.bindings.find(b=>b.id===f.old.id));return cur;};
+    },/approved\/receipt-bearing\/verified\/stale/);
+  }
+  // A declaration already used by an untouched active proposal cannot be duplicated.
+  await rejectReplacement(async f=>{
+    const cur=await f.store.readCurrent('target');
+    await f.store.publishDecision({id:'other-active-binding',ledgerId:'ledger',baseLedgerDigest:cur.head.ledgerDigest,
+      actor:'planner',mode:'automatic',provenance:'fixture',kind:'put-binding',binding:{...f.old,id:'other-id',
+        obligationId:'ob1',declaration:'Project.claim0'}});
+    f.manifest.baseLedgerDigest=(await f.store.readCurrent('target')).head.ledgerDigest;
+    f.manifest.bindings=f.manifest.bindings.slice(0,1);
+  },/duplicate active declaration binding/);
+  // A correction may free a declaration for a later obligation, but not after
+  // that declaration has already been reused. Test every real publication.
+  const ordered=await setupReplacement('Project.claim1');
+  const publishOrdered=ordered.store.publishDecision.bind(ordered.store);
+  ordered.store.publishDecision=async decision=>{
+    const publication=await publishOrdered(decision);
+    const live=(await ordered.store.readCurrent('target')).ledger.bindings.filter(b=>
+      b.status!=='rejected' && b.status!=='superseded');
+    assert.equal(new Set(live.map(b=>b.role+'\0'+b.declaration)).size,live.length,
+      'every intermediate native state retains unique active declarations');
+    return publication;
+  };
+  await runReview(ordered.manifest,ordered.host,{apply:true});
+  const reversed=await setupReplacement('Project.claim1');
+  reversed.manifest.bindings.reverse();
+  const reversedBefore=JSON.stringify([...reversed.files]),reversedWrites=reversed.getWrites();
+  await assert.rejects(()=>runReview(reversed.manifest,reversed.host,{apply:true}),
+    /publication order would duplicate an active declaration binding/);
+  assert.equal(reversed.getWrites(),reversedWrites,'unsafe publication order fails before all writes');
+  assert.equal(JSON.stringify([...reversed.files]),reversedBefore);
+  // Another writer after review is refused before replacement; no old event is removed.
+  await rejectReplacement(f=>{f.host.withIdleLease=async fn=>{
+    const cur=await f.store.readCurrent('target'),ev={kind:'source-reading',anchors:[]};ev.id=f.ctx.Sf(ev);
+    await f.store.publishDecision({id:'interloper',ledgerId:'ledger',baseLedgerDigest:cur.head.ledgerDigest,actor:'author',mode:'automatic',
+      provenance:'another writer',kind:'put-evidence',evidence:ev});
+    return fn();
+  };},/ledger head changed/,1);
+}
 function compileLoop(ctx,loop) {
   vm.runInContext(`async function runNativeLoop(it,targetId,Fi,jn,ot){
     let Ge={ledger:{target:{id:targetId}}},un=await it.readCurrent(targetId);
@@ -163,8 +273,8 @@ function compileLoop(ctx,loop) {
   }`,ctx);
   return ctx.runNativeLoop;
 }
-async function makeApproved() {
-  const f=await setup();await runReview(f.manifest,f.host,{apply:true});
+async function makeApproved(make=setup) {
+  const f=await make();await runReview(f.manifest,f.host,{apply:true});
   const current=await f.store.readCurrent('target');
   const Fi={schema:'tex2lean.lean-evidence/1',sourceFingerprint:f.snapshot.pins.leanSources,
     buildFingerprint:f.snapshot.pins.leanSources,dependencyFingerprint:f.snapshot.pins.leanSources,
@@ -188,6 +298,11 @@ async function testValidator() {
   const verified=await run(fixed.store,'target',fixed.Fi,fixed.jn,{sourceFingerprint:fixed.snapshot.pins.leanSources});
   assert(verified.ledger.bindings.every(b=>b.status==='verified'));
   assert.equal(fixed.ctx.Vy(verified.ledger,{leanEvidence:new Map([[fixed.jn,fixed.Fi]]),requireCertifiedSurface:true}).length,0);
+  const replaced=await makeApproved(setupReplacement);
+  const replacedVerified=await compileLoop(replaced.ctx,original)(replaced.store,'target',replaced.Fi,replaced.jn,
+    {sourceFingerprint:replaced.snapshot.pins.leanSources});
+  assert.equal(replaced.ctx.Vy(replacedVerified.ledger,{leanEvidence:new Map([[replaced.jn,replaced.Fi]]),requireCertifiedSurface:true}).length,0,
+    'replacement proposals must still pass the unchanged real validator and full surface check');
   // Re-running the unchanged validator is idempotent, not a new proof-status update.
   const count=fixed.getWrites();await run(fixed.store,'target',fixed.Fi,fixed.jn,{sourceFingerprint:fixed.snapshot.pins.leanSources});
   assert.equal(fixed.getWrites(),count);
@@ -208,6 +323,6 @@ async function testValidator() {
   return {unchangedNativeLoopDigest:digest,patchRequired:false,negativeControl:'removing the native per-iteration refresh reproduces a stale-head failure'};
 }
 (async()=>{
-  await testAdapter();const hashes=await testValidator();
-  console.log(JSON.stringify({ok:true,tests:'native replay/publication, dry-run, provenance-only exclusions, strict pins, authority, concurrency, and unchanged real validator verify/refresh/stale and negative-control regression',validator:hashes},null,2));
+  await testAdapter();await testReplacement();const hashes=await testValidator();
+  console.log(JSON.stringify({ok:true,tests:'native replay/publication, explicit pinned unapproved-proposal replacement, dry-run, provenance-only exclusions, strict pins, authority, concurrency, and unchanged real validator verify/refresh/stale and negative-control regression',validator:hashes},null,2));
 })().catch(e=>{console.error(e);process.exitCode=1;});

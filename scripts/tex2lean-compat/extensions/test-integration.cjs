@@ -183,7 +183,8 @@ async function testInspectionFlow() {
   const d={...f.d,authorityRecordDigest:sha(bytes),rootPath:()=>root,projectPath:()=>root,
     Pt:native.ctx.Pt,Sf:native.ctx.Sf,
     newStore:()=>({readCurrent:async()=>({head:{ledgerDigest:'ledger-v1'},ledger:{target:{id:'target',activeVersionId:'tv'},
-      targetVersions:[{id:'tv',paperPacketDigest:packet}]}}),publishDecision:async()=>{publications++;}}),
+      targetVersions:[{id:'tv',paperPacketDigest:packet}],bindings:[{id:'old-proposal',obligationId:'ob0',
+        declaration:'Project.oldClaim',file:'Project/Model.lean',module:'Project.Model',role:'headline',status:'proposed'}]}}),publishDecision:async()=>{publications++;}}),
     scan:async()=>plain(evidence),clearProjectEvidenceCaches:()=>{clears++;},
     certify:async()=>{assert.equal(clears,1);certifies++;return plain(evidence);},
     scope:()=>({modules:['Project.Model'],files:['Project/Model.lean']}),
@@ -193,6 +194,9 @@ async function testInspectionFlow() {
   assert.equal(result.declarations['Project.claim'].elaboratedType,'Expr(ClaimType)');
   assert(result.elaboratedDefinitionBodies[0].semanticDefinitions.some(x=>x.elaboratedValue==='Expr(HiddenBody)'));
   assert.equal(result.sourceBodies['Project/Model.lean'].text,'def Spec : Prop := True\ntheorem claim : Spec := trivial');
+  assert.equal(result.unapprovedProposals.length,1);
+  assert.equal(result.unapprovedProposals[0].expectedBindingDigest,
+    native.ctx.Pt('delegated-binding-proposal/1',result.unapprovedProposals[0].binding));
   assert.equal(result.pins.paperPacket,packet);assert.equal(f.controls(),0);assert(!f.fs.files.has(f.d.leaseFile()));
   // Inputs changing during the native inspection are rejected before producing review evidence.
   d.certify=async()=>{put('paper.tex','Changed source');return plain(evidence);};

@@ -168,8 +168,50 @@ excluded. All receipt membership, mathematical obligations and immutable history
 remain. No proof status, verified binding, or certified snapshot is assigned by
 this command.
 
-Finish through the normal native `/prove <target-id>` and `/handoff` workflows.
-They must obtain fresh actual receipts and compute the final proof/mapping result.
+Native certification and handoff remain mandatory after publication. In this
+CLI build `/prove [id]` forwards to a handler that ignores the ID and uses only
+the current session blueprint; it is not a target selector. Select the exact
+saved run through the native workflow and verify the displayed capstone before
+starting proof reconciliation. `/handoff` opens its own paper-target chooser.
+
+### Correcting an unapproved proposal
+
+When an earlier planner associated an obligation with the wrong declaration,
+the review may correct that proposal without changing a Lean statement. The
+existing binding must still be `proposed`, with no semantic approval, receipt,
+evidence-snapshot ID, verification decision, or stale reason. The binding ID,
+obligation ID and `proposed` status are retained. Ordinary bindings need no
+additional field; a differing existing proposal requires this explicit block
+inside its manifest binding:
+
+```json
+"replaceUnapprovedProposal": {
+  "expectedBinding": {"id": "<exact existing record, including all fields>"},
+  "expectedBindingDigest": "<native digest of that complete record>",
+  "reason": "<why the reviewed declaration replaces the earlier unapproved proposal>"
+}
+```
+
+The inspection artifact's `unapprovedProposals` array supplies the complete old
+record and its digest. The digest uses the native canonical hash
+`Pt("delegated-binding-proposal/1", binding)`, not a hash of arbitrarily formatted
+JSON. Both the quoted record and digest must equal the current native record.
+The new declaration's exact type, complete semantic-definition list, source
+quote and semantic-review reason remain required. An empty replacement reason,
+changed old record, no-op replacement, missing old proposal, protected binding
+state, or duplicate resulting declaration binding is rejected. Publication
+order is checked before writing: a correction must free its old declaration
+before another binding uses it. Unsafe ordering is rejected without reordering
+the manifest, so an interruption cannot leave a temporary duplicate.
+
+Dry-run lists each replacement with its old record, new declaration and reason.
+Apply publishes the correction and subsequent semantic approval as **separate
+native immutable `put-binding` decisions**, both still `proposed`; the original
+planner decision is retained. Every decision uses a freshly checked head and
+source pins. It never rejects/supersedes a verified binding, changes an
+obligation, or bypasses native proof certification. Reusing one capstone for two
+headline bindings is not a workaround: the native certified-surface validator
+requires exactly one verified binding per surface declaration and role.
 
 ## Idle, lease, freshness and cache safeguards
 
@@ -233,7 +275,10 @@ dependency and value rejection, successful/failing dry-run cleanup paths, retain
 entry guards, authority mismatch, exclusive lease behavior, exact cache prefixes,
 and an inspection flow with current type/body/source output and no publication.
 The adapter test checks the actual native ledger store/replay and unchanged
-multi-binding validator, plus the adapter's full negative controls.
+multi-binding validator, plus the adapter's full negative controls. Replacement
+regressions use the actual native store/replay and validator, retaining original
+events, rejecting changed records/heads and protected states, preserving the
+ordinary existing-proposal flow, and checking the final certified surface.
 
 These tests do not constitute a successful real-project inspection. Before
 applying any ledger decisions, the optional host must capture current evidence

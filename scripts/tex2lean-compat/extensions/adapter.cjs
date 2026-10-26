@@ -58,6 +58,13 @@ function requirements(ledger,id) {
   assert.equal(plans.length,1,'exactly one claim plan required');
   return {plan:plans[0], ids:(plans[0].requirements?.allOf ?? []).flatMap(g => g.anyOf)};
 }
+const priorReviewFields=['semanticApprovalDecisionId','receipt','leanEvidenceSnapshotId','verifiedByDecisionId','staleReason'];
+function isUnapprovedProposal(binding) {
+  return binding.status==='proposed' && priorReviewFields.every(field=>!Object.hasOwn(binding,field));
+}
+function proposalDigest(native,binding) {
+  return native.Pt('delegated-binding-proposal/1',binding);
+}
 function validate(manifest, snapshot, current, host) {
   keys(manifest,['schema','targetId','baseLedgerDigest','pins','review','bindings','exclusions'],'manifest');
   assert.equal(manifest.schema,'tex2lean.delegated-ledger-review/1');
@@ -78,7 +85,7 @@ function validate(manifest, snapshot, current, host) {
   const usedObligations=new Set(), usedClaims=new Set(), usedDeclarations=new Set();
   const bindings=(manifest.bindings ?? []).map(b => {
     keys(b,['claimVersionId','obligationId','declaration','file','module','elaboratedType',
-      'semanticDefinitions','sourceQuote','reason'],'binding review');
+      'semanticDefinitions','sourceQuote','reason','replaceUnapprovedProposal'],'binding review');
     activeVersion(ledger,b.claimVersionId);
     const req=requirements(ledger,b.claimVersionId);
     assert.equal(req.plan.disposition,'formalize','only formalize obligations supported');
@@ -98,15 +105,52 @@ function validate(manifest, snapshot, current, host) {
     assert(snapshot.files[b.sourceQuote.file].kind==='paper','binding source must be the pinned paper');
     const existing=ledger.bindings.filter(x=>x.obligationId===b.obligationId && x.status!=='rejected' && x.status!=='superseded');
     assert(existing.length<=1,'ambiguous existing binding');
+    let replacement;
     if(existing.length) {
       const x=existing[0];
-      assert(x.status==='proposed' && !x.semanticApprovalDecisionId,
-        'already approved/verified/stale binding requires separate review');
-      for(const field of ['declaration','file','module']) assert.equal(x[field],b[field],'existing binding differs');
+      assert(isUnapprovedProposal(x),'already approved/receipt-bearing/verified/stale binding requires separate review');
       assert.equal(x.role,'headline');
-    }
-    return {...clone(b),sourceQuote,existingBindingId:existing[0]?.id};
+      const differs=['declaration','file','module'].some(field=>x[field]!==b[field]);
+      if(differs) {
+        const review=b.replaceUnapprovedProposal;
+        assert(review,'existing binding differs; explicit replacement review required');
+        keys(review,['expectedBinding','expectedBindingDigest','reason'],'proposal replacement');
+        requiredText(review.reason,'proposal replacement reason');
+        assert(review.expectedBinding && typeof review.expectedBinding==='object' &&
+          !Array.isArray(review.expectedBinding),'exact previous binding record required');
+        assert.equal(proposalDigest(host.native,review.expectedBinding),review.expectedBindingDigest,
+          'expected proposal record does not match its digest');
+        assert.equal(proposalDigest(host.native,x),review.expectedBindingDigest,'reviewed old proposal changed');
+        replacement=clone(review);
+      } else assert(b.replaceUnapprovedProposal===undefined,'replacement requested without a binding change');
+    } else assert(b.replaceUnapprovedProposal===undefined,'replacement requires an existing unapproved proposal');
+    return {...clone(b),sourceQuote,existingBindingId:existing[0]?.id,replacement};
   });
+  // Evaluate the resulting active proposal set, allowing an explicitly moved
+  // declaration to be used by its correct obligation but never two live bindings.
+  const replacingIds=new Set(bindings.map(b=>b.existingBindingId).filter(Boolean));
+  const projected=[...ledger.bindings.filter(b=>!replacingIds.has(b.id) &&
+    b.status!=='rejected' && b.status!=='superseded'),
+    ...bindings.map(b=>({declaration:b.declaration,role:'headline'}))];
+  const projectedDeclarations=new Set();
+  for(const b of projected) {
+    const key=b.role+'\0'+b.declaration;
+    assert(!projectedDeclarations.has(key),'duplicate active declaration binding');
+    projectedDeclarations.add(key);
+  }
+  // The same uniqueness must hold after each publication, including if a later
+  // operation is interrupted. A replacement must free its old declaration
+  // before another obligation uses it; the adapter does not reorder reviews.
+  const active=new Map(ledger.bindings.filter(b=>b.status!=='rejected' &&
+    b.status!=='superseded').map(b=>[b.id,{role:b.role,declaration:b.declaration}]));
+  for(const b of bindings) {
+    const id=b.existingBindingId ?? host.native.Pt('delegated-binding/1',{
+      targetId:manifest.targetId,obligationId:b.obligationId,declaration:b.declaration,file:b.file,module:b.module});
+    assert(![...active].some(([otherId,x])=>otherId!==id &&
+      x.role==='headline' && x.declaration===b.declaration),
+      'publication order would duplicate an active declaration binding');
+    active.set(id,{role:'headline',declaration:b.declaration});
+  }
   const exclusions=(manifest.exclusions ?? []).map(e => {
     keys(e,['claimVersionId','exactClaimText','category','metadataQuote','sourceQuotes','reason'],'exclusion review');
     const cv=activeVersion(ledger,e.claimVersionId);
@@ -150,8 +194,12 @@ async function runReview(manifest, host, {apply=false}={}) {
   const initial=await prepare();
   const summary={mode:apply?'apply':'dry-run',manifestDigest,
     bindings:initial.plan.bindings.map(b=>({obligationId:b.obligationId,declaration:b.declaration})),
+    replacements:initial.plan.bindings.filter(b=>b.replacement).map(b=>({bindingId:b.existingBindingId,
+      obligationId:b.obligationId,expectedBindingDigest:b.replacement.expectedBindingDigest,
+      before:b.replacement.expectedBinding,after:{declaration:b.declaration,file:b.file,module:b.module},
+      reason:b.replacement.reason})),
     exclusions:initial.plan.exclusions.map(e=>({claimVersionId:e.claimVersionId,category:e.category})),
-    proofCertification:'not run; use the native /prove command afterwards'};
+    proofCertification:'not run; select the exact saved target for native proof reconciliation and handoff afterwards'};
   if(!apply) return {...summary,publications:[]};
   assert(typeof host.withIdleLease==='function','apply requires an exclusive idle-project lease');
   return host.withIdleLease(async()=>{
@@ -192,13 +240,14 @@ async function runReview(manifest, host, {apply=false}={}) {
     }
     for(const b of plan.bindings) {
       const review={claimVersionId:b.claimVersionId,obligationId:b.obligationId,reason:b.reason,
-        elaboratedType:b.elaboratedType,semanticDefinitions:b.semanticDefinitions};
+        elaboratedType:b.elaboratedType,semanticDefinitions:b.semanticDefinitions,
+        ...(b.replacement?{replacement:b.replacement}:{})};
       await evidence([b.sourceQuote],review);
-      const binding={id:b.existingBindingId ?? native.Pt('delegated-binding/1',{
+      const binding={...(b.replacement?.expectedBinding ?? {}),id:b.existingBindingId ?? native.Pt('delegated-binding/1',{
         targetId:manifest.targetId,obligationId:b.obligationId,declaration:b.declaration,file:b.file,module:b.module}),
         obligationId:b.obligationId,declaration:b.declaration,file:b.file,module:b.module,
         role:'headline',status:'proposed'};
-      if(!b.existingBindingId) await publish({kind:'put-binding',binding},review);
+      if(!b.existingBindingId || b.replacement) await publish({kind:'put-binding',binding},review);
       await publish({kind:'put-binding',binding},review,(decision,id)=>{
         decision.binding={...binding,semanticApprovalDecisionId:id};
       });
@@ -215,4 +264,4 @@ async function runReview(manifest, host, {apply=false}={}) {
     return {...summary,publications,finalLedgerDigest:expectedHead};
   });
 }
-module.exports={runReview,PROVENANCE,NONMATHEMATICAL:new Map(NONMATHEMATICAL)};
+module.exports={runReview,PROVENANCE,NONMATHEMATICAL:new Map(NONMATHEMATICAL),isUnapprovedProposal,proposalDigest};

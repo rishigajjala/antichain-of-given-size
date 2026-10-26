@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict');
 const path=require('node:path');
 const crypto=require('node:crypto');
-const {runReview,PROVENANCE}=require('./adapter.cjs');
+const {runReview,PROVENANCE,isUnapprovedProposal,proposalDigest}=require('./adapter.cjs');
 const hash=bytes=>'sha256-'+crypto.createHash('sha256').update(bytes).digest('hex');
 function parseRequest(raw) {
   const q=typeof raw==='string'?JSON.parse(raw):raw;
@@ -184,6 +184,8 @@ async function executeNativeReview(raw,d,options={}) {
         authorizationDigest:d.Pt('user-authorized-formalization/1',authority.userRequest),
         targetId,ledgerDigest:initial.head.ledgerDigest,pins:snapshot.pins,
         ledger:initial.ledger,declarations:snapshot.declarations,
+        unapprovedProposals:initial.ledger.bindings.filter(isUnapprovedProposal).map(binding=>({
+          binding,expectedBindingDigest:proposalDigest(d,binding)})),
         elaboratedDefinitionBodies:material.reviewMaterial,sourceBodies,paperSources:snapshot.files,
         nativeInterfaceEvidence:material,
         instruction:'Review exact paper claims, types and all relevant definition/structure bodies before writing a manifest. Inspection approves nothing.'};
