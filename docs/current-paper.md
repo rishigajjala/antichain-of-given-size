@@ -20,13 +20,13 @@ The namespace prefix `Paper.` in this document abbreviates
 `AntichainOfGivenSize.Paper.`. Unprefixed names from the earlier development
 have namespace prefix `AntichainOfGivenSize.`.
 
-**Current integration:** `Paper.blockMatching` connects the block construction,
-its residue induction, and the existing uniform parameter bounds. The current
-Tex2Lean run adds explicit main-theorem interfaces and the manuscript's shorter
-counting proof. Its native proof and handoff records remain separate from the
-historical verification below. The literal floor/ceiling bridge for Claim 6.5
-is prepared for its upcoming native target; the existing integral parameter
-implementation is described below.
+**Current integration:** `Paper.blockMatching` now uses the manuscript's exact
+floor/ceiling parameters and actual finite-stage construction. The current
+Tex2Lean run also adds explicit main-theorem interfaces, the manuscript's shorter
+counting proof, complete intermediate counting claims, and semantic equivalences
+for density and the strict real cutoff. Native proof and correspondence records
+remain separate from the historical verification below; paper-target planning
+and final handoff are still in progress.
 
 **Repository-wide verification, 26 October 2026:** the independent upper,
 lower, and statement-coverage reviews found no mathematical defect in the
@@ -67,11 +67,11 @@ expanded contracts. CI runs these checks and the snapshot checksum
 | Claim 4.3: primary intersection size | `Paper.BitMatching.primary_intersection_card` in [`BitMatching.lean`](../AntichainOfGivenSize/Paper/BitMatching.lean), with the stronger set identity `primary_intersection`. |
 | Claim 4.4: proper contributing intersections are larger | `Paper.BitMatching.proper_intersection_card` in [`BitMatching.lean`](../AntichainOfGivenSize/Paper/BitMatching.lean). |
 | Theorem 5.1: exact bound `4q²+3` | `Paper.firstUpper` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), from `Paper.first_upper` and `Paper.first_upper_cumulative` in [`FirstUpper.lean`](../AntichainOfGivenSize/Paper/FirstUpper.lean). `Paper.quadraticUpper` supplies its unconditional asymptotic conclusion directly from bit matching. |
-| Theorem 6.1: block matching, with `a=5`, `b=3` | `Paper.blockMatching` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), combining `Paper.UpperConstruction.blockMatchingConstruction` in [`UpperConstructionBounds.lean`](../AntichainOfGivenSize/Paper/UpperConstructionBounds.lean) with `blockMatching_of_construction` in [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean). Its full statement includes arbitrary integer residues, positivity, the generator bound, and the logarithmic size bound. |
+| Theorem 6.1: block matching, with `a=5`, `b=3` | `Paper.blockMatching` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using `Paper.LiteralUpperParameters.blockMatching` in [`LiteralBlockMatching.lean`](../AntichainOfGivenSize/Paper/LiteralBlockMatching.lean) with the literal floor/ceiling parameter choices. Its full statement includes arbitrary integer residues, positivity, the generator bound, and the logarithmic size bound. |
 | Claim 6.2: the pattern gadget has size `2^ell+d` | `Paper.PatternGadget.ideal_card_bits` in [`PatternGadget.lean`](../AntichainOfGivenSize/Paper/PatternGadget.lean), using the exact decomposition `ideal_decomposition`. |
 | Claim 6.3: position addressing | `Paper.UpperConstruction.position_intersection` in [`UpperConstructionGeometry.lean`](../AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean) states the position-only set identity directly; `full_position_intersection` also covers mixed queries. |
-| Claim 6.4: the complete stage increment congruence | `Paper.UpperConstruction.block_increment` and `idealCard_update` in [`UpperConstructionSteps.lean`](../AntichainOfGivenSize/Paper/UpperConstructionSteps.lean), from the complete sum `selected_card_zmod` in [`UpperConstructionCore.lean`](../AntichainOfGivenSize/Paper/UpperConstructionCore.lean) and the concrete geometry `stage_card_zmod`. Every nonempty contributing query is included. |
-| Claim 6.5: uniform generator and ideal-size bounds | `Paper.UpperConstruction.card_generator_le`, `alpha_idealCard_le`, and `idealCard_bound` in [`UpperConstructionBounds.lean`](../AntichainOfGivenSize/Paper/UpperConstructionBounds.lean), followed by `Paper.block_small_cost` and `Paper.block_uniform_size` in [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean). |
+| Claim 6.4: the complete stage increment congruence | `Paper.UpperConstruction.paper_block_increment` in [`UpperConstructionIncrement.lean`](../AntichainOfGivenSize/Paper/UpperConstructionIncrement.lean), using `block_increment` and `idealCard_update` in [`UpperConstructionSteps.lean`](../AntichainOfGivenSize/Paper/UpperConstructionSteps.lean), from the complete sum `selected_card_zmod` in [`UpperConstructionCore.lean`](../AntichainOfGivenSize/Paper/UpperConstructionCore.lean) and the concrete geometry `stage_card_zmod`. Every nonempty contributing query is included. |
+| Claim 6.5: uniform generator and ideal-size bounds | `Paper.UpperConstruction.card_generator_le`, `alpha_idealCard_le`, and `idealCard_bound` in [`UpperConstructionBounds.lean`](../AntichainOfGivenSize/Paper/UpperConstructionBounds.lean), combined with `Paper.LiteralUpperParameters.exists_literal_constructed_size_threshold` in [`LiteralUpperParameters.lean`](../AntichainOfGivenSize/Paper/LiteralUpperParameters.lean). |
 | Lemma 6.6: direct reduction | `Paper.directReduction` in [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean), with the complete positivity, strict-decrease, and logarithmic-quotient requirements. Its explicit constants are `a=8`, `C₁=4096`. |
 | Theorem 6.7: upper bound for every integer `n≥5` | `Paper.universalUpper_from_five` in [`Extremal.lean`](../AntichainOfGivenSize/Paper/Extremal.lean). This is stronger than merely restating an unspecified eventual bound. |
 | Theorem 7.1: counting attainable values | `Paper.faithfulCountingBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using [`FaithfulCounting/CompleteCounting.lean`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean). The Model interface `attainable_count` uses the same proof. It retains the budget denominator `100`, a threshold uniform in `K`, arbitrary sufficiently large integers `B`, and the real exponent `B−sqrt(B)`. |
@@ -138,6 +138,9 @@ finite initial segment accounted for explicitly.
 this to real cutoffs. `mem_realGoodInputs_iff` identifies the counted set
 exactly with the good integers satisfying `5≤n≤X`; the factor
 `floor(X)/X→1` gives the same proportion limit over all real `X`.
+[`MainSemantics.lean`](../AntichainOfGivenSize/Paper/MainSemantics.lean)
+proves both directions of the complement-density and natural/real density
+representations with the same fixed constants.
 
 ### Real extremal cutoffs
 
@@ -145,7 +148,9 @@ exactly with the good integers satisfying `5≤n≤X`; the factor
 `1≤n<ceil(X)`, which for an integer `n` is exactly `1≤n<X`, including when
 `X` itself is an integer. `Paper.ExtremalOrderStatement` is a real-variable
 `IsTheta` statement as `X→+∞`. It is not a statement only along integer
-cutoffs or a sparse sequence.
+cutoffs or a sparse sequence. `Paper.maximumBelow_spec` also proves attainment
+at an allowed integer and the upper-bound property for every allowed integer
+when `X>1`; `mem_maximumBelow_domain` exposes the exact strict-cutoff equivalence.
 
 ## Differences in proof implementation
 
@@ -156,16 +161,17 @@ These differences preserve the target conclusions and their quantifiers.
   the cumulative statement for all smaller inputs at once. It keeps the
   exact bound `4q²+3` and the paper's range endpoints, and derives the
   quadratic asymptotic upper bound independently of the sharp upper bound.
-* **Block parameters.** The integral parameter implementation in
+* **Block parameters.** The public `Paper.blockMatching` now uses
+  [`LiteralBlockMatching.lean`](../AntichainOfGivenSize/Paper/LiteralBlockMatching.lean)
+  and [`LiteralUpperParameters.lean`](../AntichainOfGivenSize/Paper/LiteralUpperParameters.lean).
+  They choose exactly `r=floor(log₂(B/log₂B))`, `H=2^r`, and `ell=ceil(B/H)`;
+  the actual update history matches every integer residue, including negative
+  targets. The uniform bounds retain constants `5` and `3`. The final numerical
+  absorption uses the sufficient eventual estimate `9(log₂B)^3≤B`.
+  The earlier integral-parameter implementation in
   [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean)
-  uses conservative natural-number divisions in place of the paper's
-  real-logarithm floor and ceiling choices. Its target still has the
-  stated final constants `5` and `3` for every sufficiently large `B`.
-  The numerical conversion explicitly assumes
-  `BlockMatchingConstructionStatement`; `Paper.blockMatching` supplies
-  its proof `UpperConstruction.blockMatchingConstruction`, including the
-  complete finite-stage residue induction and negative integer targets.
-* **The counting proof.** The twelve modules in
+  remains available as a separate proved route.
+* **The counting proof.** The thirteen modules in
   [`Paper/FaithfulCounting/`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean)
   formalize Sections 8--10.1: the maximum-packing plateau, connected clusters
   of exactly `h` vertices, the partition count `(J+1)K^K`, the intrinsic
@@ -179,7 +185,11 @@ These differences preserve the target conclusions and their quantifiers.
   exactly the real-threshold proximity graph; this equivalence is proved.
   The numerical absorption uses an explicit polynomial times `2^(3λ/10)`
   bound for the recording cost. These representations preserve the paper's
-  counting argument.
+  counting argument. `ClaimBundles` exposes the combined intermediate
+  estimates explicitly. Its normalization theorem relabels the actual union
+  of the original generators onto `Fin N`, with `N≤KB`, full union, bounded
+  generators, and unchanged ideal cardinality. Padding repeats index zero;
+  repeating the final generator, as in the paper, gives the same ideal.
   The earlier larger encoding remains as `Paper.countingBound` in
   [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean).
   The public dyadic, density, and extremal certificates in `Paper.Results`
@@ -276,5 +286,7 @@ the lower-good density limit, the simultaneous natural/real limits at fixed
 constants, and the real-cutoff extremal inequalities. The first and last reuse
 existing upper/extremal estimates; the density transfer retains an explicit
 finite-prefix error. Their statements and the empty `Prior` are unchanged.
-After the counting-proof integration, the whole repository and native handoff
-must be rechecked before reporting the current workflow as complete.
+The semantic interfaces in `Paper.MainSemantics` are also registered and have
+individual Model-closure checks. Fresh whole-repository checks and the native
+paper correspondence/handoff remain required before reporting the workflow as
+complete.

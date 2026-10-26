@@ -7,6 +7,7 @@ import AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof
 import AntichainOfGivenSize.Analysis.AlphaEventualUpperProof
 import AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof
 import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
+import AntichainOfGivenSize.Paper.MainSemantics
 
 /-!
 # Counting attainable ideal sizes
@@ -156,3 +157,8 @@ end AntichainOfGivenSize
 #modelClosureOfType AntichainOfGivenSize.alpha_maximum_order
 #modelClosureOfType AntichainOfGivenSize.alpha_asymptotic_order
 #print axioms AntichainOfGivenSize.alpha_asymptotic_order
+
+#modelClosureOfType AntichainOfGivenSize.Paper.mem_realGoodInputs_iff
+#modelClosureOfType AntichainOfGivenSize.Paper.density_representations
+#modelClosureOfType AntichainOfGivenSize.Paper.mem_maximumBelow_domain
+#modelClosureOfType AntichainOfGivenSize.Paper.maximumBelow_spec

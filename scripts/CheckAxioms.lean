@@ -126,6 +126,11 @@ run_cmd do
     `AntichainOfGivenSize.Paper.PatternGadget,
     `AntichainOfGivenSize.Paper.RealDensity,
     `AntichainOfGivenSize.Paper.Representation,
+    `AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles,
+    `AntichainOfGivenSize.Paper.LiteralBlockMatching,
+    `AntichainOfGivenSize.Paper.LiteralUpperParameters,
+    `AntichainOfGivenSize.Paper.MainSemantics,
+    `AntichainOfGivenSize.Paper.UpperConstructionIncrement,
     `AntichainOfGivenSize.Paper.Results,
     `AntichainOfGivenSize.Paper.Scale,
     `AntichainOfGivenSize.Paper.Statements,
@@ -244,3 +249,14 @@ run_cmd do
 #print axioms AntichainOfGivenSize.Paper.realAlmostAllGoodProportion
 #print axioms AntichainOfGivenSize.Paper.extremalOrder
 #print axioms AntichainOfGivenSize.Paper.mainTheorem
+
+#print axioms AntichainOfGivenSize.Paper.LiteralUpperParameters.blockMatching
+#print axioms AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment
+#print axioms AntichainOfGivenSize.FaithfulLower.normalized_family
+#print axioms AntichainOfGivenSize.FaithfulLower.paper_headers
+#print axioms AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement
+#print axioms AntichainOfGivenSize.FaithfulLower.paper_record_counts
+#print axioms AntichainOfGivenSize.FaithfulLower.paper_tail_bounds
+#print axioms AntichainOfGivenSize.FaithfulLower.paper_numerics_and_strong_count
+#print axioms AntichainOfGivenSize.Paper.density_representations
+#print axioms AntichainOfGivenSize.Paper.maximumBelow_spec

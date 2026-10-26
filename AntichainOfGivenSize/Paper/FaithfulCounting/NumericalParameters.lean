@@ -2,8 +2,7 @@ import Mathlib.Analysis.SpecialFunctions.Log.Base
 import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
 import Mathlib.Tactic
 
-/-! Exact numerical parameters in the frozen paper, §10.1.
-This independent candidate does not change the repository or its workflow. -/
+/-! Exact numerical parameters and uniform estimates from the paper, §10.1. -/
 namespace AntichainOfGivenSize.FaithfulLower.Numerical
 
 noncomputable def clusterSize (L : ℝ) : ℕ := ⌊L / 4⌋₊
@@ -305,4 +304,3 @@ theorem exists_uniform_B_threshold : ∃ B₀ : ℕ, 1 ≤ B₀ ∧
   exact ⟨hd, hr, hs⟩
 
 end AntichainOfGivenSize.FaithfulLower.Numerical
-

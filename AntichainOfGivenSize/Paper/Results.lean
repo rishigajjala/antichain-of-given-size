@@ -1,5 +1,6 @@
 import AntichainOfGivenSize.Paper.CountingParameters
 import AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting
+import AntichainOfGivenSize.Paper.LiteralBlockMatching
 import AntichainOfGivenSize.Paper.Representation
 import AntichainOfGivenSize.Paper.BitMatching
 import AntichainOfGivenSize.Paper.FirstUpper
@@ -40,7 +41,7 @@ theorem bitMatchingInt (q : ℕ) (y : ℤ) (hq : 0 < q) :
 
 /-- Theorem 6.1, with the stated constants 5 and 3. -/
 theorem blockMatching : BlockMatchingStatement :=
-  blockMatching_of_construction UpperConstruction.blockMatchingConstruction
+  LiteralUpperParameters.blockMatching
 
 /-- Theorem 5.1. -/
 theorem firstUpper (q n : ℕ)

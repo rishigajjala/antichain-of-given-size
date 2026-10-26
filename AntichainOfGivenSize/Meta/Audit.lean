@@ -1,15 +1,3 @@
-/-
-The whole-development checks, invoked where the whole development is in scope.
-
-**This file is written by the tool and regenerated at every phase boundary.**
-Nothing here is yours to edit: an edit is reverted at the next gate, and the
-gate reports it.
-
-The import list below is every module the project has. It grows as the
-development does so the model-closure report sees the declarations available at
-that boundary.
--/
-import AntichainOfGivenSize.Meta.ModelClosure
 import AntichainOfGivenSize.Analysis.AlphaEventualUpperProof
 import AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof
 import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
@@ -67,6 +55,8 @@ import AntichainOfGivenSize.LowerBound.VennProfiles
 import AntichainOfGivenSize.MainStatement
 import AntichainOfGivenSize.MainTheorems
 import AntichainOfGivenSize.MatchingParameters
+import AntichainOfGivenSize.Meta.CostSeal
+import AntichainOfGivenSize.Meta.ModelClosure
 import AntichainOfGivenSize.Model.CountingVocabulary
 import AntichainOfGivenSize.Model.MainVocabulary
 import AntichainOfGivenSize.Model.Prelude
@@ -80,8 +70,24 @@ import AntichainOfGivenSize.Paper.CountingParameters
 import AntichainOfGivenSize.Paper.Density
 import AntichainOfGivenSize.Paper.DirectReduction
 import AntichainOfGivenSize.Paper.Extremal
+import AntichainOfGivenSize.Paper.FaithfulCounting.ActualCounting
+import AntichainOfGivenSize.Paper.FaithfulCounting.CanonicalHeader
+import AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles
+import AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting
+import AntichainOfGivenSize.Paper.FaithfulCounting.ConnectedSubset
+import AntichainOfGivenSize.Paper.FaithfulCounting.HeaderExistence
+import AntichainOfGivenSize.Paper.FaithfulCounting.IncidenceCount
+import AntichainOfGivenSize.Paper.FaithfulCounting.LiteralScales
+import AntichainOfGivenSize.Paper.FaithfulCounting.NumericalParameters
+import AntichainOfGivenSize.Paper.FaithfulCounting.OriginalQueryReconstruction
+import AntichainOfGivenSize.Paper.FaithfulCounting.PartitionHeader
+import AntichainOfGivenSize.Paper.FaithfulCounting.RealTailFiberCore
+import AntichainOfGivenSize.Paper.FaithfulCounting.ScalarNormalization
 import AntichainOfGivenSize.Paper.FirstUpper
 import AntichainOfGivenSize.Paper.GeneralCounting
+import AntichainOfGivenSize.Paper.LiteralBlockMatching
+import AntichainOfGivenSize.Paper.LiteralUpperParameters
+import AntichainOfGivenSize.Paper.MainSemantics
 import AntichainOfGivenSize.Paper.PatternGadget
 import AntichainOfGivenSize.Paper.RealDensity
 import AntichainOfGivenSize.Paper.Representation
@@ -92,6 +98,7 @@ import AntichainOfGivenSize.Paper.Typical
 import AntichainOfGivenSize.Paper.UpperConstructionBounds
 import AntichainOfGivenSize.Paper.UpperConstructionCore
 import AntichainOfGivenSize.Paper.UpperConstructionGeometry
+import AntichainOfGivenSize.Paper.UpperConstructionIncrement
 import AntichainOfGivenSize.Paper.UpperConstructionSteps
 import AntichainOfGivenSize.Paper.UpperParameters
 import AntichainOfGivenSize.RangeArithmetic
@@ -111,6 +118,6 @@ import AntichainOfGivenSize.Theorem
 
 namespace AntichainOfGivenSize.Meta
 
-#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.attainable_count AntichainOfGivenSize.Model.attainableValues_membership AntichainOfGivenSize.alpha_eventual_upper AntichainOfGivenSize.alpha_lower_density_one AntichainOfGivenSize.alpha_simultaneous_density_one AntichainOfGivenSize.alpha_maximum_order AntichainOfGivenSize.alpha_asymptotic_order
+#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.attainable_count AntichainOfGivenSize.Model.attainableValues_membership AntichainOfGivenSize.alpha_eventual_upper AntichainOfGivenSize.alpha_lower_density_one AntichainOfGivenSize.alpha_simultaneous_density_one AntichainOfGivenSize.alpha_maximum_order AntichainOfGivenSize.alpha_asymptotic_order AntichainOfGivenSize.Paper.mem_realGoodInputs_iff AntichainOfGivenSize.Paper.density_representations AntichainOfGivenSize.Paper.mem_maximumBelow_domain AntichainOfGivenSize.Paper.maximumBelow_spec
 
 end AntichainOfGivenSize.Meta
