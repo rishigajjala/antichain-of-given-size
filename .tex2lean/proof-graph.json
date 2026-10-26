@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
-  "slug": "antichainofgivensize-alpha-eventual-upper-1luz1kr",
-  "updatedAt": "2026-10-26T21:31:25.509Z",
+  "slug": "antichainofgivensize-alpha-lower-density-one-zt40qi",
+  "updatedAt": "2026-10-26T21:33:23.387Z",
   "sourceFingerprint": "sha256:67e554dfae2915f7dbf13061d33ed52807dd759ac8e0742f7671c956b7ac91ca",
   "buildFingerprint": "sha256:67e554dfae2915f7dbf13061d33ed52807dd759ac8e0742f7671c956b7ac91ca",
   "dependencyFingerprint": "sha256:67e554dfae2915f7dbf13061d33ed52807dd759ac8e0742f7671c956b7ac91ca",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-26T21:31:25.509Z",
+  "elaboratedAt": "2026-10-26T21:33:23.387Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -104,11 +104,11 @@
     "AntichainOfGivenSize.Theorem"
   ],
   "target": {
-    "key": "lean:.:AntichainOfGivenSize.alpha_eventual_upper",
-    "id": "lean:.:AntichainOfGivenSize.alpha_eventual_upper",
-    "title": "AntichainOfGivenSize.alpha_eventual_upper",
-    "location": "AntichainOfGivenSize/Model/Theorem.lean:72",
-    "paperDigest": "88f2a45d5f94"
+    "key": "lean:.:AntichainOfGivenSize.alpha_lower_density_one",
+    "id": "lean:.:AntichainOfGivenSize.alpha_lower_density_one",
+    "title": "AntichainOfGivenSize.alpha_lower_density_one",
+    "location": "AntichainOfGivenSize/Model/Theorem.lean:80",
+    "paperDigest": "c94a0fe42869"
   },
   "nodes": [
     {
@@ -27171,12 +27171,12 @@
       "paperRefs": []
     },
     {
-      "id": "paper:AntichainOfGivenSize/Model/Theorem.lean:72",
+      "id": "paper:AntichainOfGivenSize/Model/Theorem.lean:80",
       "kind": "paper",
-      "label": "AntichainOfGivenSize/Model/Theorem.lean:72",
+      "label": "AntichainOfGivenSize/Model/Theorem.lean:80",
       "status": "target",
       "paperRefs": [
-        "AntichainOfGivenSize/Model/Theorem.lean:72"
+        "AntichainOfGivenSize/Model/Theorem.lean:80"
       ]
     },
     {
@@ -67621,10 +67621,10 @@
       "id": "imports:file:AntichainOfGivenSize/Theorem.lean->file:AntichainOfGivenSize/Section6/ModularIncrement.lean"
     },
     {
-      "from": "lean:AntichainOfGivenSize.alpha_eventual_upper",
-      "to": "paper:AntichainOfGivenSize/Model/Theorem.lean:72",
+      "from": "lean:AntichainOfGivenSize.alpha_lower_density_one",
+      "to": "paper:AntichainOfGivenSize/Model/Theorem.lean:80",
       "kind": "renders",
-      "id": "renders:lean:AntichainOfGivenSize.alpha_eventual_upper->paper:AntichainOfGivenSize/Model/Theorem.lean:72"
+      "id": "renders:lean:AntichainOfGivenSize.alpha_lower_density_one->paper:AntichainOfGivenSize/Model/Theorem.lean:80"
     },
     {
       "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper",
