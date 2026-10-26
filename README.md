@@ -180,11 +180,22 @@ import AntichainOfGivenSize
 #check AntichainOfGivenSize.Paper.countingBound
 #check AntichainOfGivenSize.Paper.mainTheorem
 #check AntichainOfGivenSize.Paper.almostAllGoodProportion
+#check AntichainOfGivenSize.Paper.realAlmostAllGoodProportion
+#check AntichainOfGivenSize.Paper.bitMatchingInt
 ```
 
 The source contains no `sorry`, `admit`, or custom axioms.
 The [repository guide](docs/proof-guide.md#checking-the-axioms) explains how
 to inspect the foundational axioms used by the public certificates.
+CI also compares the audit's module list with every library source file,
+checks proof dependencies of every project declaration, and checks the
+manuscript's explicit constants, quantifiers, and endpoints independently
+of the library's statement aliases:
+
+```bash
+lake env lean -DwarningAsError=true scripts/check-axioms.lean
+lake env lean -DwarningAsError=true scripts/check-paper-statements.lean
+```
 
 The Lean definition of `alpha` specifies a mathematical minimum. This
 repository proves existence and bounds and defines the explicit witnesses

@@ -15,8 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+      - name: Verify manuscript snapshot
+        run: sha256sum --check paper/SHA256SUMS
       - uses: leanprover/lean-action@v1
         with:
           build-args: "--wfail"
       - name: Check proof dependencies
-        run: lake env lean scripts/check-axioms.lean
+        run: lake env lean -DwarningAsError=true scripts/check-axioms.lean
+      - name: Check manuscript statements
+        run: lake env lean -DwarningAsError=true scripts/check-paper-statements.lean

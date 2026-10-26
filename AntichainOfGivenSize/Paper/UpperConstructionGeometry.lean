@@ -137,6 +137,43 @@ theorem full_position_intersection {r ell : ℕ} {K V : Type*}
       simpa [Present,stageEmbedding,selected,BitMatching.chosenIndex] using hm.2
     exact hi (heq ▸ hg)
 
+/-- Claim 6.3 in its literal position-only form: immediately before a stage,
+the intersection is precisely the addressed original blocks together with
+the whole pattern universe. In particular, it contains no fresh atom. -/
+theorem position_intersection {r ell : ℕ} {K V : Type*}
+    [DecidableEq K] [Fintype V] [DecidableEq V]
+    (hr : 0 < r) (active : Finset (BitMatching.Stage r))
+    (hist : BitMatching.Stage r → Finset K) (R : K → Finset V)
+    (i : BitMatching.Stage r) (hi : i ∉ active) :
+    (Finset.univ : Finset (Fin r)).inf' ⟨⟨0, hr⟩, Finset.mem_univ _⟩
+        (fun j ↦ generator (ell := ell) active hist R
+          (Sum.inl (BitMatching.chosenIndex i j))) =
+      ((BitMatching.core i).product Finset.univ).disjSum
+        ((Finset.univ : Finset V).disjSum ∅) := by
+  classical
+  let D : Finset K := ∅
+  let t : StageTerm r D := ⟨Finset.univ, Finset.mem_filter.mpr
+    ⟨Finset.mem_powerset.mpr (Finset.Subset.refl _),
+      ⟨Sum.inl ⟨0, hr⟩, Finset.mem_univ _⟩⟩⟩
+  have h := full_position_intersection (ell := ell) hr active hist R i hi D t
+    (by simp [t])
+  have hsame : generatorIntersection (stageGenerator (ell := ell) active hist R i D) t =
+      (Finset.univ : Finset (Fin r)).inf' ⟨⟨0, hr⟩, Finset.mem_univ _⟩
+        (fun j ↦ generator (ell := ell) active hist R
+          (Sum.inl (BitMatching.chosenIndex i j))) := by
+    ext v
+    simp only [generatorIntersection, Finset.mem_inf', t, Finset.mem_univ,
+      forall_const]
+    constructor
+    · intro hv j
+      exact hv (Sum.inl j)
+    · intro hv p
+      cases p with
+      | inl j => exact hv j
+      | inr k => exact (Finset.notMem_empty k.val k.property).elim
+  rw [hsame] at h
+  simpa [t, D] using h
+
 /-- Every omitted selected position leaves its whole flag block. -/
 theorem missing_position_intersection_ge {r ell : ℕ} {K V : Type*}
     [DecidableEq K] [Fintype V] [DecidableEq V]

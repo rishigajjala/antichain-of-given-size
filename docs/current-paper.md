@@ -26,23 +26,30 @@ uniform parameter bounds are connected in the unconditional certificate
 `Paper.blockMatching`. The counting and matching hypotheses in the
 intermediate analytic files are discharged in `Paper.Results`.
 
-**Repository-wide verification, 26 October 2026:** both commands completed
-successfully:
+**Repository-wide verification, 26 October 2026:** the independent upper,
+lower, and statement-coverage reviews found no mathematical defect in the
+proved endpoints. The follow-up verification added the real-cutoff density
+bridge, explicit integer-residue and position-intersection interfaces,
+and persistent checks against weaker statements or omitted audit inputs.
+
+These commands completed successfully:
 
 ```sh
 lake build --wfail
-lake env lean scripts/check-axioms.lean
+lake env lean -DwarningAsError=true scripts/check-axioms.lean
+lake env lean -DwarningAsError=true scripts/check-paper-statements.lean
+shasum -a 256 --check paper/SHA256SUMS
 ```
 
-The build completed 8,742 jobs with warnings treated as errors. The axiom
-audit checked 2,111 theorem declarations across all 87 project library
-modules, covering 2,656 project declarations in total. Eighty theorem
-declarations require no axioms; the union of all observed axioms was
-exactly `propext`, `Classical.choice`, and `Quot.sound`. The eleven new
-public certificates printed by the audit, including `Paper.blockMatching`
-and `Paper.mainTheorem`, use only those standard axioms. Independently,
-the tracked module list was compared with all library source files and
-had no missing or untracked module.
+The build completed 8,743 jobs with warnings treated as errors. The expanded
+axiom audit checked all 2,680 project declarations across 88 library modules
+and their matching source files, including 2,133 theorem declarations.
+Eighty theorem declarations require no axioms; the union of all observed
+axioms was exactly `propext`, `Classical.choice`, and `Quot.sound`.
+All fourteen public manuscript certificates printed by the audit use only
+those standard axioms. The separate statement check passed all twelve
+expanded contracts. CI runs these checks and the snapshot checksum
+(`sha256sum --check paper/SHA256SUMS` on Linux).
 
 ## Numbered results
 
@@ -53,21 +60,21 @@ had no missing or untracked module.
 | Definition 2.2: minimum generator number | `alpha` and `HasGeneratorCount` in [`MainStatement.lean`](../AntichainOfGivenSize/MainStatement.lean); `alpha_hasGeneratorCount` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean) proves attainment. `mainAlphaHasAntichainWitness` certifies an antichain attaining the same minimum. |
 | Lemma 3.1: splitting | `splittingLemma` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean). The first ideal size has the required positivity hypothesis. |
 | Lemma 3.2: lifting | `liftingLemma` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean). |
-| Theorem 4.1: bit matching | `Paper.BitMatching.exists_matching_int` in [`BitMatching.lean`](../AntichainOfGivenSize/Paper/BitMatching.lean), for every integer target, including negative targets. `exists_matching` is the natural-target version, and `Paper.bitMatching` is its public interface. |
+| Theorem 4.1: bit matching | `Paper.bitMatchingInt` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using `Paper.BitMatching.exists_matching_int`, for every integer target including negative targets. `Paper.bitMatching` is the natural-target interface used in the reduction. |
 | Claim 4.2: separation of fresh elements | `Paper.BitMatching.fresh_separation` in [`BitMatching.lean`](../AntichainOfGivenSize/Paper/BitMatching.lean). |
 | Claim 4.3: primary intersection size | `Paper.BitMatching.primary_intersection_card` in [`BitMatching.lean`](../AntichainOfGivenSize/Paper/BitMatching.lean), with the stronger set identity `primary_intersection`. |
 | Claim 4.4: proper contributing intersections are larger | `Paper.BitMatching.proper_intersection_card` in [`BitMatching.lean`](../AntichainOfGivenSize/Paper/BitMatching.lean). |
-| Theorem 5.1: exact bound `4q²+3` | `Paper.firstUpper` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), from `Paper.first_upper` and `Paper.first_upper_cumulative` in [`FirstUpper.lean`](../AntichainOfGivenSize/Paper/FirstUpper.lean). `Paper.quadratic_upper_of_matching` proves its asymptotic conclusion directly from bit matching. |
+| Theorem 5.1: exact bound `4q²+3` | `Paper.firstUpper` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), from `Paper.first_upper` and `Paper.first_upper_cumulative` in [`FirstUpper.lean`](../AntichainOfGivenSize/Paper/FirstUpper.lean). `Paper.quadraticUpper` supplies its unconditional asymptotic conclusion directly from bit matching. |
 | Theorem 6.1: block matching, with `a=5`, `b=3` | `Paper.blockMatching` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), combining `Paper.UpperConstruction.blockMatchingConstruction` in [`UpperConstructionBounds.lean`](../AntichainOfGivenSize/Paper/UpperConstructionBounds.lean) with `blockMatching_of_construction` in [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean). Its full statement includes arbitrary integer residues, positivity, the generator bound, and the logarithmic size bound. |
 | Claim 6.2: the pattern gadget has size `2^ell+d` | `Paper.PatternGadget.ideal_card_bits` in [`PatternGadget.lean`](../AntichainOfGivenSize/Paper/PatternGadget.lean), using the exact decomposition `ideal_decomposition`. |
-| Claim 6.3: position addressing | `Paper.UpperConstruction.full_position_intersection` in [`UpperConstructionGeometry.lean`](../AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean). |
+| Claim 6.3: position addressing | `Paper.UpperConstruction.position_intersection` in [`UpperConstructionGeometry.lean`](../AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean) states the position-only set identity directly; `full_position_intersection` also covers mixed queries. |
 | Claim 6.4: the complete stage increment congruence | `Paper.UpperConstruction.block_increment` and `idealCard_update` in [`UpperConstructionSteps.lean`](../AntichainOfGivenSize/Paper/UpperConstructionSteps.lean), from the complete sum `selected_card_zmod` in [`UpperConstructionCore.lean`](../AntichainOfGivenSize/Paper/UpperConstructionCore.lean) and the concrete geometry `stage_card_zmod`. Every nonempty contributing query is included. |
 | Claim 6.5: uniform generator and ideal-size bounds | `Paper.UpperConstruction.card_generator_le`, `alpha_idealCard_le`, and `idealCard_bound` in [`UpperConstructionBounds.lean`](../AntichainOfGivenSize/Paper/UpperConstructionBounds.lean), followed by `Paper.block_small_cost` and `Paper.block_uniform_size` in [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean). |
 | Lemma 6.6: direct reduction | `Paper.directReduction` in [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean), with the complete positivity, strict-decrease, and logarithmic-quotient requirements. Its explicit constants are `a=8`, `C₁=4096`. |
 | Theorem 6.7: upper bound for every integer `n≥5` | `Paper.universalUpper_from_five` in [`Extremal.lean`](../AntichainOfGivenSize/Paper/Extremal.lean). This is stronger than merely restating an unspecified eventual bound. |
 | Theorem 7.1: counting attainable values | `Paper.countingBound` in [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean), proving `Paper.CountingBoundStatement` from [`Statements.lean`](../AntichainOfGivenSize/Paper/Statements.lean). It retains the budget denominator `100`, all sufficiently large integers `B`, every admissible `K`, and the real exponent `B−sqrt(B)`. |
 | Corollary 10.1: probability in a dyadic block | `Paper.typicalLowerBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), implemented by `typicalLowerBound_of_countingBound` in [`Typical.lean`](../AntichainOfGivenSize/Paper/Typical.lean). The finite probability of `alpha≤K` is at most `2^(1−sqrt(B))`; equivalently the complementary event has the paper's lower bound. |
-| Corollary 10.2: simultaneous almost-all bounds | `Paper.almostAllOrder` and `Paper.almostAllGoodProportion` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), implemented in [`AlmostAll.lean`](../AntichainOfGivenSize/Paper/AlmostAll.lean). The first states that exceptions to either inequality have density zero; the second is the literal displayed limit that the proportion satisfying both inequalities tends to one. |
+| Corollary 10.2: simultaneous almost-all bounds | `Paper.almostAllOrder`, `Paper.almostAllGoodProportion`, and `Paper.realAlmostAllGoodProportion` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean). The first is the density-zero exceptional-set statement, the second is the integer-cutoff proportion, and the third is the displayed limit over arbitrary real cutoffs, implemented in [`RealDensity.lean`](../AntichainOfGivenSize/Paper/RealDensity.lean). |
 
 Sections 8 and 9 contain the counting proof's intermediate constructions
 and estimates, but no further numbered theorem, lemma, claim, or corollary.
@@ -124,6 +131,11 @@ for every integer at least five. Consequently
 [`AlmostAll.lean`](../AntichainOfGivenSize/Paper/AlmostAll.lean) proves that
 the proportion satisfying both bounds tends to one, with the omitted
 finite initial segment accounted for explicitly.
+
+[`RealDensity.lean`](../AntichainOfGivenSize/Paper/RealDensity.lean) extends
+this to real cutoffs. `mem_realGoodInputs_iff` identifies the counted set
+exactly with the good integers satisfying `5≤n≤X`; the factor
+`floor(X)/X→1` gives the same proportion limit over all real `X`.
 
 ### Real extremal cutoffs
 
@@ -190,13 +202,25 @@ These differences preserve the target conclusions and their quantifiers.
 The canonical public certificates are assembled in
 [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean). Intermediate
 theorems whose names end in `_of_countingBound` or `_of_matching` retain
-their hypotheses openly; the public certificates must supply the proved
+their hypotheses openly; the public certificates supply the proved
 counting and matching theorems.
 
-Run the full library build and the repository's
-[`scripts/check-axioms.lean`](../scripts/check-axioms.lean) after updating
-the umbrella imports and tracked module list. The checker rejects omitted
-proofs and project-specific axioms; a successful check does not replace
-the statement-to-paper comparison in this document. The background
+The dependency checker compares the actual library sources, the explicit
+module registry, and the imported modules. It checks every project
+declaration, including proof-bearing definitions and instances. Negative
+checks verified that it rejects both an untracked source file and an
+unused definition containing an omitted proof.
+
+[`scripts/check-paper-statements.lean`](../scripts/check-paper-statements.lean)
+separately spells out twelve mathematical contracts from the manuscript.
+It checks the integer-residue domain, exact constants and endpoints,
+the intended meaning of `V(B,K)`, density one, and real cutoffs against
+the unconditional certificates. Thus changing a library statement alias
+together with its proof cannot silently weaken those checked contracts.
+A negative check confirmed rejection when the counting-budget constant
+in the independently stated contract was changed from `100` to `99`.
+The snapshot digest is also checked in CI against
+[`paper/SHA256SUMS`](../paper/SHA256SUMS). These checks complement the
+statement-to-paper comparison; they do not replace it. The background
 literature discussion, bibliography, and authors' account of AI assistance
 are not mathematical propositions certified by Lean.

@@ -7,6 +7,7 @@ import AntichainOfGivenSize.Paper.AlmostAll
 import AntichainOfGivenSize.Paper.Extremal
 import AntichainOfGivenSize.Paper.DirectReduction
 import AntichainOfGivenSize.Paper.UpperConstructionBounds
+import AntichainOfGivenSize.Paper.RealDensity
 
 /-!
 # Unconditional statements for the current manuscript
@@ -23,6 +24,12 @@ namespace AntichainOfGivenSize.Paper
 theorem bitMatching : BitMatchingStatement :=
   fun q y hq ↦ BitMatching.exists_matching q y hq
 
+/-- Theorem 4.1 in its full integer-target form, including negative residues. -/
+theorem bitMatchingInt (q : ℕ) (y : ℤ) (hq : 0 < q) :
+    ∃ m : ℕ, 0 < m ∧ m < 2 ^ (2 ^ (q + 1)) ∧
+      (m : ZMod (2 ^ (2 ^ q))) = (y : ZMod (2 ^ (2 ^ q))) ∧ alpha m ≤ 2 * q :=
+  BitMatching.exists_matching_int q y hq
+
 /-- Theorem 6.1, with the stated constants 5 and 3. -/
 theorem blockMatching : BlockMatchingStatement :=
   blockMatching_of_construction UpperConstruction.blockMatchingConstruction
@@ -31,6 +38,12 @@ theorem blockMatching : BlockMatchingStatement :=
 theorem firstUpper (q n : ℕ)
     (hnlo : 2 ^ (2 ^ (q + 1)) ≤ n) (hnhi : n < 2 ^ (2 ^ (q + 2))) :
     alpha n ≤ 4 * q ^ 2 + 3 := first_upper bitMatching q n hnlo hnhi
+
+/-- The asymptotic conclusion of Theorem 5.1, using only bit matching. -/
+theorem quadraticUpper :
+    Asymptotics.IsBigO Filter.atTop (fun n : ℕ ↦ (alpha n : ℝ))
+      (fun n : ℕ ↦ (Real.logb 2 (Real.logb 2 (n : ℝ))) ^ 2) :=
+  quadratic_upper_of_matching bitMatching
 
 /-- Corollary 10.1 with the explicit square-root error exponent. -/
 theorem typicalLowerBound : TypicalLowerBoundStatement :=
@@ -47,6 +60,11 @@ theorem almostAllOrder : AlmostAllOrderStatement :=
 /-- Equivalently, the proportion satisfying both bounds tends to one. -/
 theorem almostAllGoodProportion : AlmostAllGoodProportionStatement :=
   almostAllGoodProportion_of_countingBound countingBound
+
+/-- The same proportion limit for arbitrary real cutoffs, as displayed
+in Corollary 10.2. -/
+theorem realAlmostAllGoodProportion : RealAlmostAllGoodProportionStatement :=
+  realAlmostAllGoodProportion_of_countingBound countingBound
 
 /-- The extremal conclusion for every sufficiently large real cutoff. -/
 theorem extremalOrder : ExtremalOrderStatement :=
