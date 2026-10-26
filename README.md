@@ -128,7 +128,7 @@ and Almost-All Lower Bounds*
 by L. Sunil Chandran, Rishikesh Gajjala, Kuldeep S. Meel, and Daniel J. Zhang.
 This manuscript is separate from the earlier arXiv paper linked above.
 
-The counting theorem `Paper.countingBound` keeps the manuscript's constant
+The counting theorem `Paper.faithfulCountingBound` keeps the manuscript's constant
 100: for every sufficiently large integer $B$ and
 $1\leq K\leq (\log_2 B)^2/(100\log_2\log_2 B)$,
 
@@ -177,7 +177,7 @@ import AntichainOfGivenSize
 #check AntichainOfGivenSize.mainExplicitBlockWitness
 #check AntichainOfGivenSize.mainUpperBound
 #check AntichainOfGivenSize.mainLowerBound_explicit
-#check AntichainOfGivenSize.Paper.countingBound
+#check AntichainOfGivenSize.Paper.faithfulCountingBound
 #check AntichainOfGivenSize.Paper.mainTheorem
 #check AntichainOfGivenSize.Paper.almostAllGoodProportion
 #check AntichainOfGivenSize.Paper.realAlmostAllGoodProportion

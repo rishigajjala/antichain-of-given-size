@@ -106,3 +106,70 @@ example : ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ Tendsto
 -- The extremal maximum is over all positive integers strictly below real X.
 example : (fun X : ℝ ↦ (((Finset.Ico 1 ⌈X⌉₊).sup alpha : ℕ) : ℝ)) =Θ[atTop] paperScale :=
   extremalOrder
+
+-- Expanded Corollary 10.1 contract: the good event, exact budget, real square root,
+-- inclusive left endpoint, exclusive right endpoint, and a K-independent threshold.
+example : ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →
+    (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /
+      (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) →
+    1 - (2 : ℝ) ^ (1 - Real.sqrt (B : ℝ)) ≤
+      (((Finset.Ico (2 ^ (B - 1)) (2 ^ B)).filter
+        fun n : ℕ ↦ alpha n > K).card : ℝ) /
+        ((Finset.Ico (2 ^ (B - 1)) (2 ^ B)).card : ℝ) :=
+  Paper.typicalLowerBound_good
+
+-- The stronger finite prose claim from the q=0 base, including the exclusion of 13.
+example (n : ℕ) (hlo : 4 ≤ n) (hhi : n < 16) (h13 : n ≠ 13) :
+    alpha n ≤ 2 := Paper.alpha_le_two_of_base_range hlo hhi h13
+
+open Finset
+open AntichainOfGivenSize.Section6
+open AntichainOfGivenSize.FaithfulLower
+open AntichainOfGivenSize.FaithfulLower.Numerical
+
+-- Literal final-index padding, full ideal preservation, and all normalization clauses.
+example {s K B : ℕ} {V : Type*} [DecidableEq V]
+    (hs : 0 < s) (hsK : s ≤ K) (G : Fin s → Finset V)
+    (hsize : ∀ i, (G i).card ≤ B) :
+    (generatedIdealIdx univ
+      (fun i : Fin K ↦ G (if hi : i.val < s then ⟨i.val, hi⟩
+        else ⟨s - 1, Nat.sub_lt hs (by decide)⟩)) =
+      generatedIdealIdx univ G) ∧
+    (∃ N : ℕ, N = (univ.biUnion G).card ∧ N ≤ K * B ∧
+      ∃ D : Fin K → Finset (Fin N),
+        (∀ i, (D i).card ≤ B) ∧ univ.biUnion D = univ ∧
+        (generatedIdealIdx univ D).card = (generatedIdealIdx univ G).card) :=
+  paper_final_padding_and_normalization hs hsK G hsize
+
+-- All numerical quantities are expanded here. In the B-level conclusions Gamma
+-- has numerator B, and the record cost contains KB+1 and B+1 literally.
+example :
+    (∀ L : ℝ, 20 ≤ L → ∀ K : ℕ,
+      1 ≤ K → (K : ℝ) ≤ L^2 / (100 * Real.logb 2 L) →
+      (2 : ℝ)^(7*L/10) ≤ (2 : ℝ)^L / L^(6*(K / ⌊L/4⌋₊))) ∧
+    (∃ B₀ : ℕ, 1 ≤ B₀ ∧ ∀ B : ℕ, B₀ ≤ B → ∀ K : ℕ,
+      1 ≤ K → (K : ℝ) ≤ (Real.logb 2 B)^2 /
+        (100 * Real.logb 2 (Real.logb 2 B)) →
+      let L := Real.logb 2 B
+      let h : ℕ := ⌊L/4⌋₊
+      let J : ℕ := K / h
+      let Γ : ℝ := (B : ℝ) / L^(6*J)
+      (2 : ℝ)^(7*L/10) ≤ Γ ∧
+      2*(K : ℝ)^2/L^6 ≤ 1/4 ∧
+      (Real.logb 2 (J+1) + (K : ℝ)*Real.logb 2 K +
+        Real.logb 2 ((K : ℝ)*B+1) +
+        (2 : ℝ)^J * (1+(K : ℝ)*(2 : ℝ)^h)*Real.logb 2 ((B : ℝ)+1) + K+2) ≤ Γ/2 ∧
+      Real.sqrt B ≤ Γ/4 ∧
+      ((AntichainOfGivenSize.Paper.attainableValues B K).card : ℝ) ≤
+        (2 : ℝ)^((B : ℝ)-Γ/4)) := by
+  obtain ⟨hpre, B₀, hB₀, hbound⟩ := paper_numerics_full
+  refine ⟨?_, B₀, hB₀, ?_⟩
+  · intro L hL K hK hbudget
+    exact hpre L hL K hK hbudget
+  · intro B hB K hK hbudget
+    have hBpos : (0 : ℝ) < B := by
+      exact_mod_cast lt_of_lt_of_le (by omega : 0 < B₀) hB
+    have hBL : (2 : ℝ)^(Real.logb 2 B) = B :=
+      Real.rpow_logb (by norm_num) (by norm_num) hBpos
+    simpa only [gamma, fineCost, recordCost, clusterSize, packingBound, hBL] using
+      hbound B hB K hK hbudget

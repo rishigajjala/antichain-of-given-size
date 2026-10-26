@@ -75,7 +75,7 @@ expanded contracts. CI runs these checks and the snapshot checksum
 | Lemma 6.6: direct reduction | `Paper.directReduction` in [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean), with the complete positivity, strict-decrease, and logarithmic-quotient requirements. Its explicit constants are `a=8`, `C₁=4096`. |
 | Theorem 6.7: upper bound for every integer `n≥5` | `Paper.universalUpper_from_five` in [`Extremal.lean`](../AntichainOfGivenSize/Paper/Extremal.lean). This is stronger than merely restating an unspecified eventual bound. |
 | Theorem 7.1: counting attainable values | `Paper.faithfulCountingBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using [`FaithfulCounting/CompleteCounting.lean`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean). The Model interface `attainable_count` uses the same proof. It retains the budget denominator `100`, a threshold uniform in `K`, arbitrary sufficiently large integers `B`, and the real exponent `B−sqrt(B)`. |
-| Corollary 10.1: probability in a dyadic block | `Paper.typicalLowerBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), implemented by `typicalLowerBound_of_countingBound` in [`Typical.lean`](../AntichainOfGivenSize/Paper/Typical.lean). The finite probability of `alpha≤K` is at most `2^(1−sqrt(B))`; equivalently the complementary event has the paper's lower bound. |
+| Corollary 10.1: probability in a dyadic block | `Paper.typicalLowerBound_good` in [`TypicalGoodEvent.lean`](../AntichainOfGivenSize/Paper/TypicalGoodEvent.lean) states the literal lower bound for the event `alpha>K`. It uses `Paper.typicalLowerBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), which bounds the complementary event, and the exact finite complement identity. |
 | Corollary 10.2: simultaneous almost-all bounds | `Paper.almostAllOrder`, `Paper.almostAllGoodProportion`, and `Paper.realAlmostAllGoodProportion` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean). The first is the density-zero exceptional-set statement, the second is the integer-cutoff proportion, and the third is the displayed limit over arbitrary real cutoffs, implemented in [`RealDensity.lean`](../AntichainOfGivenSize/Paper/RealDensity.lean). |
 
 Sections 8 and 9 contain the counting proof's intermediate constructions
@@ -114,7 +114,10 @@ The finite examples are proved in
 [`BasicResults.lean`](../AntichainOfGivenSize/Paper/BasicResults.lean):
 `alpha_one`, `alpha_two_pow`, `alpha_thirteen`,
 `thirteenFamily_ideal_card`, `alpha_le_three_of_le_sixteen`, and
-`alpha_le_max_one_pred`. The proof that two generators cannot give size
+`alpha_le_max_one_pred`. The stronger base-case sentence `alpha(n)≤2` for
+`4≤n<16`, `n≠13`, is proved by `Paper.alpha_le_two_of_base_range` in
+[`FiniteTwoGeneratorBound.lean`](../AntichainOfGivenSize/Paper/FiniteTwoGeneratorBound.lean).
+The proof that two generators cannot give size
 13 works over every ambient type. Small closed finite checks use Lean's
 kernel evaluator (`decide`), not `native_decide`.
 
@@ -171,7 +174,7 @@ These differences preserve the target conclusions and their quantifiers.
   The earlier integral-parameter implementation in
   [`UpperParameters.lean`](../AntichainOfGivenSize/Paper/UpperParameters.lean)
   remains available as a separate proved route.
-* **The counting proof.** The thirteen modules in
+* **The counting proof.** The fourteen modules in
   [`Paper/FaithfulCounting/`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean)
   formalize Sections 8--10.1: the maximum-packing plateau, connected clusters
   of exactly `h` vertices, the partition count `(J+1)K^K`, the intrinsic
@@ -189,7 +192,11 @@ These differences preserve the target conclusions and their quantifiers.
   estimates explicitly. Its normalization theorem relabels the actual union
   of the original generators onto `Fin N`, with `N≤KB`, full union, bounded
   generators, and unchanged ideal cardinality. Padding repeats index zero;
-  repeating the final generator, as in the paper, gives the same ideal.
+  [`ExactClaimBundles.lean`](../AntichainOfGivenSize/Paper/FaithfulCounting/ExactClaimBundles.lean)
+  additionally proves the literal final-index padding identity for the entire
+  generated ideal, paired with all normalization conclusions. Its
+  `paper_numerics_full` retains the preliminary Gamma estimate for every
+  `λ≥20` as well as the common threshold for all later numerical/counting bounds.
   The earlier larger encoding remains as `Paper.countingBound` in
   [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean).
   The public dyadic, density, and extremal certificates in `Paper.Results`

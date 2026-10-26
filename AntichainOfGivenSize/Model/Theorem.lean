@@ -8,6 +8,8 @@ import AntichainOfGivenSize.Analysis.AlphaEventualUpperProof
 import AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof
 import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
 import AntichainOfGivenSize.Paper.MainSemantics
+import AntichainOfGivenSize.Paper.TypicalGoodEvent
+import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
 
 /-!
 # Counting attainable ideal sizes
@@ -162,3 +164,7 @@ end AntichainOfGivenSize
 #modelClosureOfType AntichainOfGivenSize.Paper.density_representations
 #modelClosureOfType AntichainOfGivenSize.Paper.mem_maximumBelow_domain
 #modelClosureOfType AntichainOfGivenSize.Paper.maximumBelow_spec
+
+#modelClosureOfType AntichainOfGivenSize.Paper.typicalLowerBound_good
+#modelClosureOfType AntichainOfGivenSize.Paper.alpha_le_two_of_base_range
+#modelClosureOfType AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization

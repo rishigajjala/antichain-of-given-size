@@ -9,6 +9,9 @@ import AntichainOfGivenSize.MainTheorems
 import AntichainOfGivenSize.Paper.Results
 import AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting
 import AntichainOfGivenSize.Meta.Audit
+import AntichainOfGivenSize.Paper.TypicalGoodEvent
+import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
+import AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles
 
 /-!
 # Antichain of a Given Size
