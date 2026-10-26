@@ -257,3 +257,44 @@ substitute for these Lean controls.
 
 The public release repository does not contain the matching TypeScript
 development source, so this narrowly patches the reviewed installed bundle.
+
+
+## v9 source-inspection extension
+
+The self-contained [`extensions/`](extensions/README.md) package applies one
+additional default fix to the exact v8 output above. Codex inspection workers
+can use equivalent read-only file/search tools instead of being required to
+have Claude-specific tool names. They must actually inspect the sources; the
+existing prohibitions on builds, network, Git and source changes remain.
+Claude prompts and ordinary proof prompts are unchanged.
+
+From the repository root, using new output directories:
+
+```sh
+python3 scripts/tex2lean-compat/build_compat.py --output /tmp/antichain-tex2lean-compat-v8
+node scripts/tex2lean-compat/extensions/extend.cjs \
+  --input /tmp/antichain-tex2lean-compat-v8/out/cli.cjs \
+  --output /tmp/antichain-tex2lean-compat-v9
+node --check /tmp/antichain-tex2lean-compat-v9/out/cli.cjs
+for test in test-inspection-prompt test-extension test-integration test-adapter; do
+  node "scripts/tex2lean-compat/extensions/$test.cjs" /tmp/antichain-tex2lean-compat-v8/out/cli.cjs
+done
+```
+
+The default v9 bundle SHA-256 is
+`4268db0fdda61deb1e3be7d52879d8952e67caaf4931e6c1a9fdbfdff39327d6`.
+The extension requires the exact reviewed v8 hash and asserts unchanged
+ModelClosure, CostSeal, native ledger store/replay and binding-validator code.
+Stop any existing workflow before switching launchers; the physical-project
+path requirements above still apply.
+
+The optional ledger-review command is **off by default and unconfigured**.
+A separate build can enable it with
+`--ledger-authority-pin sha256-<independently-reviewed-authority-file-hash>`.
+It then provides `/ledger-review {"inspect":true,...}`, a default dry-run with a
+reviewed manifest, and an explicit `"apply":true` operation. See the extension
+README for complete commands, authority schema, source/type review requirements
+and tests. Review provenance identifies the Codex assistant, never an
+authenticated human. Only native evidence/binding/disposition decisions may be
+published; ordinary `/prove` and `/handoff` remain mandatory. No authority
+record, binding manifest or ledger decision is supplied by this package.
