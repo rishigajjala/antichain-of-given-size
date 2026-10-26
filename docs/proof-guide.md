@@ -109,7 +109,7 @@ which assumed principles do the formal proofs depend on?
 After building, run the repository-wide dependency check:
 
 ```bash
-lake env lean scripts/check-axioms.lean
+lake env lean scripts/CheckAxioms.lean
 ```
 
 It checks every theorem declaration originating in the project library

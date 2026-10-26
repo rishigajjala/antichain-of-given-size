@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.CountingVocabulary
 import AntichainOfGivenSize.Section6.IndexedBounds
 import Mathlib.Data.Fintype.Sigma
 
@@ -100,22 +101,6 @@ theorem hasGeneratorCount_imp_exists_vennProfile {n q : ℕ}
   rw [himage]
 
 /-! Conversely, create `x A` elements in Venn atom `A`. -/
-
-/-- Canonical ground-set elements realizing the multiplicities `x`. -/
-def ProfilePoint (x : Finset I → ℕ) := Σ A : Finset I, Fin (x A)
-
-instance (x : Finset I → ℕ) : Fintype (ProfilePoint x) := by
-  unfold ProfilePoint
-  exact Sigma.instFintype
-
-noncomputable instance (x : Finset I → ℕ) : DecidableEq (ProfilePoint x) :=
-  Classical.decEq _
-
-/-- The canonical generator indexed by `i` contains precisely the profile
-points whose patterns contain `i`. -/
-noncomputable def profileGenerator (x : Finset I → ℕ) (i : I) :
-    Finset (ProfilePoint x) :=
-  Finset.univ.filter fun p ↦ i ∈ p.1
 
 @[simp] theorem membershipPattern_profileGenerator
     (x : Finset I → ℕ) (p : ProfilePoint x) :

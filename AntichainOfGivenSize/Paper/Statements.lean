@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.CountingVocabulary
 import AntichainOfGivenSize.MainStatement
 import AntichainOfGivenSize.LowerBound.ClusterImageBound
 
@@ -14,13 +15,6 @@ the paper's positive-natural convention with Lean's natural numbers.
 open Asymptotics Filter
 
 namespace AntichainOfGivenSize.Paper
-
-/-- The paper's ideal sizes with at most `K` nonempty-indexed generators,
-each of size at most `B`. For `K > 0`, padding by repetition identifies this
-with the exact-`K` bounded-profile image. The representation equivalence is
-proved separately; this finite implementation includes no ambient-size cap. -/
-noncomputable def attainableValues (B K : ℕ) : Finset ℕ :=
-  ClusterLowerBound.boundedValues K B
 
 /-- The unchanged generator budget in Theorem 7.1. -/
 def AdmissibleBudget (B K : ℕ) : Prop :=

@@ -7,6 +7,7 @@ import AntichainOfGivenSize.LowerBound.VennProfiles
 import AntichainOfGivenSize.LowerBound.Conductor
 import AntichainOfGivenSize.MainTheorems
 import AntichainOfGivenSize.Paper.Results
+import AntichainOfGivenSize.Meta.Audit
 
 /-!
 # Antichain of a Given Size

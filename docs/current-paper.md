@@ -36,8 +36,8 @@ These commands completed successfully:
 
 ```sh
 lake build --wfail
-lake env lean -DwarningAsError=true scripts/check-axioms.lean
-lake env lean -DwarningAsError=true scripts/check-paper-statements.lean
+lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
+lake env lean -DwarningAsError=true scripts/CheckPaperStatements.lean
 shasum -a 256 --check paper/SHA256SUMS
 ```
 
@@ -173,6 +173,17 @@ These differences preserve the target conclusions and their quantifiers.
   prove the exact final `2^(B−sqrt(B))` bound under the unchanged budget
   `K≤(log₂B)²/(100 log₂log₂B)`. No restriction to the older dyadic parameter
   subsequence remains.
+* **Counting audit vocabulary.**
+  [`Model/CountingVocabulary.lean`](../AntichainOfGivenSize/Model/CountingVocabulary.lean)
+  owns the existing generated-ideal and bounded-profile vocabulary, including
+  `Paper.attainableValues`. These declarations retain their qualified names and
+  mathematical definitions; their original modules import them. This relocation
+  makes the quantity's defining dependency chain visible under `Model/` without
+  widening the closure check's permitted modules. The structural finite-type
+  instances use term-form library constructors. The representation equivalence
+  and counting proofs remain in their original proof modules. The Model
+  membership cross-check and headline are still proof-pass placeholders;
+  relocating definitions does not constitute a new counting proof.
 * **Direct reduction.**
   [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean)
   uses the previously checked unconditional range-matching construction,
@@ -211,7 +222,17 @@ declaration, including proof-bearing definitions and instances. Negative
 checks verified that it rejects both an untracked source file and an
 unused definition containing an omitted proof.
 
-[`scripts/check-paper-statements.lean`](../scripts/check-paper-statements.lean)
+At the Tex2Lean opening proof frontier, ordinary elaboration of
+`scripts/CheckAxioms.lean` reports each transitive `sorryAx` dependency as an
+`OPEN` warning and does not report `PASS`. This permits structural inspection
+of the existing proof placeholders without certifying them. The prescribed
+`-DwarningAsError=true` integration check still rejects every such dependency;
+custom axioms, other unexpected axioms, and source/import coverage violations
+remain errors in both modes. The generated `Meta/Audit.lean` imports library
+modules, while the standalone audit scripts consume it: importing those
+scripts back into `Meta/Audit.lean` creates an import cycle.
+
+[`scripts/CheckPaperStatements.lean`](../scripts/CheckPaperStatements.lean)
 separately spells out twelve mathematical contracts from the manuscript.
 It checks the integer-residue domain, exact constants and endpoints,
 the intended meaning of `V(B,K)`, density one, and real cutoffs against

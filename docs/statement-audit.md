@@ -147,10 +147,10 @@ All 66 project library modules are reachable from the umbrella import
 
 ```bash
 lake build --wfail
-lake env lean scripts/check-axioms.lean
+lake env lean scripts/CheckAxioms.lean
 ```
 
-The [dependency checker](../scripts/check-axioms.lean) checks theorem
+The [dependency checker](../scripts/CheckAxioms.lean) checks theorem
 entries by their source module, so private and automatically generated
 theorems are included. It follows their dependencies and permits only
 `propext`, `Classical.choice`, and `Quot.sound`, the standard principles

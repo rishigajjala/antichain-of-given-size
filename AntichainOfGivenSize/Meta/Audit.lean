@@ -1,0 +1,111 @@
+/-
+The whole-development checks, invoked where the whole development is in scope.
+
+**This file is written by the tool and regenerated at every phase boundary.**
+Nothing here is yours to edit: an edit is reverted at the next gate, and the
+gate reports it.
+
+The import list below is every module the project has. It grows as the
+development does so the model-closure report sees the declarations available at
+that boundary.
+-/
+import AntichainOfGivenSize.Meta.ModelClosure
+import AntichainOfGivenSize.Analysis.AttainableCountProof
+import AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof
+import AntichainOfGivenSize.AntichainReduction
+import AntichainOfGivenSize.AsymptoticBridge
+import AntichainOfGivenSize.BasicLemmas
+import AntichainOfGivenSize.BlockCount.AssembleClusters
+import AntichainOfGivenSize.BlockCount.AssembledError
+import AntichainOfGivenSize.BlockCount.AssembledGrid
+import AntichainOfGivenSize.BlockCount.Binary
+import AntichainOfGivenSize.BlockCount.ClusterGrid
+import AntichainOfGivenSize.BlockCount.ClusterPartition
+import AntichainOfGivenSize.BlockCount.ErrorArithmetic
+import AntichainOfGivenSize.BlockCount.ErrorToGrid
+import AntichainOfGivenSize.BlockCount.ExplicitWitness
+import AntichainOfGivenSize.BlockCount.ExtremalRecursion
+import AntichainOfGivenSize.BlockCount.FiniteExponents
+import AntichainOfGivenSize.BlockCount.FiniteIncrement
+import AntichainOfGivenSize.BlockCount.FiniteScales
+import AntichainOfGivenSize.BlockCount.GapArithmetic
+import AntichainOfGivenSize.BlockCount.ReductionCertificate
+import AntichainOfGivenSize.BlockCount.ScaledIdeals
+import AntichainOfGivenSize.BlockCount.SingletonBound
+import AntichainOfGivenSize.BlockCount.TermGap
+import AntichainOfGivenSize.BlockCount.Tight
+import AntichainOfGivenSize.BlockCount.Upper
+import AntichainOfGivenSize.BlockCount.ValuationBounds
+import AntichainOfGivenSize.Definitions
+import AntichainOfGivenSize.LowerBound.BinaryBlocks
+import AntichainOfGivenSize.LowerBound.BoundedProfiles
+import AntichainOfGivenSize.LowerBound.CarrySensitive
+import AntichainOfGivenSize.LowerBound.ClusterCore
+import AntichainOfGivenSize.LowerBound.ClusterEncoding
+import AntichainOfGivenSize.LowerBound.ClusterFiber
+import AntichainOfGivenSize.LowerBound.ClusterImageBound
+import AntichainOfGivenSize.LowerBound.ClusterParameters
+import AntichainOfGivenSize.LowerBound.ClusterProfileCodes
+import AntichainOfGivenSize.LowerBound.ClusterSparsityAssembly
+import AntichainOfGivenSize.LowerBound.ClusterState
+import AntichainOfGivenSize.LowerBound.ClusterStateConstruction
+import AntichainOfGivenSize.LowerBound.Conductor
+import AntichainOfGivenSize.LowerBound.FiniteFiberBound
+import AntichainOfGivenSize.LowerBound.IdealBlockCount
+import AntichainOfGivenSize.LowerBound.InfinitelyOften
+import AntichainOfGivenSize.LowerBound.Matching
+import AntichainOfGivenSize.LowerBound.ProfilePadding
+import AntichainOfGivenSize.LowerBound.QuadraticLogEndpoint
+import AntichainOfGivenSize.LowerBound.SignedPowers
+import AntichainOfGivenSize.LowerBound.SparseEncoding
+import AntichainOfGivenSize.LowerBound.ThresholdFiltration
+import AntichainOfGivenSize.LowerBound.VennProfiles
+import AntichainOfGivenSize.MainStatement
+import AntichainOfGivenSize.MainTheorems
+import AntichainOfGivenSize.MatchingParameters
+import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.Prelude
+import AntichainOfGivenSize.Model.Prior
+import AntichainOfGivenSize.Model.Theorem
+import AntichainOfGivenSize.Paper.AlmostAll
+import AntichainOfGivenSize.Paper.BasicResults
+import AntichainOfGivenSize.Paper.BitMatching
+import AntichainOfGivenSize.Paper.CountingEstimates
+import AntichainOfGivenSize.Paper.CountingParameters
+import AntichainOfGivenSize.Paper.Density
+import AntichainOfGivenSize.Paper.DirectReduction
+import AntichainOfGivenSize.Paper.Extremal
+import AntichainOfGivenSize.Paper.FirstUpper
+import AntichainOfGivenSize.Paper.GeneralCounting
+import AntichainOfGivenSize.Paper.PatternGadget
+import AntichainOfGivenSize.Paper.RealDensity
+import AntichainOfGivenSize.Paper.Representation
+import AntichainOfGivenSize.Paper.Results
+import AntichainOfGivenSize.Paper.Scale
+import AntichainOfGivenSize.Paper.Statements
+import AntichainOfGivenSize.Paper.Typical
+import AntichainOfGivenSize.Paper.UpperConstructionBounds
+import AntichainOfGivenSize.Paper.UpperConstructionCore
+import AntichainOfGivenSize.Paper.UpperConstructionGeometry
+import AntichainOfGivenSize.Paper.UpperConstructionSteps
+import AntichainOfGivenSize.Paper.UpperParameters
+import AntichainOfGivenSize.RangeArithmetic
+import AntichainOfGivenSize.RangeReduction
+import AntichainOfGivenSize.Section6.Address
+import AntichainOfGivenSize.Section6.Blocks
+import AntichainOfGivenSize.Section6.Construction
+import AntichainOfGivenSize.Section6.Core
+import AntichainOfGivenSize.Section6.IndexedBounds
+import AntichainOfGivenSize.Section6.ModularIncrement
+import AntichainOfGivenSize.Section6.NatParameters
+import AntichainOfGivenSize.Section6.Remainder
+import AntichainOfGivenSize.Section6.StageArithmetic
+import AntichainOfGivenSize.Section6.StageBridge
+import AntichainOfGivenSize.Section6.Survivors
+import AntichainOfGivenSize.Theorem
+
+namespace AntichainOfGivenSize.Meta
+
+#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.attainable_count AntichainOfGivenSize.Model.attainableValues_membership
+
+end AntichainOfGivenSize.Meta

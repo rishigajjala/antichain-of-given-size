@@ -193,8 +193,8 @@ manuscript's explicit constants, quantifiers, and endpoints independently
 of the library's statement aliases:
 
 ```bash
-lake env lean -DwarningAsError=true scripts/check-axioms.lean
-lake env lean -DwarningAsError=true scripts/check-paper-statements.lean
+lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
+lake env lean -DwarningAsError=true scripts/CheckPaperStatements.lean
 ```
 
 The Lean definition of `alpha` specifies a mathematical minimum. This

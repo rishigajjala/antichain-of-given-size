@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.CountingVocabulary
 import AntichainOfGivenSize.LowerBound.BoundedProfiles
 import AntichainOfGivenSize.LowerBound.FiniteFiberBound
 
@@ -8,10 +9,6 @@ import AntichainOfGivenSize.LowerBound.FiniteFiberBound
 open Finset
 
 namespace AntichainOfGivenSize.ClusterLowerBound
-
-/-- Exact natural values represented by bounded `K`-profiles. -/
-noncomputable def boundedValues (K B : ℕ) : Finset ℕ :=
-  (Finset.univ : Finset (BoundedProfile K B)).image BoundedProfile.value
 
 theorem boundedResidues_card_le_boundedValues_card (K B : ℕ) :
     #(boundedResidues K B) ≤ #(boundedValues K B) := by
