@@ -1,0 +1,16 @@
+{
+  "schema": "tex2lean.certified-mapping-snapshot/1",
+  "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+  "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+  "ledgerDigest": "sha256-28fc372957f67113584749c3351ba2e4d56a576c651708968fd2a3b9fc4a1920",
+  "paperPacketDigest": "sha256-13345dccd16feaa54c7a2ad25499f7c4b97d962b5201be8bd2d46ca2d1b4db2c",
+  "leanEvidenceSnapshotDigest": "sha256-1badf36c58b8612699e7dafc392e993519fd0d8dd131d848468086d3932a4c50",
+  "graphDigest": "sha256-dc4e7724ee517196c000ac7bd6ac89abf7b52137e739403c5ce4a8bc7caf1921",
+  "sourceFingerprint": "sha256:c625596c624c7d81a4ea23e9568d3ccaee4dc106be85506412e5084a5703547b",
+  "buildFingerprint": "sha256:c625596c624c7d81a4ea23e9568d3ccaee4dc106be85506412e5084a5703547b",
+  "dependencyFingerprint": "sha256:c625596c624c7d81a4ea23e9568d3ccaee4dc106be85506412e5084a5703547b",
+  "created": {
+    "at": "2026-10-27T00:43:48.072Z",
+    "by": "proof-graph-reconciliation"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "sha256-0158ee27fc51a58951b8a562716c0166d3980c9b41e81fe281e0643883970458",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-d4a81c45d9fbbdaa280444a7ed44bce571f23a5725a56f4892076971eb330905",
+  "actor": "validator",
+  "provenance": "approved correspondence matched the current elaborated Lean interface",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-da83566c34754180874876b27e459f545d971e6d8302deb7d0e5e53c22843eb4",
+    "obligationId": "obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
+    "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion",
+    "file": "AntichainOfGivenSize/Section6/Core.lean",
+    "module": "AntichainOfGivenSize.Section6.Core",
+    "role": "headline",
+    "status": "verified",
+    "semanticApprovalDecisionId": "sha256-25d35c3688358139337dbd697bdffb101284f288e7ea3f6d499653bf3beb3928",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-ceb5b3a0718993d942263d1e18b92adef2328be28a77165dc67aeee119e6e23f",
+      "elaboratedTypeDigest": "sha256-7207d54281d92dbb43c700b037220b49938343bca3a56129f1eae735d42a93be",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx",
+          "valueDigest": "sha256-6a810927d07e6b827b1b71ed2e8a899ddf9b9a479b5aa1f7ca3cc61ea00944c6"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-1badf36c58b8612699e7dafc392e993519fd0d8dd131d848468086d3932a4c50",
+    "verifiedByDecisionId": "sha256-0158ee27fc51a58951b8a562716c0166d3980c9b41e81fe281e0643883970458"
+  }
+}
