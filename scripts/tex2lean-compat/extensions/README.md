@@ -40,6 +40,56 @@ The default v9 bundle SHA-256 is
 
 The following sections describe the separately optional ledger integration.
 
+## Optional UI lifecycle repairs
+
+`--lifecycle-ui-fixes true` enables a separate `lifecycle-ui.cjs` transformation.
+It is off by default; the default v9 bundle and installed CLI are unchanged.
+The option composes with the independently pinned ledger host but does not require
+or configure authority, and does not publish any ledger decisions.
+
+Three narrowly related defects are addressed:
+
+- A second native choice with the same public ID was never displayed because the
+  terminal retained `lastChoice`. Each request now carries a process-local sequence;
+  repeated renders of that request are still answered once. Public IDs, action
+  order, approval policy, and answers are unchanged.
+- Display projection rebuilt an otherwise identical certified graph with a fresh
+  `updatedAt`, then rejected its full hash. The native graph is still freshly
+  derived. The previous graph is reused only if canonical JSON agrees in every
+  field except the **top-level** `updatedAt`. Nested timestamps and all mathematical,
+  source, dependency, target, ledger, node, edge and status data must agree. The
+  existing strict native full-hash certificate test then runs unchanged.
+- Handoff copied session-global progress even for another selected target. It now
+  attaches progress only when its ephemeral native certificate identity belongs
+  to the selected target and matches the current head, certified snapshot, full
+  persisted graph, current paper target and fresh source fingerprint. It rechecks
+  the full saved graph and head after the source scan. Missing, changed, unvalidated or other-target
+  progress is omitted. Standalone handoff without a matching session projection
+  does not claim complete certified correspondence; this option does not invent
+  or cache per-target progress.
+
+The original native graph constructor, proof certification, interface receipts,
+claim projection, ledger validation/replay/store, ModelClosure and CostSeal remain
+byte-identical across this transformation. Build output records their hashes.
+Ordinary native proof reconciliation and handoff are still required; no proof or
+binding status is assigned by these UI changes.
+
+```sh
+node scripts/tex2lean-compat/extensions/extend.cjs \
+  --input /tmp/antichain-tex2lean-compat-v8/out/cli.cjs \
+  --output /tmp/new-lifecycle-host \
+  --lifecycle-ui-fixes true
+node scripts/tex2lean-compat/extensions/test-lifecycle-ui.cjs \
+  /tmp/antichain-tex2lean-compat-v8/out/cli.cjs
+node scripts/tex2lean-compat/extensions/test-extension.cjs \
+  /tmp/antichain-tex2lean-compat-v8/out/cli.cjs
+```
+
+Tests run extracted actual native request/projection methods with isolated mock
+I/O. They reproduce the old candidate-closed result, verify the matching certified
+result, reject semantic/source/ledger/nested-timestamp changes, and reject handoff
+head/source/target changes. They launch no native workflow, provider or compiler.
+
 ## Scope and recommendation
 
 No public or hidden source-only command in the installed CLI provides arbitrary
@@ -47,8 +97,9 @@ obligation-to-declaration review. `/remap` updates legacy source-marker links; t
 native initial author gate approves its existing proposed capstone binding only.
 The optional `ledger-review` command exposes the existing immutable
 publication API under explicit assistant review. Keep it optional and off by
-default. The ordinary author gate, proof certifier, validator, and handoff remain
-unchanged.
+default. The ordinary author gate, proof certifier and validator remain unchanged.
+The ledger option alone does not change handoff; the separately optional UI
+repairs above add a conservative progress-attachment guard.
 
 `adapter.cjs` publishes only through the native immutable decision API. `native-host.cjs`
 connects it to actual source inventory, native `cr` build/proof-fact inspection,
@@ -422,7 +473,7 @@ Run from the repository root with the exact v8 bundle as an explicit argument:
 
 ```sh
 v8_bundle=/tmp/antichain-tex2lean-compat-v8/out/cli.cjs
-for test in test-inspection-prompt test-extension test-integration test-adapter test-surface-review test-future-surface-review; do
+for test in test-inspection-prompt test-extension test-integration test-adapter test-surface-review test-future-surface-review test-lifecycle-ui; do
   node "scripts/tex2lean-compat/extensions/$test.cjs" "$v8_bundle"
 done
 ```
