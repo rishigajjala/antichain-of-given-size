@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Analysis.TheoremProof
 import AntichainOfGivenSize.Model.Prelude
 import AntichainOfGivenSize.Paper.RealDensity
 import AntichainOfGivenSize.Model.Prior
@@ -11,6 +12,7 @@ import AntichainOfGivenSize.Paper.MainSemantics
 import AntichainOfGivenSize.Paper.TypicalGoodEvent
 import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
 import AntichainOfGivenSize.Paper.TypicalProbability
+import AntichainOfGivenSize.Analysis.AlphaSplittingProof
 
 /-!
 # Counting attainable ideal sizes
@@ -140,11 +142,13 @@ theorem alpha_asymptotic_order (hprior : Prior) :
       ∀ X : ℝ, X₀ ≤ X →
         a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧
         (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X) := by
-  obtain ⟨C, hC, n₀, hn₀, hupper⟩ := alpha_eventual_upper hprior
-  obtain ⟨c, hc, hlower⟩ := alpha_lower_density_one hprior
-  exact ⟨⟨c, C, hc, hC, n₀, hn₀, hupper, hlower,
-    alpha_simultaneous_density_one hprior c C n₀ hupper hlower⟩,
-    alpha_maximum_order hprior⟩
+  exact Analysis.TheoremProof.alphaAsymptoticOrder hprior
+
+/-- Lemma 3.1: splitting on the manuscript's positive natural-number domain.
+The existing `splittingLemma` also permits `n = 0`. -/
+theorem alpha_splitting (hprior : Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
+    alpha (m + n) ≤ alpha m + alpha (n + 1) := by
+    exact AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting hprior m n hm hn
 
 end AntichainOfGivenSize
 
@@ -176,3 +180,6 @@ end AntichainOfGivenSize
 #modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_event_measure
 #modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_good_probability
 #modelClosureOfType AntichainOfGivenSize.Paper.typicalLowerBound_probability
+
+#modelClosureOfType AntichainOfGivenSize.alpha_splitting
+#print axioms AntichainOfGivenSize.alpha_splitting

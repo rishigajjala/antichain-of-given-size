@@ -301,6 +301,10 @@ Exception sets remain in `Paper/Statements.lean`: the literal density-one
 surface does not reach them. No proof module is moved into Model.
 
 `alpha_asymptotic_order` assembles four separate main-theorem interfaces.
+The assembly argument lives in `Analysis/TheoremProof.lean` as
+`Analysis.TheoremProof.alphaAsymptoticOrder`; the unchanged Model statement
+applies that result. The relocated argument uses the same four Analysis
+components directly, avoiding an import back into `Model/Theorem.lean`.
 Tex2Lean's proof workers completed all four owners: the eventual upper bound,
 the lower-good density limit, the simultaneous natural/real limits at fixed
 constants, and the real-cutoff extremal inequalities. The first and last reuse
