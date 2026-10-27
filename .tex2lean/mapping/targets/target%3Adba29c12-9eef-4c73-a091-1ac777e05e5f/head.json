@@ -1,6 +1,5 @@
 {
   "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
-  "generation": 66,
-  "ledgerDigest": "sha256-a464cee9505f98dab6e7430eac14c3f55265f6614a086dcc6416b6ad5f30cbff",
-  "certifiedSnapshotDigest": "sha256-7b9d4ea0e98f0b8d58f48f84055b88fef45f309b0ee742584cd0c9430357d458"
+  "generation": 77,
+  "ledgerDigest": "sha256-d43d61e2fbbee9c3ead130d7ea21227dd9c84426514b5b643b5b4e0277a6ef7d"
 }
