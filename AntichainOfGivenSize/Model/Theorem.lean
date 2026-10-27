@@ -59,7 +59,7 @@ The latter uses `Ico 1 ⌈X⌉₊`, so its endpoint is strictly below the real `
 the density sets use inclusive upper endpoints instead.
 
 The upper and lower assertions supply witnesses independently. The
-simultaneous-density part below preserves any such witnesses, so the assembly
+transfer lemma in `Analysis` preserves any such witnesses, so the assembly
 uses one shared pair `c, C` without identifying unrelated existential choices.
 Its premises are supplied by the first two parts, not by callers of the
 assembled theorem. The extremal constants may be different.
@@ -90,26 +90,6 @@ theorem alpha_lower_density_one (hprior : Prior) :
           c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))
       Filter.atTop (nhds 1) := by
     exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne hprior
-
-/-- The simultaneous consequence of Theorem 1.1, also Corollary 10.2:
-an eventual upper bound and a density-one lower bound give both literal
-proportions with the same constants. The real denominator is `X`. -/
-theorem alpha_simultaneous_density_one (hprior : Prior)
-    (c C : ℝ) (n₀ : ℕ)
-    (hupper : ∀ n : ℕ, n₀ ≤ n →
-      (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ))
-    (hlower : Filter.Tendsto
-      (fun N : ℕ ↦
-        (((Finset.Icc 5 N).filter fun n : ℕ ↦
-          c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))
-      Filter.atTop (nhds 1)) :
-    Filter.Tendsto
-      (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ))
-      Filter.atTop (nhds 1) ∧
-    Filter.Tendsto
-      (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X)
-      Filter.atTop (nhds 1) := by
-    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne hprior c C n₀ hupper hlower
 
 /-- The extremal consequence of Theorem 1.1, expanded into positive
 constant bounds for every sufficiently large real cutoff. -/
@@ -160,7 +140,6 @@ end AntichainOfGivenSize
 
 #modelClosureOfType AntichainOfGivenSize.alpha_eventual_upper
 #modelClosureOfType AntichainOfGivenSize.alpha_lower_density_one
-#modelClosureOfType AntichainOfGivenSize.alpha_simultaneous_density_one
 #modelClosureOfType AntichainOfGivenSize.alpha_maximum_order
 #modelClosureOfType AntichainOfGivenSize.alpha_asymptotic_order
 #print axioms AntichainOfGivenSize.alpha_asymptotic_order

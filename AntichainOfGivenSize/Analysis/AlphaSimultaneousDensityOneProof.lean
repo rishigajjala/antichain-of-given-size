@@ -94,3 +94,28 @@ theorem AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDens
       exact_mod_cast (show ⌊X⌋₊ ≠ 0 by omega)
     dsimp [AntichainOfGivenSize.Paper.realGoodInputs]
     field_simp
+
+namespace AntichainOfGivenSize
+
+/-- Internal transfer lemma. The unconditional main theorem supplies both premises
+and the positive constants before applying it. -/
+theorem alpha_simultaneous_density_one (hprior : Prior)
+    (c C : ℝ) (n₀ : ℕ)
+    (hupper : ∀ n : ℕ, n₀ ≤ n →
+      (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ))
+    (hlower : Filter.Tendsto
+      (fun N : ℕ ↦
+        (((Finset.Icc 5 N).filter fun n : ℕ ↦
+          c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))
+      Filter.atTop (nhds 1)) :
+    Filter.Tendsto
+      (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ))
+      Filter.atTop (nhds 1) ∧
+    Filter.Tendsto
+      (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X)
+      Filter.atTop (nhds 1) := by
+    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne hprior c C n₀ hupper hlower
+
+end AntichainOfGivenSize
+
+#modelClosureOfType AntichainOfGivenSize.alpha_simultaneous_density_one
