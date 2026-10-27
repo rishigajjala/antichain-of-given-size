@@ -1,0 +1,67 @@
+{
+  "id": "sha256-9ad2e676516756089f185bb6980ad23d49d2fb506a03f7cd27399485e3f37051",
+  "ledgerId": "ledger:15fa240b-4b1f-4c1d-9de3-51c3581b1cc3",
+  "baseLedgerDigest": "sha256-8205182803fb2103ab8dcdeb7d36215d0143d95894b634e47dd2c83c2d58a8c5",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-760c86eecb2dacfab1737bed9aba564251e58cbc104aefe3180cfc3766e17575",
+    "obligationId": "obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666",
+    "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+    "file": "AntichainOfGivenSize/Model/Theorem.lean",
+    "module": "AntichainOfGivenSize.Model.Theorem",
+    "role": "headline",
+    "status": "verified",
+    "semanticApprovalDecisionId": "sha256-16444fd6ba79570b58d429a7ee1fd01c1ea65eb471791889b75760c471f7fe02",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-0c274e43383df012bb6028e6ec7116c74fc517d03c024e023c48bc9d741e9d21",
+      "elaboratedTypeDigest": "sha256-f7ed933579c8d0f6aa5f3e89600e9f82de11be337c2fc9e8e294b2c01db7a23f",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.alpha",
+          "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.generatedIdeal",
+          "valueDigest": "sha256-4bf4902542f194a29613a1ad0568a2ac45216842092670242f3b3e11e0f6ee5b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+          "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Paper.goodInputs",
+          "valueDigest": "sha256-072848f3a61a21589ee2523da075868d6ac885b0e9cc0e565060a8b6bd0a81be"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+          "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Paper.realGoodInputs",
+          "valueDigest": "sha256-5d98470df0f17788d512699472df1ffdf79054592b2ee9c1c5bfc6d886315fc1"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Prior",
+          "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+          "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+          "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-bdd4d4ace4f694661a38ffb1d68804fe4568e33daae23c54c584dee756081e13",
+    "verifiedByDecisionId": "sha256-9ad2e676516756089f185bb6980ad23d49d2fb506a03f7cd27399485e3f37051"
+  }
+}
