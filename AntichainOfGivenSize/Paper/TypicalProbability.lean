@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.ProbabilityVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Paper.TypicalGoodEvent
 
 open scoped ENNReal Classical

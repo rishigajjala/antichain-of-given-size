@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Paper.Representation
 
 /-- PAPER: paper/Generating_Antichains_Simplified.tex:981-986

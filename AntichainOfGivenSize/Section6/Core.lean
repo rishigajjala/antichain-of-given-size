@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import Mathlib.Combinatorics.Enumerative.InclusionExclusion
 import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Finset.Sups

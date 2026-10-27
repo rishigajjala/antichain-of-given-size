@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Section6.StageBridge
 import AntichainOfGivenSize.Section6.IndexedBounds
 import AntichainOfGivenSize.Section6.Remainder
@@ -21,21 +22,6 @@ open Finset
 namespace AntichainOfGivenSize.Paper.BitMatching
 
 open AntichainOfGivenSize.Section6
-
-abbrev Index (q : ℕ) := Fin q × Bool
-abbrev Stage (q : ℕ) := Fin (2 ^ q)
-abbrev BlockVertex (q : ℕ) := (j : Fin q) × Fin (2 ^ j.val)
-abbrev Vertex (q : ℕ) := BlockVertex q ⊕ (Fin q ⊕ Stage q)
-
-def chosenIndex {q : ℕ} (i : Stage q) (j : Fin q) : Index q :=
-  (j, i.val.testBit j.val)
-
-def chosenEmbedding {q : ℕ} (i : Stage q) : Fin q ↪ Index q where
-  toFun := chosenIndex i
-  inj' := by intro j k h; exact congrArg Prod.fst h
-
-def address {q : ℕ} (i : Stage q) : Finset (Index q) :=
-  Finset.univ.map (chosenEmbedding i)
 
 @[simp] theorem mem_address {q : ℕ} (i : Stage q) (p : Index q) :
     p ∈ address i ↔ p.2 = i.val.testBit p.1.val := by
@@ -71,25 +57,10 @@ theorem address_subset_iff {q : ℕ} (i g : Stage q) :
     simpa [chosenIndex] using (mem_address g (chosenIndex i j)).mp hm
   · rintro rfl; exact Finset.Subset.refl _
 
-def Present {q : ℕ} (active : Finset (Stage q)) (p : Index q) : Vertex q → Prop
-  | Sum.inl e => e.1 ≠ p.1 ∨ p.2 = true
-  | Sum.inr (Sum.inl j) => j ≠ p.1
-  | Sum.inr (Sum.inr g) => g ∈ active ∧ p.2 = g.val.testBit p.1.val
-
-noncomputable def generator {q : ℕ} (active : Finset (Stage q))
-    (p : Index q) : Finset (Vertex q) := by
-  classical
-  exact Finset.univ.filter (Present active p)
-
 @[simp] theorem mem_generator {q : ℕ} (active : Finset (Stage q))
     (p : Index q) (v : Vertex q) : v ∈ generator active p ↔ Present active p v := by
   classical
   simp [generator]
-
-noncomputable def intersection {q : ℕ} (active : Finset (Stage q))
-    (J : Finset (Index q)) : Finset (Vertex q) := by
-  classical
-  exact Finset.univ.filter fun v => ∀ p ∈ J, Present active p v
 
 @[simp] theorem mem_intersection {q : ℕ} (active : Finset (Stage q))
     (J : Finset (Index q)) (v : Vertex q) :
@@ -110,16 +81,6 @@ theorem intersection_eq_inf' {q : ℕ} (active : Finset (Stage q))
   classical
   ext v
   simp [Finset.mem_inf']
-
-def blockEmbedding {q : ℕ} (j : Fin q) : Fin (2 ^ j.val) ↪ Vertex q where
-  toFun x := Sum.inl ⟨j,x⟩
-  inj' := by intro x y h; simpa using h
-
-noncomputable def block {q : ℕ} (j : Fin q) : Finset (Vertex q) :=
-  Finset.univ.map (blockEmbedding j)
-
-noncomputable def core {q : ℕ} (i : Stage q) : Finset (Vertex q) :=
-  (Finset.univ.filter fun j : Fin q => i.val.testBit j.val = true).biUnion block
 
 @[simp] theorem card_block {q : ℕ} (j : Fin q) : (block j).card = 2 ^ j.val := by
   simp [block]
@@ -427,7 +388,6 @@ theorem card_fixed_bit {q : ℕ} (j : Fin q) (b : Bool) :
     (bitsEquiv q).subtypeEquiv (fun _ => Iff.rfl)
   rw [Fintype.card_congr e, Fintype.card_congr (fixedBitEquiv j b)]
   simp
-
 
 def generatorBound (q : ℕ) : ℕ := (2 ^ q - 1) + (q - 1) + 2 ^ (q - 1)
 

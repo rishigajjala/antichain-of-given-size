@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Paper.Representation
 import AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof
 
@@ -6,7 +6,7 @@ import AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof
 # The attainable-size counting surface
 
 This surface reuses the existing definitions without introducing a second
-representation. Their defining vocabulary is in `Model/CountingVocabulary.lean`;
+representation. Their defining vocabulary is in `Model/ProblemSetting.lean`;
 the original proof modules import those same declarations. Its sole cross-check spells out the semantics of the counted
 values; the later proof pass can reuse `Paper.mem_attainableValues_iff`.
 -/

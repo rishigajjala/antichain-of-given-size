@@ -58,8 +58,8 @@ expanded contracts. CI runs these checks and the snapshot checksum
 | Manuscript result | Lean declaration and implementation |
 | --- | --- |
 | Theorem 1.1: universal upper bound, almost-all order, and extremal order | `Paper.mainTheorem` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), combining `Paper.universalUpper_from_five`, `Paper.almostAllOrder`, and `Paper.extremalOrder`. |
-| Definition 2.1: generated ideal and downward closure | `generatedIdeal` in [`Model/CountingVocabulary.lean`](../AntichainOfGivenSize/Model/CountingVocabulary.lean): the union of the generators' powersets. `Paper.generatedIdeal_isLowerSet` in [`BasicResults.lean`](../AntichainOfGivenSize/Paper/BasicResults.lean) proves downward closure under inclusion. |
-| Definition 2.2: minimum generator number | `alpha` and `HasGeneratorCount` in [`Model/MainVocabulary.lean`](../AntichainOfGivenSize/Model/MainVocabulary.lean); `alpha_hasGeneratorCount` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean) proves attainment. `mainAlphaHasAntichainWitness` certifies an antichain attaining the same minimum. |
+| Definition 2.1: generated ideal and downward closure | `generatedIdeal` in [`Model/ProblemSetting.lean`](../AntichainOfGivenSize/Model/ProblemSetting.lean): the union of the generators' powersets. `Paper.generatedIdeal_isLowerSet` in [`BasicResults.lean`](../AntichainOfGivenSize/Paper/BasicResults.lean) proves downward closure under inclusion. |
+| Definition 2.2: minimum generator number | `alpha` and `HasGeneratorCount` in [`Model/ProblemSetting.lean`](../AntichainOfGivenSize/Model/ProblemSetting.lean); `alpha_hasGeneratorCount` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean) proves attainment. `mainAlphaHasAntichainWitness` certifies an antichain attaining the same minimum. |
 | Lemma 3.1: splitting | `splittingLemma` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean). The first ideal size has the required positivity hypothesis. |
 | Lemma 3.2: lifting | `liftingLemma` in [`BasicLemmas.lean`](../AntichainOfGivenSize/BasicLemmas.lean). |
 | Theorem 4.1: bit matching | `Paper.bitMatchingInt` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using `Paper.BitMatching.exists_matching_int`, for every integer target including negative targets. `Paper.bitMatching` is the natural-target interface used in the reduction. |
@@ -203,7 +203,7 @@ These differences preserve the target conclusions and their quantifiers.
   now use `Paper.faithfulCountingBound`. The new Model lower-density and
   extremal interfaces use the same route through `attainableCount`.
 * **Counting audit vocabulary.**
-  [`Model/CountingVocabulary.lean`](../AntichainOfGivenSize/Model/CountingVocabulary.lean)
+  [`Model/ProblemSetting.lean`](../AntichainOfGivenSize/Model/ProblemSetting.lean)
   owns the existing generated-ideal and bounded-profile vocabulary, including
   `Paper.attainableValues`. These declarations retain their qualified names and
   mathematical definitions; their original modules import them. This relocation
@@ -280,7 +280,7 @@ are not mathematical propositions certified by Lean.
 
 ### Uniform probability in Corollary 10.1
 
-`Paper.dyadicUniformPMF` in `Model/ProbabilityVocabulary.lean` is Mathlib's
+`Paper.dyadicUniformPMF` in `Model/ProblemSetting.lean` is Mathlib's
 `PMF.uniformOfFinset` on the half-open block `[2^(B-1), 2^B)`. Its positive
 block index ensures the sample space is nonempty. `Paper/TypicalProbability.lean`
 proves its exact support, reciprocal point masses, and probability-measure
@@ -293,7 +293,7 @@ and the corollary independently of the project's distribution alias.
 
 ## Main-theorem surface ownership
 
-`Model/MainVocabulary.lean` now owns `HasGeneratorCount`, `alpha`,
+`Model/ProblemSetting.lean` now owns `HasGeneratorCount`, `alpha`,
 `quadraticLogLogScale`, `Paper.goodInputs`, `Paper.realGoodInputs`, and
 `Paper.maximumBelow`, with their original qualified names and definition
 bodies unchanged. Their former modules import this vocabulary transitively.
@@ -303,8 +303,11 @@ surface does not reach them. No proof module is moved into Model.
 `alpha_asymptotic_order` assembles four separate main-theorem interfaces.
 The assembly argument lives in `Analysis/TheoremProof.lean` as
 `Analysis.TheoremProof.alphaAsymptoticOrder`; the unchanged Model statement
-applies that result. The relocated argument uses the same four Analysis
-components directly, avoiding an import back into `Model/Theorem.lean`.
+applies that result. The assembly receives the proved
+`alpha_simultaneous_density_one hprior` implication as an argument and uses it
+on the chosen constants and upper/lower witnesses. The other components remain
+the existing Analysis results. This preserves the original helper dependency
+without an import back into `Model/Theorem.lean`.
 Tex2Lean's proof workers completed all four owners: the eventual upper bound,
 the lower-good density limit, the simultaneous natural/real limits at fixed
 constants, and the real-cutoff extremal inequalities. The first and last reuse

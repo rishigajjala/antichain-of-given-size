@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.MainStatement
 import AntichainOfGivenSize.LowerBound.ClusterImageBound
 

@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.MainVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Analysis.SpecialFunctions.Log.Base
 import Mathlib.Data.Finset.Powerset

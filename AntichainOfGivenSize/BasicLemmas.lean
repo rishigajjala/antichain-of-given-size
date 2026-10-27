@@ -170,7 +170,7 @@ theorem splittingLemma (m n : ℕ) (hm : 0 < m) :
     alpha (m + n) ≤ alpha m + alpha (n + 1) := by
   rcases alpha_hasGeneratorCount m with ⟨v, G, hGsize, hGcard⟩
   rcases alpha_hasGeneratorCount (n + 1) with ⟨w, H, hHsize, hHcard⟩
-  let GL : Finset (Finset (Fin v ⊕ Fin w)) :=
+  let leftFamily : Finset (Finset (Fin v ⊕ Fin w)) :=
     mapFamily (Function.Embedding.inl : Fin v ↪ Fin v ⊕ Fin w) G
   let HR : Finset (Finset (Fin v ⊕ Fin w)) :=
     mapFamily (Function.Embedding.inr : Fin w ↪ Fin v ⊕ Fin w) H
@@ -181,22 +181,22 @@ theorem splittingLemma (m n : ℕ) (hm : 0 < m) :
     apply empty_mem_generatedIdeal_of_card_pos
     rw [hHsize]
     exact Nat.zero_lt_succ n
-  have hGLsize : (generatedIdeal GL).card = m := by
-    simp [GL, generatedIdeal_mapFamily, hGsize]
+  have hGLsize : (generatedIdeal leftFamily).card = m := by
+    simp [leftFamily, generatedIdeal_mapFamily, hGsize]
   have hHRsize : (generatedIdeal HR).card = n + 1 := by
     simp [HR, generatedIdeal_mapFamily, hHsize]
-  have hinter : generatedIdeal GL ∩ generatedIdeal HR = {∅} := by
-    simpa [GL, HR] using mapped_inl_inter_mapped_inr G H hemptyG hemptyH
-  have hcombined : (generatedIdeal (GL ∪ HR)).card = m + n := by
+  have hinter : generatedIdeal leftFamily ∩ generatedIdeal HR = {∅} := by
+    simpa [leftFamily, HR] using mapped_inl_inter_mapped_inr G H hemptyG hemptyH
+  have hcombined : (generatedIdeal (leftFamily ∪ HR)).card = m + n := by
     rw [generatedIdeal_union, Finset.card_union]
     rw [hGLsize, hHRsize, hinter]
     simp
-  have hbound := alpha_le_of_family (GL ∪ HR)
+  have hbound := alpha_le_of_family (leftFamily ∪ HR)
   rw [hcombined] at hbound
   refine hbound.trans ?_
   calc
-    (GL ∪ HR).card ≤ GL.card + HR.card := Finset.card_union_le _ _
-    _ = G.card + H.card := by simp [GL, HR, mapFamily]
+    (leftFamily ∪ HR).card ≤ leftFamily.card + HR.card := Finset.card_union_le _ _
+    _ = G.card + H.card := by simp [leftFamily, HR, mapFamily]
     _ = alpha m + alpha (n + 1) := by rw [hGcard, hHcard]
 
 /-! The lifting lemma. -/

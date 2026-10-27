@@ -1,0 +1,152 @@
+{
+  "schema": "antichain.model-consolidation-elaborated-comparison/1",
+  "completedAtUTC": "2026-10-27T03:07:16.248905+00:00",
+  "status": "PASS_WITH_EXPLICIT_ELABORATION_DIFFERENCE",
+  "scope": "Actual pre/post elaborated environment capture of all constants owned by the six former vocabulary modules, now owned by canonical Model.ProblemSetting. Derivative Lean kernel audit, not native Tex2Lean evidence or a receipt.",
+  "counts": {
+    "beforeConstants": 78,
+    "afterConstants": 78,
+    "explicitSourceDeclarations": 50,
+    "additionalGeneratedDeclarations": 28,
+    "missingNames": 0,
+    "newNames": 0,
+    "typesRawReprIdentical": 62,
+    "typesIdenticalAfterBinderErasure": 78,
+    "bodiesPresent": 75,
+    "bodiesRawReprIdentical": 54,
+    "bodiesIdenticalAfterBinderErasure": 74,
+    "bodiesDefinitionallyEqual": 74,
+    "bodiesRequiringExtensionalEquality": 1,
+    "allFieldsExceptOwnershipRawIdentical": 56,
+    "rawDifferenceRows": 22
+  },
+  "namesLevelParametersKindsPreserved": true,
+  "expectedOwnershipChange": "Each of the former six modules becomes AntichainOfGivenSize.Model.ProblemSetting; no qualified declaration name changes.",
+  "normalization": "eraseBinderNames recursively replaces only names attached to forallE, lam and letE by Name.anonymous. It preserves constant names, universe levels, binder information, metadata, expression structure, literals and projection information. All78 normalized types and74 of75 normalized bodies compare by Expr.equal.",
+  "kernelEvidence": {
+    "command": "lake env lean -DwarningAsError=true --root=/private/tmp/antichain-model-setting-consolidation-20261027 /private/tmp/antichain-model-setting-consolidation-20261027/CompareCapturedExpressions.lean > /tmp/antichain-model-setting-consolidation-20261027/expression-comparison.log 2>&1",
+    "exitCode": 0,
+    "rawOldTypesAndBodiesCheckedByKernel": true,
+    "typeEqualityDeclarationsAccepted": 78,
+    "bodyEqualityDeclarationsAccepted": 74,
+    "explanation": "Each old type/body is replayed from saved full Expr, without replacing constant names or instances. Reflexivity equality declarations for all78 types and74 bodies are passed through Lean.addDecl and accepted by the kernel. The sole remaining body is installed verbatim from its captured Expr, then proved extensionally equal to the current function.",
+    "extensionalEqualityDeclaration": "ExternalConsolidationAudit.intersection_semantics_preserved",
+    "extensionalEqualityStatement": "\u2200 (q : \u2115) (active : Finset (AntichainOfGivenSize.Paper.BitMatching.Stage q)) (J : Finset (AntichainOfGivenSize.Paper.BitMatching.Index q)), @ExternalConsolidationAudit.oldIntersection q active J = AntichainOfGivenSize.Paper.BitMatching.intersection active J",
+    "extensionalEqualityAxioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "noSorryInSuccessfulCheck": true
+  },
+  "elaborationDifference": {
+    "declaration": "AntichainOfGivenSize.Paper.BitMatching.intersection",
+    "predicateAndSourceBodyUnchanged": true,
+    "beforeOnlyConstantReferences": [
+      "Finset.decidableDforallFinset"
+    ],
+    "afterOnlyConstantReferences": [
+      "Bool",
+      "Bool.fintype",
+      "Finset.decidableMem",
+      "Fintype.decidableForallFintype",
+      "forall_prop_decidable",
+      "instDecidableEqBool",
+      "instDecidableEqFin",
+      "instDecidableEqProd",
+      "instFintypeProd"
+    ],
+    "interpretation": "Broader Mathlib imports select a finite-type quantifier decision procedure instead of the Finset-bounded one. They decide the same predicate. Raw bodies are not definitionally equal, but the actual captured old intersection and current intersection are extensionally equal by the compiled theorem."
+  },
+  "sourceAndCompiledPinsUnchangedDuringProbe": true,
+  "currentStrictVerification": {
+    "file": ".blueprint/verification/checks.json",
+    "sha256": "75bab72835b0abde34b85ff9ee57caa570199ba388d10e27b453d2a013c4e004",
+    "completedAt": "2026-10-27T02:49:30.470527+00:00",
+    "allRecordedPinsMatch": true,
+    "recordedPinCount": 138
+  },
+  "sourceHash": "51794442487ae04dee58b138890e0188128eb02d99be95152c12e843be78795a",
+  "artifacts": {
+    "elaborated-before.json": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/elaborated-before.json",
+      "sha256": "ba208814f3ca6e7b27249837fa2e98eae57f986a3f2374f9d47c42e286438860",
+      "bytes": 2098547
+    },
+    "elaborated-after.json": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/elaborated-after.json",
+      "sha256": "e0a1d39e72a3820bcdadba691845234446c9dfc89733235720e706a3279d6cb3",
+      "bytes": 2105094
+    },
+    "CaptureBefore.lean": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/CaptureBefore.lean",
+      "sha256": "d83144f5cba601275ba89445887312c51c39f8a4b5ce108375be25a8feafe227",
+      "bytes": 2824
+    },
+    "CaptureAfter.lean": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/CaptureAfter.lean",
+      "sha256": "9397066c664f82ea96942c48de582b7ace0a99fa3e15cdcc362c43b0c43cfdd2",
+      "bytes": 2547
+    },
+    "capture-before.log": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/capture-before.log",
+      "sha256": "399a60ea6a2dfc4359df2046a09f83f431a58de265c2337b9ad4b42f10ca285a",
+      "bytes": 72
+    },
+    "capture-after.log": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/capture-after.log",
+      "sha256": "830172b7e8242129172b71a1d3490defa706ef2f8c63a60bc2a7e927010f4a0f",
+      "bytes": 72
+    },
+    "capture-before-manifest.json": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/capture-before-manifest.json",
+      "sha256": "adf18819a63b4e899a36d8c60a7732fda5262f8632e57da841a391197470d253",
+      "bytes": 7408
+    },
+    "capture-after-inputs.json": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/capture-after-inputs.json",
+      "sha256": "93bd7497aa44bc4c22b4da9406e05ba7b7acbf856b0a46d369dc89dd83e6302f",
+      "bytes": 1076
+    },
+    "CompareCapturedExpressions.lean": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/CompareCapturedExpressions.lean",
+      "sha256": "fc5c0f0345db6240b8c99014bd70eee7b6fe41f2e9d78385192b3cf1c71fd1eb",
+      "bytes": 2015972
+    },
+    "expression-comparison.jsonl": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/expression-comparison.jsonl",
+      "sha256": "2f5b76f37830816a98fb6e50f8110612396ca0e74b49bff1ab86bb102a4fb04e",
+      "bytes": 19412
+    },
+    "expression-comparison.log": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/expression-comparison.log",
+      "sha256": "d1f260a0b9e06b1cfed0abb7510b92402760604f123b8775615763272aa085e3",
+      "bytes": 121
+    },
+    "raw-expression-differences.json": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/raw-expression-differences.json",
+      "sha256": "f851c224197bce989610cd6abe00b335a387bcbb5e549d69c8106ec22be3045e",
+      "bytes": 15773
+    },
+    "intersection-elaboration.diff": {
+      "path": "/tmp/antichain-model-setting-consolidation-20261027/intersection-elaboration.diff",
+      "sha256": "363fa2b8f1c6937bed316655dd0c8c4b34098e21ffd2f839a1c95c9489680eb4",
+      "bytes": 21244
+    }
+  },
+  "probeRepairs": {
+    "failedExternalProbeAttemptsRetained": [
+      "expression-comparison-attempt1.log",
+      "expression-comparison-attempt2.log",
+      "expression-comparison-attempt3.log"
+    ],
+    "reason": "Only external helper syntax, monad lifting and equation-realization setup were repaired. No production definition or proof was changed. The final strict command exited0."
+  },
+  "limitations": [
+    "Raw expressions are not byte-identical:22 rows differ, primarily in module-qualified hygienic binder names.",
+    "The intersection body is not definitionally equal; report only the explicit kernel-proved extensional equality for that body.",
+    "No repository source, compiled artifact, axiom registry, native workflow state or manuscript was edited by these probes.",
+    "The raw ~2MB captures and large replay source are external audit artifacts, not proposed publication material.",
+    "Fresh native review/receipts and the remaining15 target workflows are separate from this successful Lean comparison."
+  ]
+}

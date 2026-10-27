@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.Model.CountingVocabulary
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.LowerBound.BoundedProfiles
 import AntichainOfGivenSize.LowerBound.FiniteFiberBound
 

@@ -30,7 +30,7 @@ is not identified with the proof's preliminary bound `2 ^ 20`.
 The budget also supplies `0 < K` for the membership cross-check in Prelude.
 
 The defining vocabulary of `Paper.attainableValues` is in
-`Model/CountingVocabulary.lean`, retaining the existing names and definitions.
+`Model/ProblemSetting.lean`, retaining the existing names and definitions.
 The statement's complete quantity dependency chain therefore lies within the
 audit surface, while the counting and representation proofs stay outside it.
 -/
@@ -68,7 +68,7 @@ The intended reuse endpoints are `Paper.universalUpper_from_five`,
 `Paper.almostAllLowerBound`, the complement-count and real-cutoff bridges,
 and `Paper.extremalOrder`. These are interfaces to existing results.
 
-The reused main-theorem vocabulary is owned by `Model/MainVocabulary.lean`,
+The reused main-theorem vocabulary is owned by `Model/ProblemSetting.lean`,
 retaining its original names and bodies. The closure check below checks this
 ownership boundary; no duplicate definitions are used.
 -/
@@ -142,7 +142,7 @@ theorem alpha_asymptotic_order (hprior : Prior) :
       ∀ X : ℝ, X₀ ≤ X →
         a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧
         (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X) := by
-  exact Analysis.TheoremProof.alphaAsymptoticOrder hprior
+  exact Analysis.TheoremProof.alphaAsymptoticOrder hprior (alpha_simultaneous_density_one hprior)
 
 /-- Lemma 3.1: splitting on the manuscript's positive natural-number domain.
 The existing `splittingLemma` also permits `n = 0`. -/
@@ -183,3 +183,11 @@ end AntichainOfGivenSize
 
 #modelClosureOfType AntichainOfGivenSize.alpha_splitting
 #print axioms AntichainOfGivenSize.alpha_splitting
+
+#modelClosureOfType AntichainOfGivenSize.Paper.BitMatching.fresh_separation
+#modelClosureOfType AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card
+#modelClosureOfType AntichainOfGivenSize.Paper.BitMatching.proper_intersection_card
+#modelClosureOfType AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits
+#modelClosureOfType AntichainOfGivenSize.Paper.UpperConstruction.position_intersection
+#modelClosureOfType AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment
+#modelClosureOfType AntichainOfGivenSize.Paper.LiteralUpperParameters.exists_literal_constructed_size_threshold
