@@ -1,0 +1,144 @@
+{
+  "installed": "/Users/sg9396/.local/bin/tex2lean",
+  "installed_sha256": "3beb95c9c3973589febe7ea44c778269fe291cc23652b5f935ffe630b18e3a08",
+  "bundle_range": [
+    92274786,
+    94314723
+  ],
+  "original_bundle_sha256": "ae68bb68d8b7d1333660add1a39474e007d43136b8ddab923850594ff79bc99d",
+  "patched_bundle_sha256": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7",
+  "node": "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "patches": [
+    "Keep generated Meta.Audit imports inside the selected project library",
+    "Forward configured effort to the structured Codex provider",
+    "Emit structured request/config effort using the existing Codex effort mapping",
+    "Use configured effort when an interactive/proof worker has no tier override",
+    "Include private project constants in ModelClosure namespace classification",
+    "Limit concurrent Lean diagnostic processes to two, preserving all checks",
+    "Traverse project inductive constructors so structure field constraints enter ModelClosure",
+    "Retain registered capstone claims when regenerating Meta at a planning boundary",
+    "Exclude only known transient helper basenames at the Lean project root from source inventory",
+    "Provide a read-only handoff evidence locator with absolute source paths and actual log inventory",
+    "Append the source access context to the prompt shared by all three independent handoff gates",
+    "Resolve handoff source and verification paths from the actual workspace before dispatch",
+    "Keep whole-model surplus checks in registry-seeded Meta.Audit, not individual theorem files",
+    "Add transaction lifetime, empty-baseline, and recovery serialization guards",
+    "Recovery safety: Snapshot traversal",
+    "Recovery safety: Snapshot restore",
+    "Recovery safety: Snapshot restore guard",
+    "Recovery safety: Transaction open",
+    "Recovery safety: Transaction scope",
+    "Recovery safety: Transaction prepare",
+    "Recovery safety: Transaction decode",
+    "Recovery safety: Transaction commit",
+    "Recovery safety: Transaction rollback",
+    "Recovery safety: Transaction recovery",
+    "Recovery safety: Checkpoint refresh"
+  ],
+  "unchanged_check_sha256": {
+    "CostSeal permissions": "30a2031f6b77551a827ae0dcfb94a44bc2522cb4677c728b9c489345820e80b5",
+    "CostSeal checker": "dc3f2b931729a7a4348d0ce82365fc47c4aa8edee37c8ca3b0fb101e18a3156d",
+    "Meta phase regeneration": "c15368cae42210d1bf457a5bb666c329300be08dbf69164c5a45c7bbdbf84d9a",
+    "Audit template": "c3baa7968dcd43cc1b5b15915d94648e70b6ace1d8a91504914aed25df3424bf",
+    "Proof-fact source fingerprint checks": "107f2371b8a743450b42c6e05abb4b126f5bcb178b982583290f88fd554b573f",
+    "Root aggregation imports Meta.Audit": "5ee70348184880f4634df8ebf2777beba9f016565f0662be58b8f9d54259138f",
+    "Mandatory seal invocation check": "856365e791ff84e5a4dba2692a9784e0e2901971de32b78071a8b8112c4a5da0"
+  },
+  "strengthened_check_sha256": {
+    "ModelClosure and statement-side checker": {
+      "original_sha256": "09e04c01c1dd639b7ecd1422c0f833e95ca3353b11313bccdf9b0e02287c4625",
+      "patched_sha256": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+      "changes": [
+        "Include private project constants in ModelClosure namespace classification",
+        "Traverse project inductive constructors so structure field constraints enter ModelClosure"
+      ]
+    }
+  },
+  "resource_tuning": {
+    "Lean diagnostics": {
+      "original_sha256": "66e4c1268942b6ae083444ab96452aeaf8cc17e6cdd4fa892cd2079138d2528e",
+      "patched_sha256": "b526d90c34d06f4a191b06b61a5430e8dd128eea0c383cfce55d86eb0b3f762a",
+      "original_concurrency": 4,
+      "patched_concurrency": 2
+    }
+  },
+  "source_inventory": {
+    "original_sha256": "fbcd32c962d21f428f5d998de448ad55421af8465191409815ff97d71d131b20",
+    "patched_sha256": "0670ef3dbb3af20acdd93874def91b7f0bef9737bb1822c66ceb4e638bfec98e",
+    "change": "Exclude only known transient helper basenames at the Lean project root from source inventory"
+  },
+  "handoff_evidence": {
+    "original_runner_sha256": "536567ad3ab4ff84fa038a4c7a403390ca062b87e7217c1900b2a784059b2179",
+    "patched_runner_sha256": "4f4c5297dbbca655753543c2c85caad3cc9d74f817ac4fa0dcddd74e22128cd7",
+    "locator_sha256": "2ff6e6044dc02c2d25b899a3eca18e25281c13654a957da216c93a6728c644bb",
+    "change": "Absolute read-only source access and actual verification-file inventory shared by all three independent gates; verdict and sandbox logic unchanged"
+  },
+  "surface_check_placement": {
+    "original_sha256": "b59de9b9a1f2b0723afa72fc7769399de47f0ce0d6c11753dfdbdbc69d164924",
+    "patched_sha256": "9684c150a297ee2120735e054fd7bf4b0dbc76e008e4f5f6639d14d282fca065",
+    "change": "Keep whole-model surplus checks in registry-seeded Meta.Audit, not individual theorem files"
+  },
+  "transaction_recovery": {
+    "support_sha256": "268254a40d3c799540c5aafc995f652f4f77cb2df3c6af0e4e32376f4a20a8fa",
+    "sections": {
+      "Snapshot traversal": {
+        "original_sha256": "c912ea9cab157b61dc5f87a0e43a8095131fe12ba7a28982e8f7368664b2eef3",
+        "patched_sha256": "7305cfd6daaf15450a6ae16987ef9c9f24fd01915d9987bb3ea9e10a82c37e71"
+      },
+      "Snapshot restore": {
+        "original_sha256": "8bdaad1d6cd931ffeb8a05e5066f4a7feab69f3e69e8607c2a9d995d1730bd65",
+        "patched_sha256": "702e05319083b3011cecb487ae92ff1afc7833d1b885a9c4a0781ef4429714a9"
+      },
+      "Snapshot restore guard": {
+        "original_sha256": "2b4c5e4cd767fa42dea4dfb54f0edd74ddd8a3febea2f373ddef250658e17e2c",
+        "patched_sha256": "704189c6d344b0562768c3b0597e016a1cca46ef780900df437a641e57fe7790"
+      },
+      "Transaction open": {
+        "original_sha256": "599310e4704e590c2073b92b3eff100233265c0099c7d8b4f20ced57262341ee",
+        "patched_sha256": "cfe10fe9ee69eec60b09e3368fdefb83fb8174f33b5100b7bc5fc06744ece0d6"
+      },
+      "Transaction scope": {
+        "original_sha256": "179e64585bfec8db03dccc84b1a14701c2e25cb6666dcd69edc4b19b97f8063d",
+        "patched_sha256": "521d88a76554751321d3d78eb8751ffdde10217d923db99d5011a4f5aed79c4e"
+      },
+      "Transaction prepare": {
+        "original_sha256": "4d55aba0fb4429159da6d999b9216e0d4bf2b3c647f3a3f54c23078c88cb7882",
+        "patched_sha256": "4567de3c289bea6bef83737b2c93aaa23bd45fa4ffd96ed250394f8227c465ae"
+      },
+      "Transaction decode": {
+        "original_sha256": "5c99f68bc309f78a63aea27515451d7aef1cae435c2c6357549a3c188f4e3e43",
+        "patched_sha256": "7f918917a0188d9bc0c70e0d243c99d23d340613601f4e9380344028dae54ac8"
+      },
+      "Transaction commit": {
+        "original_sha256": "375a1db2aaccb0237ae126e39d550470ad968fa4a5deb070ce3a5a873d8f8e5c",
+        "patched_sha256": "47ab5e79118ffe1fb9b05f2d34d5fd99dca8543871cf2a7d3433e741198d17da"
+      },
+      "Transaction rollback": {
+        "original_sha256": "0b200aabe65fcd4f5de14eb287eb928460dcde9fb8f71237631ac8c43b71130d",
+        "patched_sha256": "31385f7b02f5079299fe1b6c483e54f2bce8e03b6bb6b58b814deeff39aa32a8"
+      },
+      "Transaction recovery": {
+        "original_sha256": "982fca929d0fe27716409c2d3668f1abfb7dedf54ab06865d4649445cf81d620",
+        "patched_sha256": "5a89ed72ab43daedbfec16faa256e6cfc845326b6a66f0033a8397ad39e15de1"
+      },
+      "Checkpoint refresh": {
+        "original_sha256": "f0d31e0008b1bb68bc26ad8e24b5b4974406fef811fe6001727cd44b202bb059",
+        "patched_sha256": "a2c9e91324ab4e2e3991d4d908e5b31da66dfafa215704da189e54b6e3ba2f66"
+      }
+    },
+    "changes": [
+      "Add transaction lifetime, empty-baseline, and recovery serialization guards",
+      "Recovery safety: Snapshot traversal",
+      "Recovery safety: Snapshot restore",
+      "Recovery safety: Snapshot restore guard",
+      "Recovery safety: Transaction open",
+      "Recovery safety: Transaction scope",
+      "Recovery safety: Transaction prepare",
+      "Recovery safety: Transaction decode",
+      "Recovery safety: Transaction commit",
+      "Recovery safety: Transaction rollback",
+      "Recovery safety: Transaction recovery",
+      "Recovery safety: Checkpoint refresh"
+    ]
+  }
+}

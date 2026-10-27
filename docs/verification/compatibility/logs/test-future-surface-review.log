@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "tests": "actual native immutable store/replay; exact receipt coverage; all mathematical plans retained; explicit owners and full kernel axiom closure; source/head/authority guards; no status certification; native Vy still requires verification",
+  "runtimeExecuted": false,
+  "compilerExecuted": false
+}

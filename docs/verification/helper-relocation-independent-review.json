@@ -1,0 +1,117 @@
+{
+  "schema": "antichain.helper-relocation-actual-review/1",
+  "reviewedAtUTC": "2026-10-27T06:37:09.430490+00:00",
+  "finding": "PASS: exact helper theorem source and genuine main dependency preserved; ownership moved to the existing proof module and the individual closure check retained there.",
+  "baseline": {
+    "evidence": "/var/folders/vp/_98678nn6zs2j5pb1lwfrzqc0000gp/T/tex2lean-ledger-review-Kpi7BT/evidence.json",
+    "sha256": "3b4ae57fee55acf2348948f142188311823c869c417cdaaf5a98e0a18017f16c",
+    "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513"
+  },
+  "sourceChanges": {
+    "files": [
+      "AntichainOfGivenSize/Model/Theorem.lean",
+      "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean"
+    ],
+    "helperQualifiedName": "AntichainOfGivenSize.alpha_simultaneous_density_one",
+    "completeTheoremTextByteIdentical": true,
+    "theoremTextSHA256": "fbecc3982eed1346c7c93fe7ac10ed9d85d63eea0fcc34c4a95e41c6317ad909",
+    "sameEnclosingNamespace": true,
+    "sameBinderOrderAndTypeAndProofBody": true,
+    "ModelChangesExactlyExpected": true,
+    "existingAnalysisOwnerProofPreserved": true,
+    "mainApplicationUnchanged": "exact Analysis.TheoremProof.alphaAsymptoticOrder hprior (alpha_simultaneous_density_one hprior)",
+    "assemblyProofByteUnchangedAndGenuinelyUsesParameter": true,
+    "newImports": [],
+    "newModules": [],
+    "modelVocabularyOrPriorChanges": false,
+    "individualClosureCheckMovedAndKept": true,
+    "capstoneAndGlobalAuditRootsRetained": true,
+    "historicalNativeHandoffNotesArchivedByParent": "Resolved note is not present in current Model source; saved native handoff/history must remain historical."
+  },
+  "newSourceSnapshot": {
+    "fingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "files": 129
+  },
+  "sourceHashes": {
+    "AntichainOfGivenSize/Model/Theorem.lean": "3b56fb8feda7fd042891f059d6331141a01d50ebc318002741025a35e3a78e90",
+    "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean": "42bcf65e69cbc154d82d4591565b3e84fe16e0058232047759e90a3c7298d342",
+    "AntichainOfGivenSize/Analysis/TheoremProof.lean": "d6bb0a7f62307fe8215db9bd76575fc86e3f94d9afcb33f385bcbc210e8c232e"
+  },
+  "strictVerification": {
+    "path": "/Users/sg9396/Desktop/boxicity/Documents New project/research/antichain-of-given-size/.blueprint/verification/checks.json",
+    "sha256": "8a906c587b7bb3e1509f95e33e85bdabbe01e1b683f0eaf1f29cfbe2cf007d9e",
+    "completedAt": "2026-10-27T06:34:59.203155+00:00",
+    "inputPins": 138,
+    "drift": [],
+    "checks": [
+      {
+        "command": [
+          "lake",
+          "build",
+          "--wfail"
+        ],
+        "exitCode": 0,
+        "log": "build.txt"
+      },
+      {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "scripts/CheckAxioms.lean"
+        ],
+        "exitCode": 0,
+        "log": "axioms.txt"
+      },
+      {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "scripts/CheckPaperStatements.lean"
+        ],
+        "exitCode": 0,
+        "log": "paper-statements.txt"
+      },
+      {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "AntichainOfGivenSize/Model/Theorem.lean"
+        ],
+        "exitCode": 0,
+        "log": "model-checks.txt"
+      },
+      {
+        "command": [
+          "shasum",
+          "-a",
+          "256",
+          "--check",
+          "paper/SHA256SUMS"
+        ],
+        "exitCode": 0,
+        "log": "snapshot.txt"
+      }
+    ],
+    "buildJobs": 3548,
+    "ModelClosureChecks": 27,
+    "AnalysisHelperClosureCheckPassed": true,
+    "axiomSummary": [
+      "PASS: 3086 declarations checked across 124 project library modules and matching source files; 2433 theorem declarations; 82 theorem declarations require no axioms.",
+      "Observed axiom union: [propext, Classical.choice, Quot.sound]"
+    ]
+  },
+  "limitations": [
+    "No fresh compiler invocation by this reviewer; the independently inspected new strict run provides compiler evidence.",
+    "Source text identity is established for the relocated wrapper; fresh native inspection must determine whether elaborated receipt digests are unchanged.",
+    "All previous source0d native certificates and exports remain historical. Refresh and export each selected native target with the new source fingerprint.",
+    "Final documentation edits require another strict-check manifest if they touch hashed inputs; do not invent a future completion time in documents."
+  ],
+  "repositoryEdits": false,
+  "nativeStateChanges": false
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "antichain.native-export-helper-provenance/1",
+  "scope": "Read-only independent consistency/export helper; not the native CLI or proof certificate. Exact source bytes preserved.",
+  "producer": {
+    "file": "export.cjs",
+    "sha256": "b538eb1777398a1736f49c34e4a3c66a6ef93de0c7b319c8a42b88bf04039a09",
+    "targets": [
+      "thm:main",
+      "thm:attainable-count",
+      "lem:splitting"
+    ],
+    "observedExports": [
+      "thm:main",
+      "thm:attainable-count",
+      "lem:splitting"
+    ],
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "generations": {
+      "thm:main": 91,
+      "thm:attainable-count": 141,
+      "lem:splitting": 9
+    }
+  },
+  "capabilities": [
+    "Validate active bindings while preserving retired history.",
+    "Reject blocking native findings, unresolved probability gates and unproved mapped rows.",
+    "Accept nonempty verification-evidence notes only with an explicit review bound to exact handoff/certificate/source hashes and cited evidence; preserve every native note and flag."
+  ],
+  "privateRuntimeRecordsIncluded": false,
+  "reviewActor": "Codex assistant review under user-authorized formalization; no human review asserted",
+  "limitations": [
+    "Does not run Lean or the native validator.",
+    "Does not clear native unknowns or replace native verdicts.",
+    "Exact graph must occupy the shared slot at export time."
+  ]
+}

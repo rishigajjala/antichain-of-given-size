@@ -1,0 +1,83 @@
+{
+  "schema": "antichain.native-source-transition/1",
+  "recordedAtUTC": "2026-10-27T07:34:59.478751+00:00",
+  "historicalSourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+  "affectedSelectedTargets": [
+    "lem:splitting",
+    "thm:attainable-count",
+    "thm:main"
+  ],
+  "historicalEvidenceStatus": "All observed certificates/exports for this fingerprint are historical after the source change; none establishes current-source certification.",
+  "mainHistoricalHandoff": {
+    "generatedAt": "2026-10-27T06:27:01.255Z",
+    "providerLabel": "ChatGPT subscription \u00b7 gpt-6-astra",
+    "headlineVerdict": "formalized",
+    "mathRowsProved": 7,
+    "aggregateComplete": true,
+    "acceptedAsCleanFinalReport": false,
+    "blockingFinding": {
+      "declaration": "AntichainOfGivenSize.alpha_simultaneous_density_one",
+      "verdict": "not-in-paper",
+      "severity": "blocking",
+      "why": "This is an internal assembly lemma, not by itself the unconditional corollary described beside it. The headline explicitly uses it and discharges both premises with proved components, so there is no missing headline assumption or conclusion. Under the requested audit-surface rule, an internal helper belongs in proof content; the severity records that surface-placement issue only."
+    },
+    "unknownCount": 2,
+    "unknownSummary": [
+      "Eight scratch Lean files were not covered by recorded deliverable build/source hashes.",
+      "The read-only handoff inspected saved verification rather than running a new kernel replay; dependency checkouts were outside its review scope."
+    ]
+  },
+  "parentReportedResolution": {
+    "declaration": "AntichainOfGivenSize.alpha_simultaneous_density_one",
+    "from": "AntichainOfGivenSize/Model/Theorem.lean",
+    "to": "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
+    "nameTypeAndProofBodyPreserved": true,
+    "individualClosureCheckMovedWithDeclaration": true,
+    "registeredCapstoneAndGlobalAuditRetained": true,
+    "mainDependencyRetained": true,
+    "resolvedGeneratedHandoffNoteRemovedAfterArchival": true,
+    "scratchLeanFilesMovedOutsideDeliverable": 8,
+    "runtimeOrValidatorPatched": false
+  },
+  "archive": {
+    "directory": "/tmp/antichain-helper-relocation-20261027/preserved-before-relocation",
+    "manifestSha256": "cd697122d02eeb646236c51a9509064eb96208054bd1a4fe43ea5e667699d4fa",
+    "mainHandoffJsonSha256": "4f054cefa9ca07bedbbcec5c14f41ccc3df93799f7789731cf861db4d3061ef4",
+    "mainHandoffMarkdownSha256": "d65cce6e6494972b494ea2c8c69dafc70076d45a00027bb1236bdac15e1ee6f9",
+    "graphRawSha256": "122dfd649069f2afc9594936a60763f271fc9af0eeb88aa8ef1835cff8626403",
+    "sourceFileHashes": {
+      "AntichainOfGivenSize/Model/Theorem.lean": "6cf9285e10cd466300caccf1adffc913bc5455096807216c9331ab1d71e56131",
+      "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean": "91b20924da1b8c4bcd0e64773dea6deab3fc10f664784dd5422576f210bd5f3f"
+    },
+    "note": "Archived sources are post-handoff and pre-relocation; the preserved graph and earlier certificate refer to the stated historical source fingerprint."
+  },
+  "currentObservedChangedFileHashes": {
+    "AntichainOfGivenSize/Model/Theorem.lean": "3b56fb8feda7fd042891f059d6331141a01d50ebc318002741025a35e3a78e90",
+    "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean": "42bcf65e69cbc154d82d4591565b3e84fe16e0058232047759e90a3c7298d342"
+  },
+  "currentSourceValidation": {
+    "newSourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "strictPassSessionReportedByParent": "17806",
+    "strictPassStatus": "passed",
+    "nativeMechanicalCheck": "Actual rerun FAILED: surface-states and hypothesis-is-in-the-bundle; build, 37 axiom roots, no-sorry, closure, and layout checks passed",
+    "selectedTargetNativeCertificates": "Main gen91, counting gen141, and splitting gen9 issued on current source",
+    "finalHandoffs": "All three exported; main two verification limitations and counting two metadata exclusions preserved",
+    "sourceCommit": "420d09b23a8449bf144b3a0d391331e899292e5f",
+    "strictPassCompletedAtUTC": "2026-10-27T06:34:59.203155+00:00",
+    "nativeMechanicalCheckReference": "current-native-check.json",
+    "mainCertificate": "main-current-certified-snapshot.json",
+    "currentExportReferences": {
+      "main": "manifests/main-current-export-reference.json",
+      "counting": "manifests/counting-current-export-reference.json",
+      "splitting": "manifests/splitting-current-export-reference.json"
+    },
+    "normalRuntime": "v17-main same session 6885, clean exit0 reported by parent"
+  },
+  "packagingActions": {
+    "testsRerun": false,
+    "runtimeInvoked": false,
+    "compilerInvoked": false,
+    "repositoryWritten": false,
+    "ledgerWritten": false
+  }
+}

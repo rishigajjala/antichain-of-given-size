@@ -1,0 +1,204 @@
+{
+  "kind": "Read-only mathematical comparison of frozen native packet and polished live manuscript",
+  "createdAtUTC": "2026-10-26T23:27:50.927189+00:00",
+  "frozen": {
+    "path": "/Users/sg9396/Desktop/boxicity/Documents New project/research/antichain-of-given-size/paper/Generating_Antichains_Simplified.tex",
+    "sha256": "137f3d51bc6dee4e62a4897bf4da0584cd7ff247aa6003811ff239794c295b1f",
+    "lines": 1641
+  },
+  "live": {
+    "path": "/Users/sg9396/Documents/New project/output/pdf/Generating_Antichains_Simplified.tex",
+    "sha256": "c0efe8be586ab40746ca51fa97c4f56cf36aec35f6564500dcbbbcace90b3424",
+    "lines": 1582
+  },
+  "conclusion": "No substantive mathematical change found. The checked formalization and frozen-paper correspondence apply to the same theorem statements and proof estimates in the polished live manuscript. The native packet remains the frozen file; this review does not claim native processing or verification of the live file.",
+  "reviewExtent": {
+    "fullUnifiedDiffRead": true,
+    "diffPath": "/tmp/polished-manuscript-equivalence.diff",
+    "diffLines": 983,
+    "diffBytes": 49323,
+    "allNumberedStatementsCompared": 18,
+    "allNumberedBodiesIdenticalIgnoringWhitespace": true,
+    "labeledMathematicalDisplaysCompared": 34,
+    "allLabeledDisplaysSameModuloNotation": true,
+    "displayBlockCounts": {
+      "frozen": 152,
+      "live": 151
+    },
+    "displayNormalization": [
+      "Ignore whitespace",
+      "Z_{\\mathrm{cen}} maps to the previous central sum symbol Z",
+      "\\eta maps to previous fine-cost symbol d"
+    ],
+    "onlyDisplayDeletion": "The displayed inequality 2K^2 rho-prime <= 2rho/lambda^2 = o(rho), frozen lines1131-1133, is retained in the live two-scale explanation inline at lines1096-1099."
+  },
+  "statementMapping": [
+    {
+      "label": "thm:main",
+      "kind": "theorem",
+      "frozenLine": 156,
+      "liveLine": 153,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "lem:splitting",
+      "kind": "lemma",
+      "frozenLine": 240,
+      "liveLine": 236,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "lem:lifting",
+      "kind": "lemma",
+      "frozenLine": 254,
+      "liveLine": 250,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "thm:bit-matching",
+      "kind": "theorem",
+      "frozenLine": 276,
+      "liveLine": 269,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:fresh-element-separation",
+      "kind": "claim",
+      "frozenLine": 350,
+      "liveLine": 341,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:primary-intersection-size",
+      "kind": "claim",
+      "frozenLine": 365,
+      "liveLine": 356,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:nonprimary-larger",
+      "kind": "claim",
+      "frozenLine": 387,
+      "liveLine": 377,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "thm:first-upper",
+      "kind": "theorem",
+      "frozenLine": 473,
+      "liveLine": 460,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "thm:block-matching",
+      "kind": "theorem",
+      "frozenLine": 564,
+      "liveLine": 548,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:pattern-gadget",
+      "kind": "claim",
+      "frozenLine": 672,
+      "liveLine": 654,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:position-addressing",
+      "kind": "claim",
+      "frozenLine": 716,
+      "liveLine": 695,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:block-increment",
+      "kind": "claim",
+      "frozenLine": 733,
+      "liveLine": 712,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "clm:block-final-bounds",
+      "kind": "claim",
+      "frozenLine": 803,
+      "liveLine": 779,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "lem:direct-reduction",
+      "kind": "lemma",
+      "frozenLine": 851,
+      "liveLine": 827,
+      "bodyIdenticalIgnoringWhitespace": true,
+      "titleChange": [
+        "Direct reduction",
+        "Reduction"
+      ]
+    },
+    {
+      "label": "thm:universal-upper",
+      "kind": "theorem",
+      "frozenLine": 909,
+      "liveLine": 885,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "thm:attainable-count",
+      "kind": "theorem",
+      "frozenLine": 987,
+      "liveLine": 960,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "cor:block-probability",
+      "kind": "corollary",
+      "frozenLine": 1369,
+      "liveLine": 1311,
+      "bodyIdenticalIgnoringWhitespace": true
+    },
+    {
+      "label": "cor:almost-all-order",
+      "kind": "corollary",
+      "frozenLine": 1392,
+      "liveLine": 1334,
+      "bodyIdenticalIgnoringWhitespace": true
+    }
+  ],
+  "changes": [
+    {
+      "area": "Background, roadmap, claims, Sections4-6",
+      "assessment": "Shortened prose, removed duplicate signposting, query/primary-query terminology replaced by index-set/intersection terminology. Construction, signs, moduli, stage updates (including d_i=0), parameter choices and all inequalities unchanged."
+    },
+    {
+      "area": "Notation and conventions",
+      "assessment": "Base-2 logarithm convention moved to the beginning of preliminaries. N={1,2,...} retained. Central sum Z renamed Z_cen; numerical fine-cost d renamed eta consistently. Header/type, incidence-record/membership-data and transcript/exponent-vector changes denote the same mathematical data."
+    },
+    {
+      "area": "Sections8-9",
+      "assessment": "Two-scale explanation compressed without changing the equality-of-packing argument, scales rho_j=B/lambda^(6j), canonical least-vertex partition representatives, intrinsic U, membership multiplicities, exponent vectors, noncentral bound or product count. All three factors in the figure and fixed-type count are identical."
+    },
+    {
+      "area": "Section10",
+      "assessment": "Only prose and the d-to-eta renaming change. Uniform Gamma/numerical estimates, count exponent B-sqrt(B), dyadic probability, natural-density transfer and real-cutoff extremal statements/proofs are preserved."
+    },
+    {
+      "area": "Final remark",
+      "assessment": "Removed assertions about absent extra restrictions; retained consequence N<=KB after removing unused elements. This shortens explanatory prose and does not weaken or change the theorem."
+    }
+  ],
+  "sensitiveChecks": {
+    "splittingPositiveDomain": "Identical splitting statement; both files explicitly define natural numbers as positive, excluding m=0.",
+    "corollaryThreshold": "Identical choice of B1 requiring all preceding estimates, explicitly including eq:KB-versus-growth, as well as epsilon_B<=delta.",
+    "lowerBoundScales": "Both use rho_j=B/lambda^(6j); neither uses obsolete initial lambda^10 factor.",
+    "sharpCounting": "Same admissible budget constant100 and same 2^(B-sqrt B) endpoint.",
+    "upperBound": "Same integer-residue domains and absolute a=5,b=3 construction; universal bound still applies to every integer n>=5.",
+    "tailOriginalTerms": "Same original nonempty inclusion-exclusion index sets, full intersection exponents, signs, and integer tail interval."
+  },
+  "limits": [
+    "This is a source-diff mathematical applicability review, not a fresh proof audit of every unchanged argument.",
+    "The automatic comparison covers theorem/lemma/corollary/claim environments and ordinary display environments; all other changed prose, inline mathematics and the TikZ figure were reviewed in the full diff.",
+    "No TeX compilation or PDF-layout check was performed, as none was requested for this read-only task.",
+    "Neither TeX file, repository sources, native ledger, status, mapping or packet was edited.",
+    "Native evidence remains pinned to the frozen manuscript; hashes and line maps must not be silently replaced with live-file ones."
+  ]
+}

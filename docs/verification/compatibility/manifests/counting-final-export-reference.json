@@ -1,0 +1,86 @@
+{
+  "schema": "antichain.native-export-reference/1",
+  "observedAtUTC": "2026-10-27T05:48:57.626574+00:00",
+  "exportDirectory": "/tmp/antichain-final-native-evidence/thm-attainable-count",
+  "exportFileSha256": "c2080847cb6b16e58d1f2a7959d0fac294b4ffe45131152cc551cc1cf8159ed4",
+  "exportedAtUTC": "2026-10-27T05:45:55.589Z",
+  "head": {
+    "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+    "generation": 129,
+    "ledgerDigest": "sha256-832251cc7b9d5602f6324093ddf9d8653df9f10b2116688ade53f723e1251924",
+    "certifiedSnapshotDigest": "sha256-9b84f979c6f6a6b9becc7601c39dd144882545acd7218560ef2de6c98d37a8ed"
+  },
+  "certificate": {
+    "schema": "tex2lean.certified-mapping-snapshot/1",
+    "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+    "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+    "ledgerDigest": "sha256-832251cc7b9d5602f6324093ddf9d8653df9f10b2116688ade53f723e1251924",
+    "paperPacketDigest": "sha256-13345dccd16feaa54c7a2ad25499f7c4b97d962b5201be8bd2d46ca2d1b4db2c",
+    "leanEvidenceSnapshotDigest": "sha256-2dc71485b1683ed2077f598b3648cc8aae83fe514507f29d81f5aef95cbaefa5",
+    "graphDigest": "sha256-b131a71a79dd5d234cdaf27aaa903fb41ca34afb882116c089acb0cc642bbfc5",
+    "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "buildFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "dependencyFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "created": {
+      "at": "2026-10-27T05:38:05.956Z",
+      "by": "proof-graph-reconciliation"
+    }
+  },
+  "observedHandoff": {
+    "generatedAt": "2026-10-27T05:42:20.946Z",
+    "headline": "formalized",
+    "assumptions": "pass",
+    "probability": "not-applicable",
+    "unknowns": [],
+    "complete": false,
+    "whollyProved": false,
+    "proofCounts": {
+      "proved": 11,
+      "proved-conditional": 0,
+      "candidate-closed": 0,
+      "assembled": 0,
+      "implemented": 0,
+      "open": 0,
+      "blocked": 0,
+      "assumed-instead": 0,
+      "refuted": 0,
+      "not-applicable": 2,
+      "unknown": 0
+    },
+    "coverageCounts": {
+      "mapped": 11,
+      "unmapped": 0,
+      "pending-review": 0,
+      "unsupported": 0,
+      "disputed": 0,
+      "excluded": 2,
+      "stale": 0
+    }
+  },
+  "providerLabel": "ChatGPT subscription \u00b7 gpt-6-astra",
+  "activeVerifiedMathematicalBindings": 11,
+  "supersededHistoricalBindings": 10,
+  "excludedMetadataRows": 2,
+  "unresolvedOrProposedActiveBindings": 0,
+  "artifactHashes": {
+    ".blueprint/handoff/thm-attainable-count/HANDOFF.md": "e95c757a33b0d965e3d027a99ebbbe99b41d5a9f893305432c26bfbd4beef23a",
+    ".blueprint/handoff/thm-attainable-count/handoff.json": "650056a17f2dd9cb4953db12c148301ac05758046c9c155aed8b65b44c0ab7cb",
+    ".tex2lean/mapping/snapshots/sha256-9b84f979c6f6a6b9becc7601c39dd144882545acd7218560ef2de6c98d37a8ed.json": "677939eae939d9fb956aa21b8a02f1d6ef6b46198803b40ce48ba657cad86e55",
+    ".tex2lean/proof-graph.json": "a72a0e3fc83a6c119c8e5180eb7bc1390342557f73d6910b9c9d46ca5ededda0",
+    ".tex2lean/mapping/objects/sha256-832251cc7b9d5602f6324093ddf9d8653df9f10b2116688ade53f723e1251924.json": "79c3704b0691f053cbca34779cb2b7b96bdef36b4afc67f702d6bf90d0c96511"
+  },
+  "limits": [
+    "This reference summarizes the exported native result; it does not run or replace its certifier.",
+    "Native handoff complete and whollyProved remain false because two metadata rows are excluded; all eleven mathematical rows are proved.",
+    "The separate mechanical /check still reports the two preserved heuristic failures.",
+    "The full native export and immutable history belong in the separate native evidence publication, not this compatibility package."
+  ],
+  "evidenceValidityAfterHelperRelocation": {
+    "status": "historical source only",
+    "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "currentSourceRevalidationPending": true,
+    "reference": "helper-relocation-source-transition.json"
+  },
+  "laterCurrentSourceOutcomeReference": "../manifest.json#/currentNativeUsage",
+  "historicalObservationRetained": true
+}

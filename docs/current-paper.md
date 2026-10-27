@@ -10,6 +10,15 @@ Its SHA-256 digest is
 137f3d51bc6dee4e62a4897bf4da0584cd7ff247aa6003811ff239794c295b1f
 ```
 
+The polished editor copy has SHA-256
+`c0efe8be586ab40746ca51fa97c4f56cf36aec35f6564500dcbbbcace90b3424`.
+The [source comparison recorded on 26 October 2026 at 23:27:50 UTC](verification/polished-manuscript-equivalence-review.json)
+found all 18 numbered statement bodies identical after ignoring whitespace and
+all 34 labeled mathematical displays equal modulo the recorded notation changes.
+Its full-diff review found no substantive mathematical change. This preserves an
+existing source comparison, not a fresh proof audit; native records remain pinned
+to the frozen manuscript above, and do not certify processing of the editor copy.
+
 The mathematical targets below preserve the numbered statements of this
 snapshot. Some proofs use a different encoding, rounding convention, or
 previously checked construction. Those differences are described below;
@@ -20,38 +29,144 @@ The namespace prefix `Paper.` in this document abbreviates
 `AntichainOfGivenSize.Paper.`. Unprefixed names from the earlier development
 have namespace prefix `AntichainOfGivenSize.`.
 
-**Current integration:** `Paper.blockMatching` now uses the manuscript's exact
-floor/ceiling parameters and actual finite-stage construction. The current
-Tex2Lean run also adds explicit main-theorem interfaces, the manuscript's shorter
-counting proof, complete intermediate counting claims, and semantic equivalences
-for density and the strict real cutoff. Native proof and correspondence records
-remain separate from the historical verification below; paper-target planning
-and final handoff are still in progress.
+**Mathematical coverage.** All 18 numbered proof targets have checked Lean
+endpoints, listed below. The current development includes the manuscript's
+literal block parameters and finite-stage construction, its shorter counting
+argument with the intermediate estimates, density and real-cutoff equivalences,
+and the actual uniform probability distribution for Corollary 10.1. This does
+not mean every proof calculation follows the manuscript verbatim; the
+implementation differences are recorded below.
 
-**Repository-wide verification, 26 October 2026:** the independent upper,
-lower, and statement-coverage reviews found no mathematical defect in the
-proved endpoints. The follow-up verification added the real-cutoff density
-bridge, explicit integer-residue and position-intersection interfaces,
-and persistent checks against weaker statements or omitted audit inputs.
-
-These commands completed successfully:
+The strict verification commands are listed below. Their execution times,
+exit codes, logs, and exact input hashes are recorded in
+[`.blueprint/verification/checks.json`](../.blueprint/verification/checks.json).
+That report, rather than a fixed timestamp in this document, identifies the
+checked source snapshot.
 
 ```sh
 lake build --wfail
 lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
 lake env lean -DwarningAsError=true scripts/CheckPaperStatements.lean
+lake env lean -DwarningAsError=true AntichainOfGivenSize/Model/Theorem.lean
 shasum -a 256 --check paper/SHA256SUMS
 ```
 
-The build completed 8,743 jobs with warnings treated as errors. The expanded
-axiom audit checked all 2,680 project declarations across 88 library modules
-and their matching source files, including 2,133 theorem declarations.
-Eighty theorem declarations require no axioms; the union of all observed
-axioms was exactly `propext`, `Classical.choice`, and `Quot.sound`.
-All fourteen public manuscript certificates printed by the audit use only
-those standard axioms. The separate statement check passed all twelve
-expanded contracts. CI runs these checks and the snapshot checksum
-(`sha256sum --check paper/SHA256SUMS` on Linux).
+The axiom audit covers 3,086 project declarations across 124 library modules,
+including 2,433 theorem declarations and 82 that require no axioms. Its observed
+axiom union is `propext`, `Classical.choice`, and `Quot.sound`. The statement
+check independently expands 19 contracts.
+Closure checks cover 27 declarations in Model and the conditional helper in
+Analysis; the latter remains an internal step of the unconditional main theorem.
+The capstone registry and source-coverage checks identify the audited library.
+Compatibility JavaScript has separate tests and is outside the Lean audit.
+
+The earlier 26 October snapshot passed a warning-free 8,743-job build and an
+audit of 2,680 declarations in 88 modules, including 2,133 theorem declarations
+and 80 with no axioms, plus 12 expanded statement contracts. Those historical
+totals are not the current verification counts. CI runs the strict build,
+axiom and statement checks, and the manuscript checksum (`sha256sum --check
+paper/SHA256SUMS` on Linux).
+
+## Tex2Lean records and review
+
+Native Tex2Lean records track restatement, planning, proof reuse, correspondence
+review, certification, and handoff separately from Lean compilation. The tool's
+[documented workflow](https://github.com/meelgroup/tex2lean-releases/blob/main/README.md)
+operates on selected results. This run selects the principal main and counting
+theorems, plus the splitting-lemma pilot, in the existing Lean project. It does
+not require a separate native plan for every result already proved in the
+library. All three selected workflows have native certificates and matching
+handoffs on the same Lean source tree. Their exact records and archive hashes
+are in [the native evidence package](verification/native/README.md).
+
+| Paper target | Native evidence | Preservation and qualifications |
+| --- | --- | --- |
+| Theorem 1.1 (`thm:main`) | Generation 91; 06:57:31 UTC handoff reports formalized, assumptions pass, 7 proved, and both completion flags true | Exact export preserves two verification limitations and their explicit review |
+| Theorem 7.1 (`thm:attainable-count`) | Generation 141; 07:19:21 UTC handoff reports formalized, assumptions pass, 11 proved, and no unknowns | Exact export preserves two metadata exclusions and both false aggregate-completion flags |
+| Lemma 3.1 (`lem:splitting`) | Generation 9; 07:31:33 UTC handoff reports formalized, assumptions pass, 1 proved, no unknowns, and both completion flags true | Exact graph, certificate, and handoff export preserved |
+| Other 15 numbered proof targets | Existing Lean endpoints are listed below and covered by the complete source audit | No separate native plans; outside the selected native scope |
+
+The counting ledger also retains two excluded notes: one describes the older
+encoding implementation, and one separates deterministic counting from the
+probability corollary and computational-resource claims. They are not mathematical
+claims counted as proved. Their original receipt membership and reasons are
+preserved. Native aggregate fields `complete` and `whollyProved` remain false
+for the counting ledger because of these exclusions, despite the eleven verified
+mathematical bindings. Each final export is pinned to the common source
+fingerprint recorded in the archive index. Superseded bindings and earlier
+certificates remain in the immutable native mapping history. The
+[earlier main handoff](verification/history/main-before-helper-relocation/HANDOFF.md)
+that prompted the helper relocation is preserved separately; older working
+exports are not part of this final three-archive package.
+
+The main handoff retains two top-level verification notes. Its read-only review
+used saved successful commands/logs and 138 source hashes matching at review rather
+than rerunning Lean; external dependency checkout contents were not independently
+hashed. It also records that the empty statement log supplies no output by itself,
+while the command record shows exit code zero and the source hash matches. The
+review established correspondence by reading the declarations and definitions.
+These notes remain verbatim in the handoff and export; they are not replaced with
+an empty `unknowns` list or described as a fresh execution by the reviewer.
+
+The main archive preserves the exact verification logs cited at handoff time.
+The repository's `checks.json` records the later final integration check after
+documentation changes. The Lean source fingerprint is unchanged by those prose
+edits; the archived 138-input manifest may contain earlier documentation bytes
+and is not claimed identical to every file in the final checkout.
+
+The plans, proof owners, receipts, and handoffs come from Tex2Lean 1.0.2's actual
+bundled CLI, using a local compatibility build rather than an unmodified upstream
+executable. The [compatibility scripts](../scripts/tex2lean-compat/README.md)
+document and test the changes to import generation, provider/source access,
+transaction recovery, and preservation of registered claims. ModelClosure's
+checks for private definitions and structure fields were strengthened. The
+[optional extension](../scripts/tex2lean-compat/extensions/README.md) also repairs
+progress display only when the native certificate, target, source, ledger, and
+graph agree; it does not create proof receipts or assign verified bindings.
+
+The extension exposes exact elaborated types, reached definitions, and complete
+relevant sources for correspondence review. Codex performs that review under the
+user's formalization request and records proposed bindings, semantic decisions,
+and justified target-inventory or metadata decisions through the native
+immutable ledger. The recorded provenance is **assistant review; no human
+semantic-review signature is asserted**. Ordinary native reconciliation must
+then verify the interfaces and issue the proof receipts and certificate.
+
+The ordinary CLI may report proved modules as unreachable from the selected
+capstone. That warning concerns the selected theorem's dependency graph. Modules
+supporting other proved results are retained and remain covered by the complete
+whole-library axiom audit above.
+
+The recorded native `/check` result is `FAIL` for two heuristic diagnostics.
+The `surface-states` rule
+counts indented lines in multiline theorem types as proof lines, although the
+flagged Model wrappers each have a single `exact` proof. The
+`hypothesis-is-in-the-bundle` rule treats `BoundedProfile.empty_zero` and
+`load_le` as borrowed assumptions. These fields specify the domain of bounded
+generating families: the proved membership equivalence relates them to the
+paper's family definition in both directions. They are not unproved external
+results and do not belong in `Prior`, which remains field-free. These diagnoses
+do not constitute a clean overall native `/check` result; the strict Lean checks
+and the native heuristic report must be reported separately.
+
+The canonical Model files are now `ProblemSetting.lean`, `Prelude.lean`,
+`Prior.lean`, and `Theorem.lean`. The reorganization preserves the public names
+and source definition bodies. A separate kernel-checked comparison completed
+at 03:07:16 UTC: all 78 declaration types and 74 of the 75 available bodies
+are equal to their captured predecessors; erasing binder names also makes
+those expressions structurally identical. Twenty-two raw records differ:
+21 only in hygienic binder names, and one in the decision procedure selected
+for `Paper.BitMatching.intersection`. That body's old and new expressions
+are not definitionally equal. A separate Lean theorem proves their resulting
+intersection functions equal for every argument, using only `propext`,
+`Classical.choice`, and `Quot.sound`. This comparison establishes preservation
+of meaning; it does not claim byte-identical elaboration or supply a native
+Tex2Lean receipt.
+
+The three selected runs have checked exact exports. The other 15 numbered
+results have no separate native plan. Existing proof reuse, new interfaces, and alternative
+proof arguments are distinguished below. Neither kernel checking nor statement
+review authenticates the bibliography or prose attribution.
 
 ## Numbered results
 
@@ -314,6 +429,18 @@ constants, and the real-cutoff extremal inequalities. The first and last reuse
 existing upper/extremal estimates; the density transfer retains an explicit
 finite-prefix error. Their statements and the empty `Prior` are unchanged.
 The semantic interfaces in `Paper.MainSemantics` are also registered and have
-individual Model-closure checks. Fresh whole-repository checks and the native
-paper correspondence/handoff remain required before reporting the workflow as
-complete.
+individual closure checks.
+
+The earlier main handoff flagged `alpha_simultaneous_density_one` as an internal
+conditional lemma presented among Model's paper statements. Its complete theorem
+text and individual closure check moved unchanged into the existing
+[`Analysis/AlphaSimultaneousDensityOneProof.lean`](../AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean).
+The qualified name, statement, proof body, and main-theorem application are
+preserved, as recorded in the [relocation review](verification/helper-relocation-independent-review.json).
+The unconditional main result remains in Model and still uses this helper;
+the [earlier handoff finding](verification/history/main-before-helper-relocation/HANDOFF.md)
+remains available with its original report. There are now
+27 closure checks in Model and one for the helper in Analysis. The strict-check
+report identifies the final checked inputs. The three selected native certificates and handoffs match the exported Lean
+source fingerprint. The other numbered
+results are covered by their checked Lean endpoints without separate native runs.

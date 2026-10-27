@@ -1,0 +1,733 @@
+{
+  "schema": "antichain.native-export-archive-summary/1",
+  "purpose": "Exact-byte package of an independently checked native export; not a new certificate or verdict",
+  "archive": "lem-splitting.tar.gz",
+  "archiveSHA256": "b5d9063d8cd2ef8e030369c8bc52800792b042b87a45707e806ec80c61c2fc1c",
+  "exportManifestSHA256": "53120d11515910cbb264685c71ad3a50b97ab277dd120829fbcf482eafe57cab",
+  "exportHelperSHA256": "b538eb1777398a1736f49c34e4a3c66a6ef93de0c7b319c8a42b88bf04039a09",
+  "exportedAtUTC": "2026-10-27T07:33:28.860Z",
+  "targetLabel": "lem:splitting",
+  "head": {
+    "targetId": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+    "generation": 9,
+    "ledgerDigest": "sha256-d11468765b1d11682794143ae04c47d7407b9eb69aa13701e714d9825d87315d",
+    "certifiedSnapshotDigest": "sha256-4ae49a9ac716a6ee8d84485ef8fbd44043b10ded5767ed5229de636fa63a09c4"
+  },
+  "certificate": {
+    "schema": "tex2lean.certified-mapping-snapshot/1",
+    "targetId": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+    "targetVersionId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+    "ledgerDigest": "sha256-d11468765b1d11682794143ae04c47d7407b9eb69aa13701e714d9825d87315d",
+    "paperPacketDigest": "sha256-85e4fdf18297824b9e8cd93f70c47a6206004b938b47cf7d7a3815aa648e156b",
+    "leanEvidenceSnapshotDigest": "sha256-3be92d3d1f317dfacfe986b20df390c83ad1cd736eaedd16460dcbf932dbcc1e",
+    "graphDigest": "sha256-0930f25fe260ed47826c929d15bc660e54bee4e8a265ec221cb4684a4833f1a7",
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "created": {
+      "at": "2026-10-27T07:26:59.731Z",
+      "by": "proof-graph-reconciliation"
+    }
+  },
+  "observedHandoff": {
+    "generatedAt": "2026-10-27T07:31:33.355Z",
+    "headline": "formalized",
+    "assumptions": "pass",
+    "probability": "not-applicable",
+    "unknowns": [],
+    "complete": true,
+    "whollyProved": true,
+    "proofCounts": {
+      "proved": 1,
+      "proved-conditional": 0,
+      "candidate-closed": 0,
+      "assembled": 0,
+      "implemented": 0,
+      "open": 0,
+      "blocked": 0,
+      "assumed-instead": 0,
+      "refuted": 0,
+      "not-applicable": 0,
+      "unknown": 0
+    },
+    "coverageCounts": {
+      "mapped": 1,
+      "unmapped": 0,
+      "pending-review": 0,
+      "unsupported": 0,
+      "disputed": 0,
+      "excluded": 0,
+      "stale": 0
+    }
+  },
+  "bindings": [
+    {
+      "declaration": "AntichainOfGivenSize.alpha_splitting",
+      "bindingId": "binding:5c4af20a-dd07-40ff-acde-718b0818ac19",
+      "receiptDigest": "sha256-ae70589fc38bfcced6c7721ac5d329dbff8dbd168ce35bbb88ece7eb5d4cbf1e",
+      "semanticApprovalDecisionId": "sha256-952b748962810c7bb4da801a0771ee2ebfb3494b1595c53cc90829d6638361ed",
+      "semanticReviewProvenance": "Codex assistant review under user-authorized formalization; no human review asserted"
+    }
+  ],
+  "fullReviewProvenance": "Preserved verbatim in the archive's original EXPORT.json and native decision records",
+  "excludedMetadata": [],
+  "leanSourceSnapshot": {
+    "fingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "inputs": [
+      {
+        "path": "AntichainOfGivenSize.lean",
+        "bytes": 1128,
+        "sha256": "680e625f558ddf898cbdf11e206c760ec7f80895989315ebe7af4e722cd193ff"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
+        "bytes": 1348,
+        "sha256": "e6992dc73b8f39f3c188b42e3929b38388b35c376eb9418bee612611b79c42de"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AlphaLowerDensityOneProof.lean",
+        "bytes": 3181,
+        "sha256": "e4f3678560715b581b0162aacf48203d5fddd4ad9c5e4e2c9f8be071026f3cf0"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AlphaMaximumOrderProof.lean",
+        "bytes": 3001,
+        "sha256": "2abb81e224c75bc33cbe507949bd5c91c26654d6b5f79110451c0129ae67b271"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
+        "bytes": 5777,
+        "sha256": "42bcf65e69cbc154d82d4591565b3e84fe16e0058232047759e90a3c7298d342"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
+        "bytes": 1090,
+        "sha256": "6d8e5919691e5ade2be53a0236533c9f56ca2ea091b30387431fc19d66de3e37"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AttainableCountProof.lean",
+        "bytes": 1740,
+        "sha256": "07033fa731259a4d9f40f01186d94da7e9885172a7515f31e75b6ba4e19f2e14"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean",
+        "bytes": 957,
+        "sha256": "2df71bf113396b3e047612b49aef47c485a455422a853697659445cd555f264d"
+      },
+      {
+        "path": "AntichainOfGivenSize/Analysis/TheoremProof.lean",
+        "bytes": 2361,
+        "sha256": "d6bb0a7f62307fe8215db9bd76575fc86e3f94d9afcb33f385bcbc210e8c232e"
+      },
+      {
+        "path": "AntichainOfGivenSize/AntichainReduction.lean",
+        "bytes": 4881,
+        "sha256": "ddaf3f0773ee823e55a905c206955347067b7c791d2e056f2db4cc5326d82a65"
+      },
+      {
+        "path": "AntichainOfGivenSize/AsymptoticBridge.lean",
+        "bytes": 6919,
+        "sha256": "ccf9e2a4010d289bc986096bb266ad2a117aea73224791c77410221209c2c8c5"
+      },
+      {
+        "path": "AntichainOfGivenSize/BasicLemmas.lean",
+        "bytes": 11178,
+        "sha256": "f774c7039fc3391156f115bbf1d84567108e552fa6b670619d917bb6ba941170"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/AssembleClusters.lean",
+        "bytes": 12215,
+        "sha256": "dfe875a62bc2eb2b5d42f6d99b1950d31871e904bda6205abbd960d2f2f13369"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/AssembledError.lean",
+        "bytes": 5093,
+        "sha256": "7a8863d25ef30add0b1a9214b1efa1035dc2709ba43e23ea9be8ceaeedb045c9"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/AssembledGrid.lean",
+        "bytes": 1886,
+        "sha256": "ba1bdc192806d4e0ce1b2bac75e1a27247e603fc6ad532e992518959a4935b44"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/Binary.lean",
+        "bytes": 1083,
+        "sha256": "229770f8271cb483fde7adc42633a6d814bf4638208c0c83164d03212fd5afd4"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ClusterGrid.lean",
+        "bytes": 2452,
+        "sha256": "bfe7fa260b0ea5f9f94e63ce29929461e038bf09e9c3ac354f968ff2e859dffb"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ClusterPartition.lean",
+        "bytes": 15700,
+        "sha256": "dbe4ec311dead208f185f0109ae32bd0e3690d06b9faf5e9abd3ee5f1d4b3c23"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ErrorArithmetic.lean",
+        "bytes": 4083,
+        "sha256": "b1cf401a2d5e0b8ca9a9468e89ef8f874b0c8167335503ba75eb2dc588356d17"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ErrorToGrid.lean",
+        "bytes": 2096,
+        "sha256": "0b5eb4d05ed8a3620251ddbcfd7c815874b0c90317c940b5b63808a45fd735c3"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ExplicitWitness.lean",
+        "bytes": 3830,
+        "sha256": "e702beb2a29fdbb031a177a36c75dca89d5d1f6e2c0855432f0a060655ac0b66"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ExtremalRecursion.lean",
+        "bytes": 3421,
+        "sha256": "73b47c0a5e46b528834b7911f7731b41fdf2f9fcab351aa0fee4daad8887280a"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/FiniteExponents.lean",
+        "bytes": 4553,
+        "sha256": "4620fce2e59841e37e961bd213bfc8668950f821cc9e309211dbdf71d4424ea3"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/FiniteIncrement.lean",
+        "bytes": 3613,
+        "sha256": "43730795491999f9dbf82b67fac42b8c91fb257e0b1b7578b27bc91fc5d4c129"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/FiniteScales.lean",
+        "bytes": 3358,
+        "sha256": "7d91a399620b4e5b721582ba68872d13c0eb5cb866b07856c7ff63d5b27d7109"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/GapArithmetic.lean",
+        "bytes": 2591,
+        "sha256": "2422e39019af40e2520c2f7b8d15598ccd95034e3025793a39c209dfeb007f15"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ReductionCertificate.lean",
+        "bytes": 2615,
+        "sha256": "75d653a51c50d944ecb080d223c8651520a8263510d7a926c4356bd2edd832dc"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ScaledIdeals.lean",
+        "bytes": 8952,
+        "sha256": "acba52dc14be06e9f94cc141a44e89d914d0c7613eefd7102b3885c12509464f"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/SingletonBound.lean",
+        "bytes": 4058,
+        "sha256": "010ba4f9f8567e2dce19da9a5e608d6eb463376850c4e62bc7a5c9af42ee0075"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/TermGap.lean",
+        "bytes": 2339,
+        "sha256": "9f202ff7502b1288e80d79d7bee6c5cf7b8cb51c7cbb3e855ad18c548ff59d61"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/Tight.lean",
+        "bytes": 1568,
+        "sha256": "8f3e01ec483c8d2a8ecc254504bf52a961cdb994c3895c5363aa8f125b0bb75a"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/Upper.lean",
+        "bytes": 4864,
+        "sha256": "d09831a68851071b53f7994a535bad01a7229ae7dc3ffa920bb5bb9e9e77e1d6"
+      },
+      {
+        "path": "AntichainOfGivenSize/BlockCount/ValuationBounds.lean",
+        "bytes": 15027,
+        "sha256": "6aac1fa208f80fd858ed24bad2136282e46894c9b66578c303ec214500ee3c63"
+      },
+      {
+        "path": "AntichainOfGivenSize/Definitions.lean",
+        "bytes": 336,
+        "sha256": "7b366c565b5e055d0dfd6b5033cb75be942ee74ff31448efa17bc586c794065d"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/BinaryBlocks.lean",
+        "bytes": 8922,
+        "sha256": "b2ff472186c6122f42d80e8a1102d9ebfbaad711ec96566df726e0d6cf1b542b"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/BoundedProfiles.lean",
+        "bytes": 11203,
+        "sha256": "3d995fc3751a8de30e2cee23ff9ffe3de5c79b35508c1c09b718ba5bd907b7b2"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/CarrySensitive.lean",
+        "bytes": 20576,
+        "sha256": "da959e34cdea206bd3f1c1ff385151179c29ffba0ef86ac0e0db5a2f2c6d181f"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterCore.lean",
+        "bytes": 19009,
+        "sha256": "e70a958b1a34f27ab7602f48b67cb6344b5f694d907ad2403a5807da84225ba8"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterEncoding.lean",
+        "bytes": 29488,
+        "sha256": "ee32af628077bdf79de04653552f0d87ddedba1d0c4193b4510232dc89270c59"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterFiber.lean",
+        "bytes": 9022,
+        "sha256": "6d63d05d7449ffd3f46e58e4e4f74f96671d1748f44182b67cc16cafe4134ff8"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterImageBound.lean",
+        "bytes": 1826,
+        "sha256": "a4cac7686751cf7617ccea5542dd69a45b70303cf8995433429fb3453c8aed26"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterParameters.lean",
+        "bytes": 34588,
+        "sha256": "b557d59b20363e6c07251097b73c41c3999f5003ae200a16eda498b7390fe505"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterProfileCodes.lean",
+        "bytes": 11521,
+        "sha256": "604ec8c4d57cdbc6e8f9679d237cab98c7b144f7c237ec25e937a90ee4ec55d9"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterSparsityAssembly.lean",
+        "bytes": 13340,
+        "sha256": "5b5a876e09c597ff818b0eed449f2cf6bdc575ebc56e43b95359918b7d05bd73"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterState.lean",
+        "bytes": 4802,
+        "sha256": "7be2dae6ab3a3a1920ffb15f62dfd7130f97d097a8f711260411c1fc44ef85b3"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ClusterStateConstruction.lean",
+        "bytes": 17286,
+        "sha256": "bb2f9cb0f4edcbd613a699969bd03eede35b42bab2d2b64533a47b1c4b72f000"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/Conductor.lean",
+        "bytes": 10767,
+        "sha256": "ecebc23f92c84710f2e9a3f218c1701a6a35dca887bdc6b23b114fd376197943"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/FiniteFiberBound.lean",
+        "bytes": 2406,
+        "sha256": "7a08bd93c11e0045c3f2d38dcb69fbcde2c3dc234cbee15e40ff81356df02cfa"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/IdealBlockCount.lean",
+        "bytes": 5356,
+        "sha256": "1c3a93f3faa2dcf6dab947682ad7d10a1306875ffd80aa2a46b3fefd40167595"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/InfinitelyOften.lean",
+        "bytes": 6247,
+        "sha256": "2c17005e8ae7bc6dcd17aa6a32c46d1a1212735519ff0bce7b6ebf1c4f6b7f36"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/Matching.lean",
+        "bytes": 1478,
+        "sha256": "35a488e1ee9a4cfb9366e51c4d17c4bc6e8ed66640bdd848c0c91f6e2189c69e"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ProfilePadding.lean",
+        "bytes": 3896,
+        "sha256": "8f7a0c89043333d65cfd0a976da10cab72368b2288f884f7e740109b093060e7"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/QuadraticLogEndpoint.lean",
+        "bytes": 16037,
+        "sha256": "2ccae48788fecf0575def8383e4ee941e62fad263e78904191fbf047794ec98d"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/SignedPowers.lean",
+        "bytes": 3819,
+        "sha256": "b37653068f478acf50c63dac1bcb96cdf13e9fca53caacad59dc2020e1abf41b"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/SparseEncoding.lean",
+        "bytes": 4673,
+        "sha256": "acc0acdfb27e68c46fd00ab8644d20fe8227e6fa52e9c4f49c2ac9b4a164a22d"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/ThresholdFiltration.lean",
+        "bytes": 14133,
+        "sha256": "55c87f3b1fae2d944e0f819df53198618485d9838c1be679201929d5b429a593"
+      },
+      {
+        "path": "AntichainOfGivenSize/LowerBound/VennProfiles.lean",
+        "bytes": 10158,
+        "sha256": "8b99bb600bf67a7c9a996204997574d583778949aa6a8313ff3777e6a7b0d8bf"
+      },
+      {
+        "path": "AntichainOfGivenSize/MainStatement.lean",
+        "bytes": 6146,
+        "sha256": "bc248e72fd116ab1096608fc8e6db510c74490670a4ce773d123d097ffc739f8"
+      },
+      {
+        "path": "AntichainOfGivenSize/MainTheorems.lean",
+        "bytes": 2305,
+        "sha256": "314f5fd42ad1c91bf366d12026f5b3edebdebc3c833236c6e2c1ef0d5018aec2"
+      },
+      {
+        "path": "AntichainOfGivenSize/MatchingParameters.lean",
+        "bytes": 11411,
+        "sha256": "d12103020683de9a4b1d510a70fe726ef98418a39e40ebbc1beb7a5ea2964c84"
+      },
+      {
+        "path": "AntichainOfGivenSize/Meta/Audit.lean",
+        "bytes": 9065,
+        "sha256": "735de1463cc2a2e36070aab69208d5d04a1ec6b289d41959308e95a97cb0f8f3"
+      },
+      {
+        "path": "AntichainOfGivenSize/Meta/CostSeal.lean",
+        "bytes": 19024,
+        "sha256": "04a8a75712cdf44b6f3956c6e9f65e9e3c833ea2e8d56c405f02e7cf57c3d622"
+      },
+      {
+        "path": "AntichainOfGivenSize/Meta/ModelClosure.lean",
+        "bytes": 12882,
+        "sha256": "58d66d9d28a2b462c78faee0b1dec46c4e51bfae394241769dca268eaf1b3e90"
+      },
+      {
+        "path": "AntichainOfGivenSize/Model/Prelude.lean",
+        "bytes": 3082,
+        "sha256": "cd02c7277d8f19055f68ae598cceeb537366d44f929f0c97e5fcd93aba6b7ea3"
+      },
+      {
+        "path": "AntichainOfGivenSize/Model/Prior.lean",
+        "bytes": 951,
+        "sha256": "77be77d438292a55c1533bf7169eccae6f52168dffa7e0af7d69539cb4641d6d"
+      },
+      {
+        "path": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+        "bytes": 13136,
+        "sha256": "51794442487ae04dee58b138890e0188128eb02d99be95152c12e843be78795a"
+      },
+      {
+        "path": "AntichainOfGivenSize/Model/Theorem.lean",
+        "bytes": 9121,
+        "sha256": "3b56fb8feda7fd042891f059d6331141a01d50ebc318002741025a35e3a78e90"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/AlmostAll.lean",
+        "bytes": 2468,
+        "sha256": "a90fb874e9e735013e5f1373a097402117713fb639af70075211840717f14c2f"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/BasicResults.lean",
+        "bytes": 4926,
+        "sha256": "67c813830b48ba7afad0edfcaccc4bd866ead9baa0678143eb00268ac4cab1e5"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/BitMatching.lean",
+        "bytes": 22564,
+        "sha256": "4b8bcc00e9506c104562a42930b95d48f9eca9494d515be3416ce54164a87a2d"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/CountingEstimates.lean",
+        "bytes": 11890,
+        "sha256": "ed53e2fb8da50c9bc13c4c2ba7f00d460f3d295f35ffff80a7c84f80f91c933a"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/CountingParameters.lean",
+        "bytes": 6060,
+        "sha256": "c006457611870b13f6b707337af3edbdd315f465ce7577aafbe2fba3c327b223"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Density.lean",
+        "bytes": 8209,
+        "sha256": "00c9797ec3b7e3a031609a94a8aecb21ea6ca64c6aca37145979aff5dc95ba18"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/DirectReduction.lean",
+        "bytes": 5787,
+        "sha256": "e45c3d12af1f58ff40d9c49b217786622f18697ed2d69669d135082a2d5f90aa"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Extremal.lean",
+        "bytes": 8035,
+        "sha256": "f16b1a954873c65b02efb3c1d2b0b0e54b75e33c0e428c16fa7e2c4de04ebdc1"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/ActualCounting.lean",
+        "bytes": 10965,
+        "sha256": "36f2d41750bdb48cf790593acd6ca990291d8f5489aa06a7ee71df464d80c274"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/CanonicalHeader.lean",
+        "bytes": 10857,
+        "sha256": "caeae4cced9eacdef934c53a1bbf2e52b00fe29cd0143a912dc387b250f4cd45"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/ClaimBundles.lean",
+        "bytes": 12855,
+        "sha256": "996ab0949e80f9ded33f0cf829748adee9568b43ffa79a5528cf37a8669c7c13"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean",
+        "bytes": 3475,
+        "sha256": "7083b31cd5345b0c0897e03911041500763a9f57e5e53aa68f1617311da6780e"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/ConnectedSubset.lean",
+        "bytes": 3206,
+        "sha256": "2fb39c5548fff9b6cb664b45768107fdfc34a7e4a605a497ac49fda0084cf47d"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/ExactClaimBundles.lean",
+        "bytes": 2389,
+        "sha256": "6212a6ffabac233c586ee118498e53dd37cda794c94df06c2413aab5865daba4"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/HeaderExistence.lean",
+        "bytes": 10149,
+        "sha256": "8efd903d08146d55cbb5c488ca9f79420416cbe3d0e423af87b0026ca04524c2"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/IncidenceCount.lean",
+        "bytes": 3906,
+        "sha256": "88457474ca290ba1858182fe244a1764f28ad8aae051b8d7747a6242946bc662"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/LiteralScales.lean",
+        "bytes": 4675,
+        "sha256": "f028a6fc74a545f2a806dfe681817e602250b67c9d846fec465a5342561a9c93"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/NumericalParameters.lean",
+        "bytes": 13863,
+        "sha256": "ed7065aea82fb7a5d4a8ee8cc18a7bd955db760fa0ba1a4278956eb0e8dc2524"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/OriginalQueryReconstruction.lean",
+        "bytes": 24839,
+        "sha256": "56c526468c53f81ae0d34597808a5b4ec7566b69822255e2549d73597f8afbe9"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/PartitionHeader.lean",
+        "bytes": 2919,
+        "sha256": "9cfd59ca7fb6809d5c2c0e52237d5d6aa78f971bb39845c9925f6cd728b209d9"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/RealTailFiberCore.lean",
+        "bytes": 13259,
+        "sha256": "bde23fa1abd4d9754b293d959bd0792a2603c1e03dcb10194937bdfbaf0710a9"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FaithfulCounting/ScalarNormalization.lean",
+        "bytes": 2694,
+        "sha256": "35db657f1f00abbc6c36ded58d3674c63b84fa97015c10ba666926e934b69a60"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FiniteTwoGeneratorBound.lean",
+        "bytes": 1488,
+        "sha256": "9921ca0ca2172a88a998620186a85947527e21696bb6ebd474710d8210623970"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/FirstUpper.lean",
+        "bytes": 6025,
+        "sha256": "6dc63b05154e771fdd39665679bf92f0f32f67426461f37d0d5a9277a697c893"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/GeneralCounting.lean",
+        "bytes": 12418,
+        "sha256": "c9d351f8cf93b1582945a4586469f3a6b43922c3bd0cd638811c2065a087a4b3"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/LiteralBlockMatching.lean",
+        "bytes": 3988,
+        "sha256": "8f6c0b6af92e9204e3729db5e94f9635a7a083b579ae671191b3229d334d62f1"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/LiteralUpperParameters.lean",
+        "bytes": 12305,
+        "sha256": "0de25d7578d5f12bb2999ab09b59c5fd737ba84ea50d2774e55125d33064b630"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/MainSemantics.lean",
+        "bytes": 5903,
+        "sha256": "586d84c0ee0072fc134e07c12a910bd4630850865cd06376d198cdd7b1b4e947"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/PatternGadget.lean",
+        "bytes": 5364,
+        "sha256": "b4ee720e4abdfb76f25b69bb61686176630f2dd6a73f8d86aac35314947bfb2d"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/RealDensity.lean",
+        "bytes": 2066,
+        "sha256": "0bea8c0b41937c9530389c15c1cc74299329cc064d8d746e1539f14a7fda3cd6"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Representation.lean",
+        "bytes": 3812,
+        "sha256": "aadfe8a3a8679f4bb0b7da430158e4fcb2725ed19315f01f42e512649e3f9653"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Results.lean",
+        "bytes": 3980,
+        "sha256": "2cfb58dd8f6336290fa487902143fc234fbb023bf2821a2c3cc9bd607aaa3fdd"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Scale.lean",
+        "bytes": 6528,
+        "sha256": "9429da6ac32dbc62c82c628864dce54aa385088d72cb57e8f0ed20ff2b300d7c"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Statements.lean",
+        "bytes": 3263,
+        "sha256": "28cd28b9107b5a570121008d9eb23e2d37d8e2c5118911c7b183c9a1e7175b25"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/Typical.lean",
+        "bytes": 3170,
+        "sha256": "d67d2c9078a78876c724ec0944a3a141f2235696306d6f3b258ee9d9120ded34"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/TypicalGoodEvent.lean",
+        "bytes": 1949,
+        "sha256": "93c5cfa80677e3fcf5004cb2bde43fcfe218100b286b66fccde842c2ccb1b7a6"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/TypicalProbability.lean",
+        "bytes": 2897,
+        "sha256": "2a02e86ffa0d55d25b9eafdee029c9f4c317a70e11700322cfb38ec619aefc94"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/UpperConstructionBounds.lean",
+        "bytes": 9715,
+        "sha256": "7cccaf932ad0930d8c96f181118f509514511eeef1a26da8ca865eb38b989d69"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/UpperConstructionCore.lean",
+        "bytes": 4850,
+        "sha256": "55c33cb4e5f33cbd5d38a30448b0de25ecf2672295fd7a67946176117357ca42"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+        "bytes": 10455,
+        "sha256": "9158bdd1f4f7bd8017c58428c640235214726235d8f6774fd8446e00af6790e0"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/UpperConstructionIncrement.lean",
+        "bytes": 1457,
+        "sha256": "4cc5343eaa5651eb47b6f0836633e69b29d008b6c88ec0326960f3335242e9f2"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
+        "bytes": 6722,
+        "sha256": "178ee106170e35a607f428b993da2a429686cdb0992c4c8a10d48955bb2c41c4"
+      },
+      {
+        "path": "AntichainOfGivenSize/Paper/UpperParameters.lean",
+        "bytes": 9095,
+        "sha256": "ff71872dface60a3a2d7ebbdffd23602ce66ae55ed626d1710fd0369477193d5"
+      },
+      {
+        "path": "AntichainOfGivenSize/RangeArithmetic.lean",
+        "bytes": 18794,
+        "sha256": "9012b063868b934a30c95ae515b0592cbd43c7b85f412f907f68fac3a7632ea0"
+      },
+      {
+        "path": "AntichainOfGivenSize/RangeReduction.lean",
+        "bytes": 23146,
+        "sha256": "0ace0429da078d93b4f27472cce138e54aa3218b46e814a56a3117201e58d156"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/Address.lean",
+        "bytes": 5088,
+        "sha256": "a6e13e6bf5e6ada2a03d0bcd5b3644192cb258d3e8e4a63b12d525efc95fb1e2"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/Blocks.lean",
+        "bytes": 20150,
+        "sha256": "6d6852499a4979a3f53560b2631d1294e069d1fb88b8ff85fcd3e410e40cc096"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/Construction.lean",
+        "bytes": 21499,
+        "sha256": "23325bdcd70c9594be1f6ebee1a130b13afcd6d3d4bbd45c5a4ed5e45b4388e8"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/Core.lean",
+        "bytes": 17023,
+        "sha256": "2724dad777047e0e78afd617b601c63117208c00c586e1b95d71309e9b06983f"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/IndexedBounds.lean",
+        "bytes": 5354,
+        "sha256": "acf751b8f470b30d4114fe0fa14ffa7de4e45f6d565d5e11cf90d2f50b71f68e"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/ModularIncrement.lean",
+        "bytes": 23820,
+        "sha256": "cfa65179a92810b0cee0fb1705813de499269df2c415ce9834b3f81b5f9d82ca"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/NatParameters.lean",
+        "bytes": 1493,
+        "sha256": "37e8095b60854bdc4516708c15c8ebc6df3144880b7bd3ed2ee483957b66ddf4"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/Remainder.lean",
+        "bytes": 6759,
+        "sha256": "a2056877eb83719572a5ad8a4d351bd5263a244a799952e624cfa120ceb3dfae"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/StageArithmetic.lean",
+        "bytes": 1599,
+        "sha256": "dcd98181a9a25dcc47750b03ae16529ebaec08e602a85857075ea81205123f61"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/StageBridge.lean",
+        "bytes": 4612,
+        "sha256": "3cadf404081a46d4078ab127fbda8afcb78fb746872876850dc4df42d5cec4c8"
+      },
+      {
+        "path": "AntichainOfGivenSize/Section6/Survivors.lean",
+        "bytes": 10691,
+        "sha256": "216215373bc53278c60b346d302eaa3ff453d675fdb5320eeed8601cd8d023ec"
+      },
+      {
+        "path": "AntichainOfGivenSize/Theorem.lean",
+        "bytes": 1929,
+        "sha256": "1fe60480c2832cf246e360727ed524b576b7058c8e6d8758f59da267e04b07d3"
+      },
+      {
+        "path": "AntichainOfGivenSizeTest.lean",
+        "bytes": 343,
+        "sha256": "394bd77679dd39f7e78684cf2f493318db606db116cbdef24d0a80bb4ec6f36c"
+      },
+      {
+        "path": "AntichainOfGivenSizeTest/CostSealBreaches.lean",
+        "bytes": 12924,
+        "sha256": "be12dd5f35a49e9baeb10b3853e1ab42902921feb4aee35b83a31f06ad240580"
+      },
+      {
+        "path": "AntichainOfGivenSizeTest/ModelClosure.lean",
+        "bytes": 4018,
+        "sha256": "bbb76f53bbe922737f50774fab8c0cca89980735a74e3a9a5bfd73fb6eb361d7"
+      },
+      {
+        "path": "scripts/CheckAxioms.lean",
+        "bytes": 13660,
+        "sha256": "df6c4cddc3d78bb5ff66253eea35c608370f33798639fafa16545789948e3448"
+      },
+      {
+        "path": "scripts/CheckPaperStatements.lean",
+        "bytes": 9635,
+        "sha256": "a0bfcc0dfa7e0ecc940e11ff6bebb624e0b603ffefa9f11d8fa22f50e4e16a58"
+      }
+    ]
+  },
+  "archiveFileCount": 21,
+  "uncompressedBytes": 4932295,
+  "validation": "Archive SHA256 and each original path, byte count, and raw SHA256 agree with EXPORT.json",
+  "limitations": [
+    "Does not run the compiler or native validator.",
+    "Does not authenticate the author role as human review.",
+    "Selected paper/configuration bytes and all Lean source hashes are preserved; pair this export with the matching Git source tree. External dependency binaries are not independently hashed.",
+    "Full immutable mapping history must also be exported once after all selected runs."
+  ]
+}

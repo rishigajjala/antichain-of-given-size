@@ -1,0 +1,106 @@
+{
+  "schema": "antichain.compatibility-repository-reconciliation/1",
+  "checkedAtUTC": "2026-10-27T04:42:28.066276+00:00",
+  "commit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c",
+  "allTestedSourceFilesMatch": true,
+  "files": [
+    {
+      "path": "scripts/tex2lean-compat/extensions/README.md",
+      "sha256": "fcef58659e486eec92e4abd6eb59a0fa4cf04a7ae0928f3eb2d90b28b2aeea1a"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/adapter.cjs",
+      "sha256": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/cli-helpers.js",
+      "sha256": "b9c0abbda1a485cd4395246e1dc4f2711358e61771852c983c77970667f29bf0"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/extend.cjs",
+      "sha256": "d7460b11c506f8f8bf716ac6e8b65bba46bea580c38f1b9059c3695044883088"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/future-surface-review.cjs",
+      "sha256": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/inspection-prompt.cjs",
+      "sha256": "79a4221ae289edaab656ab572525c52a7f3bbfa246916760e9f8e18dd8f0692c"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/lifecycle-ui.cjs",
+      "sha256": "6966b1925037a99a668a112776e0a1e5d626b89decf16d5c9f8dd3aa27f41c6a"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/native-host.cjs",
+      "sha256": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/patch.cjs",
+      "sha256": "47f69a7261eb8fe7b653d8ff8c14120afb7fdc942752ed46753d259514d38356"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/surface-review.cjs",
+      "sha256": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-adapter.cjs",
+      "sha256": "33b303524d0a25d7ef92a09a6994cb6ca1d6f5acdf48a019404d2970abd4ece6"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-extension.cjs",
+      "sha256": "ef4381273490816ec16cae0e33c193aa4691ba3a3f66703b706321255bd467bb"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-future-surface-review.cjs",
+      "sha256": "bb021166a1958e3dee2aea6ef6583e7deea6d587e33bd95ebfdb828723129039"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-inspection-prompt.cjs",
+      "sha256": "63946e0acc2eb9cc736303f3b1c3c671408d29b783b896bd103899fa389ce885"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-integration.cjs",
+      "sha256": "9f4e6a8174b3e9eb5d0d3087ccd7dc1cd14b155f7c119e92e4df9647a51dab91"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-lifecycle-ui.cjs",
+      "sha256": "0ee43e32b69996bfff89c7eb898803f6e955c640271fc759da2b99fa79d464ca"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-stale-refresh.cjs",
+      "sha256": "06d4737e27bbcd8ae69de582b8948c072d3e0dbda8301918f381e8b2ac44c9cb"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/test-surface-review.cjs",
+      "sha256": "984a97af241575063eab81ad160b10169671f8fbb968635a449b2a7b8ad6fa3f"
+    },
+    {
+      "path": "scripts/tex2lean-compat/extensions/validator-loop.cjs",
+      "sha256": "49ab648ec550e5b8156b85aebabfc6e061f1b43cfc4d67da486a5e7f329605d1"
+    }
+  ],
+  "v17SupportModulesMatchTestedRepository": true,
+  "testsRerun": false,
+  "runtimeOrCompilerInvoked": false,
+  "ledgerWritten": false,
+  "repositoryWritten": false,
+  "parentReportedRuntimeUsage": {
+    "counting": {
+      "started": true,
+      "sessionId": "88104",
+      "stageReportedByParent": "All eleven declaration inspection running",
+      "completionClaimed": false,
+      "evidence": "Parent workflow report; packaging process did not launch or interact with the runtime."
+    },
+    "main": {
+      "started": false,
+      "completionClaimed": false,
+      "evidence": "Parent reports v17 main has not yet been launched."
+    },
+    "recordedAtUTC": "2026-10-27T04:42:28.066276+00:00"
+  },
+  "laterCurrentSourceOutcomeReference": "../manifest.json#/currentNativeUsage",
+  "historicalObservationRetained": true
+}

@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "tests": "native replay/publication, explicit pinned unapproved-proposal replacement, dry-run, provenance-only exclusions, strict pins, authority, concurrency, and unchanged real validator verify/refresh/stale and negative-control regression",
+  "validator": {
+    "unchangedNativeLoopDigest": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298",
+    "patchRequired": false,
+    "negativeControl": "removing the native per-iteration refresh reproduces a stale-head failure"
+  }
+}

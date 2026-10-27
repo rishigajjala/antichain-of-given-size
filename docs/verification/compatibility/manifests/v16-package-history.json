@@ -1,0 +1,150 @@
+{
+  "schema": "antichain.final-compatibility-evidence/1",
+  "assembledAtUTC": "2026-10-27T04:28:20.360543+00:00",
+  "kind": "Preserved build/test evidence and current read-only hash reconciliation; no new test run or proof certification",
+  "upstreamPackageVersion": "1.0.2",
+  "inputs": {
+    "installedExecutable": {
+      "observedPath": "/Users/sg9396/.local/bin/tex2lean",
+      "sha256": "3beb95c9c3973589febe7ea44c778269fe291cc23652b5f935ffe630b18e3a08"
+    },
+    "upstreamBundle": {
+      "observedPath": "/tmp/antichain-tex2lean-compat-20261026-v8/original.cjs",
+      "sha256": "ae68bb68d8b7d1333660add1a39474e007d43136b8ddab923850594ff79bc99d"
+    },
+    "v8Bundle": {
+      "observedPath": "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+      "sha256": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7"
+    },
+    "v16Bundle": {
+      "observedPath": "/tmp/antichain-tex2lean-compat-20261027-v16-splitting/out/cli.cjs",
+      "sha256": "9237f86a4cfb4eccbcac971aca3c4e31784b24ddc2f5f723db48ba62d9d5fde5"
+    }
+  },
+  "v16Options": {
+    "defaultCodexInspectionFix": true,
+    "ledgerAuthorityPin": "sha256-cef390afa4886af7a45724f29a7ba674016f870c6ebca6dedaabbd4b092f78f0",
+    "lifecycleUiFixes": true,
+    "node": "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
+  },
+  "tests": {
+    "preservedRunAtUTC": "2026-10-27T00:43:22.355108+00:00",
+    "suiteCount": 7,
+    "syntaxCheckCount": 17,
+    "allExitZero": true,
+    "rerunForThisPackage": false,
+    "logs": "logs/",
+    "record": "manifests/regression-verification.json"
+  },
+  "repositoryFiles": {
+    "scripts/tex2lean-compat/extensions/adapter.cjs": {
+      "sha256": "5d567d81a9c2057fc677f55acb23d69eaaeadda7a858a6f11c184ad75ef74027",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/cli-helpers.js": {
+      "sha256": "b9c0abbda1a485cd4395246e1dc4f2711358e61771852c983c77970667f29bf0",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/extend.cjs": {
+      "sha256": "d7460b11c506f8f8bf716ac6e8b65bba46bea580c38f1b9059c3695044883088",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/future-surface-review.cjs": {
+      "sha256": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/inspection-prompt.cjs": {
+      "sha256": "79a4221ae289edaab656ab572525c52a7f3bbfa246916760e9f8e18dd8f0692c",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/lifecycle-ui.cjs": {
+      "sha256": "6966b1925037a99a668a112776e0a1e5d626b89decf16d5c9f8dd3aa27f41c6a",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/native-host.cjs": {
+      "sha256": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/patch.cjs": {
+      "sha256": "47f69a7261eb8fe7b653d8ff8c14120afb7fdc942752ed46753d259514d38356",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/surface-review.cjs": {
+      "sha256": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-adapter.cjs": {
+      "sha256": "913d398223390aa195a17dfebc024a0e8408c83d859a682ce25f940c8902f26f",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-extension.cjs": {
+      "sha256": "ef4381273490816ec16cae0e33c193aa4691ba3a3f66703b706321255bd467bb",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-future-surface-review.cjs": {
+      "sha256": "bb021166a1958e3dee2aea6ef6583e7deea6d587e33bd95ebfdb828723129039",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-inspection-prompt.cjs": {
+      "sha256": "63946e0acc2eb9cc736303f3b1c3c671408d29b783b896bd103899fa389ce885",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-integration.cjs": {
+      "sha256": "9f4e6a8174b3e9eb5d0d3087ccd7dc1cd14b155f7c119e92e4df9647a51dab91",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-lifecycle-ui.cjs": {
+      "sha256": "0ee43e32b69996bfff89c7eb898803f6e955c640271fc759da2b99fa79d464ca",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/test-surface-review.cjs": {
+      "sha256": "984a97af241575063eab81ad160b10169671f8fbb968635a449b2a7b8ad6fa3f",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/extensions/validator-loop.cjs": {
+      "sha256": "49ab648ec550e5b8156b85aebabfc6e061f1b43cfc4d67da486a5e7f329605d1",
+      "matchesPreservedTestedSnapshot": true
+    },
+    "scripts/tex2lean-compat/build_compat.py": {
+      "sha256": "625e1b58947624101bea3b4fe0cd7ce550b09a06468863c9344ecc0a81b6408f",
+      "matchesPreservedTestedSnapshot": null,
+      "note": "Current reproduction source/documentation hash; not an additional test execution."
+    },
+    "scripts/tex2lean-compat/test_compat.cjs": {
+      "sha256": "9e745fcb5604eb6d8f21add219ae1863eb0fc7bc12be445735f9c3f7f7a6d980",
+      "matchesPreservedTestedSnapshot": null,
+      "note": "Current reproduction source/documentation hash; not an additional test execution."
+    },
+    "scripts/tex2lean-compat/README.md": {
+      "sha256": "883ccfb9d38782583f281eb04bc8f692860b9d9a3b1d57db21356f15337df6a1",
+      "matchesPreservedTestedSnapshot": null,
+      "note": "Current reproduction source/documentation hash; not an additional test execution."
+    },
+    "scripts/tex2lean-compat/extensions/README.md": {
+      "sha256": "e370b38ed09dc69ef65f8bb21854f648ae7c59d77bc39af020e9e1b6eb2052f5",
+      "matchesPreservedTestedSnapshot": null,
+      "note": "Current reproduction source/documentation hash; not an additional test execution."
+    }
+  },
+  "boundaries": {
+    "installedCLIChanged": false,
+    "runtimeBundleIncluded": false,
+    "authorityRecordIncluded": false,
+    "credentialsIncluded": false,
+    "realNativeWorkflowExecutedForPackaging": false,
+    "compilerExecutedForPackaging": false,
+    "repositoryEditedForPackaging": false,
+    "proofOrLedgerStatusWrittenForPackaging": false
+  },
+  "nativeCheckEvidence": {
+    "path": "docs/verification/native-check-20261027.txt",
+    "sha256": "f979e75bc494182c7fadcf5118b797bd1b4c0925b60ae4cd56f6060d550ee9a5",
+    "overall": "FAILED",
+    "failedRules": [
+      "surface-states",
+      "hypothesis-is-in-the-bundle"
+    ],
+    "explanationPath": "docs/verification/native-check-explanation.md",
+    "explanationSha256": "bf885a0c645c3444d4d8ff4393567ebf501344a11b24f93b93e8e9994ebb9315"
+  }
+}

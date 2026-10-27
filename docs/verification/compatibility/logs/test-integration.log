@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "candidateBundleSha256": "344d136eac18d49cb16cb3c4a710c579c86781772fcbb83528dddf9f3922c780",
+  "tests": [
+    "actual native o4 ordinary receipt equivalence and optional type/body extraction",
+    "identical normalized probe rows and values accepted; conflicting types/dependencies/values rejected",
+    "actual T8 wrapper success/failure skip only review reconciliation; entry guards unchanged",
+    "strict exclusive lease rejects live/stale/malformed/existing leases; cleanup preserves replacement owner",
+    "independent authority pin mismatch, including changed authority plus self-consistent manifest",
+    "targeted Fl/Hc cache invalidation; other projects preserved",
+    "positive inspection flow exports exact types/bodies and complete source files without publication",
+    "native validator/store/replay unchanged; inspect cannot apply"
+  ],
+  "runtimeExecuted": false,
+  "compilerExecuted": false,
+  "repositoryChanged": false
+}

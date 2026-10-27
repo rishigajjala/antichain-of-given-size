@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "tests": "native immutable inventory publication; exact 7/11 math coverage; preserved claims/receipts/status/history; fixed justified removals; compiler reference pins; dry-run; authority/head guards; interruption safety; unchanged native validator still requires verification",
+  "nativeWorkflowExecuted": false,
+  "compilerExecuted": false
+}

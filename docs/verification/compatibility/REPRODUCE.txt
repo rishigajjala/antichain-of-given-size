@@ -1,0 +1,69 @@
+Reproduction commands (documentation only; not executed during packaging).
+Use scripts/tex2lean-compat from commit
+8b661a79f634207878a40d4f26c2d8bea7fdce9c for exact v17 support/test sources.
+The current repository files are verified to match those tested hashes. Replace
+the Node/installed paths if reproducing elsewhere; exact reviewed upstream
+Tex2Lean 1.0.2 content is required. Choose unused external output directories.
+
+COMPAT_NODE='/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node'
+COMPAT_BASE='/tmp/antichain-compat-reproduction-v8'
+COMPAT_MAIN='/tmp/antichain-compat-reproduction-v17-main'
+COMPAT_COUNT='/tmp/antichain-compat-reproduction-v17-counting'
+
+python3 scripts/tex2lean-compat/build_compat.py \
+  --installed '/Users/sg9396/.local/bin/tex2lean' \
+  --output "$COMPAT_BASE" --node "$COMPAT_NODE"
+
+"$COMPAT_NODE" scripts/tex2lean-compat/extensions/extend.cjs \
+  --input "$COMPAT_BASE/out/cli.cjs" --output "$COMPAT_MAIN" --node "$COMPAT_NODE" \
+  --ledger-authority-pin 'sha256-03dbcb6c57b02318f694ef98d20d2474e8b93d79c733995435587a87fa77fc3d' \
+  --lifecycle-ui-fixes true
+
+"$COMPAT_NODE" scripts/tex2lean-compat/extensions/extend.cjs \
+  --input "$COMPAT_BASE/out/cli.cjs" --output "$COMPAT_COUNT" --node "$COMPAT_NODE" \
+  --ledger-authority-pin 'sha256-f86c8538d13009c13d27b9f7403dfab4ea0b2c1afb046683558f4c1bab19079f' \
+  --lifecycle-ui-fixes true
+
+# Eight suites and eighteen syntax checks. These do not run the native CLI.
+for COMPAT_TEST in scripts/tex2lean-compat/extensions/test-*.cjs; do
+  "$COMPAT_NODE" "$COMPAT_TEST" "$COMPAT_BASE/out/cli.cjs" || exit "$?"
+done
+for COMPAT_SOURCE in scripts/tex2lean-compat/extensions/*.cjs scripts/tex2lean-compat/extensions/*.js; do
+  "$COMPAT_NODE" --check "$COMPAT_SOURCE" || exit "$?"
+done
+
+The archived v16 splitting build uses the earlier extension source from commit
+b7a27d2137a8eb6099b86b2acfc10cc8cac3beb9, not the v17 stale-refresh adapter.
+For an exact historical reproduction, extract that source outside the project:
+
+COMPAT_V16_SOURCE=$(mktemp -d /tmp/antichain-compat-v16-source.XXXXXX)
+git archive b7a27d2137a8eb6099b86b2acfc10cc8cac3beb9 scripts/tex2lean-compat/extensions | tar -x -C "$COMPAT_V16_SOURCE"
+"$COMPAT_NODE" "$COMPAT_V16_SOURCE/scripts/tex2lean-compat/extensions/extend.cjs" \
+  --input "$COMPAT_BASE/out/cli.cjs" --output /tmp/antichain-compat-reproduction-v16 \
+  --node "$COMPAT_NODE" \
+  --ledger-authority-pin 'sha256-cef390afa4886af7a45724f29a7ba674016f870c6ebca6dedaabbd4b092f78f0' \
+  --lifecycle-ui-fixes true
+
+These public authority digests reproduce bundles, not permission to publish
+anything. Real review operations still require the independently reviewed
+authority record, exact target/paper/source/configuration/toolchain/head pins,
+and complete semantic review. Authority records are intentionally not included.
+
+Default extension behavior leaves both optional features OFF: omit both
+--ledger-authority-pin and --lifecycle-ui-fixes. The default Codex source-inspection
+repair produces SHA-256
+4268db0fdda61deb1e3be7d52879d8952e67caaf4931e6c1a9fdbfdff39327d6.
+
+Use the project's physical directory (pwd -P), and explicit runtime provider
+flags from RUNTIME-RECOVERY.md. Normal plan/prove/check/handoff execution and
+native certificates are separate from these build/test commands. Build manifests
+pin both the CLI bundle and separately copied support modules.
+
+Isolated current-source proof-length heuristic reproduction (no CLI/compiler):
+
+"$COMPAT_NODE" /path/to/this/evidence/heuristic/reproduce.cjs /path/to/source-project
+
+This hashes the four Model files and the extracted unchanged native pure helper
+functions, then reports all six affected wrappers. It fails on source mismatch.
+It reproduces only surface-states, not the full native check or certification.
+The observed complete native check is separately preserved in logs/.

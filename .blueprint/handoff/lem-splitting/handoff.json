@@ -1,0 +1,407 @@
+{
+  "generatedAt": "2026-10-27T07:31:33.355Z",
+  "providerLabel": "ChatGPT subscription · gpt-6-astra",
+  "projectPath": ".",
+  "target": {
+    "id": "t4",
+    "kind": "lemma",
+    "environment": "lemma",
+    "title": "Splitting Lemma",
+    "titleCitations": [
+      "ChandranGajjalaMeel26"
+    ],
+    "label": "lem:splitting",
+    "body": "\\label{lem:splitting}\nFor all $m,n\\in\\mathbb N$,\n\\[\n  \\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1).\n\\]",
+    "start": {
+      "file": "paper/Generating_Antichains_Simplified.tex",
+      "line": 240
+    },
+    "end": {
+      "file": "paper/Generating_Antichains_Simplified.tex",
+      "line": 245
+    },
+    "sectionPath": [
+      "Two basic lemmas"
+    ]
+  },
+  "approvedChanges": [],
+  "correspondence": {
+    "headline": {
+      "requestedStatement": "paper/Generating_Antichains_Simplified.tex:240–244, lem:splitting: “For all $m,n\\in\\mathbb N$, \\[ \\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1). \\]” The paper explicitly states at line 192: “Throughout the paper, $\\mathbb N=\\{1,2,\\ldots\\}$.”",
+      "leanDeclaration": "AntichainOfGivenSize.alpha_splitting",
+      "leanStatement": "AntichainOfGivenSize/Model/Theorem.lean:129: theorem alpha_splitting (hprior : Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : alpha (m + n) ≤ alpha m + alpha (n + 1)",
+      "verdict": "formalized",
+      "why": "Read independently, Lean asserts the displayed inequality for every pair of positive natural numbers, given the fieldless proposition Prior. This matches the paper exactly: hm and hn encode its explicit positive-natural convention (paper-states-it), rather than adding restrictions. Prior is an empty structure, inhabited by ⟨⟩; its binder is a harmless modelling artifact, with no borrowed mathematical result. Both universally quantified parameters, all three occurrences of alpha, the addition operations, the constant 1, and the inequality direction correspond. The definition of alpha minimizes the cardinality of a finite generating family over arbitrary finite ambient universes; BasicLemmas.lean proves existence and attainment, so sInf is not concealing an empty minimization domain. Finite relabelling preserves the paper's objects. The proof follows the paper's disjoint-ground-set construction. The underlying splittingLemma additionally permits n = 0. Verification evidence supports the proof: the supplied elaborator output lists only propext, Classical.choice and Quot.sound; saved lake build --wfail and model-check commands have recorded exit code 0 and successful output. All 138 recorded source hashes match the inspected files, with no unrecorded project Lean files. Source scanning found no proof holes or custom trust mechanisms; the three partial definitions belong to audit tooling. No build was executed during this review. To reproduce the headline axiom and closure checks, run `lake env lean -DwarningAsError=true AntichainOfGivenSize/Model/Theorem.lean` from the project root. Probability-denotation review is not applicable to this deterministic lemma.",
+      "mismatches": []
+    },
+    "statements": [
+      {
+        "paperRef": "thm:main — paper/Generating_Antichains_Simplified.tex:156",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+        "verdict": "exact",
+        "note": "Model/Theorem.lean:106 includes the eventual upper bound, density-one lower bound, simultaneous order, and strict-real-cutoff maximum. Shared c and C are retained; extremal constants may differ.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "t2 — paper/Generating_Antichains_Simplified.tex:196",
+        "kind": "definition",
+        "leanDeclaration": "AntichainOfGivenSize.generatedIdeal",
+        "verdict": "exact",
+        "note": "Model/ProblemSetting.lean:45 implements the union of powersets. Paper.generatedIdeal_isLowerSet (Paper/BasicResults.lean:13) supplies downward closure; exists_antichain_subfamily_same_generatedIdeal (AntichainReduction.lean:80) supplies the finite-family antichain reduction.",
+        "headlineDependsOnIt": true
+      },
+      {
+        "paperRef": "t3 — paper/Generating_Antichains_Simplified.tex:204",
+        "kind": "definition",
+        "leanDeclaration": "AntichainOfGivenSize.alpha",
+        "verdict": "generalized",
+        "note": "Model/ProblemSetting.lean:178 defines the same minimum on positive inputs and additionally defines alpha 0. BasicLemmas.lean:95–110 establishes nonempty witness sets and attainment.",
+        "headlineDependsOnIt": true
+      },
+      {
+        "paperRef": "lem:splitting — paper/Generating_Antichains_Simplified.tex:240",
+        "kind": "lemma",
+        "leanDeclaration": "AntichainOfGivenSize.alpha_splitting",
+        "verdict": "exact",
+        "note": "Model/Theorem.lean:129 matches the positive-natural domain explicitly fixed at paper line 192. BasicLemmas.lean:169 provides the stronger version allowing n = 0.",
+        "headlineDependsOnIt": true
+      },
+      {
+        "paperRef": "lem:lifting — paper/Generating_Antichains_Simplified.tex:254",
+        "kind": "lemma",
+        "leanDeclaration": "AntichainOfGivenSize.liftingLemma",
+        "verdict": "generalized",
+        "note": "BasicLemmas.lean:259 proves the same inequality also for t = 0 and n = 0.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:bit-matching — paper/Generating_Antichains_Simplified.tex:276",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.bitMatchingInt",
+        "verdict": "exact",
+        "note": "Paper/Results.lean:37 retains arbitrary integer y, q > 0, budget 2q, the exact modulus, positivity, and the strict upper bound on m.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:fresh-element-separation — paper/Generating_Antichains_Simplified.tex:350",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.BitMatching.fresh_separation",
+        "verdict": "generalized",
+        "note": "Paper/BitMatching.lean:120 gives an exact membership equivalence for every active set: a fresh vertex belongs to a primary intersection exactly when it is active and its address matches. This includes the paper's stagewise assertions.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:primary-intersection-size — paper/Generating_Antichains_Simplified.tex:365",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card",
+        "verdict": "generalized",
+        "note": "Paper/BitMatching.lean:162 proves cardinality i for every active set excluding i, including the state immediately before stage i.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:nonprimary-larger — paper/Generating_Antichains_Simplified.tex:387",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.BitMatching.proper_intersection_card",
+        "verdict": "generalized",
+        "note": "Paper/BitMatching.lean:168 permits arbitrary active sets excluding i and even the empty proper query, using the finite ambient universe for its intersection.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:first-upper — paper/Generating_Antichains_Simplified.tex:473",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.firstUpper",
+        "verdict": "exact",
+        "note": "Paper/Results.lean:47 preserves both range endpoints and 4q² + 3. Paper.quadraticUpper at line 52 supplies the stated asymptotic consequence.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:block-matching — paper/Generating_Antichains_Simplified.tex:564",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.blockMatching",
+        "verdict": "generalized",
+        "note": "Paper/Results.lean:43, expanding BlockMatchingStatement in Paper/UpperParameters.lean:26, proves the result with explicit constants a = 5 and b = 3. This strengthens the existential-constant assertion.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:pattern-gadget — paper/Generating_Antichains_Simplified.tex:672",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits",
+        "verdict": "exact",
+        "note": "Paper/PatternGadget.lean:132 gives exactly 2^ell + d for d < 2^ell, using tagged copies of the paper's vertices.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:position-addressing — paper/Generating_Antichains_Simplified.tex:716",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.UpperConstruction.position_intersection",
+        "verdict": "generalized",
+        "note": "Paper/UpperConstructionGeometry.lean:120 proves the exact intersection identity for arbitrary finite pattern universes, histories, and active sets excluding i.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:block-increment — paper/Generating_Antichains_Simplified.tex:733",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment",
+        "verdict": "generalized",
+        "note": "Paper/UpperConstructionIncrement.lean:5 preserves the sign, digit, exponent and modulus for arbitrary histories and active sets excluding i. The update adds members, so natural subtraction represents the actual increment.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:block-final-bounds — paper/Generating_Antichains_Simplified.tex:803",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.LiteralUpperParameters.exists_literal_constructed_size_threshold",
+        "verdict": "generalized",
+        "note": "Paper/LiteralUpperParameters.lean:231 uses the paper's floor/ceiling parameters and constants 5 and 3, uniformly over all active sets and histories. It additionally bounds each generator and proves positivity.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "lem:direct-reduction — paper/Generating_Antichains_Simplified.tex:851",
+        "kind": "lemma",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.directReduction",
+        "verdict": "exact",
+        "note": "Paper/DirectReduction.lean:107 retains positive constants, one uniform threshold, 1 ≤ n' < n, and both inequalities.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:universal-upper — paper/Generating_Antichains_Simplified.tex:909",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.universalUpper_from_five",
+        "verdict": "exact",
+        "note": "Paper/Extremal.lean:19 includes every n ≥ 5 and uses the paper's base-two scale.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:attainable-count — paper/Generating_Antichains_Simplified.tex:987",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.attainable_count",
+        "verdict": "exact",
+        "note": "Model/Theorem.lean:44 retains the uniform threshold, constant 100 and unrounded square-root saving. Model.attainableValues_membership establishes the exact family semantics.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "cor:block-probability — paper/Generating_Antichains_Simplified.tex:1369",
+        "kind": "corollary",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.typicalLowerBound_probability",
+        "verdict": "exact",
+        "note": "Paper/TypicalProbability.lean:50 uses PMF.uniformOfFinset on the exact half-open dyadic block and bounds the strict good event by 1 − 2^(1 − sqrt B). Probability is evaluated through the PMF's induced measure.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "cor:almost-all-order — paper/Generating_Antichains_Simplified.tex:1392",
+        "kind": "corollary",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.realAlmostAllGoodProportion",
+        "verdict": "exact",
+        "note": "Paper/Results.lean:75, expanding Paper/RealDensity.lean:27, gives the displayed limit for real X with inclusive integer endpoints.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "t21 — paper/Generating_Antichains_Simplified.tex:1531",
+        "kind": "remark",
+        "leanDeclaration": "AntichainOfGivenSize.Model.attainableValues_membership",
+        "verdict": "exact",
+        "note": "The membership equivalence and attainable_count impose neither balancedness nor intersection restrictions nor an ambient-size cap. FaithfulLower.paper_final_padding_and_normalization (Paper/FaithfulCounting/ExactClaimBundles.lean:12) derives an active-ground-set bound N ≤ KB. The remark is represented by these contracts rather than a separate theorem bearing its label.",
+        "headlineDependsOnIt": false
+      }
+    ],
+    "auditSurface": [
+      {
+        "declaration": "AntichainOfGivenSize.Model.attainableValues_membership",
+        "file": "AntichainOfGivenSize/Model/Prelude.lean:56",
+        "claims": "For K > 0, membership in attainableValues B K is equivalent to existence, over some unrestricted finite ambient universe, of a nonempty family of at most K generators, each of size at most B, generating exactly n subsets.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:981–986 defines “\\V(B,K):=\\{\\Phi(\\mathcal A): \\mathcal A=(A_1,\\ldots,A_s),\\quad 1\\le s\\le K,\\quad |A_i|\\le B\\text{ for all }i\\}” for integers B,K ≥ 1.",
+        "verdict": "stronger",
+        "why": "The finite-set representation matches the indexed-family definition after deduplication and padding. Lean also permits B = 0; its K > 0 guard preserves nonempty indexing.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero",
+        "file": "AntichainOfGivenSize/Model/ProblemSetting.lean:103",
+        "claims": "Every BoundedProfile has zero multiplicity at the empty membership pattern.",
+        "paperSays": "The paper does not state a theorem about BoundedProfile or this projection. Its counting argument permits removal of points outside all generators.",
+        "verdict": "not-in-paper",
+        "why": "This is a proof-valued structure-field projection expressing a normalization of the representation, not an additional hypothesis on the splitting theorem or on all generating families.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le",
+        "file": "AntichainOfGivenSize/Model/ProblemSetting.lean:104",
+        "claims": "Every generator index in a BoundedProfile has profile load at most B.",
+        "paperSays": "The definition of V(B,K) at paper/Generating_Antichains_Simplified.tex:981–986 requires “|A_i|\\le B\\text{ for all }i”. The paper has no separate theorem about profileLoad.",
+        "verdict": "not-in-paper",
+        "why": "This is the internal representation's proof-valued field. The membership cross-check connects it to generator cardinalities. It is not a dependency of alpha_splitting.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.attainable_count",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:44",
+        "claims": "One absolute threshold works for every natural B and K satisfying the displayed budget, and the number of attainable sizes is at most 2^(B − sqrt B). Prior is fieldless.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:987: “There exists an absolute integer $B_{\\mathrm{cnt}}$ such that” for B above that threshold and “$1\\le K\\le\\frac{(\\log B)^2}{100\\log\\log B}$”, one has “$|\\V(B,K)|\\le2^{B-\\sqrt B}$”.",
+        "verdict": "agrees",
+        "why": "Constants, real exponentiation, quantifier order and counted objects match. A natural threshold represents the paper's sufficiently large integer threshold without loss.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:78",
+        "claims": "There are C > 0 and a natural threshold n₀ ≥ 5 such that alpha n ≤ C times the stated logarithmic scale for every n ≥ n₀.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:157–159: “There are absolute constants $c,C>0$ and $n_0$ such that” “$\\alpha(n)\\le C\\growth{n}$ for every integer $n\\ge n_0$”.",
+        "verdict": "agrees",
+        "why": "This declaration corresponds to part (i). Enlarging an existential threshold to at least 5 does not weaken the assertion.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_lower_density_one",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:86",
+        "claims": "For some c > 0, the fraction of integers 5 ≤ n ≤ N satisfying c times the logarithmic scale ≤ alpha n tends to one.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:160: “the set of integers $n\\ge5$ satisfying $\\alpha(n)\\ge c\\growth{n}$ has natural density $1$.”",
+        "verdict": "agrees",
+        "why": "The finite interval and denominator express exactly the claimed natural density.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:96",
+        "claims": "For every sufficiently large real X, the maximum alpha n over positive integers n < X lies between positive constant multiples of the logarithmic scale at X.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:166–168: “for every sufficiently large $X$, \\[ \\max_{1\\le n<X}\\alpha(n)=\\Theta(\\growth{X}). \\]”",
+        "verdict": "agrees",
+        "why": "Ico 1 ⌈X⌉₊ implements exactly the strict cutoff n < X. The two positive constants expand the Theta assertion.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:106",
+        "claims": "Shared positive c and C provide an eventual upper bound, density-one lower bound, and simultaneous density-one bounds for natural and real cutoffs; separate positive constants give the eventual extremal order.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:156–170 states both main bounds and concludes “$\\alpha(n)=\\Theta(\\growth{n})$” for almost all positive integers and “$\\max_{1\\le n<X}\\alpha(n)=\\Theta(\\growth{X})$”.",
+        "verdict": "agrees",
+        "why": "All main-theorem components are present. The natural- and real-cutoff density formulations make equivalent consequences explicit; the paper does not require the extremal constants to equal c and C.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_splitting",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:129",
+        "claims": "For every positive natural m and n, alpha(m+n) ≤ alpha(m) + alpha(n+1), with a vacuous Prior parameter.",
+        "paperSays": "paper/Generating_Antichains_Simplified.tex:240–244: “For all $m,n\\in\\mathbb N$, \\[ \\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1). \\]” Line 192 specifies “$\\mathbb N=\\{1,2,\\ldots\\}$”.",
+        "verdict": "agrees",
+        "why": "The positivity assumptions translate the paper's stated domain exactly. No mathematical assumption, conjunct or constant is unmatched.",
+        "severity": "note"
+      }
+    ],
+    "unresolved": []
+  },
+  "assumptions": {
+    "verdict": "pass",
+    "assumptions": [
+      {
+        "assumption": "hm : 0 < m",
+        "where": "AntichainOfGivenSize/Model/Theorem.lean:129",
+        "kind": "binder",
+        "classification": "paper-states-it",
+        "severity": "note",
+        "fix": "None. The manuscript explicitly states at paper/Generating_Antichains_Simplified.tex:192: “Throughout the paper, $\\mathbb N=\\{1,2,\\ldots\\}$.”"
+      },
+      {
+        "assumption": "hn : 0 < n",
+        "where": "AntichainOfGivenSize/Model/Theorem.lean:129",
+        "kind": "binder",
+        "classification": "paper-states-it",
+        "severity": "note",
+        "fix": "None. This implements the same positive-natural convention. The underlying splittingLemma additionally permits n = 0."
+      },
+      {
+        "assumption": "hprior : Prior",
+        "where": "AntichainOfGivenSize/Model/Theorem.lean:129; AntichainOfGivenSize/Model/Prior.lean:22",
+        "kind": "binder",
+        "classification": "modelling-artifact",
+        "severity": "note",
+        "fix": "No mathematical repair needed: Prior has zero fields and is inhabited by ⟨⟩. The wrapper argument is unused by the splitting proof and could optionally be removed."
+      },
+      {
+        "assumption": "[DecidableEq V] in generatedIdeal",
+        "where": "AntichainOfGivenSize/Model/ProblemSetting.lean:45",
+        "kind": "typeclass",
+        "classification": "modelling-artifact",
+        "severity": "note",
+        "fix": "None. This is computational finite-set infrastructure, instantiated on Fin m inside HasGeneratorCount; it imposes no additional mathematical hypothesis on the caller."
+      }
+    ],
+    "axiomProfile": {
+      "verified": true,
+      "reported": "'AntichainOfGivenSize.alpha_splitting' depends on axioms: [propext, Classical.choice, Quot.sound]. This actual elaborator output was supplied and also appears in the inspected build.txt and model-checks.txt. To reproduce from the project root: lake env lean -DwarningAsError=true AntichainOfGivenSize/Model/Theorem.lean"
+    },
+    "trustedCodeBase": [],
+    "notes": [
+      "Gate 1 — pass, exact mathematical correspondence. Paper, paper/Generating_Antichains_Simplified.tex:240–244: “\\label{lem:splitting}\nFor all $m,n\\in\\mathbb N$,\n\\[\n  \\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1).\n\\]” Lean, AntichainOfGivenSize/Model/Theorem.lean:129–130: “theorem alpha_splitting (hprior : Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :\n    alpha (m + n) ≤ alpha m + alpha (n + 1)”. Both quantify over every positive m and n and assert the same single inequality, with identical arguments, addition, successor constant 1, and bound.",
+      "Definition correspondence: generatedIdeal is the finite union of generators’ powersets. HasGeneratorCount existentially chooses an unrestricted finite ambient size and a finite family with the prescribed ideal and family cardinalities. alpha takes the natural-number infimum of these counts. BasicLemmas.lean:88–101 proves the feasible set nonempty and the infimum attained. Relabelling into Fin m loses no finite family. There is no ground-set-size restriction, antichain prerequisite, or missing conclusion.",
+      "Gate 2 — pass. Checked explicit binders, enclosing sections and variable declarations, instance arguments, structure fields, definition arguments, and possible auto-bound propositions in the relevant statement and proof chain. No additional mathematical assumptions were found. The section variables for indexed ideals and Venn profiles do not enter this headline; BoundedProfile is not in its statement closure. Prior has no borrowed-result fields. The paper’s splitting result is proved, not assumed: AlphaSplittingProof.lean:12 invokes BasicLemmas.lean:169–200, whose proof obtains optimal families, embeds them into disjoint summands, proves their ideals intersect in {∅}, and bounds the union’s generator count.",
+      "Verification evidence: read-only inspection and SHA-256 comparison matched all 138 entries in checks.json to current files; all 129 local Lean files are covered. The recorded lake build --wfail exited 0 and build.txt ends “Build completed successfully (3548 jobs).” It contains no sorry warnings. The recorded strict axiom audit exited 0, checked 3086 declarations across 124 library modules, and reported only the three ambient axioms. No build or Lean elaboration was run during this review.",
+      "Closure and trust checks: the saved output for Model/Theorem.lean:163 reports successful statement closure, with exit code 0 recorded in checks.json. Reading the definitions independently confirms the target’s project vocabulary lies under Model/. A source sweep found no custom axiom declarations, proof holes, native_decide, implemented_by, unsafe, or opaque declarations. The three partial definitions are audit-tool traversal functions in Meta/, outside the target’s mathematical dependency chain; they do not expand its proof trust.",
+      "Gate 3 — not-applicable. The Splitting Lemma is deterministic and makes no probabilistic claim.",
+      "Gates 4–5 — requested-result mapping recorded: lem:splitting ↔ AntichainOfGivenSize.alpha_splitting, exact; ↔ AntichainOfGivenSize.splittingLemma at BasicLemmas.lean:169, generalized to n = 0. No missing claim or supporting proof was found for this target. The other paper results are outside this requested lemma review; their complete correspondence was not assessed. No optional tagging or blueprint work was initiated.",
+      "This is an advisory correspondence and assumption assessment, not a theorem lifecycle or authorization decision."
+    ]
+  },
+  "probability": {
+    "randomized": "no",
+    "why": "The requested Splitting Lemma asserts α(m+n) ≤ α(m)+α(n+1). The Lean theorem alpha_splitting likewise states a deterministic inequality between minimum generator counts. Neither involves sampling or probabilistic claims. PMF declarations elsewhere concern other results.",
+    "denotation": "none",
+    "verdict": "not-applicable",
+    "findings": [],
+    "continuousException": {
+      "claimed": false,
+      "justification": "No continuous sampling occurs in the requested result."
+    }
+  },
+  "unknowns": [],
+  "narrative": "The supplied audit identifies no mathematical discrepancy between the paper’s Splitting Lemma and `AntichainOfGivenSize.alpha_splitting`, and no additional mathematical assumption in its proof chain. The recorded verification evidence supports the Lean proof; the principal limitation is that the reviewers inspected saved results and matching source files without running a new build or elaboration.\n\n## Correspondence with the paper\n\nThe lemma at `paper/Generating_Antichains_Simplified.tex:240–245` asserts\n\n\\[\n\\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1).\n\\]\n\nAt `AntichainOfGivenSize/Model/Theorem.lean:129`, `AntichainOfGivenSize.alpha_splitting` states the same inequality for natural numbers `m` and `n`, with hypotheses `hm : 0 < m` and `hn : 0 < n`. These hypotheses exactly encode the paper’s explicit convention at line 192 that natural numbers are positive. The arguments of `alpha`, additions, constant `1`, and inequality direction all agree.\n\nThe additional parameter `hprior : Prior` carries no mathematical premise: `Prior` has no fields, is inhabited by `⟨⟩`, and is unused by the splitting proof. Likewise, `[DecidableEq V]` in `generatedIdeal` supplies finite-set infrastructure without imposing an additional mathematical hypothesis on callers.\n\nThe definition correspondence supports this statement-level match. `AntichainOfGivenSize.generatedIdeal` represents the union of the generators’ powersets. `AntichainOfGivenSize.alpha` minimizes generator cardinality over unrestricted finite ambient universes, and `BasicLemmas.lean` establishes both existence of witnesses and attainment of the minimum. Thus the infimum does not conceal an empty feasible set. Finite relabelling preserves the paper’s objects, with no ambient-size restriction or antichain prerequisite introduced.\n\nThere are two extensions beyond the paper’s positive-input formulation: `alpha` also has a value at zero, and `AntichainOfGivenSize.splittingLemma` at `BasicLemmas.lean:169` permits `n = 0`. Neither changes the requested inequality on the paper’s domain. The proof follows the paper’s construction: it takes optimal families, embeds them into disjoint ground sets, establishes that their generated ideals intersect exactly in the empty subset, and bounds the combined generator count.\n\n## Proof verification and its limits\n\nKernel proof evidence and faithfulness to the paper are separate matters. The correspondence findings above address the mathematical meaning of the definitions and statement. The supplied elaborator output reports that `AntichainOfGivenSize.alpha_splitting` depends only on `propext`, `Classical.choice`, and `Quot.sound`.\n\nThe saved verification records provide further support:\n\n- `lake build --wfail` recorded exit code `0` and successful completion, with no `sorry` warnings.\n- The strict axiom audit recorded exit code `0`, checked 3,086 declarations across 124 library modules, and reported only those three ambient axioms.\n- The saved statement-closure check succeeded. All 138 recorded source hashes matched the inspected files, covering all 129 local Lean files with no unrecorded project Lean files.\n\nSource inspection found no proof holes or custom trust mechanisms. The three partial definitions belong to audit traversal tooling in `Meta/`, outside the target’s mathematical dependency chain.\n\nThese are inspected records tied to matching sources, not fresh execution results from this review. The wider correspondence inventory includes other paper results, but their complete correspondence was not assessed within this requested lemma review. Probability-denotation review is inapplicable because the Splitting Lemma is deterministic. No unresolved correspondence questions were recorded for the target.\n\n## Follow-up\n\nNo mathematical repair is indicated by these findings. To reproduce the target’s axiom and statement-closure checks from the project root, run:\n\n```sh\nlake env lean -DwarningAsError=true AntichainOfGivenSize/Model/Theorem.lean\n```",
+  "claimProgress": {
+    "rows": [
+      {
+        "claimId": "claim:b220415e-b0d9-49e5-904c-d3827772c7d3",
+        "claimVersionId": "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+        "label": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-0244ee3029f38cdfb9281ecf982238df1007645a4e755f9f06d5c9d1f5a41c33"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.alpha_splitting"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      }
+    ],
+    "coverageCounts": {
+      "mapped": 1,
+      "unmapped": 0,
+      "pending-review": 0,
+      "unsupported": 0,
+      "disputed": 0,
+      "excluded": 0,
+      "stale": 0
+    },
+    "proofCounts": {
+      "proved": 1,
+      "proved-conditional": 0,
+      "candidate-closed": 0,
+      "assembled": 0,
+      "implemented": 0,
+      "open": 0,
+      "blocked": 0,
+      "assumed-instead": 0,
+      "refuted": 0,
+      "not-applicable": 0,
+      "unknown": 0
+    },
+    "complete": true,
+    "whollyProved": true
+  }
+}

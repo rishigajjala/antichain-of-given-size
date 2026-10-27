@@ -1,0 +1,1 @@
+function In(e){return e.trim().replace(/\.\s*\{[^}]*\}?[\s\S]*$/,"").replace(/[.\s]+$/,"").trim()}

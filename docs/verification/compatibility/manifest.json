@@ -1,0 +1,438 @@
+{
+  "schema": "antichain.final-compatibility-evidence/2",
+  "assembledAtUTC": "2026-10-27T07:34:59.478751+00:00",
+  "kind": "Preserved upstream/v8/v16 evidence plus tested v17 adapter extension; no workflow execution or proof certification during packaging",
+  "upstreamPackageVersion": "1.0.2",
+  "upstreamAndV8": {
+    "installedExecutable": {
+      "observedPath": "/Users/sg9396/.local/bin/tex2lean",
+      "sha256": "3beb95c9c3973589febe7ea44c778269fe291cc23652b5f935ffe630b18e3a08"
+    },
+    "upstreamBundle": {
+      "observedPath": "/tmp/antichain-tex2lean-compat-20261026-v8/original.cjs",
+      "sha256": "ae68bb68d8b7d1333660add1a39474e007d43136b8ddab923850594ff79bc99d"
+    },
+    "v8Bundle": {
+      "observedPath": "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+      "sha256": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7"
+    }
+  },
+  "v16Splitting": {
+    "bundleSha256": "9237f86a4cfb4eccbcac971aca3c4e31784b24ddc2f5f723db48ba62d9d5fde5",
+    "manifest": "manifests/v16-build.json",
+    "testRecord": "manifests/regression-v16-history.json",
+    "status": "Built and used separately for splitting; actual native outcomes are in the native evidence export.",
+    "reproductionSourceCommit": "b7a27d2137a8eb6099b86b2acfc10cc8cac3beb9",
+    "evidenceValidity": "Historical certificate/export for source sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513; superseded for current-source reporting by the ordinary v17-main same-session splitting refresh."
+  },
+  "v17": {
+    "main": {
+      "output": "/tmp/antichain-tex2lean-compat-20261027-v17-main",
+      "command": [
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/tmp/antichain-stale-refresh-20261027/extensions/extend.cjs",
+        "--input",
+        "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+        "--output",
+        "/tmp/antichain-tex2lean-compat-20261027-v17-main",
+        "--node",
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--ledger-authority-pin",
+        "sha256-03dbcb6c57b02318f694ef98d20d2474e8b93d79c733995435587a87fa77fc3d",
+        "--lifecycle-ui-fixes",
+        "true"
+      ],
+      "manifestSha256": "eb63abffaab32e6888fab73f0cc8011973138ffb7cb8d72dfa560d6654cab4f0",
+      "bundleSha256": "3ad5d8e73e524e1f24618c01718857e4d0aba12eacab6ad7979bfbb5e62f2ed0",
+      "supportModules": {
+        "adapter.cjs": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+        "surface-review.cjs": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+        "future-surface-review.cjs": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+        "native-host.cjs": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4"
+      },
+      "unchanged": {
+        "ModelClosure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "CostSeal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a",
+        "native-ledger-replay-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-binding-validator-loop": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298"
+      },
+      "lifecycleUnchanged": {
+        "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+        "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+        "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+        "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-interface-certifier": "57e4baf3039b8bff0c33a0d13e66b78218298500c2308c0b572e132e85f4e9e6",
+        "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+      }
+    },
+    "counting": {
+      "output": "/tmp/antichain-tex2lean-compat-20261027-v17-counting",
+      "command": [
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/tmp/antichain-stale-refresh-20261027/extensions/extend.cjs",
+        "--input",
+        "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+        "--output",
+        "/tmp/antichain-tex2lean-compat-20261027-v17-counting",
+        "--node",
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--ledger-authority-pin",
+        "sha256-f86c8538d13009c13d27b9f7403dfab4ea0b2c1afb046683558f4c1bab19079f",
+        "--lifecycle-ui-fixes",
+        "true"
+      ],
+      "manifestSha256": "83cf771d815b9ca11536dca1a2a40a87878a40d52e3e25a248af4408aec2519f",
+      "bundleSha256": "f3c83567f9b8d50dcc8aaa935024a6a264ca1dda519420f5a29d6c02106bbee6",
+      "supportModules": {
+        "adapter.cjs": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+        "surface-review.cjs": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+        "future-surface-review.cjs": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+        "native-host.cjs": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4"
+      },
+      "unchanged": {
+        "ModelClosure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "CostSeal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a",
+        "native-ledger-replay-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-binding-validator-loop": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298"
+      },
+      "lifecycleUnchanged": {
+        "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+        "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+        "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+        "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-interface-certifier": "57e4baf3039b8bff0c33a0d13e66b78218298500c2308c0b572e132e85f4e9e6",
+        "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+      }
+    },
+    "statusAtAssembly": "Both hosts built externally; exact tested source integrated in the repository. Native usage is separately recorded below.",
+    "nativeUsage": {
+      "counting": {
+        "started": true,
+        "sessionId": "42597",
+        "priorSessionId": "88104",
+        "result": "Final exported native certificate and handoff observed",
+        "activeVerifiedMathematicalBindings": 11,
+        "excludedMetadataRows": 2,
+        "handoffUnknowns": [],
+        "nativeAggregateComplete": false,
+        "nativeAggregateWhollyProved": false,
+        "certificateObserved": true,
+        "finalHandoffObserved": true,
+        "flags": [
+          "--project",
+          "/Users/sg9396/Desktop/boxicity/Documents New project/research/antichain-of-given-size",
+          "--lean",
+          ".",
+          "--output",
+          ".blueprint",
+          "--provider",
+          "codex-cli",
+          "--agents",
+          "3",
+          "--effort",
+          "high",
+          "--no-commit"
+        ],
+        "finalExportReference": "manifests/counting-final-export-reference.json",
+        "recoveryRecord": "manifests/counting-runtime-recovery.json",
+        "evidenceValidity": "Historical for source sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513; not current-source certification after helper relocation."
+      },
+      "main": {
+        "started": true,
+        "inspectionSessionId": "21437",
+        "currentSessionId": "6885",
+        "stageReportedByParent": "Current-source main certificate and handoff exported; previous-source evidence retained historically",
+        "reviewLedgerGeneration": 75,
+        "reviewLedgerDigest": "sha256-4786f6dd2bd3c5185bf476c0cf4601c65251e58014ba9c3bd4b12c082945f523",
+        "proposedSuccessorsAtPublication": 7,
+        "supersededHistoricalBindings": 7,
+        "flags": [
+          "--project",
+          "/Users/sg9396/Desktop/boxicity/Documents New project/research/antichain-of-given-size",
+          "--lean",
+          ".",
+          "--output",
+          ".blueprint",
+          "--provider",
+          "codex-cli",
+          "--agents",
+          "3",
+          "--effort",
+          "high",
+          "--no-commit"
+        ],
+        "completionClaimed": false,
+        "finalHandoffClaimed": false,
+        "reference": "manifests/main-runtime-provenance.json",
+        "certificateObserved": true,
+        "certificateDigest": "sha256-13f76849000a8e30db818e8e339a8572429e537a13610c70ea7494a55cb5c187",
+        "certificateIssuedAt": "2026-10-27T06:21:14.022Z",
+        "certificateLedgerGeneration": 83,
+        "certificateLedgerDigest": "sha256-a3066e81868ad23b52b9ed419e59544f31608ea6aef4e7fefb7a105619b1f07a",
+        "activeVerifiedMathematicalBindings": 7,
+        "evidenceValidity": "Historical for source sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513; not current-source certification after helper relocation.",
+        "historicalHandoffGeneratedAt": "2026-10-27T06:27:01.255Z",
+        "historicalHandoffAcceptedAsCleanFinal": false,
+        "currentSourceCertificateReference": "manifests/main-current-certified-snapshot.json"
+      },
+      "recordedAtUTC": "2026-10-27T06:23:23.627328+00:00",
+      "currentSameProcessPlan": "Ordinary main, counting, then splitting proof/handoff in v17-main session 6885, exporting each target before switching; optional ledger review remains main-authority scoped."
+    },
+    "reproductionSourceCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+  },
+  "tests": {
+    "checkedAtUTC": "2026-10-27T04:38:02.275431+00:00",
+    "suiteCount": 8,
+    "syntaxCheckCount": 18,
+    "allExitZero": true,
+    "logs": "logs/",
+    "record": "manifests/regression-verification.json",
+    "nativeInputSha256": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7"
+  },
+  "testedSourceFiles": {
+    "scripts/tex2lean-compat/extensions/README.md": {
+      "testedSha256": "fcef58659e486eec92e4abd6eb59a0fa4cf04a7ae0928f3eb2d90b28b2aeea1a",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/adapter.cjs": {
+      "testedSha256": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/cli-helpers.js": {
+      "testedSha256": "b9c0abbda1a485cd4395246e1dc4f2711358e61771852c983c77970667f29bf0",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/extend.cjs": {
+      "testedSha256": "d7460b11c506f8f8bf716ac6e8b65bba46bea580c38f1b9059c3695044883088",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/future-surface-review.cjs": {
+      "testedSha256": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/inspection-prompt.cjs": {
+      "testedSha256": "79a4221ae289edaab656ab572525c52a7f3bbfa246916760e9f8e18dd8f0692c",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/lifecycle-ui.cjs": {
+      "testedSha256": "6966b1925037a99a668a112776e0a1e5d626b89decf16d5c9f8dd3aa27f41c6a",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/native-host.cjs": {
+      "testedSha256": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/patch.cjs": {
+      "testedSha256": "47f69a7261eb8fe7b653d8ff8c14120afb7fdc942752ed46753d259514d38356",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/surface-review.cjs": {
+      "testedSha256": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-adapter.cjs": {
+      "testedSha256": "33b303524d0a25d7ef92a09a6994cb6ca1d6f5acdf48a019404d2970abd4ece6",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-extension.cjs": {
+      "testedSha256": "ef4381273490816ec16cae0e33c193aa4691ba3a3f66703b706321255bd467bb",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-future-surface-review.cjs": {
+      "testedSha256": "bb021166a1958e3dee2aea6ef6583e7deea6d587e33bd95ebfdb828723129039",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-inspection-prompt.cjs": {
+      "testedSha256": "63946e0acc2eb9cc736303f3b1c3c671408d29b783b896bd103899fa389ce885",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-integration.cjs": {
+      "testedSha256": "9f4e6a8174b3e9eb5d0d3087ccd7dc1cd14b155f7c119e92e4df9647a51dab91",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-lifecycle-ui.cjs": {
+      "testedSha256": "0ee43e32b69996bfff89c7eb898803f6e955c640271fc759da2b99fa79d464ca",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-stale-refresh.cjs": {
+      "testedSha256": "06d4737e27bbcd8ae69de582b8948c072d3e0dbda8301918f381e8b2ac44c9cb",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/test-surface-review.cjs": {
+      "testedSha256": "984a97af241575063eab81ad160b10169671f8fbb968635a449b2a7b8ad6fa3f",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    },
+    "scripts/tex2lean-compat/extensions/validator-loop.cjs": {
+      "testedSha256": "49ab648ec550e5b8156b85aebabfc6e061f1b43cfc4d67da486a5e7f329605d1",
+      "repositoryMatchesAtAssembly": true,
+      "repositoryVerifiedCommit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c"
+    }
+  },
+  "boundaries": {
+    "installedCLIChanged": false,
+    "runtimeBundleIncluded": false,
+    "authorityRecordIncluded": false,
+    "credentialsIncluded": false,
+    "realNativeWorkflowExecutedForPackaging": false,
+    "compilerExecutedForPackaging": false,
+    "repositoryEditedForPackaging": false,
+    "proofOrLedgerStatusWrittenForPackaging": false
+  },
+  "nativeCheckEvidence": {
+    "path": "logs/native-check-after-helper-20261027.txt",
+    "sha256": "e0b6acb16b1013f9563572980a8461ca95c761a589edd728c8be34f99ef3e56b",
+    "overall": "FAILED",
+    "failedRules": [
+      "surface-states",
+      "hypothesis-is-in-the-bundle"
+    ],
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "sourceCommit": "420d09b23a8449bf144b3a0d391331e899292e5f",
+    "details": "manifests/current-native-check.json",
+    "isolatedHeuristicAffectedWrappers": 6,
+    "nativeDisplayedWrappers": 5,
+    "evidenceValidity": "Actual check on current source; overall failure retained."
+  },
+  "interpretation": [
+    "Optional review is Codex assistant review under user-authorized formalization; no human semantic review is asserted.",
+    "The adapter may supersede an exact already-stale binding and propose a reviewed successor; it never marks a binding verified or creates a proof certificate.",
+    "Only later ordinary native reconciliation verifies receipts and publishes certified snapshots.",
+    "The native overall mechanical /check result remains FAILED for the two recorded unchanged heuristics."
+  ],
+  "repositoryIntegration": {
+    "verifiedAtUTC": "2026-10-27T04:42:28.066276+00:00",
+    "commit": "8b661a79f634207878a40d4f26c2d8bea7fdce9c",
+    "allTestedSourceFilesMatch": true,
+    "count": 19,
+    "testsRerun": false,
+    "latestObservedCommit": "7b4a5ce4de87befe49fc3143389b39fa7e862dec",
+    "latestHashReconciliationAtUTC": "2026-10-27T05:48:57.626574+00:00",
+    "allTestedSourceFilesStillMatch": true
+  },
+  "currentSourceValidation": {
+    "status": "Strict checks passed; native /check remains FAILED for two heuristics; all three selected current-source proof/certificate/handoff workflows finished and exported with native limitations and metadata exclusions preserved",
+    "historicalSourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "historicalTargets": [
+      "lem:splitting",
+      "thm:attainable-count",
+      "thm:main"
+    ],
+    "strictPassSessionReportedByParent": "17806",
+    "nativeMechanicalCheckRerunPending": false,
+    "newSourceCertificateClaimed": true,
+    "newSourceFinalHandoffClaimed": true,
+    "reference": "manifests/helper-relocation-source-transition.json",
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "sourceCommit": "420d09b23a8449bf144b3a0d391331e899292e5f",
+    "strictPassStatus": "passed",
+    "strictPassCompletedAtUTC": "2026-10-27T06:34:59.203155+00:00",
+    "nativeMechanicalCheckOverall": "FAILED",
+    "nativeMechanicalCheckReference": "manifests/current-native-check.json",
+    "currentTargetCertificates": {
+      "main": {
+        "generation": 91,
+        "digest": "sha256-5075c6521a0f5882888b6b1417a393c05b40fb1b231f0bfe1bca2d7085d3611e",
+        "ledgerDigest": "sha256-c0e841599fd9a004252f9f0671078b78b6e584fd54a0620a8f96fdc7e2a9123f",
+        "handoffGeneratedAt": "2026-10-27T06:57:31.876Z",
+        "exportReference": "manifests/main-current-export-reference.json"
+      },
+      "counting": {
+        "generation": 141,
+        "digest": "sha256-57d40cf9af07c5c19fcfecb249b3b639971f64a48295d9b32adfc4604b17f19e",
+        "ledgerDigest": "sha256-eb9cc53d2f226e3a18794e7161ad3c9921c0bbcb4a0ff2f4072fd78c56cb5c87",
+        "handoffGeneratedAt": "2026-10-27T07:19:21.488Z",
+        "exportReference": "manifests/counting-current-export-reference.json"
+      },
+      "splitting": {
+        "generation": 9,
+        "digest": "sha256-4ae49a9ac716a6ee8d84485ef8fbd44043b10ded5767ed5229de636fa63a09c4",
+        "ledgerDigest": "sha256-d11468765b1d11682794143ae04c47d7407b9eb69aa13701e714d9825d87315d",
+        "handoffGeneratedAt": "2026-10-27T07:31:33.355Z",
+        "exportReference": "manifests/splitting-current-export-reference.json"
+      }
+    },
+    "preservedQualifications": {
+      "mainHandoffUnknownEntries": 2,
+      "countingExcludedMetadataRows": 2,
+      "countingNativeComplete": false,
+      "countingNativeWhollyProved": false,
+      "mechanicalCheckOverall": "FAILED",
+      "allEighteenNumberedResultsSeparatelyNativeCertifiedClaimed": false
+    }
+  },
+  "nativeCheckHistory": [
+    {
+      "path": "docs/verification/native-check-20261027.txt",
+      "sha256": "f979e75bc494182c7fadcf5118b797bd1b4c0925b60ae4cd56f6060d550ee9a5",
+      "overall": "FAILED",
+      "failedRules": [
+        "surface-states",
+        "hypothesis-is-in-the-bundle"
+      ],
+      "explanationPath": "docs/verification/native-check-explanation.md",
+      "explanationSha256": "bf885a0c645c3444d4d8ff4393567ebf501344a11b24f93b93e8e9994ebb9315",
+      "evidenceValidity": "Historical pre-relocation source; actual native /check must be rerun."
+    }
+  ],
+  "currentNativeUsage": {
+    "runtime": "v17-main",
+    "sessionId": 6885,
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "main": {
+      "path": "manifests/main-current-export-reference.json",
+      "sha256": "8abe0db5f35b0f83397f4dbc6bc9d8547b85c71911d9cb8ef9a9c7c8d6169b01",
+      "head": {
+        "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+        "generation": 91,
+        "ledgerDigest": "sha256-c0e841599fd9a004252f9f0671078b78b6e584fd54a0620a8f96fdc7e2a9123f",
+        "certifiedSnapshotDigest": "sha256-5075c6521a0f5882888b6b1417a393c05b40fb1b231f0bfe1bca2d7085d3611e"
+      },
+      "handoffGeneratedAt": "2026-10-27T06:57:31.876Z"
+    },
+    "counting": {
+      "path": "manifests/counting-current-export-reference.json",
+      "sha256": "e5588074c45cf5e4c985bfc41d4e15268cbfdb0e82e8cee2cd99c86473240054",
+      "head": {
+        "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+        "generation": 141,
+        "ledgerDigest": "sha256-eb9cc53d2f226e3a18794e7161ad3c9921c0bbcb4a0ff2f4072fd78c56cb5c87",
+        "certifiedSnapshotDigest": "sha256-57d40cf9af07c5c19fcfecb249b3b639971f64a48295d9b32adfc4604b17f19e"
+      },
+      "handoffGeneratedAt": "2026-10-27T07:19:21.488Z"
+    },
+    "splitting": {
+      "path": "manifests/splitting-current-export-reference.json",
+      "sha256": "e165fa02fd9c052e16280f4e989b5d334e7e5cd497160ecade39a53dd73469b5",
+      "head": {
+        "targetId": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+        "generation": 9,
+        "ledgerDigest": "sha256-d11468765b1d11682794143ae04c47d7407b9eb69aa13701e714d9825d87315d",
+        "certifiedSnapshotDigest": "sha256-4ae49a9ac716a6ee8d84485ef8fbd44043b10ded5767ed5229de636fa63a09c4"
+      },
+      "handoffGeneratedAt": "2026-10-27T07:31:33.355Z"
+    },
+    "sameSessionTargetSelectionDoesNotInvokeOptionalAuthority": "Main-scoped optional ledger review was not used to publish for other targets; normal native selected-target proof/handoff drives each refresh.",
+    "sessionExitCodeReportedByParent": 0,
+    "allSelectedWorkflowsFinished": true
+  }
+}

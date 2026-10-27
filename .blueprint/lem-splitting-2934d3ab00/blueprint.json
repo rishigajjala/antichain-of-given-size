@@ -1,0 +1,583 @@
+{
+  "generatedAt": "2026-10-27T01:39:45.140Z",
+  "providerLabel": "ChatGPT subscription · gpt-6-astra",
+  "bundle": {
+    "origin": "latex",
+    "target": {
+      "id": "t4",
+      "kind": "lemma",
+      "environment": "lemma",
+      "title": "Splitting Lemma",
+      "titleCitations": [
+        "ChandranGajjalaMeel26"
+      ],
+      "label": "lem:splitting",
+      "body": "\\label{lem:splitting}\nFor all $m,n\\in\\mathbb N$,\n\\[\n  \\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1).\n\\]",
+      "start": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "line": 240
+      },
+      "end": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "line": 245
+      },
+      "sectionPath": [
+        "Two basic lemmas"
+      ]
+    },
+    "proof": {
+      "body": "Take optimal generating families for ideals of sizes $m$ and $n+1$,\nand relabel their ground sets to be disjoint. Their ideals intersect only\nin the empty set. The union of the two generating families therefore\ngenerates an ideal of size $m+(n+1)-1=m+n$.",
+      "source": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "line": 247
+      }
+    },
+    "leadIn": "\\section{Two basic lemmas}\\label{sec:basic-lemmas}",
+    "related": [],
+    "macros": [],
+    "theoremEnvironments": [
+      {
+        "environment": "theorem",
+        "display": "Theorem"
+      },
+      {
+        "environment": "lemma",
+        "display": "Lemma"
+      },
+      {
+        "environment": "proposition",
+        "display": "Proposition"
+      },
+      {
+        "environment": "corollary",
+        "display": "Corollary"
+      },
+      {
+        "environment": "claim",
+        "display": "Claim"
+      },
+      {
+        "environment": "definition",
+        "display": "Definition"
+      },
+      {
+        "environment": "example",
+        "display": "Example"
+      },
+      {
+        "environment": "remark",
+        "display": "Remark"
+      }
+    ],
+    "files": [
+      "paper/Generating_Antichains_Simplified.tex"
+    ],
+    "caveats": []
+  },
+  "restatement": {
+    "readingProvenance": "reader-agent",
+    "informalStatement": "For every pair of positive integers m and n, alpha(m+n) ≤ alpha(m) + alpha(n+1). Here alpha(k) is the minimum cardinality of a finite family S of finite sets, over an arbitrary ground set, whose generated ideal ID(S) = ⋃_{A∈S} P(A) contains exactly k subsets. No bound on the ambient ground-set size or the sizes of individual generators is imposed.",
+    "vocabulary": [],
+    "quantity": {
+      "name": "AntichainOfGivenSize.alpha",
+      "description": "The minimum number of generators needed for an ideal with a prescribed exact cardinality. This lemma compares alpha(m+n), alpha(m), and alpha(n+1); it does not concern the attainable-value count |V(B,K)|.",
+      "crossCheck": "Model/MainVocabulary.lean:23–33 defines HasGeneratorCount n k as existence of an arbitrary ambient size d and G : Finset (Finset (Fin d)) with (generatedIdeal G).card = n and G.card = k, and defines alpha n as sInf {k | HasGeneratorCount n k}. Model/CountingVocabulary.lean:24–26 defines generatedIdeal as the union of generators' powersets. Compare with manuscript lines 119–124 and 197–208. BasicLemmas.lean:88–105 supplies nonemptiness of feasible counts, attainment, and minimality. These existing definitions suffice without new vocabulary."
+    },
+    "algorithm": {
+      "present": false,
+      "name": "",
+      "returns": [],
+      "transcriptionNotes": [
+        "The disjoint relabelling and union in the proof are an existential mathematical construction using optimal families, not an algorithm with a required output or computational cost contract."
+      ],
+      "randomized": false
+    },
+    "paperEvidence": {
+      "targetLocation": "paper/Generating_Antichains_Simplified.tex:240–245, Lemma 3.1 (lem:splitting).",
+      "conventionsRead": [
+        "paper/Generating_Antichains_Simplified.tex:119–124: finite generating sets, union of powersets, and exact ideal cardinality.",
+        "paper/Generating_Antichains_Simplified.tex:190–236: N = {1,2,...} at line 192; definitions of generated ideal and alpha at 197–205; existence for each positive size at 208; indexed-family notation at 221–234.",
+        "AntichainOfGivenSize/Model/Prelude.lean and Model/Theorem.lean: inspected the existing surface; its counting and asymptotic headlines are separate targets.",
+        "AntichainOfGivenSize/Model/MainVocabulary.lean:17–33 and Model/CountingVocabulary.lean:20–26: inspected the actual definitions of HasGeneratorCount, alpha, and generatedIdeal.",
+        "docs/current-paper.md: numbered-result correspondence and positive-natural/finite-representation discussion; .blueprint/notes/independent-reuse-review.md: existing splitting endpoint.",
+        "lakefile.toml, lake-manifest.json, and lean-toolchain: inspected required libraries and pins. Searched local arlib Lean sources for splittingLemma, Splitting Lemma, HasGeneratorCount, def alpha, and def generatedIdeal; no matches. Read local Mathlib/Data/Finset/Card.lean:548–576 and Mathlib/Order/Lattice/Nat.lean:79–94 for the finite-union and minimum APIs already used by the project."
+      ],
+      "proofSectionsRead": [
+        "paper/Generating_Antichains_Simplified.tex:247–252: complete splitting proof; no unresolved ref, cref, or eqref occurs in this statement or proof.",
+        "paper/Generating_Antichains_Simplified.tex:254–267: neighboring lifting lemma and proof, confirming it is a separate result.",
+        "AntichainOfGivenSize/BasicLemmas.lean: full file, especially alpha attainment at 88–105, union and intersection facts at 119–165, and splittingLemma at 167–200.",
+        "AntichainOfGivenSize/Paper/BasicResults.lean:13–51: downward closure and small positive-input boundary values.",
+        "paper/Generating_Antichains_Simplified.tex:1582–1586: bibliography entry for the attribution in the lemma title."
+      ],
+      "omittedOrMissingSources": [
+        "The cited Chandran–Gajjala–Meel article is not included under paper/; only its bibliography entry is present there. The frozen manuscript supplies the entire splitting proof locally, so no external article is needed for this statement.",
+        "The separate /tmp/antichain-remaining-target-guidance-v2.json was not inspected because this pass limits source reads to the project and listed library directories. The exact existing endpoint was independently read in BasicLemmas.lean."
+      ]
+    },
+    "canonicalTarget": {
+      "statement": "Exactly Lemma 3.1, lem:splitting: for all m,n ∈ {1,2,...}, alpha(m+n) ≤ alpha(m)+alpha(n+1). In the existing natural-number vocabulary the exact paper domain is ∀ m n : ℕ, 0 < m → 0 < n → alpha (m+n) ≤ alpha m + alpha (n+1). Reuse AntichainOfGivenSize.splittingLemma (m n : ℕ) (hm : 0 < m), whose stronger domain also permits n=0, by restriction to the paper domain.",
+      "source": "paper/Generating_Antichains_Simplified.tex:192, 240–252; AntichainOfGivenSize/BasicLemmas.lean:169–200.",
+      "nonGoals": [
+        "The Lifting Lemma, counting theorem, main asymptotic theorem, and all other numbered results.",
+        "A new definition of alpha, a new finite-family representation, or an additional antichain hypothesis.",
+        "An executable procedure for finding optimal generating families, and time, space, query, or probability bounds.",
+        "The unrestricted zero-first-input assertion, or treating the existing n=0 extension as part of the literal manuscript statement."
+      ]
+    },
+    "claimLedger": [
+      {
+        "claim": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
+        "source": "paper/Generating_Antichains_Simplified.tex:192, 240–245.",
+        "target": "Model/Theorem",
+        "kind": "other",
+        "canFail": false
+      }
+    ],
+    "hypothesisLedger": [
+      {
+        "hypothesis": "m is a positive integer.",
+        "source": "paper/Generating_Antichains_Simplified.tex:192, 241.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "This is the literal domain and ensures that the first ideal contains the empty set. Retain 0 < m explicitly when using Lean Nat."
+      },
+      {
+        "hypothesis": "n is a positive integer.",
+        "source": "paper/Generating_Antichains_Simplified.tex:192, 241.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "Required for the exact paper domain, although the existing theorem proves the stronger statement for every natural n, including zero. No extra proof of positivity is needed to apply that theorem."
+      },
+      {
+        "hypothesis": "Optimal finite generating families exist for sizes m and n+1.",
+        "source": "paper/Generating_Antichains_Simplified.tex:205–208, 248.",
+        "verdict": "discharge-internally",
+        "downstream": "Analysis",
+        "why": "This follows from the definition and attainment of alpha; BasicLemmas.alpha_hasGeneratorCount already supplies witnesses. It is not a caller assumption."
+      },
+      {
+        "hypothesis": "The chosen families can be placed on disjoint ground sets.",
+        "source": "paper/Generating_Antichains_Simplified.tex:248–249.",
+        "verdict": "discharge-internally",
+        "downstream": "Analysis",
+        "why": "The existing proof uses the two injections into a sum type and preserves ideal and generator cardinalities; disjointness is arranged within the proof."
+      },
+      {
+        "hypothesis": "The generators themselves must form an antichain or be individually nonempty.",
+        "source": "paper/Generating_Antichains_Simplified.tex:197–208.",
+        "verdict": "unnecessary",
+        "downstream": "Model/Theorem",
+        "why": "Alpha minimizes over generating families; minimal families are antichains as a consequence. Empty generators are permitted, and {∅} is necessary for the size-one boundary."
+      }
+    ],
+    "modelingChoices": [
+      {
+        "item": "Existing vocabulary",
+        "decision": "Introduce no vocabulary: use the existing generatedIdeal, HasGeneratorCount, and alpha.",
+        "classification": "acceptable",
+        "reason": "Their actual definitions agree with the manuscript's finite-family minimum and union-of-powersets semantics.",
+        "downstreamRisk": "A second alpha or a bounded ambient universe would change the quantity."
+      },
+      {
+        "item": "Positive paper naturals versus Lean Nat",
+        "decision": "Express the literal paper domain with m>0 and n>0; retain the existing stronger splittingLemma unchanged for reuse.",
+        "classification": "modeling-note",
+        "reason": "The paper explicitly defines N as positive, while the existing theorem needs only m>0.",
+        "downstreamRisk": "Dropping m>0 is invalid; silently dropping n>0 mislabels a stronger library statement as the literal paper domain."
+      },
+      {
+        "item": "Finite ambient representation",
+        "decision": "Use the existing existential Fin d representation with no upper bound on d; ground-set relabelling stays inside the proof.",
+        "classification": "acceptable",
+        "reason": "Every finite family of finite sets has finite active union. The project already represents it on a finite canonical universe.",
+        "downstreamRisk": "Fixing or bounding d externally would restrict the minimum."
+      },
+      {
+        "item": "Family union and empty generators",
+        "decision": "Use an upper bound on the union's generator count, not an asserted equality. Its generated ideals intersect in the singleton {∅}.",
+        "classification": "modeling-note",
+        "reason": "Distinct ground sets still share the empty subset, and a generator equal to ∅ may be duplicated across the families. BasicLemmas uses Finset.card_union_le for generators and exact inclusion–exclusion for ideal sizes.",
+        "downstreamRisk": "Confusing {∅} with ∅ loses the subtraction of one; assuming additive generator cardinality can fail."
+      },
+      {
+        "item": "Reuse status",
+        "decision": "Use splittingLemma as the existing proof endpoint; the present artifact records a source-level statement comparison.",
+        "classification": "handoff-risk",
+        "reason": "The declaration and proof were read, but no elaboration, build, or axiom check was run in this inspection.",
+        "downstreamRisk": "A source inspection alone is not fresh proof certification."
+      }
+    ],
+    "downstreamContract": {
+      "program": [
+        "No program or operational contract is needed for this lemma."
+      ],
+      "pseudocode": [
+        "Any explanation of disjoint relabelling and union is proof-only. The existing sum-type encoding faithfully realizes the manuscript's relabelling."
+      ],
+      "theorem": [
+        "State the single splitting inequality using existing alpha and the manuscript's positive domains for both m and n.",
+        "Apply the existing AntichainOfGivenSize.splittingLemma m n hm. Its n=0 extension is a property of the reuse endpoint, not an additional manuscript claim.",
+        "Do not replace alpha(n+1) by alpha(n), replace the inequality by equality, bound the ambient universe, or add disjointness, optimality, or antichain assumptions to the public statement."
+      ],
+      "handoff": [
+        "Compare the exact domain with manuscript line 192 as well as the displayed inequality at 243.",
+        "Compare alpha with Model/MainVocabulary.lean and generatedIdeal with Model/CountingVocabulary.lean; verify that the count concerns subsets in the ideal, not elements in the union of generators.",
+        "Identify this as reuse of the existing splitting proof, not a newly derived result.",
+        "Check the size-one case and the distinction between an empty family and a family containing the empty set. Source inspection here supplies no fresh build or axiom-audit evidence."
+      ]
+    },
+    "headline": {
+      "shape": "A universally quantified deterministic inequality for the minimum generator count, for two positive integer arguments.",
+      "claims": [
+        {
+          "claim": "alpha(m+n) ≤ alpha(m)+alpha(n+1), for every m>0 and n>0.",
+          "canFail": false,
+          "resourceBound": false,
+          "note": "This is an extremal mathematical size bound. It bounds no run's time, memory, queries, or other computational cost."
+        }
+      ]
+    },
+    "hypotheses": [
+      {
+        "hypothesis": "m and n are positive integers.",
+        "verdict": "required",
+        "why": "Both belong to the paper's explicitly positive N. The existing stronger endpoint needs m>0 and allows n=0, so its proof covers the exact domain directly."
+      },
+      {
+        "hypothesis": "Optimal finite generating families exist at the two input sizes.",
+        "verdict": "discharge-internally",
+        "why": "Already supplied by alpha_hasGeneratorCount; not an extra assumption about the input."
+      },
+      {
+        "hypothesis": "The two ground sets are disjoint.",
+        "verdict": "discharge-internally",
+        "why": "Disjoint relabelling is a proof construction, not a premise of the inequality."
+      },
+      {
+        "hypothesis": "Nonempty individual generators, a prescribed ambient universe, or a prescribed antichain structure.",
+        "verdict": "unnecessary",
+        "why": "None is imposed by the definition of alpha or by this lemma; each would unnecessarily restrict the statement."
+      }
+    ],
+    "ambiguities": [
+      "No unresolved mathematical ambiguity remains after reading the source: line 192 explicitly settles positivity, and lines 197–208 settle the generated-ideal and minimum conventions.",
+      "The existing splittingLemma permits n=0, while the paper quantifies only positive n. This is a documented stronger library endpoint; the literal target retains both positive domains.",
+      "The phrase 'intersect only in the empty set' means the ideals' intersection is {∅}, of cardinality one. It does not mean the ideals are disjoint.",
+      "The settled counting-target quantity and canonical theorem in the supplied context do not apply to this target: lem:splitting concerns the already defined AntichainOfGivenSize.alpha, not Paper.attainableValues. No declaration needs to change."
+    ],
+    "ambiguityLedger": [
+      {
+        "kind": "statement-decision",
+        "text": "Use the paper's positive domains for m and n. The existing endpoint has only hm : 0 < m and thus covers an additional n=0 case.",
+        "affects": "Model/Theorem",
+        "downstream": "Reuse the existing endpoint by restriction; do not alter it or erase positivity of m."
+      },
+      {
+        "kind": "modeling-note",
+        "text": "The intersection of the two positive-sized ideals after disjoint relabelling is the singleton containing the empty set. Generator-family cardinality is only subadditive.",
+        "affects": "Proof explanation",
+        "downstream": "The existing mapped_inl_inter_mapped_inr and splittingLemma already implement these facts."
+      },
+      {
+        "kind": "handoff-risk",
+        "text": "The inherited counting theorem description is a different result. This target is solely Lemma 3.1 and uses the existing alpha.",
+        "affects": "Quantity and target selection",
+        "downstream": "Compare against lines 240–252, not the counting theorem's parameter block."
+      }
+    ]
+  },
+  "preconditions": {
+    "callerConditions": [],
+    "reachableStateInvariants": [],
+    "transcriptionWarnings": [
+      {
+        "object": "Splitting Lemma target in Model/Theorem.lean",
+        "warning": "There is no helper algorithm, loop, or reachable state. The proof is a pure inequality and reuses AntichainOfGivenSize.splittingLemma.",
+        "source": "paper/Generating_Antichains_Simplified.tex:240–252; existing endpoint AntichainOfGivenSize/BasicLemmas.lean:169–200",
+        "action": "model-internal"
+      },
+      {
+        "object": "Positive domains for m and n",
+        "warning": "The paper defines natural numbers as positive (line 192), so retain 0 < m and 0 < n in the literal theorem statement. The existing endpoint requires 0 < m and allows n = 0; that stronger extension does not remove the paper's caller guard 0 < n.",
+        "source": "paper/Generating_Antichains_Simplified.tex:192, 240–245; existing splittingLemma binder hm : 0 < m",
+        "action": "add-hypothesis"
+      },
+      {
+        "object": "Optimal generating families and disjoint relabelling",
+        "warning": "These are proof constructions, not caller assumptions: alpha_hasGeneratorCount supplies optimal-family witnesses, and the proof places their ground sets in disjoint summands.",
+        "source": "paper/Generating_Antichains_Simplified.tex:247–252; existing BasicLemmas.lean splitting proof",
+        "action": "model-internal"
+      },
+      {
+        "object": "Ideal intersection and generator-family union",
+        "warning": "After disjoint relabelling, the ideals intersect in the singleton containing the empty set, so their cardinalities combine with a subtraction of one; generator-family cardinality is only subadditive. Do not interpret the prose as disjoint ideals or assert additive generator counts.",
+        "source": "paper/Generating_Antichains_Simplified.tex:248–251; existing splitting proof and mapped_inl_inter_mapped_inr",
+        "action": "proof-obligation"
+      }
+    ],
+    "surfaceInstructions": [
+      "Use the existing AntichainOfGivenSize.alpha and AntichainOfGivenSize.splittingLemma; introduce no duplicate vocabulary.",
+      "The literal paper-domain theorem should bind m n : ℕ with hm : 0 < m and hn : 0 < n, and conclude alpha (m+n) ≤ alpha m + alpha (n+1). Reuse splittingLemma m n hm; do not alter its stronger n = 0 endpoint."
+    ]
+  },
+  "paperIssues": {
+    "decisions": [
+      {
+        "issue": "The paper defines natural numbers as positive, while Lean's Nat includes zero; preserve the literal domain with 0 < m and 0 < n.",
+        "source": "paper/Generating_Antichains_Simplified.tex:192, 240–245; existing AntichainOfGivenSize.splittingLemma",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean"
+        ],
+        "surfaceInstruction": "State the target with m n : Nat, 0 < m, and 0 < n, concluding alpha (m+n) ≤ alpha m + alpha (n+1). Reuse AntichainOfGivenSize.alpha and the existing AntichainOfGivenSize.splittingLemma m n hm; do not add duplicate vocabulary or alter the existing endpoint."
+      },
+      {
+        "issue": "The proof's phrase that the ideals intersect only in the empty set means their intersection is the singleton containing the empty subset, not that the ideals are disjoint.",
+        "source": "paper/Generating_Antichains_Simplified.tex:247–252; AntichainOfGivenSize/BasicLemmas.lean:169–200",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Analysis proof correspondence"
+        ],
+        "surfaceInstruction": "When documenting the reused proof route, preserve the shared empty subset and the resulting subtraction of one in the ideal-cardinality argument; do not assert disjoint ideals or additive generator-family cardinality."
+      }
+    ],
+    "surfaceInstructions": [
+      "Keep the literal positive-domain statement as a separate target. The existing splittingLemma proves a stronger endpoint allowing n = 0, but this does not remove the paper's 0 < n condition from the target.",
+      "Use only the existing alpha and splittingLemma for this result; introduce no program, interface, caller assumptions about optimal families, or duplicate definitions."
+    ]
+  },
+  "decomposition": {
+    "kind": "library-wrapper",
+    "route": {
+      "kind": "library-corollary",
+      "why": "The existing project theorem AntichainOfGivenSize.splittingLemma proves the identical inequality under the weaker hypothesis 0 < m. Its source proof was inspected. Restrict its domain to the fixed capstone's positive m and n; retain the empty Prior parameter unchanged."
+    },
+    "sourceTheorems": [
+      {
+        "name": "AntichainOfGivenSize.splittingLemma",
+        "module": "AntichainOfGivenSize.BasicLemmas",
+        "statement": "theorem AntichainOfGivenSize.splittingLemma (m n : ℕ) (hm : 0 < m) : AntichainOfGivenSize.alpha (m + n) ≤ AntichainOfGivenSize.alpha m + AntichainOfGivenSize.alpha (n + 1)",
+        "why": "BasicLemmas.lean:169–200 already supplies the complete proof: attain optimal families, embed into opposite sides of a sum type, compute the singleton intersection of their ideals, and bound the union's generator count. No part needs re-proving."
+      }
+    ],
+    "proofSteps": [
+      {
+        "step": "Create one proof-side owner in AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean.",
+        "tacticShape": "Import AntichainOfGivenSize.BasicLemmas and AntichainOfGivenSize.Model.Prior. Declare AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting with exactly the fixed capstone's binders and conclusion.",
+        "why": "Both import paths were inspected. These imports expose the existing alpha and field-free Prior without importing the capstone or creating an import cycle."
+      },
+      {
+        "step": "Discharge the owner by direct application.",
+        "tacticShape": "by exact AntichainOfGivenSize.splittingLemma m n hm",
+        "why": "The conclusion matches syntactically. No rewriting, arithmetic weakening, witness construction, or use of hprior or hn is needed."
+      },
+      {
+        "step": "Wire the fixed capstone to the proof owner.",
+        "tacticShape": "After importing the new Analysis module into the existing surface, replace only the placeholder proof with: by exact AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting hprior m n hm hn",
+        "why": "Preserves the exact public declaration and every other completed proof."
+      },
+      {
+        "step": "Reconcile registration and verify the integration.",
+        "tacticShape": "Register the new Analysis module and declaration in the existing source/axiom audit; retain the existing capstone registration, #modelClosureOfType, and #print axioms commands. Run lake build --wfail, lake env lean -DwarningAsError=true scripts/CheckAxioms.lean, lake env lean -DwarningAsError=true scripts/CheckPaperStatements.lean, and shasum -a 256 --check paper/SHA256SUMS.",
+        "why": "The capstone is already registered. Fresh compilation must establish that both owner and capstone have no sorryAx dependency; existing registry-based audits must retain coverage."
+      }
+    ],
+    "statementRisks": [
+      {
+        "risk": "Dropping positivity because Lean ℕ includes zero.",
+        "check": "Keep both hm : 0 < m and hn : 0 < n exactly. The manuscript explicitly defines ℕ as positive at line 192; the source theorem's additional n = 0 case does not change the fixed surface."
+      },
+      {
+        "risk": "Treating the existing Prior binder as permission to assume the splitting result.",
+        "check": "Model/Prior.lean was inspected: Prior is a field-free Prop structure. Keep it unchanged and extract no mathematical assumption from it."
+      },
+      {
+        "risk": "Substituting the counting theorem's bounded-family quantity for alpha.",
+        "check": "Use the existing AntichainOfGivenSize.alpha from Model/MainVocabulary.lean: the minimum over arbitrary finite ambient sizes, with exact generated-ideal cardinality. Introduce no new quantity or ambient bound."
+      },
+      {
+        "risk": "Misdescribing the reused construction as disjoint ideals or additive generator cardinalities.",
+        "check": "The ideals intersect in {∅}, of cardinality one. Generator-family cardinality is bounded by the sum, not necessarily equal to it. The inspected source uses exact ideal inclusion–exclusion and Finset.card_union_le."
+      },
+      {
+        "risk": "Changing the successor argument or inequality direction.",
+        "check": "Compare the capstone literally with alpha (m + n) ≤ alpha m + alpha (n + 1); preserve all binders and natural-number arithmetic."
+      },
+      {
+        "risk": "Mistaking source inspection or historical verification for fresh proof certification.",
+        "check": "This pass inspected the sources and successfully checked the frozen-paper checksum. It did not compile the proposed owner or run the Lean build, closure, or axiom audits."
+      }
+    ],
+    "capstone": {
+      "name": "AntichainOfGivenSize.alpha_splitting",
+      "statement": "theorem AntichainOfGivenSize.alpha_splitting (hprior : AntichainOfGivenSize.Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : AntichainOfGivenSize.alpha (m + n) ≤ AntichainOfGivenSize.alpha m + AntichainOfGivenSize.alpha (n + 1)"
+    },
+    "crux": [
+      {
+        "name": "AntichainOfGivenSize.splittingLemma",
+        "statement": "∀ m n : ℕ, 0 < m → AntichainOfGivenSize.alpha (m + n) ≤ AntichainOfGivenSize.alpha m + AntichainOfGivenSize.alpha (n + 1)",
+        "whyItIsTheCrux": "This existing theorem already contains all mathematical work. The remaining obligation is an exact statement-preserving application.",
+        "attackPlan": "Reuse directly. The sum-type relabelling and singleton-intersection argument remain inside the existing proof; introduce no helper obligations."
+      }
+    ],
+    "invariants": [
+      {
+        "name": "unchanged_alpha_semantics",
+        "statement": "alpha n = sInf {k : ℕ | HasGeneratorCount n k}, where HasGeneratorCount quantifies an arbitrary finite ambient size and exact ideal and generator cardinalities.",
+        "why": "Ensures the wrapper concerns the manuscript's minimum generator count."
+      },
+      {
+        "name": "fixed_positive_domain",
+        "statement": "The owner and capstone retain hprior, m, n, hm : 0 < m, and hn : 0 < n in the supplied order.",
+        "why": "The stronger reuse endpoint must not induce a public statement change."
+      },
+      {
+        "name": "empty_prior",
+        "statement": "AntichainOfGivenSize.Prior remains field-free.",
+        "why": "The result is already proved mathematics, with no borrowed assumption."
+      }
+    ],
+    "modelingDecisions": [
+      {
+        "decision": "Use one small Analysis wrapper and the existing vocabulary.",
+        "alternative": "Rebuild the disjoint-union construction or introduce an abstract interface.",
+        "why": "The named existing theorem exactly closes the obligation; additional architecture would duplicate finished work.",
+        "scopeCaveat": "This is a deterministic extremal inequality, with no algorithm, probability, runtime, or coupling contract."
+      },
+      {
+        "decision": "Preserve the existing multi-result audit surface and registry.",
+        "alternative": "Restructure the surface into new files for this target.",
+        "why": "The fixed declaration already exists, and its quantity definitions already belong to Model. Only one new proof-side file is needed.",
+        "scopeCaveat": "Preserve unrelated completed declarations and global audits; this target does not certify other results."
+      }
+    ],
+    "paperGuide": [
+      {
+        "topic": "Exact domain and quantity",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:192",
+          "paper/Generating_Antichains_Simplified.tex:197–208",
+          "AntichainOfGivenSize/Model/MainVocabulary.lean:17–33",
+          "AntichainOfGivenSize/Model/CountingVocabulary.lean:20–26"
+        ],
+        "useWhen": "Checking positivity, the meaning of alpha, or whether the ambient universe is unrestricted."
+      },
+      {
+        "topic": "Splitting statement and construction",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:240–252",
+          "AntichainOfGivenSize/BasicLemmas.lean:119–200"
+        ],
+        "useWhen": "Checking exact conclusion alignment or explaining the shared empty subset and subadditive generator count."
+      },
+      {
+        "topic": "Reuse correspondence and audit obligations",
+        "sources": [
+          "docs/current-paper.md: numbered-results table and positive-naturals discussion",
+          ".blueprint/notes/independent-reuse-review.md: Exact existing endpoints",
+          "/tmp/antichain-remaining-target-guidance-v2.json: targets entry lem:splitting",
+          "AGENTS.md: registry and verification requirements"
+        ],
+        "useWhen": "Integrating the owner, preserving audit coverage, and distinguishing source correspondence from fresh certification."
+      }
+    ],
+    "knownBlockers": [
+      {
+        "obligation": "Resolve the dependency-configuration discrepancy before execution.",
+        "reason": "The located repository's lakefile.toml lists both arlib and Mathlib v4.32.0, while the supplied project context excludes arlib. The selected source theorem and proposed wrapper require no arlib declaration.",
+        "nextStep": "Confirm the execution checkout and preserve its approved pins. Do not add arlib imports or change dependencies to implement this wrapper."
+      },
+      {
+        "obligation": "Fresh compilation and audit evidence remain pending.",
+        "reason": "This is a read-only blueprint pass. Source inspection found the exact endpoint and the sole open surface declaration, but supplies no fresh Lean certification.",
+        "nextStep": "Implement the single owner, assemble the capstone, and run the prescribed strict checks. Report any remaining whole-project failures separately without weakening this statement."
+      }
+    ],
+    "lemmaOrder": [
+      {
+        "discharges": "AntichainOfGivenSize.alpha_splitting",
+        "name": "AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
+        "signature": "theorem AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting (hprior : AntichainOfGivenSize.Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : AntichainOfGivenSize.alpha (m + n) ≤ AntichainOfGivenSize.alpha m + AntichainOfGivenSize.alpha (n + 1)",
+        "dependsOn": [
+          "AntichainOfGivenSize.splittingLemma"
+        ],
+        "file": "AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
+        "difficulty": "routine"
+      }
+    ]
+  },
+  "filePlan": {
+    "libName": "AntichainOfGivenSize",
+    "files": [
+      {
+        "path": "AntichainOfGivenSize/Model/Prelude.lean",
+        "role": "audit-surface",
+        "purpose": "The vocabulary, and the quantity the theorem is about",
+        "imports": [
+          "AntichainOfGivenSize.Model.CountingVocabulary",
+          "AntichainOfGivenSize.Paper.Representation",
+          "AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof"
+        ],
+        "contents": "import AntichainOfGivenSize.Model.CountingVocabulary\nimport AntichainOfGivenSize.Paper.Representation\nimport AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof\n\n/-!\n# The attainable-size counting surface\n\nThis surface reuses the existing definitions without introducing a second\nrepresentation. Their defining vocabulary is in `Model/CountingVocabulary.lean`;\nthe original proof modules import those same declarations. Its sole cross-check spells out the semantics of the counted\nvalues; the later proof pass can reuse `Paper.mem_attainableValues_iff`.\n-/\n\nnamespace AntichainOfGivenSize.Model\n\n/-! ## Vocabulary\n\n`AntichainOfGivenSize.generatedIdeal G` is the finite union of the powersets\nof the generators in `G`, implemented by `Finset.biUnion` and `Finset.powerset`.\nIts `Finset.card` counts subsets, not elements in the union of the generators.\n\n`Paper.HasBoundedGeneratingFamily B K n` quantifies an arbitrary natural\nambient size `N` and a family `G : Finset (Finset (Fin N))`. It requires\n`G.Nonempty`, `G.card ≤ K`, every generator's cardinality at most `B`, and\n`(generatedIdeal G).card = n`. There is no upper bound on `N`. In particular,\n`Fin 0` is allowed. The family, rather than each generator, must be nonempty:\na nonempty family of empty generators has generated-ideal cardinality `1`.\nTuple order and repeated generators do not change this union of powersets;\nthe existing membership bridge accounts for deduplication and padding.\nRedundant generators are permitted.\n\n`Paper.AdmissibleBudget B K` is exactly `1 ≤ K` together with the real bound\n`(K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /\n  (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))`.\nThe headline expands this budget. All logarithms are base two; `Real.sqrt`\nand real exponentiation retain the paper's unrounded square-root saving.\n-/\n\n/-! ## The quantity\n\nThe quantity bounded by the headline is\n`((Paper.attainableValues B K).card : ℝ)`. The existing finite set\n`Paper.attainableValues` is the image of the bounded profiles under their\nexact generated-ideal cardinalities. Each natural value is counted once,\nwith no residue reduction or restriction to values below `2 ^ B`.\n\nThe cross-check below exposes the family semantics of this implementation.\nIt is deliberately guarded by `0 < K`; in the headline's range this follows\nfrom the first conjunct of the budget, rather than a separate assumption.\n-/\n\n/-- Cross-check `Paper.attainableValues` against the expanded definition of\n`Paper.HasBoundedGeneratingFamily`, using the existing result\n`Paper.mem_attainableValues_iff`. This also matches the independent membership\ncontract in `scripts/CheckPaperStatements.lean`. -/\ntheorem attainableValues_membership {B K n : ℕ} (hK : 0 < K) :\n    n ∈ Paper.attainableValues B K ↔\n      ∃ N : ℕ, ∃ G : Finset (Finset (Fin N)),\n        G.Nonempty ∧ G.card ≤ K ∧\n          (∀ A ∈ G, A.card ≤ B) ∧ (generatedIdeal G).card = n := by\n    exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership (B := B) (K := K) (n := n) hK\n\nend AntichainOfGivenSize.Model\n"
+      },
+      {
+        "path": "AntichainOfGivenSize/Model/Theorem.lean",
+        "role": "audit-surface",
+        "purpose": "The author's result, and one theorem per claim under it",
+        "imports": [
+          "AntichainOfGivenSize.Model.Prelude",
+          "AntichainOfGivenSize.Paper.RealDensity",
+          "AntichainOfGivenSize.Model.Prior",
+          "AntichainOfGivenSize.Meta.ModelClosure",
+          "AntichainOfGivenSize.Analysis.AttainableCountProof",
+          "AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof",
+          "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
+          "AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof",
+          "AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof",
+          "AntichainOfGivenSize.Paper.MainSemantics",
+          "AntichainOfGivenSize.Paper.TypicalGoodEvent",
+          "AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound",
+          "AntichainOfGivenSize.Paper.TypicalProbability",
+          "AntichainOfGivenSize.Analysis.AlphaSplittingProof"
+        ],
+        "contents": "import AntichainOfGivenSize.Model.Prelude\nimport AntichainOfGivenSize.Paper.RealDensity\nimport AntichainOfGivenSize.Model.Prior\nimport AntichainOfGivenSize.Meta.ModelClosure\nimport AntichainOfGivenSize.Analysis.AttainableCountProof\nimport AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof\nimport AntichainOfGivenSize.Analysis.AlphaEventualUpperProof\nimport AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof\nimport AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof\nimport AntichainOfGivenSize.Paper.MainSemantics\nimport AntichainOfGivenSize.Paper.TypicalGoodEvent\nimport AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound\nimport AntichainOfGivenSize.Paper.TypicalProbability\nimport AntichainOfGivenSize.Analysis.AlphaSplittingProof\n\n/-!\n# Counting attainable ideal sizes\n\nTheorem 7.1 (`thm:attainable-count`) has one deterministic cardinality claim.\nIts proof interface now uses the formalization in `Paper/FaithfulCounting/`:\nthe partition header, intrinsic exceptional set, original-query reconstruction,\ninteger tail interval, literal scale sequence, and uniform numerical estimates.\nThe earlier larger encoding remains available as `Paper.countingBound`.\n\nNatural parameters represent the paper's integers on the positive range:\nthe absolute existential threshold may be enlarged to make `B` positive,\nand the budget requires `1 ≤ K`. That threshold is independent of `K` and\nis not identified with the proof's preliminary bound `2 ^ 20`.\nThe budget also supplies `0 < K` for the membership cross-check in Prelude.\n\nThe defining vocabulary of `Paper.attainableValues` is in\n`Model/CountingVocabulary.lean`, retaining the existing names and definitions.\nThe statement's complete quantity dependency chain therefore lies within the\naudit surface, while the counting and representation proofs stay outside it.\n-/\n\nnamespace AntichainOfGivenSize\n\n/-- Theorem 7.1: one absolute threshold gives the stated bound on the number\nof distinct attainable ideal sizes for every admissible pair `B, K`.\nThe real arithmetic and the constant `100` are expanded for comparison with\nthe manuscript and `scripts/CheckPaperStatements.lean`. -/\ntheorem attainable_count (hprior : Prior) :\n    ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →\n      (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /\n        (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) →\n      ((Paper.attainableValues B K).card : ℝ) ≤\n        (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ)) := by\n    exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableCount hprior\n\n\n/-! ## Minimum generator counts: Theorem 1.1\n\nThis is a separate target from `attainable_count`. It uses the unchanged\n`HasGeneratorCount`, `alpha`, and `quadraticLogLogScale` definitions, and\n`Paper.goodInputs`, `Paper.realGoodInputs`, and `Paper.maximumBelow`.\nThe latter uses `Ico 1 ⌈X⌉₊`, so its endpoint is strictly below the real `X`;\nthe density sets use inclusive upper endpoints instead.\n\nThe upper and lower assertions supply witnesses independently. The\nsimultaneous-density part below preserves any such witnesses, so the assembly\nuses one shared pair `c, C` without identifying unrelated existential choices.\nIts premises are supplied by the first two parts, not by callers of the\nassembled theorem. The extremal constants may be different.\n\nThe intended reuse endpoints are `Paper.universalUpper_from_five`,\n`Paper.almostAllLowerBound`, the complement-count and real-cutoff bridges,\nand `Paper.extremalOrder`. These are interfaces to existing results.\n\nThe reused main-theorem vocabulary is owned by `Model/MainVocabulary.lean`,\nretaining its original names and bodies. The closure check below checks this\nownership boundary; no duplicate definitions are used.\n-/\n\n/-- Theorem 1.1(i): an absolute eventual upper bound, with its threshold\nchosen inside the manuscript's domain. -/\ntheorem alpha_eventual_upper (hprior : Prior) :\n    ∃ C : ℝ, 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧\n      ∀ n : ℕ, n₀ ≤ n →\n        (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ) := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper hprior\n\n/-- Theorem 1.1(ii): the lower-good inputs, including exactly `5 ≤ n ≤ N`,\nhave natural density one. -/\ntheorem alpha_lower_density_one (hprior : Prior) :\n    ∃ c : ℝ, 0 < c ∧ Filter.Tendsto\n      (fun N : ℕ ↦\n        (((Finset.Icc 5 N).filter fun n : ℕ ↦\n          c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1) := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne hprior\n\n/-- The simultaneous consequence of Theorem 1.1, also Corollary 10.2:\nan eventual upper bound and a density-one lower bound give both literal\nproportions with the same constants. The real denominator is `X`. -/\ntheorem alpha_simultaneous_density_one (hprior : Prior)\n    (c C : ℝ) (n₀ : ℕ)\n    (hupper : ∀ n : ℕ, n₀ ≤ n →\n      (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ))\n    (hlower : Filter.Tendsto\n      (fun N : ℕ ↦\n        (((Finset.Icc 5 N).filter fun n : ℕ ↦\n          c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1)) :\n    Filter.Tendsto\n      (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1) ∧\n    Filter.Tendsto\n      (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X)\n      Filter.atTop (nhds 1) := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne hprior c C n₀ hupper hlower\n\n/-- The extremal consequence of Theorem 1.1, expanded into positive\nconstant bounds for every sufficiently large real cutoff. -/\ntheorem alpha_maximum_order (hprior : Prior) :\n    ∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧\n      ∀ X : ℝ, X₀ ≤ X →\n        a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧\n        (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder hprior\n\n/-- Theorem 1.1: shared absolute constants for the universal upper bound,\nthe density-one lower bound, and the simultaneous natural- and real-cutoff\nproportions, together with the real-cutoff extremal order. -/\ntheorem alpha_asymptotic_order (hprior : Prior) :\n    (∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧\n      (∀ n : ℕ, n₀ ≤ n →\n        (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) ∧\n      Filter.Tendsto\n        (fun N : ℕ ↦\n          (((Finset.Icc 5 N).filter fun n : ℕ ↦\n            c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))\n        Filter.atTop (nhds 1) ∧\n      Filter.Tendsto\n        (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ))\n        Filter.atTop (nhds 1) ∧\n      Filter.Tendsto\n        (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X)\n        Filter.atTop (nhds 1)) ∧\n    (∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧\n      ∀ X : ℝ, X₀ ≤ X →\n        a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧\n        (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X) := by\n  obtain ⟨C, hC, n₀, hn₀, hupper⟩ := alpha_eventual_upper hprior\n  obtain ⟨c, hc, hlower⟩ := alpha_lower_density_one hprior\n  exact ⟨⟨c, C, hc, hC, n₀, hn₀, hupper, hlower,\n    alpha_simultaneous_density_one hprior c C n₀ hupper hlower⟩,\n    alpha_maximum_order hprior⟩\n\n/-- Lemma 3.1: splitting on the manuscript's positive natural-number domain.\nThe existing `splittingLemma` also permits `n = 0`. -/\ntheorem alpha_splitting (hprior : Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :\n    alpha (m + n) ≤ alpha m + alpha (n + 1) := by\n    exact AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting hprior m n hm hn\n\nend AntichainOfGivenSize\n\n#modelClosureOfType AntichainOfGivenSize.attainable_count\n#modelClosureOfType AntichainOfGivenSize.Model.attainableValues_membership\n#print axioms AntichainOfGivenSize.attainable_count\n\n-- Meta/Audit checks Model/ for surplus after loading every registered claim.\n\n#modelClosureOfType AntichainOfGivenSize.alpha_eventual_upper\n#modelClosureOfType AntichainOfGivenSize.alpha_lower_density_one\n#modelClosureOfType AntichainOfGivenSize.alpha_simultaneous_density_one\n#modelClosureOfType AntichainOfGivenSize.alpha_maximum_order\n#modelClosureOfType AntichainOfGivenSize.alpha_asymptotic_order\n#print axioms AntichainOfGivenSize.alpha_asymptotic_order\n\n#modelClosureOfType AntichainOfGivenSize.Paper.mem_realGoodInputs_iff\n#modelClosureOfType AntichainOfGivenSize.Paper.density_representations\n#modelClosureOfType AntichainOfGivenSize.Paper.mem_maximumBelow_domain\n#modelClosureOfType AntichainOfGivenSize.Paper.maximumBelow_spec\n\n#modelClosureOfType AntichainOfGivenSize.Paper.typicalLowerBound_good\n#modelClosureOfType AntichainOfGivenSize.Paper.alpha_le_two_of_base_range\n#modelClosureOfType AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization\n\n#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_apply\n#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_support\n#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_probabilityMeasure\n#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_event_measure\n#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_good_probability\n#modelClosureOfType AntichainOfGivenSize.Paper.typicalLowerBound_probability\n\n#modelClosureOfType AntichainOfGivenSize.alpha_splitting\n#print axioms AntichainOfGivenSize.alpha_splitting\n"
+      }
+    ],
+    "auditSurfaceNotes": [],
+    "capstone": "AntichainOfGivenSize.alpha_splitting",
+    "concerns": []
+  },
+  "interfacePlan": {
+    "files": [],
+    "skipped": "the paper states no algorithm, so there is no `Model/Program.lean` and nothing for `Interface/` to translate"
+  },
+  "agentPlan": {
+    "briefs": [],
+    "definitionOfDone": [
+      "The mechanical checks pass. They are run by the extension over the whole project between rounds — the build, the `sorry` warnings, the axiom profile of every headline, a sweep for escape hatches, the closure checks, and the two layout rules — and what they find comes back to you as the next round's brief. Build the modules you created and read their errors; do not try to run the gate.",
+      "`#print axioms` on the capstone reports exactly the three ambient axioms — propext, Classical.choice, Quot.sound — and nothing else.",
+      "No `declaration uses sorry` warning anywhere in the build output.",
+      "A grep sweep for `sorry`, `admit`, `native_decide` and `axiom` over the project comes back clean, and agrees with the other two checks.",
+      "The closure checks have been observed to *fail* on a deliberately broken control, so that their passing means something.",
+      "The audit surface still states the paper's theorem: every claim the paper makes is in it, and nothing was weakened to make a proof go through. No script decides this one — the extension's handoff check reads the paper and the surface side by side, and it runs as the last step of a run."
+    ],
+    "risks": [
+      {
+        "risk": "A round closes the capstone by leaning on lemmas that are themselves still `sorry`, which looks like progress and is not.",
+        "mitigation": "The open-goal list is read out of the Lean sources every round, so a lemma left `sorry` stays on it however the declaration above it was closed."
+      },
+      {
+        "risk": "An agent weakens an intermediate lemma until it is provable but useless.",
+        "mitigation": "Whatever depends on it stops building, and the next round re-reads the sources rather than the plan."
+      }
+    ]
+  },
+  "paperProofMapping": {
+    "targetId": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+    "baseLedgerDigest": "sha256-8aa385640e298c07980c6c97a11040977045a94554ba3c685b3b7599867fdd29"
+  }
+}

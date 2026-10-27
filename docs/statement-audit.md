@@ -3,8 +3,8 @@
 This is the historical audit of the original public certificates. The
 current manuscript's stronger counting and density-one statements, and
 their independent statement audit, are documented in
-[the manuscript correspondence](current-paper.md). The module count below
-records the historical revision, not the expanded library.
+[the manuscript correspondence](current-paper.md). Historical counts below
+refer to the audited revision; the final section also describes current checks.
 
 Audit date: 23 September 2026. The starting revision was
 [`6075c1c`](https://github.com/rishigajjala/antichain-of-given-size/tree/6075c1cbd35b568e37721257b39c82d61428acae).
@@ -142,17 +142,23 @@ Neither correction changes a theorem or its proof.
 
 ## Reproducing the mechanical checks
 
-All 66 project library modules are reachable from the umbrella import
-`AntichainOfGivenSize`. From the repository root, run:
+At the historical revision audited here, all 66 project library modules were
+reachable from the umbrella import `AntichainOfGivenSize`. The latest
+[verification report](../.blueprint/verification/checks.json) identifies the current
+source snapshot and complete module coverage; [the manuscript correspondence](current-paper.md)
+describes the expanded checks.
+To check the current checkout, run from the repository root:
 
 ```bash
 lake build --wfail
-lake env lean scripts/CheckAxioms.lean
+lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
 ```
 
-The [dependency checker](../scripts/CheckAxioms.lean) checks theorem
-entries by their source module, so private and automatically generated
-theorems are included. It follows their dependencies and permits only
+The current [dependency checker](../scripts/CheckAxioms.lean) checks all
+project declarations by their source module, including definitions, instances,
+private declarations, and generated theorems. It also checks agreement between
+the source files, explicit module registry, and imports. It follows dependencies
+and permits only
 `propext`, `Classical.choice`, and `Quot.sound`, the standard principles
 explained in the [proof guide](proof-guide.md#checking-the-axioms).
 It also rejects project declarations that introduce a new axiom, and

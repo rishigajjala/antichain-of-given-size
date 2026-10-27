@@ -1,0 +1,36 @@
+ℹ [3525/3548] Replayed AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof
+info: AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean:121:0: OK — the STATEMENT is under Model/ or an admitted module (9)
+ℹ [3530/3548] Replayed AntichainOfGivenSize.Model.Theorem
+info: AntichainOfGivenSize/Model/Theorem.lean:135:0: OK — the STATEMENT is under Model/ or an admitted module (18)
+info: AntichainOfGivenSize/Model/Theorem.lean:136:0: OK — the STATEMENT is under Model/ or an admitted module (17)
+info: AntichainOfGivenSize/Model/Theorem.lean:137:0: 'AntichainOfGivenSize.attainable_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AntichainOfGivenSize/Model/Theorem.lean:141:0: OK — the STATEMENT is under Model/ or an admitted module (7)
+info: AntichainOfGivenSize/Model/Theorem.lean:142:0: OK — the STATEMENT is under Model/ or an admitted module (7)
+info: AntichainOfGivenSize/Model/Theorem.lean:143:0: OK — the STATEMENT is under Model/ or an admitted module (8)
+info: AntichainOfGivenSize/Model/Theorem.lean:144:0: OK — the STATEMENT is under Model/ or an admitted module (10)
+info: AntichainOfGivenSize/Model/Theorem.lean:145:0: 'AntichainOfGivenSize.alpha_asymptotic_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AntichainOfGivenSize/Model/Theorem.lean:147:0: OK — the STATEMENT is under Model/ or an admitted module (7)
+info: AntichainOfGivenSize/Model/Theorem.lean:148:0: OK — the STATEMENT is under Model/ or an admitted module (7)
+info: AntichainOfGivenSize/Model/Theorem.lean:149:0: OK — the STATEMENT is under Model/ or an admitted module (0)
+info: AntichainOfGivenSize/Model/Theorem.lean:150:0: OK — the STATEMENT is under Model/ or an admitted module (4)
+info: AntichainOfGivenSize/Model/Theorem.lean:152:0: OK — the STATEMENT is under Model/ or an admitted module (3)
+info: AntichainOfGivenSize/Model/Theorem.lean:153:0: OK — the STATEMENT is under Model/ or an admitted module (3)
+info: AntichainOfGivenSize/Model/Theorem.lean:154:0: OK — the STATEMENT is under Model/ or an admitted module (1)
+info: AntichainOfGivenSize/Model/Theorem.lean:156:0: OK — the STATEMENT is under Model/ or an admitted module (2)
+info: AntichainOfGivenSize/Model/Theorem.lean:157:0: OK — the STATEMENT is under Model/ or an admitted module (2)
+info: AntichainOfGivenSize/Model/Theorem.lean:158:0: OK — the STATEMENT is under Model/ or an admitted module (2)
+info: AntichainOfGivenSize/Model/Theorem.lean:159:0: OK — the STATEMENT is under Model/ or an admitted module (2)
+info: AntichainOfGivenSize/Model/Theorem.lean:160:0: OK — the STATEMENT is under Model/ or an admitted module (5)
+info: AntichainOfGivenSize/Model/Theorem.lean:161:0: OK — the STATEMENT is under Model/ or an admitted module (5)
+info: AntichainOfGivenSize/Model/Theorem.lean:163:0: OK — the STATEMENT is under Model/ or an admitted module (5)
+info: AntichainOfGivenSize/Model/Theorem.lean:164:0: 'AntichainOfGivenSize.alpha_splitting' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: AntichainOfGivenSize/Model/Theorem.lean:166:0: OK — the STATEMENT is under Model/ or an admitted module (11)
+info: AntichainOfGivenSize/Model/Theorem.lean:167:0: OK — the STATEMENT is under Model/ or an admitted module (11)
+info: AntichainOfGivenSize/Model/Theorem.lean:168:0: OK — the STATEMENT is under Model/ or an admitted module (11)
+info: AntichainOfGivenSize/Model/Theorem.lean:169:0: OK — the STATEMENT is under Model/ or an admitted module (9)
+info: AntichainOfGivenSize/Model/Theorem.lean:170:0: OK — the STATEMENT is under Model/ or an admitted module (22)
+info: AntichainOfGivenSize/Model/Theorem.lean:171:0: OK — the STATEMENT is under Model/ or an admitted module (29)
+info: AntichainOfGivenSize/Model/Theorem.lean:172:0: OK — the STATEMENT is under Model/ or an admitted module (29)
+ℹ [3531/3548] Replayed AntichainOfGivenSize.Meta.Audit
+info: AntichainOfGivenSize/Meta/Audit.lean:136:0: OK — every author-written constant under AntichainOfGivenSize.Model is reached by its claims (166 reached).
+Build completed successfully (3548 jobs).

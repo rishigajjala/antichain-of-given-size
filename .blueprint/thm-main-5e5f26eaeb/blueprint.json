@@ -1,0 +1,1040 @@
+{
+  "generatedAt": "2026-10-26T20:10:05.058Z",
+  "providerLabel": "ChatGPT subscription · gpt-6-astra",
+  "bundle": {
+    "origin": "latex",
+    "target": {
+      "id": "t1",
+      "kind": "theorem",
+      "environment": "theorem",
+      "title": "Main theorem",
+      "titleCitations": [],
+      "label": "thm:main",
+      "body": "\\label{thm:main}\nThere are absolute constants $c,C>0$ and $n_0$ such that:\n\\begin{enumerate}[label=\\textup{(\\roman*)}]\n  \\item $\\alpha(n)\\le C\\growth{n}$ for every integer $n\\ge n_0$;\n    \\item the set of integers $n\\ge5$ satisfying $\\alpha(n)\\ge c\\growth{n}$ has natural density $1$.\n\\end{enumerate}\nConsequently,\n\\[\n  \\alpha(n)=\\Theta(\\growth{n})\n\\]\nfor almost all positive integers $n$, and, for every sufficiently large $X$,\n\\[\n  \\max_{1\\le n<X}\\alpha(n)=\\Theta(\\growth{X}).\n\\]",
+      "start": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "line": 156
+      },
+      "end": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "line": 170
+      },
+      "sectionPath": [
+        "Introduction"
+      ]
+    },
+    "leadIn": "For lower bounds, Chandran, Gajjala, and Meel~\\cite{ChandranGajjalaMeel26} proved \\[ \\log(\\operatorname{bl}(n)+1)\\le\\alpha(n), \\] which already yields infinitely many values of $n$ for which $\\alpha(n)\\ge c\\log\\log n$ for some absolute constant $c>0$. The lower-bound part of the present paper is much stronger: it matches the new universal upper bound for almost every integer. For real $x>4$, write \\begin{equation} \\growth{x}:=\\frac{(\\log\\log x)^2}{\\log\\log\\log x}. \\label{eq:growth-function} \\end{equation}",
+    "related": [],
+    "macros": [
+      {
+        "name": "growth",
+        "declaration": "\\newcommand{\\growth}[1]{\\mathfrak f(#1)}",
+        "source": {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "line": 64
+        }
+      }
+    ],
+    "theoremEnvironments": [
+      {
+        "environment": "theorem",
+        "display": "Theorem"
+      },
+      {
+        "environment": "lemma",
+        "display": "Lemma"
+      },
+      {
+        "environment": "proposition",
+        "display": "Proposition"
+      },
+      {
+        "environment": "corollary",
+        "display": "Corollary"
+      },
+      {
+        "environment": "claim",
+        "display": "Claim"
+      },
+      {
+        "environment": "definition",
+        "display": "Definition"
+      },
+      {
+        "environment": "example",
+        "display": "Example"
+      },
+      {
+        "environment": "remark",
+        "display": "Remark"
+      }
+    ],
+    "files": [
+      "paper/Generating_Antichains_Simplified.tex"
+    ],
+    "caveats": []
+  },
+  "restatement": {
+    "readingProvenance": "reader-agent",
+    "informalStatement": "Let ID(G) be the union of the powersets of the finitely many finite sets in G. For every positive integer n, let alpha(n) be the minimum number of generators among all such families, over arbitrary ground sets, whose generated ideal has exactly n members. For real x > 4 put f(x) = (log_2(log_2 x))^2 / log_2(log_2(log_2 x)). There exist absolute real constants c > 0 and C > 0 and an integer threshold n_0, which may be chosen at least 5, such that (i) for every integer n >= n_0, alpha(n) <= C f(n), and (ii) the set L_c = {n an integer : n >= 5 and c f(n) <= alpha(n)} has natural density 1: lim_{N -> infinity, N a positive integer} |{n : 5 <= n <= N and c f(n) <= alpha(n)}|/N = 1. Consequently, with constants independent of n, the set {n an integer : n >= 5 and c f(n) <= alpha(n) <= C f(n)} has natural density 1; equivalently its count through a real cutoff X divided by X tends to 1 as X tends to positive infinity. Finally, there exist absolute real constants a > 0 and A > 0 and a real X_0 > 4 such that, for every real X >= X_0, a f(X) <= max{alpha(n) : n a positive integer, n < X} <= A f(X). The constants hidden in this last Theta assertion need not be the displayed c and C. All minima and maxima refer to mathematical cardinalities, and none of these assertions is about an algorithm's execution.",
+    "vocabulary": [
+      {
+        "name": "AntichainOfGivenSize.HasGeneratorCount",
+        "description": "Existing dependency of alpha, defined in MainStatement.lean:48–50 rather than in Model/. It means that some finite family of exactly k finite sets, in an arbitrary finite ambient universe Fin m, generates exactly n subsets. This is not the bounded-family predicate for Theorem 7.1: there is no fixed B or K here. Reuse the declaration unchanged; generatedIdeal itself is already in Model/CountingVocabulary.lean.",
+        "leanSketch": "HasGeneratorCount (n k : ℕ) := ∃ m : ℕ, ∃ generators : Finset (Finset (Fin m)), (generatedIdeal generators).card = n ∧ generators.card = k"
+      },
+      {
+        "name": "AntichainOfGivenSize.alpha",
+        "description": "Existing minimum generator number from MainStatement.lean:57–58. Its values at positive n have exactly Definition 2.2's meaning. Preserve this definition and use existing attainment and relabelling results; do not replace it with a bounded-profile minimum or require an antichain as an extra input hypothesis.",
+        "leanSketch": "alpha (n : ℕ) : ℕ := sInf {k : ℕ | HasGeneratorCount n k}"
+      },
+      {
+        "name": "AntichainOfGivenSize.quadraticLogLogScale",
+        "description": "Existing real comparison function from MainStatement.lean:118–120, equal to the manuscript's f on x > 4. It is absent as a defining declaration from Model/. Its total Lean extension outside x > 4 has no paper meaning needed here. improvedScale is only a historical abbreviation, not a different normalization.",
+        "leanSketch": "quadraticLogLogScale (x : ℝ) : ℝ := (Real.logb 2 (Real.logb 2 x)) ^ 2 / Real.logb 2 (Real.logb 2 (Real.logb 2 x))"
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.exceptionalInputs",
+        "description": "Existing density representation from Paper/Statements.lean:45–47: the positive-range inputs through natural cutoff X that violate the lower bound strictly. Required if using the existing AlmostAllLowerBoundStatement interface; it is not a new notion of attainability.",
+        "leanSketch": "exceptionalInputs (c : ℝ) (X : ℕ) := (Finset.Icc 5 X).filter fun n => (alpha n : ℝ) < c * quadraticLogLogScale (n : ℝ)"
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.orderExceptions",
+        "description": "Existing density representation used by Paper.mainTheorem and AlmostAllOrderStatement, from Paper/Statements.lean:57–60. It counts failures of either of the two non-strict inequalities among integers from 5 through X.",
+        "leanSketch": "orderExceptions (c C : ℝ) (X : ℕ) := (Finset.Icc 5 X).filter fun n => ¬ (c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ) ∧ (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ))"
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.goodInputs",
+        "description": "Existing complementary finite set from Paper/Statements.lean:69–72, used by the literal density-one formulation and by realGoodInputs. Both bounds use the same fixed c and C for every counted n.",
+        "leanSketch": "goodInputs (c C : ℝ) (X : ℕ) := (Finset.Icc 5 X).filter fun n => c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ) ∧ (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)"
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.realGoodInputs",
+        "description": "Existing real-cutoff representation from Paper/RealDensity.lean:18–19: goodInputs c C floor(X). Its exact membership theorem identifies 5 <= n <= X when X >= 0. The proportion uses denominator X, not floor(X).",
+        "leanSketch": "realGoodInputs (c C X : ℝ) := goodInputs c C ⌊X⌋₊"
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.maximumBelow",
+        "description": "Existing real-cutoff maximum from Paper/Statements.lean:81–82. For X > 1 the finite set is nonempty and its supremum is the maximum over exactly the positive integers strictly below X. No monotonicity of alpha is assumed.",
+        "leanSketch": "maximumBelow (X : ℝ) : ℕ := (Finset.Ico 1 ⌈X⌉₊).sup alpha"
+      }
+    ],
+    "quantity": {
+      "name": "alpha(n), the minimum number of generators for an ideal of exact cardinality n",
+      "description": "Theorem 1.1 concerns the asymptotic order of alpha: a universal eventual upper bound, a matching lower bound on a density-one set, and the resulting order of the maximum of alpha below a real cutoff. It is genuinely a different target quantity from Theorem 7.1's |V(B,K)|. The latter remains a proved supporting count, with its settled semantics unchanged.",
+      "crossCheck": "Compare Definition 2.2 at paper lines 204–208 against HasGeneratorCount and alpha in MainStatement.lean:48–58 and generatedIdeal in Model/CountingVocabulary.lean:24–26. Reuse alpha_hasGeneratorCount and alpha_le_of_hasGeneratorCount from BasicLemmas.lean for attainment/minimality and the existing relabelling and antichain reduction results if an explicit representation interface is needed. Compare quadraticLogLogScale against paper lines 150–153 and scripts/CheckPaperStatements.lean:20–22. Compare the expanded upper, density, and maximum contracts at that script's lines 53–55 and 82–101. Paper.mainTheorem, Paper.almostAllLowerBound, Paper.realAlmostAllGoodProportion, and Paper.extremalOrder are existing reuse endpoints; their source was inspected, but no checks were rerun in this reading pass."
+    },
+    "algorithm": {
+      "present": false,
+      "name": "",
+      "returns": [],
+      "transcriptionNotes": [
+        "This is an extremal and asymptotic theorem, with no specified program or returned data.",
+        "The constructive upper-bound proofs and the counting proof's records are mathematical proof devices. They do not impose an operational contract for this theorem.",
+        "Corollary 10.1 samples a uniform integer from a dyadic block, but that separate result is not a randomized execution of Theorem 1.1. Natural density is a deterministic limiting proportion."
+      ],
+      "randomized": false
+    },
+    "paperEvidence": {
+      "targetLocation": "paper/Generating_Antichains_Simplified.tex:156–170, Theorem 1.1 (Main theorem), label thm:main; comparison function at 150–153.",
+      "conventionsRead": [
+        "Read the abstract and introduction, including generated ideals and alpha at 119–124, the almost-all interpretation at 98–110, and powers-of-two exceptions at 172.",
+        "Read the preliminaries at 190–236: positive-natural convention at 192, ideal and alpha definitions at 196–208, base-two logarithms at 215, and indexed-family/inclusion–exclusion conventions at 219–235.",
+        "Read Model/Prelude.lean and Model/Theorem.lean in full, Model/CountingVocabulary.lean:1–80, Model/Prior.lean in full, and MainStatement.lean:1–180. The current Model headline is explicitly the counting theorem, while alpha and the growth scale are existing declarations outside Model/.",
+        "Read docs/current-paper.md in full, Paper/Statements.lean, Paper/Results.lean, Paper/AlmostAll.lean, Paper/RealDensity.lean, Paper/Extremal.lean, Paper/Scale.lean:1–100, and scripts/CheckPaperStatements.lean.",
+        "Read lakefile.toml and lean-toolchain: the project requires arlib at 6262f60ad7556be62e94e87f6b5811cf299e7d94 and Mathlib/Lean v4.32.0. Searched 360 arlib source files for the main theorem's named vocabulary and natural-density terminology without finding a matching endpoint. Inspected the installed Mathlib Asymptotics/Defs.lean definitions of IsTheta and positive-constant Big-O characterizations; also searched Asymptotics/Theta.lean. The project already supplies the needed mathematical results."
+      ],
+      "proofSectionsRead": [
+        "Read Section 3's splitting and lifting proofs at 238–267 and Sections 4–5 at 269–551 to account for the upper construction's referenced background.",
+        "Read Section 6 at 553–974: the block construction and its floor/ceiling parameters, Claims 6.2–6.5, direct reduction, and the universal upper bound with finite-prefix absorption.",
+        "Read Sections 7–9 and the counting proof at 976–1361, including V(B,K), the header and incidence representation, fixed-header estimate, and uniform threshold.",
+        "Read the dyadic-block and almost-all arguments at 1365–1477. This includes the distinction between alpha <= K as the exceptional event, the fixed constant 1/800 available in the proof, and the finite-prefix density calculation.",
+        "Read the extremal consequence at 1479–1529 and the following remark at 1531–1536. These clarify the strict cutoff n < X and eventual monotonicity of the comparison function."
+      ],
+      "omittedOrMissingSources": [
+        "The supplied excerpt omitted the full density and extremal arguments, the literal real-cutoff proportion, the precise definitions of alpha and the maximum, and the existing main-theorem implementation; these were read locally.",
+        "The manuscript has no appendix or external input/include source directives; its mathematical proof material is in the supplied TeX file.",
+        "The cited earlier papers were not needed to identify this theorem's statement and were not consulted. The scratch Claim 6.4/6.5 probes were not inspected, since this pass does not reconstruct those separate proofs.",
+        "No shell commands, Lean probes, builds, axiom checks, or checksum checks were run. Prior verification reports in correspondence notes are historical evidence, not new validation from this pass."
+      ]
+    },
+    "canonicalTarget": {
+      "statement": "Exactly Theorem 1.1, thm:main: the eventual universal upper bound for alpha, the density-one lower bound for n >= 5, the simultaneous almost-all Theta consequence, and the two-sided extremal order for all sufficiently large real cutoffs. Preserve the existing Theorem 7.1 target as a separate result. The packet's assertion that the canonical target is already fixed to thm:attainable-count conflicts with the selected thm:main source; this blueprint records the selected main theorem without retargeting or replacing that existing counting declaration.",
+      "source": "paper/Generating_Antichains_Simplified.tex:150–170; the conclusions are justified at 909–974 and 1365–1529.",
+      "nonGoals": [
+        "No replacement or weakening of AntichainOfGivenSize.attainable_count or its exact bounded-family semantics.",
+        "No independently rederived counting theorem, no newly claimed proof of a numbered construction claim, and no requirement to reproduce every manuscript intermediate estimate.",
+        "No eventual pointwise lower bound for all positive integers; powers of two explicitly rule that out.",
+        "No algorithm, sampler, running-time bound, memory bound, query bound, or executable optimal-generator construction.",
+        "No extra antichain, ambient-size, generator-size, dyadic-input, or unproved counting hypothesis.",
+        "No certification of the bibliography, application claims, or account of formalization assistance."
+      ]
+    },
+    "claimLedger": [
+      {
+        "claim": "There exist absolute C > 0 and an integer n_0 such that alpha(n) <= C f(n) for every integer n >= n_0.",
+        "source": "Theorem 1.1(i), paper:157–159.",
+        "target": "Model/Theorem",
+        "kind": "other",
+        "canFail": false
+      },
+      {
+        "claim": "For an absolute c > 0, the integers n >= 5 with c f(n) <= alpha(n) have natural density 1; c is chosen independently of all n and cutoffs.",
+        "source": "Theorem 1.1(ii), paper:157–160.",
+        "target": "Model/Theorem",
+        "kind": "other",
+        "canFail": false
+      },
+      {
+        "claim": "For fixed positive absolute c and C, the simultaneous inequalities c f(n) <= alpha(n) <= C f(n) hold on a set of positive integers of natural density 1.",
+        "source": "Theorem 1.1 consequence, paper:162–166; explicit density formulation at 1392–1401.",
+        "target": "Model/Theorem",
+        "kind": "other",
+        "canFail": false
+      },
+      {
+        "claim": "There exist a,A > 0 and X_0 > 4 such that a f(X) <= max_{1<=n<X} alpha(n) <= A f(X) for every real X >= X_0.",
+        "source": "Theorem 1.1 consequence, paper:166–169; extremal argument at 1479–1529.",
+        "target": "Model/Theorem",
+        "kind": "other",
+        "canFail": false
+      },
+      {
+        "claim": "For X >= 0, realGoodInputs c C X consists exactly of the integers n with 5 <= n <= X satisfying both non-strict bounds.",
+        "source": "Paper/RealDensity.lean:21–27; paper:1395–1400.",
+        "target": "Interface",
+        "kind": "correctness",
+        "canFail": false
+      },
+      {
+        "claim": "A density-zero count of orderExceptions is equivalent to the density-one goodInputs proportion, and the natural-cutoff good proportion gives the same real-cutoff proportion.",
+        "source": "Paper/AlmostAll.lean:25–51 and Paper/RealDensity.lean:36–51; paper:1451–1476.",
+        "target": "Interface",
+        "kind": "correctness",
+        "canFail": false
+      },
+      {
+        "claim": "For X > 1, maximumBelow X is the maximum of alpha(n) over exactly the positive integers n < X.",
+        "source": "Paper/Statements.lean:80–82; Paper/Extremal.lean:100–104,153–155; paper:1481–1484.",
+        "target": "Interface",
+        "kind": "correctness",
+        "canFail": false
+      }
+    ],
+    "hypothesisLedger": [
+      {
+        "hypothesis": "The variable n denotes an integer in the positive-input domain; the universal upper bound is required only beyond one absolute threshold n_0.",
+        "source": "paper:150–159,192,204–208.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "alpha is defined in the paper on positive integers and f only on x > 4. Represent these integers by naturals, with n_0 >= 5 chosen internally."
+      },
+      {
+        "hypothesis": "The lower-bound and simultaneous-density counted sets include exactly n >= 5, with cutoff membership n <= X.",
+        "source": "paper:160 and 1395–1400.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "The finite endpoint fixes the literal counted set and keeps the logarithmic scale in its stated domain."
+      },
+      {
+        "hypothesis": "The constants c,C are positive real absolute constants chosen before the universal n and the density limit.",
+        "source": "paper:157–160.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "Allowing c or C to vary with n or the cutoff would change the assertion."
+      },
+      {
+        "hypothesis": "The extremal cutoff ranges over all sufficiently large real X, and the maximizing indices satisfy 1 <= n < X.",
+        "source": "paper:150,166–169,1481–1529.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "The paper does not restrict X to integers or a subsequence; its proof uses floor(log_2 X)."
+      },
+      {
+        "hypothesis": "All logarithms have base 2.",
+        "source": "paper:215 and 150–153.",
+        "verdict": "required",
+        "downstream": "Model/Theorem",
+        "why": "This is the exact comparison function, not a convention left to an asymptotic simplification."
+      },
+      {
+        "hypothesis": "The threshold can be enlarged to n_0 >= 5 and the extremal threshold to X_0 > 4; the relevant finite maximum is nonempty.",
+        "source": "paper:150,208,934–943,971–973,1486.",
+        "verdict": "discharge-internally",
+        "downstream": "Analysis",
+        "why": "These are choices of existential witnesses and well-definedness facts, not additional caller assumptions."
+      },
+      {
+        "hypothesis": "Each ideal of positive finite size has a finite generating witness and alpha is attained.",
+        "source": "paper:204–208; MainStatement.lean:48–58; BasicLemmas.lean's existing attainment results.",
+        "verdict": "discharge-internally",
+        "downstream": "Analysis",
+        "why": "Existing existence and minimum properties support the model; the theorem must not be conditional on a supplied optimal family."
+      },
+      {
+        "hypothesis": "CountingBoundStatement, admissible B,K, block-matching parameters, or a direct-reduction certificate are provided as external assumptions.",
+        "source": "paper:564–575,851–859,987–997,1404–1446; Paper/Results.lean:48–79.",
+        "verdict": "unnecessary",
+        "downstream": "Model/Theorem",
+        "why": "They belong to proofs. Existing public endpoints supply the supporting theorems unconditionally."
+      },
+      {
+        "hypothesis": "The input is a sampled integer, a power of two, an antichain, a balanced family, or has bounded ambient size.",
+        "source": "paper:119–124,172,182,1531–1535.",
+        "verdict": "unnecessary",
+        "downstream": "Model/Theorem",
+        "why": "The target is about the minimum over all families at each integer n; it imposes none of these restrictions."
+      }
+    ],
+    "modelingChoices": [
+      {
+        "item": "Selected result versus existing canonical counting target",
+        "decision": "Describe thm:main as a separate target and explicitly flag the contradictory thm:attainable-count packet metadata. Leave the existing counting theorem and definitions intact.",
+        "classification": "handoff-risk",
+        "reason": "Model/Theorem.lean:33–39 proves the counting interface, while the selected source is Theorem 1.1.",
+        "downstreamRisk": "A later pass could silently formalize the wrong theorem or overwrite a finished counting target."
+      },
+      {
+        "item": "Vocabulary reuse and model ownership",
+        "decision": "The listed vocabulary already exists outside Model/; reuse names and definitions rather than introduce synonyms or a new alpha. Only declarations reached by the chosen main-theorem statement need model ownership. No proof modules or unused construction parameters are part of its vocabulary.",
+        "classification": "modeling-note",
+        "reason": "generatedIdeal is already owned by Model/CountingVocabulary.lean, whereas alpha, the scale, density read-offs, and maximumBelow are defined in MainStatement/Paper modules.",
+        "downstreamRisk": "A superficial import or a duplicated definition could obscure the exact quantity or violate the existing closure boundary."
+      },
+      {
+        "item": "Positive integers versus Lean naturals",
+        "decision": "Use naturals for integer indices and explicit positive-range guards; choose n_0 >= 5. Keep the existing total alpha unchanged, including its extension at zero.",
+        "classification": "acceptable",
+        "reason": "All counted and maximized integers are positive, and existential thresholds can be enlarged.",
+        "downstreamRisk": "An unguarded statement at zero or at n <= 4 would assign significance to values outside the paper's domain."
+      },
+      {
+        "item": "Total growth function",
+        "decision": "Use quadraticLogLogScale without alteration, but interpret it as the manuscript's f only when x > 4. Reuse Paper.growth_pos_of_four_lt for positivity.",
+        "classification": "modeling-note",
+        "reason": "Mathlib's real operations are total; the paper explicitly restricts the comparison function.",
+        "downstreamRisk": "The totalized value at a singular logarithmic input cannot justify adding small inputs to the claim."
+      },
+      {
+        "item": "Joint constants in the main conclusion",
+        "decision": "Assemble c,C,n_0 together. Existing Paper.mainTheorem supplies an upper constant and separate almost-all constants; if exposing one shared pair, keep a valid lower constant and enlarge the upper constant to the maximum of the two positive upper witnesses.",
+        "classification": "proof-obligation",
+        "reason": "The paper quantifies c,C once before (i) and (ii). The stronger existing universalUpper_from_five and almostAllOrder interfaces can supply this without new analytic estimates.",
+        "downstreamRisk": "A mere alias to a conjunction of independently existential interfaces does not visibly establish a single shared pair until this elementary witness reconciliation is supplied."
+      },
+      {
+        "item": "Density through complements and finite prefixes",
+        "decision": "Retain the existing exception sets and their strict lower-failure inequality, and use the existing complement-count and real-cutoff bridges to expose the good proportion. The omission of integers 1 through 4 is finite.",
+        "classification": "acceptable",
+        "reason": "Paper/AlmostAll.lean and Paper/RealDensity.lean already give the necessary finite-cardinality and limit conversions.",
+        "downstreamRisk": "An infinitely-often lower bound or only upper density 1 would be strictly weaker than the asserted natural density 1."
+      },
+      {
+        "item": "Real-cutoff maximum and Theta",
+        "decision": "Use maximumBelow with ceil(X) and a strict interval. Read IsTheta at the real atTop filter as eventual two-sided positive-constant bounds, using eventual positivity to remove norms.",
+        "classification": "proof-obligation",
+        "reason": "Mathlib's IsTheta is the conjunction of two norm-based Big-O statements; positive-constant characterizations exist in Asymptotics/Defs.lean. The existing extremalOrder already has the real domain.",
+        "downstreamRisk": "Using floor(X) in a half-open interval would miss admissible integers at nonintegral cutoffs; using n <= X would alter the literal maximum at integral X."
+      },
+      {
+        "item": "Reuse versus a new paper proof",
+        "decision": "Reuse Paper.mainTheorem and the individual public endpoints; retain the documented differences for the upper, counting, density, and extremal proofs in the correspondence. Do not promote their proof-route estimates to claims of this target.",
+        "classification": "modeling-note",
+        "reason": "The source already contains unconditional endpoints. The current counting proof uses a larger clustered encoding, the upper proof reuses a checked upper bound, and the density/extremal arguments differ from the manuscript route.",
+        "downstreamRisk": "Calling the new interface a newly derived or line-by-line manuscript proof would misrepresent the work."
+      }
+    ],
+    "downstreamContract": {
+      "program": [
+        "There is no program to implement and no random output contract.",
+        "If a program surface is required by the scaffold, it can only reference this mathematical model."
+      ],
+      "pseudocode": [
+        "No algorithm listing is required for Theorem 1.1.",
+        "Any description of block matching, counting records, density conversion, or extremal witnesses is a proof outline; it must not assert running-time or memory guarantees."
+      ],
+      "theorem": [
+        "Preserve Theorem 1.1's two numbered assertions and both displayed consequences. Keep Theorem 7.1 as its existing separate target.",
+        "Use the unchanged alpha and quadraticLogLogScale; c,C are positive absolute reals and n_0 is one absolute integer threshold. A witness n_0 = 5 is available from the stronger existing upper theorem.",
+        "Expose natural density 1 for the lower-good set and simultaneous bounds with fixed constants. The literal real-cutoff proportion has denominator X and counts 5 <= n <= X.",
+        "For the extremal conclusion, quantify all sufficiently large real X and use the exact maximum over positive integers strictly below X, with separate positive Theta constants permitted.",
+        "Reuse Paper.mainTheorem, Paper.universalUpper_from_five, Paper.almostAllLowerBound, Paper.almostAllOrder, Paper.realAlmostAllGoodProportion, and Paper.extremalOrder. Do not substitute the older LowerBoundStatement, which only says infinitely often.",
+        "Reconcile shared existential constants and the semantic equivalences explicitly; supporting construction and counting theorems are discharged dependencies, not new hypotheses."
+      ],
+      "handoff": [
+        "Resolve the packet's conflicting target identity before changing a theorem surface: the JSON describes thm:main, while the current AntichainOfGivenSize.attainable_count remains thm:attainable-count.",
+        "Compare expanded inequalities, density limits, and real strict-cutoff maximum against the frozen TeX and scripts/CheckPaperStatements.lean:53–55,82–101, not merely against statement aliases.",
+        "Treat this work as an interface to existing results plus any necessary semantic or existential-witness bridges. No new proof status or integration success is asserted by this reader file.",
+        "Use the repository's existing capstone, closure, source-coverage, axiom, independent-statement, and snapshot validation process for later integration. Preserve the existing pins and model definitions; this pass did not execute those checks."
+      ]
+    },
+    "headline": {
+      "shape": "One deterministic mathematical theorem with a shared existential c,C,n_0, a universal eventual upper bound, a density-one lower bound, a simultaneous density-one consequence, and a real-variable extremal Theta consequence. There is no run or failure event.",
+      "claims": [
+        {
+          "claim": "Universal eventual upper bound alpha(n) <= C f(n).",
+          "canFail": false,
+          "resourceBound": false,
+          "note": "The bound is on a minimum mathematical generator count, not the work used to find generators."
+        },
+        {
+          "claim": "The integers n >= 5 satisfying alpha(n) >= c f(n) have natural density 1.",
+          "canFail": false,
+          "resourceBound": false,
+          "note": "Individual integers can violate the inequality; the asserted deterministic density limit has no probabilistic failure parameter."
+        },
+        {
+          "claim": "Simultaneous two-sided bounds hold on a density-one set of positive integers.",
+          "canFail": false,
+          "resourceBound": false,
+          "note": "Almost all means natural density, not probability-one success of a sampled computation."
+        },
+        {
+          "claim": "The maximum of alpha(n) over 1 <= n < X has order f(X) for every sufficiently large real X.",
+          "canFail": false,
+          "resourceBound": false,
+          "note": "The maximum is a mathematical read-off, not an algorithm to enumerate integers or families."
+        }
+      ]
+    },
+    "hypotheses": [
+      {
+        "hypothesis": "n is an integer with n >= n_0 for (i), and n >= 5 in the density sets.",
+        "verdict": "required",
+        "why": "These are the exact positive domains of the theorem; the density cutoff is not a freely changeable input restriction."
+      },
+      {
+        "hypothesis": "c,C > 0 are absolute reals independent of n and of the cutoff.",
+        "verdict": "required",
+        "why": "Their existential quantifiers precede the universal upper bound and limit."
+      },
+      {
+        "hypothesis": "f(x) is the exact base-two iterated-log expression, interpreted for x > 4.",
+        "verdict": "required",
+        "why": "The expression and its domain are explicit in the setup and conventions."
+      },
+      {
+        "hypothesis": "For the maximum, X is an arbitrary sufficiently large real number and n is a positive integer strictly less than X.",
+        "verdict": "required",
+        "why": "The real cutoff and strict endpoint are part of the conclusion's semantics."
+      },
+      {
+        "hypothesis": "Thresholds lie inside the positive-log domain and the maximum is over a nonempty set.",
+        "verdict": "discharge-internally",
+        "why": "Choose existential thresholds large enough; this is not an additional input hypothesis."
+      },
+      {
+        "hypothesis": "An optimal finite generating family exists and may be represented over Fin m.",
+        "verdict": "discharge-internally",
+        "why": "The paper establishes finiteness and the project already supplies attainment and relabelling results."
+      },
+      {
+        "hypothesis": "The counting theorem, matching theorem, or a numerical asymptotic estimate is assumed.",
+        "verdict": "unnecessary",
+        "why": "The public main-theorem endpoints have these dependencies discharged."
+      },
+      {
+        "hypothesis": "The integer input is random, lies in a selected dyadic block, or satisfies a structural restriction on generators.",
+        "verdict": "unnecessary",
+        "why": "Such proof devices do not restrict the main theorem's input domain."
+      }
+    ],
+    "ambiguities": [
+      "Target metadata conflict: the selected theorem and its verbatim statement are thm:main, but the supplied prior canonical-target text and current Model/Theorem.lean identify thm:attainable-count. These are different results and quantities. This file describes the selected main theorem; it does not authorize rewriting the existing counting target.",
+      "Theorem 1.1 does not separately type n_0 or X. The positive-integer convention and eventual upper-bound proof justify an integer n_0 >= 5. The real definition of f, the real-cutoff limit, and the floor(log X) extremal proof support arbitrary real X; the existing maximumBelow and ExtremalOrderStatement already fix that reading.",
+      "The phrase alpha(n) = Theta(f(n)) for almost all n is shorthand, not ordinary pointwise IsTheta on all natural numbers atTop. The abstract and Corollary 10.2 resolve it as one fixed positive pair of constants holding on a density-one set. Powers of two prevent a universal eventual lower bound.",
+      "The constants implicit in the extremal Theta are not specified or identified with c,C. They must be absolute and uniform in X, but may be different constants. The existence theorem does not require any numerical value for c,C,n_0 or the extremal constants; 1/800 is an available proof witness, not an extra statement requirement.",
+      "Paper.mainTheorem packages a universal upper constant separately from the almost-all pair. A later interface that exposes the paper's shared c,C must reconcile these witnesses explicitly rather than assume they are definitionally identical.",
+      "The paper defines f only for x > 4 and does not define a maximum over an empty index set. The existing total Lean definitions are harmless on the theorem's eventual range, but do not extend the paper's claim to small or nonpositive inputs.",
+      "No unresolved mathematical defect in the selected main statement was identified in this reading. Its terse density and cutoff conventions are resolved by the surrounding source; the conflicting target identity is a handoff issue."
+    ],
+    "ambiguityLedger": [
+      {
+        "kind": "handoff-risk",
+        "text": "The selected thm:main and the previously fixed thm:attainable-count are distinct. The current Model/Theorem.lean exposes only the latter.",
+        "affects": "Target identity, quantity, and preservation of existing declarations.",
+        "downstream": "Keep the existing counting target and treat the main theorem as a separate target; obtain an explicit target-routing decision before any incompatible surface replacement."
+      },
+      {
+        "kind": "modeling-note",
+        "text": "n_0 can be an integer at least 5; naturals with guards exactly represent the paper's positive integers.",
+        "affects": "Quantifier domains and the defined range of f.",
+        "downstream": "Keep alpha unchanged and discharge the threshold choice internally."
+      },
+      {
+        "kind": "statement-decision",
+        "text": "Almost-all Theta means fixed constants on a density-one set, not eventual pointwise bounds or probability-one algorithm success.",
+        "affects": "Density clauses in the main-theorem statement.",
+        "downstream": "Use the existing density sets and limit-to-one or equivalent limit-to-zero formulations with a documented semantic bridge."
+      },
+      {
+        "kind": "modeling-note",
+        "text": "The cutoff X is real; density counts n <= X whereas the extremal maximum counts n < X.",
+        "affects": "realGoodInputs, maximumBelow, and both limit domains.",
+        "downstream": "Preserve floor(X) for the good-set cutoff and ceil(X) with Ico for the strict maximum."
+      },
+      {
+        "kind": "proof-obligation",
+        "text": "A shared pair c,C for the upper and density clauses requires reconciling the separately quantified constants in the existing packaged theorem.",
+        "affects": "Exact existential structure of Theorem 1.1.",
+        "downstream": "Reuse the existing endpoints and enlarge the upper constant if necessary; no additional analytic theorem is needed."
+      },
+      {
+        "kind": "proof-obligation",
+        "text": "The norm-based library IsTheta must be linked to the stated positive two-sided extremal inequalities on the eventual range.",
+        "affects": "The explicit meaning of the final displayed Theta.",
+        "downstream": "Use installed Asymptotics.isBigO_iff' and isBigO_iff'' with nonnegativity of maximumBelow and Paper.growth_pos_of_four_lt; do not reprove asymptotic library facts."
+      },
+      {
+        "kind": "modeling-note",
+        "text": "No equality between the main c,C and the extremal Theta constants is stated.",
+        "affects": "Constant quantifiers in the extremal consequence.",
+        "downstream": "Permit separate positive absolute constants for the maximum."
+      },
+      {
+        "kind": "handoff-risk",
+        "text": "The old MainStatement.LowerBoundStatement is only infinitely often, and a counting theorem alone is not Theorem 1.1(ii).",
+        "affects": "Reuse endpoint selection.",
+        "downstream": "Use Paper.almostAllLowerBound or Paper.almostAllOrder and compare the full limiting proportion against the manuscript."
+      }
+    ]
+  },
+  "preconditions": {
+    "callerConditions": [],
+    "reachableStateInvariants": [],
+    "transcriptionWarnings": [
+      {
+        "object": "Theorem 1.1 / selected target `thm:main`",
+        "warning": "The selected result has no helper algorithm, loop state, or invocation guard. It is a theorem about `alpha`, density, and a real-cutoff maximum. The prompt also records a handoff conflict: the existing `Model/Theorem.lean` is the separate counting target `thm:attainable-count`.",
+        "source": "Selected theorem statement and `canonicalTarget` / `ambiguityLedger` in the paper-reading contract.",
+        "action": "handoff-risk"
+      },
+      {
+        "object": "Claim 6.4 block update",
+        "warning": "The author gives a proof route for a separate numbered claim: combine `block_increment` with `idealCard_update`, then cancel the additional `2^ell` term modulo `2^((i+1)*ell)`. This is not a caller guard or invariant for Theorem 1.1; it belongs to that claim's proof obligations.",
+        "source": "Author instruction 2; scratch `Claim64Probe.lean` is described as a checked derivation, not integrated library work.",
+        "action": "proof-obligation"
+      },
+      {
+        "object": "Claim 6.5 parameter rounding",
+        "warning": "For the paper's floor/ceiling parameter choices, the listed inequalities and bridge from general `r,ell` estimates must be proved and connected to the constructed ideal. They are not additional assumptions of Theorem 1.1 or caller conditions.",
+        "source": "Author instructions 2–4; scratch `Claim65.lean` is described as unintegrated.",
+        "action": "proof-obligation"
+      },
+      {
+        "object": "Claim 6.3 position-only statement",
+        "warning": "Use `position_intersection` for the literal position-only claim. Do not introduce a helper-state invariant or strengthen its claim ledger based on a proof-route description.",
+        "source": "Author instruction 2.",
+        "action": "proof-obligation"
+      }
+    ],
+    "surfaceInstructions": [
+      "Keep the selected main theorem separate from the existing `thm:attainable-count`; resolve target routing without replacing or weakening either statement.",
+      "Do not add caller hypotheses for positivity, thresholds, attainability, counting bounds, or construction parameters: the contract says thresholds and needed representation facts are discharged internally, and the public endpoints are unconditional.",
+      "Keep Claim 6.4, Claim 6.5, Claim 6.3, and Corollary 10.2 as distinct targets where applicable. For Corollary 10.2, include the real-cutoff proportion bridge; it is not an algorithm precondition.",
+      "Treat scratch derivations as proof suggestions only until integrated and audited; preserve all claim domains, hypotheses, constants, and conclusions."
+    ]
+  },
+  "paperIssues": {
+    "decisions": [
+      {
+        "issue": "The selected target is Theorem 1.1 (`thm:main`), while the existing `Model/Theorem.lean` targets the distinct counting theorem (`thm:attainable-count`). Replacing that theorem would conflate two results.",
+        "source": "Selected target statement and `canonicalTarget` / `ambiguityLedger`; existing `AntichainOfGivenSize/Model/Theorem.lean` target identified in the handoff",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean"
+        ],
+        "surfaceInstruction": "Keep the existing counting target intact and formalize `thm:main` as a separate target over the existing alpha and growth-scale declarations."
+      },
+      {
+        "issue": "“Almost all” lower-bound and simultaneous two-sided claims mean natural density one, not an eventual pointwise lower bound or an infinitely-often lower bound.",
+        "source": "Theorem 1.1(ii) and its stated consequences; `Paper/AlmostAll.lean`, `Paper/RealDensity.lean`, and the paper’s powers-of-two exception discussion",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean",
+          "Analysis/"
+        ],
+        "surfaceInstruction": "State the density limits using the existing exception/good-input sets and density bridges; do not substitute the older infinitely-often lower-bound statement."
+      },
+      {
+        "issue": "The theorem uses one shared positive pair `c,C` for the eventual upper bound and density lower bound, whereas the existing packaged endpoints may provide separate upper constants.",
+        "source": "Theorem 1.1(i)–(ii); `Paper.mainTheorem`, `Paper.universalUpper_from_five`, and `Paper.almostAllOrder`",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean",
+          "Analysis/"
+        ],
+        "surfaceInstruction": "Retain the shared `c,C` quantifiers. Reconcile endpoint witnesses explicitly, enlarging the upper constant if needed; do not assume independently chosen witnesses coincide."
+      },
+      {
+        "issue": "The paper’s growth function is defined for real inputs greater than 4, and its integer claims concern positive inputs; the Lean declarations are total outside those domains.",
+        "source": "Growth definition and positive-integer convention in the selected source; existing `quadraticLogLogScale` and `alpha` declarations",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean",
+          "Analysis/"
+        ],
+        "surfaceInstruction": "Use the existing total declarations unchanged, while keeping theorem ranges explicit: choose the upper threshold at least 5 and use the lower-density range `n ≥ 5`; do not assert paper meaning at smaller inputs."
+      },
+      {
+        "issue": "The extremal conclusion ranges over all sufficiently large real cutoffs and maximizes over positive integers strictly below the cutoff; the density cutoff instead counts through `n ≤ X`.",
+        "source": "Theorem 1.1 consequence and the paper’s extremal argument; existing `Paper.maximumBelow` and `Paper.realGoodInputs` definitions",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean",
+          "Analysis/"
+        ],
+        "surfaceInstruction": "Preserve the real cutoff, strict `n < X` maximum, and inclusive density count `n ≤ X`; reuse `maximumBelow` and `realGoodInputs` with their existing semantics."
+      },
+      {
+        "issue": "The final `Theta` claim must be read as positive two-sided eventual bounds on the extremal maximum, with constants that may differ from the shared `c,C`; it is not an eventual pointwise lower bound for alpha.",
+        "source": "Theorem 1.1 final consequence, `ambiguityLedger`, and existing `Paper.extremalOrder` endpoint",
+        "kind": "modeling-convention",
+        "decision": "prove-as-written",
+        "milestone": "model-statement",
+        "affects": [
+          "Model/Theorem.lean",
+          "Analysis/"
+        ],
+        "surfaceInstruction": "Use the existing real-cutoff extremal endpoint and Mathlib’s installed `IsTheta`/Big-O characterizations, discharging eventual positivity on the stated range. Allow separate extremal constants."
+      }
+    ],
+    "surfaceInstructions": [
+      "Preserve Theorem 1.1 and the existing counting theorem as distinct targets; do not replace or weaken either statement.",
+      "Reuse existing alpha, growth-scale, density, real-cutoff, and extremal declarations and public endpoints; move only reached vocabulary into Model with names and definitions unchanged.",
+      "Keep Claim 6.3, Claim 6.4, Claim 6.5, and Corollary 10.2 as distinct targets where applicable. Treat the scratch derivations and rounding estimates as proof suggestions until integrated and audited; retain their literal hypotheses and conclusions."
+    ]
+  },
+  "decomposition": {
+    "kind": "library-wrapper",
+    "route": {
+      "kind": "library-corollary",
+      "why": "Reuse the project's existing upper-bound, density, and extremal theorems. The remaining work is witness-preserving finite-prefix bookkeeping and conversion of norm bounds. Assign each of the four open surface declarations its own Analysis file, preserving the proof-side owner names and the existing capstone assembly. No algorithm, abstract interface, or borrowed assumption is needed."
+    },
+    "sourceTheorems": [
+      {
+        "name": "AntichainOfGivenSize.Paper.universalUpper_from_five",
+        "module": "AntichainOfGivenSize.Paper.Extremal",
+        "statement": "∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 5 ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale n",
+        "why": "Supplies the eventual upper bound with n₀ = 5. Listed in the supplied declaration inventory; no upper-bound estimates need to be reproved."
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.almostAllGoodProportion",
+        "module": "AntichainOfGivenSize.Paper.Results",
+        "statement": "AlmostAllGoodProportionStatement; expanded: ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ Filter.Tendsto (fun N : ℕ ↦ ((goodInputs c C N).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1)",
+        "why": "Retain its lower constant c and squeeze the lower-good proportion between the simultaneous-good proportion and 1. The supplied previous-pass evidence reports this declaration and expansion; they could not be independently rechecked in the current workspace."
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.extremalOrder",
+        "module": "AntichainOfGivenSize.Paper.Results",
+        "statement": "ExtremalOrderStatement; expanded: Asymptotics.IsTheta Filter.atTop (fun X : ℝ ↦ (maximumBelow X : ℝ)) quadraticLogLogScale",
+        "why": "Provides both extremal bounds on real cutoffs. The supplied prior evidence reports this endpoint; reuse it rather than repeat the density-to-interval argument."
+      },
+      {
+        "name": "AntichainOfGivenSize.Paper.growth_pos_of_four_lt",
+        "module": "AntichainOfGivenSize.Paper.Scale",
+        "statement": "{x : ℝ} → 4 < x → 0 < quadraticLogLogScale x",
+        "why": "Removes the absolute value of the growth function on the eventual range. Name and type are supported by the supplied prior evidence."
+      },
+      {
+        "name": "Asymptotics.isBigO_iff'",
+        "module": "Mathlib.Analysis.Asymptotics.Defs",
+        "statement": "f =O[l] g ↔ ∃ c > 0, ∀ᶠ x in l, ‖f x‖ ≤ c * ‖g x‖",
+        "why": "Extracts the positive upper constant from extremalOrder.isBigO. This is the instantiated mathematical signature reported in the supplied previous-pass inspection."
+      },
+      {
+        "name": "Asymptotics.isBigO_iff''",
+        "module": "Mathlib.Analysis.Asymptotics.Defs",
+        "statement": "f =O[l] g ↔ ∃ c > 0, ∀ᶠ x in l, c * ‖f x‖ ≤ ‖g x‖",
+        "why": "Applied to extremalOrder.isBigO_symm, supplies the lower constant directly in the required direction. Exact implicit arguments remain an elaboration check."
+      },
+      {
+        "name": "Finset.card_le_card",
+        "module": "Mathlib.Data.Finset.Card",
+        "statement": "s ⊆ t → s.card ≤ t.card",
+        "why": "Turns good-set inclusions and finite-prefix containment into cardinality bounds."
+      },
+      {
+        "name": "Finset.card_sdiff_add_card_eq_card",
+        "module": "Mathlib.Data.Finset.Card",
+        "statement": "(h : s ⊆ t) → (t \\ s).card + s.card = t.card",
+        "why": "With s the simultaneous-good set and t the lower-good set, counts exactly the inputs lost by imposing the upper inequality."
+      },
+      {
+        "name": "Nat.card_Icc",
+        "module": "Mathlib.Order.Interval.Finset.Nat",
+        "statement": "(Finset.Icc a b).card = b + 1 - a",
+        "why": "Bounds the lower-good count by N and gives its normalized upper bound 1 on N ≥ 5."
+      },
+      {
+        "name": "tendsto_of_tendsto_of_tendsto_of_le_of_le'",
+        "module": "Mathlib.Topology.Order.Basic",
+        "statement": "Tendsto g b (nhds a) → Tendsto h b (nhds a) → (∀ᶠ x in b, g x ≤ f x) → (∀ᶠ x in b, f x ≤ h x) → Tendsto f b (nhds a)",
+        "why": "Eventual squeeze closes both density arguments. This schematic signature and module are inherited from the supplied previous-pass evidence."
+      },
+      {
+        "name": "tendsto_const_div_atTop_nhds_zero_nat",
+        "module": "Mathlib.Analysis.SpecificLimits.Basic",
+        "statement": "For C : ℝ, Filter.Tendsto (fun N : ℕ ↦ C / (N : ℝ)) Filter.atTop (nhds 0)",
+        "why": "The loss of at most n₀ inputs disappears after normalization."
+      },
+      {
+        "name": "tendsto_nat_floor_atTop",
+        "module": "Mathlib.Analysis.SpecificLimits.Basic",
+        "statement": "Filter.Tendsto (fun X : ℝ ↦ ⌊X⌋₊) Filter.atTop Filter.atTop",
+        "why": "Composes the natural density limit with the real cutoff's natural floor."
+      },
+      {
+        "name": "tendsto_nat_floor_div_atTop",
+        "module": "Mathlib.Analysis.SpecificLimits.Basic",
+        "statement": "Filter.Tendsto (fun X : ℝ ↦ (⌊X⌋₊ : ℝ) / X) Filter.atTop (nhds 1)",
+        "why": "Changes the denominator from floor(X) to X while preserving the supplied constants. The exact polymorphic argument names should be checked in the execution checkout."
+      }
+    ],
+    "proofSteps": [
+      {
+        "step": "Give each open declaration a separate proof-side file without changing its owner name.",
+        "tacticShape": "Create Analysis/AlphaSimultaneousDensityOneProof.lean, Analysis/AlphaEventualUpperProof.lean, Analysis/AlphaLowerDensityOneProof.lean, and Analysis/AlphaMaximumOrderProof.lean under AntichainOfGivenSize/. Each uses namespace AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof and defines only its assigned owner. Import Model.Prior and the necessary existing Paper modules; the density and maximum wrappers may import Paper.Results. Do not import Model.Theorem or the library root.",
+        "why": "This repairs the rejected file ownership while preserving the mathematical route and globally qualified owner names. Each file can compile independently before the surface imports it."
+      },
+      {
+        "step": "Prove the fixed-witness simultaneous natural proportion first.",
+        "tacticShape": "Inside simultaneousDensityOne, let L N be the surface's lower-good filter and G N := Paper.goodInputs c C N. Prove G N ⊆ L N by unfolding goodInputs and unpacking Finset.mem_filter. Prove L N \\ G N ⊆ Finset.range n₀: a member n with n₀ ≤ n satisfies hupper n, hence belongs to G N, a contradiction. Combine Finset.card_le_card and Finset.card_sdiff_add_card_eq_card to obtain (L N).card ≤ (G N).card + n₀ and (G N).card ≤ (L N).card. Cast and divide on the eventual range N ≥ 1, obtaining Lcard/N - (n₀ : ℝ)/N ≤ Gcard/N ≤ Lcard/N. Squeeze using hlower.sub (tendsto_const_div_atTop_nhds_zero_nat (n₀ : ℝ)) and hlower; simplify 1 - 0.",
+        "why": "The exported existential density endpoints do not supply this stronger interface for arbitrary fixed c,C,n₀. Only a finite prefix can fail the supplied upper bound, independently of the cutoff."
+      },
+      {
+        "step": "Transfer the simultaneous limit to real cutoffs with exactly the same constants.",
+        "tacticShape": "For the preceding hNat, multiply hNat.comp tendsto_nat_floor_atTop by tendsto_nat_floor_div_atTop. Simplify the limit 1 * 1. Use eventual equality on X ≥ 1 to identify (goodCard(floor X)/floor X) * (floor X/X) with goodCard(floor X)/X. Establish floor(X) ≥ 1, obtain its nonzero real cast, unfold Paper.realGoodInputs, and cancel by field_simp. Return ⟨hNat, hReal⟩.",
+        "why": "The existing existential real-cutoff bridge may select different witnesses. Its floor-factor calculation gives the needed fixed-witness conclusion without changing the supplied c or C."
+      },
+      {
+        "step": "Discharge the eventual upper declaration using threshold 5.",
+        "tacticShape": "In eventualUpper: obtain ⟨C, hC, hupper⟩ := Paper.universalUpper_from_five; exact ⟨C, hC, 5, le_rfl, hupper⟩.",
+        "why": "The stronger source already includes finite-prefix absorption. The required empty Prior argument contributes no mathematical assumption."
+      },
+      {
+        "step": "Extract a lower-density witness from the proved simultaneous density endpoint.",
+        "tacticShape": "In lowerDensityOne, obtain ⟨c, D, hc, hD, hgood⟩ from Paper.almostAllGoodProportion. Define L N locally as the lower-good filter. Prove Paper.goodInputs c D N ⊆ L N. For N ≥ 5, use L N ⊆ Finset.Icc 5 N and Nat.card_Icc to show (L N).card ≤ N. Cast and divide by the positive real N. Squeeze the lower-good proportion between the hgood sequence and the constant sequence 1. Return ⟨c, hc, hLower⟩.",
+        "why": "The lower-good set contains the simultaneous-good set, so the completed density theorem supplies the result directly. Discarding D leaves the capstone free to use its independent upper witness C."
+      },
+      {
+        "step": "Expand the extremal IsTheta into the literal inequalities.",
+        "tacticShape": "In maximumOrder, let hθ := Paper.extremalOrder. Obtain ⟨A, hA, hUpper⟩ from Asymptotics.isBigO_iff'.mp hθ.isBigO and ⟨a, ha, hLower⟩ from Asymptotics.isBigO_iff''.mp hθ.isBigO_symm. Extract a common real threshold R from hLower.and hUpper using Filter.eventually_atTop.mp. Choose X₀ := max 5 R. For X ≥ X₀, prove 4 < X, apply Paper.growth_pos_of_four_lt, and simplify Real.norm_eq_abs and abs_of_nonneg, using Nat.cast_nonneg for maximumBelow. Return a,A,X₀ and the resulting bounds.",
+        "why": "The lower constant multiplies the growth function, both constants are positive, and the threshold covers every sufficiently large real X. No extremal estimates are reproved."
+      },
+      {
+        "step": "Dispatch the four surface proofs and retain the capstone assembly.",
+        "tacticShape": "Use exact Analysis.AlphaAsymptoticOrderProof.eventualUpper hprior; exact Analysis.AlphaAsymptoticOrderProof.lowerDensityOne hprior; exact Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne hprior c C n₀ hupper hlower; and exact Analysis.AlphaAsymptoticOrderProof.maximumOrder hprior in their respective surface bodies. Preserve the capstone's existing obtain statements and final ⟨⟨c, C, hc, hC, n₀, hn₀, hupper, hlower, alpha_simultaneous_density_one hprior c C n₀ hupper hlower⟩, alpha_maximum_order hprior⟩.",
+        "why": "The fixed assembly already reconciles the witnesses through the arbitrary-constant simultaneous lemma. It requires neither enlarging C nor another proof-side capstone owner."
+      },
+      {
+        "step": "Verify implementation, ownership, and statement fidelity in the execution checkout.",
+        "tacticShape": "Read its AGENTS.md registries and docs/current-paper.md, confirm all four owner names and file paths are unused, and register each assigned file through the prescribed mechanism. Compile each proof file before dependent surface checks. Run the repository's strict build, independent paper-statement checks, source-coverage and closure audits, negative controls, and frozen-paper checksum. Inspect #print axioms for all four owners and alpha_asymptotic_order; retain the existing counting checks.",
+        "why": "The present workspace contains only standalone_decomposition.schema.json, so no Lean source, paper, registry, build, checksum, or axiom check could be executed here. Supplied historical inspection reports are evidence for this plan, not current validation."
+      }
+    ],
+    "statementRisks": [
+      {
+        "risk": "Using Paper.realAlmostAllGoodProportion_of_nat as though it preserved arbitrary c,C.",
+        "check": "The supplied evidence gives its type as AlmostAllGoodProportionStatement → RealAlmostAllGoodProportionStatement, with existential witnesses on both sides. Use the floor-factor calculation at the supplied constants instead."
+      },
+      {
+        "risk": "Using Paper.orderExceptions_eq_exceptionalInputs with only an eventual upper bound.",
+        "check": "The supplied evidence says this theorem requires the bound for every n ≥ 5. The fixed simultaneous declaration supplies it only from n₀. Bound the lost inputs by Finset.range n₀."
+      },
+      {
+        "risk": "Treating Paper.mainTheorem as definitionally equal to the fixed capstone.",
+        "check": "Preserve the shared c,C witnesses, both literal density limits, and the expanded extremal inequalities. Independently existential source interfaces and a norm-based IsTheta do not directly match this contract."
+      },
+      {
+        "risk": "Replacing natural density one with infinitely often or an eventual pointwise lower bound.",
+        "check": "Retain Tendsto of the complete normalized count to 1. The older matchingLowerBoundInfinitelyOften is insufficient; powers of two preclude a universal eventual lower bound."
+      },
+      {
+        "risk": "Changing the lower event at equality.",
+        "check": "The good event is c * quadraticLogLogScale n ≤ alpha n. Its failure is the strict inequality alpha n < c * quadraticLogLogScale n."
+      },
+      {
+        "risk": "Mixing the inclusive density cutoff and strict maximum cutoff.",
+        "check": "Keep Icc 5 N and realGoodInputs c C X = goodInputs c C floor(X) for density, with denominator X. Keep maximumBelow X = (Ico 1 ceil(X)).sup alpha for the strict maximum, including at integral X."
+      },
+      {
+        "risk": "Reversing the lower Big-O conversion or removing norms without signs.",
+        "check": "Apply isBigO_iff'' to extremalOrder.isBigO_symm to obtain a * ‖growth X‖ ≤ ‖maximumBelow X‖. Remove norms only after establishing X > 4 and nonnegativity."
+      },
+      {
+        "risk": "Adding positivity or threshold assumptions to alpha_simultaneous_density_one.",
+        "check": "Preserve its exact binders: arbitrary c,C : ℝ and n₀ : ℕ, with only hupper and hlower. The finite-prefix proof does not need 0 < c, 0 < C, or 5 ≤ n₀."
+      },
+      {
+        "risk": "Changing Prior, model vocabulary, or the separate counting target.",
+        "check": "Keep Prior empty and preserve the existing names and bodies of alpha, quadraticLogLogScale, and the density and maximum read-offs. Add no counting hypothesis and do not replace attainable_count."
+      },
+      {
+        "risk": "Mistaking source evidence from earlier passes for verification in this environment.",
+        "check": "The local file inventory found no Lean checkout. Recheck declaration signatures, module paths, owner freshness, and audit commands in the execution checkout before implementation; do not report historical checks as newly run."
+      }
+    ],
+    "capstone": {
+      "name": "AntichainOfGivenSize.alpha_asymptotic_order",
+      "statement": "theorem AntichainOfGivenSize.alpha_asymptotic_order (hprior : AntichainOfGivenSize.Prior) :\n    (∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧\n      (∀ n : ℕ, n₀ ≤ n →\n        (AntichainOfGivenSize.alpha n : ℝ) ≤ C * AntichainOfGivenSize.quadraticLogLogScale (n : ℝ)) ∧\n      Filter.Tendsto\n        (fun N : ℕ ↦\n          (((Finset.Icc 5 N).filter fun n : ℕ ↦\n            c * AntichainOfGivenSize.quadraticLogLogScale (n : ℝ) ≤ (AntichainOfGivenSize.alpha n : ℝ)).card : ℝ) / (N : ℝ))\n        Filter.atTop (nhds 1) ∧\n      Filter.Tendsto\n        (fun N : ℕ ↦ ((AntichainOfGivenSize.Paper.goodInputs c C N).card : ℝ) / (N : ℝ))\n        Filter.atTop (nhds 1) ∧\n      Filter.Tendsto\n        (fun X : ℝ ↦ ((AntichainOfGivenSize.Paper.realGoodInputs c C X).card : ℝ) / X)\n        Filter.atTop (nhds 1)) ∧\n    (∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧\n      ∀ X : ℝ, X₀ ≤ X →\n        a * AntichainOfGivenSize.quadraticLogLogScale X ≤ (AntichainOfGivenSize.Paper.maximumBelow X : ℝ) ∧\n        (AntichainOfGivenSize.Paper.maximumBelow X : ℝ) ≤ A * AntichainOfGivenSize.quadraticLogLogScale X)"
+    },
+    "crux": [
+      {
+        "name": "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
+        "statement": "For the supplied c,C,n₀, an upper bound valid from n₀ and a lower-good natural proportion tending to 1 imply both simultaneous-good proportions tending to 1 with those exact constants. Locally, for L N the lower-good set and G N = Paper.goodInputs c C N, G N ⊆ L N and L N \\ G N ⊆ Finset.range n₀.",
+        "whyItIsTheCrux": "The available existential endpoints do not establish this stronger fixed-witness interface. It is what makes the already-written capstone's shared-constant assembly valid.",
+        "attackPlan": "Prove both containments locally; derive Lcard ≤ Gcard + n₀ and Gcard ≤ Lcard; normalize on N ≥ 1 and squeeze. Compose that limit with natural floor and multiply by floor(X)/X. Keep these intermediate facts local to the assigned owner."
+      }
+    ],
+    "invariants": [
+      {
+        "name": "Fixed witnesses",
+        "statement": "The c,C supplied to simultaneousDensityOne are unchanged in both its natural and real limits.",
+        "why": "Selecting replacement existential witnesses would not discharge the fixed surface declaration."
+      },
+      {
+        "name": "Uniform finite-prefix loss",
+        "statement": "For every N, L N \\ Paper.goodInputs c C N ⊆ Finset.range n₀, so the lost count is at most n₀ independently of N.",
+        "why": "Its normalized contribution tends to zero, including when n₀ < 5."
+      },
+      {
+        "name": "Positive-tail cancellation",
+        "statement": "Natural normalization uses N ≥ 1; real-floor cancellation uses X ≥ 1 and floor(X) ≥ 1.",
+        "why": "Total division at zero does not justify cancellation identities."
+      },
+      {
+        "name": "Extremal signs",
+        "statement": "On X ≥ X₀ > 4, quadraticLogLogScale X > 0 and (Paper.maximumBelow X : ℝ) ≥ 0.",
+        "why": "These facts turn the library's norm inequalities into the required literal bounds."
+      },
+      {
+        "name": "Audit ownership",
+        "statement": "All four new proof owners are in separate Analysis files; no new definition enters the statement closure.",
+        "why": "Proof completion preserves the fixed audit vocabulary and the independent counting target."
+      }
+    ],
+    "modelingDecisions": [
+      {
+        "decision": "Implement this standalone mathematical target through a library-wrapper route.",
+        "alternative": "Introduce an algorithm, probability space, or abstract analysis interface.",
+        "why": "The statement concerns deterministic cardinalities and limits, and existing project results provide its substantive estimates.",
+        "scopeCaveat": "No operational or resource guarantee is asserted."
+      },
+      {
+        "decision": "Assign exactly one Analysis file to each of the four open declarations, retaining the existing proposed owner namespace.",
+        "alternative": "Place all four owners in Analysis/AlphaAsymptoticOrderProof.lean.",
+        "why": "The corrected ownership contract requires a distinct file per lemmaOrder entry. This organizational change does not alter the proof route or require parallel workers.",
+        "scopeCaveat": "The proposed paths must be checked for existing contents before creation; finished Analysis files are not overwritten."
+      },
+      {
+        "decision": "Use Paper.almostAllGoodProportion to extract the lower-density witness.",
+        "alternative": "Repeat the conversion from the density-zero exceptional count.",
+        "why": "That conversion is already represented by the proved good-proportion endpoint. Inclusion and squeeze give the lower-only statement.",
+        "scopeCaveat": "Discard its auxiliary upper constant; the simultaneous owner still accepts the independently supplied C."
+      },
+      {
+        "decision": "Keep the fixed-witness floor calculation local to simultaneousDensityOne.",
+        "alternative": "Assume the exported existential real-cutoff theorem preserves the given constants.",
+        "why": "Its existential type does not provide that guarantee. The existing floor limits directly establish the required stronger interface.",
+        "scopeCaveat": "No floor-limit theorem or underlying density theorem is reproved."
+      },
+      {
+        "decision": "Keep Prior empty and use project results plus Mathlib only.",
+        "alternative": "Add assumptions for counting, upper bounds, or asymptotics.",
+        "why": "The supplied project inventory already provides the mathematical endpoints.",
+        "scopeCaveat": "The plan adds no arlib dependency. Historical manifest claims in the supplied material could not be checked in this workspace and are not treated as current availability."
+      }
+    ],
+    "paperGuide": [
+      {
+        "topic": "Exact target, quantifiers, and powers-of-two exceptions",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:150–172",
+          "paper/Generating_Antichains_Simplified.tex:192–215"
+        ],
+        "useWhen": "Checking the fixed capstone, the domain x > 4, base-two logarithms, and the distinction between density one and an eventual pointwise lower bound. Locations are inherited from the supplied reading evidence."
+      },
+      {
+        "topic": "Upper-bound witness and threshold 5",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:909–974",
+          "AntichainOfGivenSize/Paper/Extremal.lean:19–49",
+          "docs/current-paper.md: Differences in proof implementation, sharp universal upper bound"
+        ],
+        "useWhen": "Confirming universalUpper_from_five and documenting its existing proof route without claiming a new construction proof."
+      },
+      {
+        "topic": "Natural density and finite prefixes",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:1392–1476",
+          "AntichainOfGivenSize/Paper/AlmostAll.lean:25–55",
+          "AntichainOfGivenSize/Paper/Results.lean:48–67"
+        ],
+        "useWhen": "Checking non-strict good inequalities, lower-good containment, and the finite-prefix loss for arbitrary supplied constants."
+      },
+      {
+        "topic": "Real-cutoff denominator and witness preservation",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:1392–1401",
+          "AntichainOfGivenSize/Paper/RealDensity.lean:21–47"
+        ],
+        "useWhen": "Reusing the floor-factor calculation and checking why its existential exported interface does not directly discharge the fixed-witness target."
+      },
+      {
+        "topic": "Strict real maximum and positive Theta constants",
+        "sources": [
+          "paper/Generating_Antichains_Simplified.tex:1479–1529",
+          "AntichainOfGivenSize/Paper/Extremal.lean:81–168",
+          "Mathlib/Analysis/Asymptotics/Defs.lean:118–145"
+        ],
+        "useWhen": "Checking the strict cutoff, both Big-O directions, and removal of norms on the positive tail."
+      }
+    ],
+    "knownBlockers": [
+      {
+        "obligation": "Check the actual execution checkout and compile the four owners.",
+        "reason": "The current directory contains only standalone_decomposition.schema.json. The source files, AGENTS.md, documentation, frozen paper, and Lean checkout described in the packet are absent. This pass could inspect their supplied excerpts and historical evidence only; no build, axiom audit, or paper checksum was run.",
+        "nextStep": "In the execution checkout, read the required source and registry files, verify the supplied reusable signatures and the freshness of all four owner names and paths, implement one owner per file, and run all prescribed checks. Do not replace missing evidence with additional theorem assumptions."
+      },
+      {
+        "obligation": "Check the single-seed surplus audit against the separately retained counting surface.",
+        "reason": "The supplied surface invokes #surplusIn over Model using only alpha_asymptotic_order as seed. Prior evidence reports that unrelated counting vocabulary can then appear as surplus. This is an integration risk, not a failure observed in this pass.",
+        "nextStep": "Run the existing registered-claim audit and negative controls in the real checkout. Preserve individual closure checks and the counting declarations; resolve any registry issue through the existing audit mechanism rather than deleting vocabulary or changing statements."
+      },
+      {
+        "obligation": "Confirm exact elaboration of the inherited Mathlib applications.",
+        "reason": "The mathematical signatures are supported by the supplied previous-pass evidence, but polymorphic argument names and tactic invocations were not tested here.",
+        "nextStep": "Check the pinned declarations before coding, especially floor-limit type arguments, Finset.card_sdiff_add_card_eq_card orientation, and the IsTheta projections. Adjust applications only; preserve every owner signature."
+      }
+    ],
+    "lemmaOrder": [
+      {
+        "discharges": "AntichainOfGivenSize.alpha_simultaneous_density_one",
+        "name": "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
+        "signature": "theorem AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne\n    (hprior : AntichainOfGivenSize.Prior)\n    (c C : ℝ) (n₀ : ℕ)\n    (hupper : ∀ n : ℕ, n₀ ≤ n →\n      (AntichainOfGivenSize.alpha n : ℝ) ≤ C * AntichainOfGivenSize.quadraticLogLogScale (n : ℝ))\n    (hlower : Filter.Tendsto\n      (fun N : ℕ ↦\n        (((Finset.Icc 5 N).filter fun n : ℕ ↦\n          c * AntichainOfGivenSize.quadraticLogLogScale (n : ℝ) ≤ (AntichainOfGivenSize.alpha n : ℝ)).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1)) :\n    Filter.Tendsto\n      (fun N : ℕ ↦ ((AntichainOfGivenSize.Paper.goodInputs c C N).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1) ∧\n    Filter.Tendsto\n      (fun X : ℝ ↦ ((AntichainOfGivenSize.Paper.realGoodInputs c C X).card : ℝ) / X)\n      Filter.atTop (nhds 1)",
+        "dependsOn": [
+          "Finset.card_le_card",
+          "Finset.card_sdiff_add_card_eq_card",
+          "tendsto_of_tendsto_of_tendsto_of_le_of_le'",
+          "tendsto_const_div_atTop_nhds_zero_nat",
+          "tendsto_nat_floor_atTop",
+          "tendsto_nat_floor_div_atTop"
+        ],
+        "file": "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
+        "difficulty": "moderate"
+      },
+      {
+        "discharges": "AntichainOfGivenSize.alpha_eventual_upper",
+        "name": "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper",
+        "signature": "theorem AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper\n    (hprior : AntichainOfGivenSize.Prior) :\n    ∃ C : ℝ, 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧\n      ∀ n : ℕ, n₀ ≤ n →\n        (AntichainOfGivenSize.alpha n : ℝ) ≤ C * AntichainOfGivenSize.quadraticLogLogScale (n : ℝ)",
+        "dependsOn": [
+          "AntichainOfGivenSize.Paper.universalUpper_from_five"
+        ],
+        "file": "AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
+        "difficulty": "routine"
+      },
+      {
+        "discharges": "AntichainOfGivenSize.alpha_lower_density_one",
+        "name": "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne",
+        "signature": "theorem AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne\n    (hprior : AntichainOfGivenSize.Prior) :\n    ∃ c : ℝ, 0 < c ∧ Filter.Tendsto\n      (fun N : ℕ ↦\n        (((Finset.Icc 5 N).filter fun n : ℕ ↦\n          c * AntichainOfGivenSize.quadraticLogLogScale (n : ℝ) ≤ (AntichainOfGivenSize.alpha n : ℝ)).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1)",
+        "dependsOn": [
+          "AntichainOfGivenSize.Paper.almostAllGoodProportion",
+          "Finset.card_le_card",
+          "Nat.card_Icc",
+          "tendsto_of_tendsto_of_tendsto_of_le_of_le'"
+        ],
+        "file": "AntichainOfGivenSize/Analysis/AlphaLowerDensityOneProof.lean",
+        "difficulty": "routine"
+      },
+      {
+        "discharges": "AntichainOfGivenSize.alpha_maximum_order",
+        "name": "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder",
+        "signature": "theorem AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder\n    (hprior : AntichainOfGivenSize.Prior) :\n    ∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧\n      ∀ X : ℝ, X₀ ≤ X →\n        a * AntichainOfGivenSize.quadraticLogLogScale X ≤ (AntichainOfGivenSize.Paper.maximumBelow X : ℝ) ∧\n        (AntichainOfGivenSize.Paper.maximumBelow X : ℝ) ≤ A * AntichainOfGivenSize.quadraticLogLogScale X",
+        "dependsOn": [
+          "AntichainOfGivenSize.Paper.extremalOrder",
+          "AntichainOfGivenSize.Paper.growth_pos_of_four_lt",
+          "Asymptotics.isBigO_iff'",
+          "Asymptotics.isBigO_iff''"
+        ],
+        "file": "AntichainOfGivenSize/Analysis/AlphaMaximumOrderProof.lean",
+        "difficulty": "routine"
+      }
+    ]
+  },
+  "filePlan": {
+    "libName": "AntichainOfGivenSize",
+    "files": [
+      {
+        "path": "AntichainOfGivenSize/Model/Prelude.lean",
+        "role": "audit-surface",
+        "purpose": "The vocabulary, and the quantity the theorem is about",
+        "imports": [
+          "AntichainOfGivenSize.Model.CountingVocabulary",
+          "AntichainOfGivenSize.Paper.Representation",
+          "AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof"
+        ],
+        "contents": "import AntichainOfGivenSize.Model.CountingVocabulary\nimport AntichainOfGivenSize.Paper.Representation\nimport AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof\n\n/-!\n# The attainable-size counting surface\n\nThis surface reuses the existing definitions without introducing a second\nrepresentation. Their defining vocabulary is in `Model/CountingVocabulary.lean`;\nthe original proof modules import those same declarations. Its sole cross-check spells out the semantics of the counted\nvalues; the later proof pass can reuse `Paper.mem_attainableValues_iff`.\n-/\n\nnamespace AntichainOfGivenSize.Model\n\n/-! ## Vocabulary\n\n`AntichainOfGivenSize.generatedIdeal G` is the finite union of the powersets\nof the generators in `G`, implemented by `Finset.biUnion` and `Finset.powerset`.\nIts `Finset.card` counts subsets, not elements in the union of the generators.\n\n`Paper.HasBoundedGeneratingFamily B K n` quantifies an arbitrary natural\nambient size `N` and a family `G : Finset (Finset (Fin N))`. It requires\n`G.Nonempty`, `G.card ≤ K`, every generator's cardinality at most `B`, and\n`(generatedIdeal G).card = n`. There is no upper bound on `N`. In particular,\n`Fin 0` is allowed. The family, rather than each generator, must be nonempty:\na nonempty family of empty generators has generated-ideal cardinality `1`.\nTuple order and repeated generators do not change this union of powersets;\nthe existing membership bridge accounts for deduplication and padding.\nRedundant generators are permitted.\n\n`Paper.AdmissibleBudget B K` is exactly `1 ≤ K` together with the real bound\n`(K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /\n  (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))`.\nThe headline expands this budget. All logarithms are base two; `Real.sqrt`\nand real exponentiation retain the paper's unrounded square-root saving.\n-/\n\n/-! ## The quantity\n\nThe quantity bounded by the headline is\n`((Paper.attainableValues B K).card : ℝ)`. The existing finite set\n`Paper.attainableValues` is the image of the bounded profiles under their\nexact generated-ideal cardinalities. Each natural value is counted once,\nwith no residue reduction or restriction to values below `2 ^ B`.\n\nThe cross-check below exposes the family semantics of this implementation.\nIt is deliberately guarded by `0 < K`; in the headline's range this follows\nfrom the first conjunct of the budget, rather than a separate assumption.\n-/\n\n/-- Cross-check `Paper.attainableValues` against the expanded definition of\n`Paper.HasBoundedGeneratingFamily`, using the existing result\n`Paper.mem_attainableValues_iff`. This also matches the independent membership\ncontract in `scripts/CheckPaperStatements.lean`. -/\ntheorem attainableValues_membership {B K n : ℕ} (hK : 0 < K) :\n    n ∈ Paper.attainableValues B K ↔\n      ∃ N : ℕ, ∃ G : Finset (Finset (Fin N)),\n        G.Nonempty ∧ G.card ≤ K ∧\n          (∀ A ∈ G, A.card ≤ B) ∧ (generatedIdeal G).card = n := by\n    exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership (B := B) (K := K) (n := n) hK\n\nend AntichainOfGivenSize.Model\n"
+      },
+      {
+        "path": "AntichainOfGivenSize/Model/Theorem.lean",
+        "role": "audit-surface",
+        "purpose": "The author's result, and one theorem per claim under it",
+        "imports": [
+          "AntichainOfGivenSize.Model.Prelude",
+          "AntichainOfGivenSize.Paper.RealDensity",
+          "AntichainOfGivenSize.Model.Prior",
+          "AntichainOfGivenSize.Meta.ModelClosure",
+          "AntichainOfGivenSize.Analysis.AttainableCountProof",
+          "AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof",
+          "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
+          "AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof",
+          "AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof"
+        ],
+        "contents": "import AntichainOfGivenSize.Model.Prelude\nimport AntichainOfGivenSize.Paper.RealDensity\nimport AntichainOfGivenSize.Model.Prior\nimport AntichainOfGivenSize.Meta.ModelClosure\nimport AntichainOfGivenSize.Analysis.AttainableCountProof\nimport AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof\nimport AntichainOfGivenSize.Analysis.AlphaEventualUpperProof\nimport AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof\nimport AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof\n\n/-!\n# Counting attainable ideal sizes\n\nTheorem 7.1 (`thm:attainable-count`) has one deterministic cardinality claim.\nIts intended proof interface reuses `AntichainOfGivenSize.Paper.countingBound`;\nit does not rederive the counting argument. The existing proof uses the larger\nclustered encoding documented in `docs/current-paper.md`, rather than a\nline-by-line transcription of the manuscript's fixed-header product.\n\nNatural parameters represent the paper's integers on the positive range:\nthe absolute existential threshold may be enlarged to make `B` positive,\nand the budget requires `1 ≤ K`. That threshold is independent of `K` and\nis not identified with the proof's preliminary bound `2 ^ 20`.\nThe budget also supplies `0 < K` for the membership cross-check in Prelude.\n\nThe defining vocabulary of `Paper.attainableValues` is in\n`Model/CountingVocabulary.lean`, retaining the existing names and definitions.\nThe statement's complete quantity dependency chain therefore lies within the\naudit surface, while the counting and representation proofs stay outside it.\n-/\n\nnamespace AntichainOfGivenSize\n\n/-- Theorem 7.1: one absolute threshold gives the stated bound on the number\nof distinct attainable ideal sizes for every admissible pair `B, K`.\nThe real arithmetic and the constant `100` are expanded for comparison with\nthe manuscript and `scripts/CheckPaperStatements.lean`. -/\ntheorem attainable_count (hprior : Prior) :\n    ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →\n      (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /\n        (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) →\n      ((Paper.attainableValues B K).card : ℝ) ≤\n        (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ)) := by\n    exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableCount hprior\n\n\n/-! ## Minimum generator counts: Theorem 1.1\n\nThis is a separate target from `attainable_count`. It uses the unchanged\n`HasGeneratorCount`, `alpha`, and `quadraticLogLogScale` definitions, and\n`Paper.goodInputs`, `Paper.realGoodInputs`, and `Paper.maximumBelow`.\nThe latter uses `Ico 1 ⌈X⌉₊`, so its endpoint is strictly below the real `X`;\nthe density sets use inclusive upper endpoints instead.\n\nThe upper and lower assertions supply witnesses independently. The\nsimultaneous-density part below preserves any such witnesses, so the assembly\nuses one shared pair `c, C` without identifying unrelated existential choices.\nIts premises are supplied by the first two parts, not by callers of the\nassembled theorem. The extremal constants may be different.\n\nThe intended reuse endpoints are `Paper.universalUpper_from_five`,\n`Paper.almostAllLowerBound`, the complement-count and real-cutoff bridges,\nand `Paper.extremalOrder`. These are interfaces to existing results.\n\nThe reused main-theorem vocabulary is owned by `Model/MainVocabulary.lean`,\nretaining its original names and bodies. The closure check below checks this\nownership boundary; no duplicate definitions are used.\n-/\n\n/-- Theorem 1.1(i): an absolute eventual upper bound, with its threshold\nchosen inside the manuscript's domain. -/\ntheorem alpha_eventual_upper (hprior : Prior) :\n    ∃ C : ℝ, 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧\n      ∀ n : ℕ, n₀ ≤ n →\n        (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ) := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper hprior\n\n/-- Theorem 1.1(ii): the lower-good inputs, including exactly `5 ≤ n ≤ N`,\nhave natural density one. -/\ntheorem alpha_lower_density_one (hprior : Prior) :\n    ∃ c : ℝ, 0 < c ∧ Filter.Tendsto\n      (fun N : ℕ ↦\n        (((Finset.Icc 5 N).filter fun n : ℕ ↦\n          c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1) := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne hprior\n\n/-- The simultaneous consequence of Theorem 1.1, also Corollary 10.2:\nan eventual upper bound and a density-one lower bound give both literal\nproportions with the same constants. The real denominator is `X`. -/\ntheorem alpha_simultaneous_density_one (hprior : Prior)\n    (c C : ℝ) (n₀ : ℕ)\n    (hupper : ∀ n : ℕ, n₀ ≤ n →\n      (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ))\n    (hlower : Filter.Tendsto\n      (fun N : ℕ ↦\n        (((Finset.Icc 5 N).filter fun n : ℕ ↦\n          c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1)) :\n    Filter.Tendsto\n      (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ))\n      Filter.atTop (nhds 1) ∧\n    Filter.Tendsto\n      (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X)\n      Filter.atTop (nhds 1) := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne hprior c C n₀ hupper hlower\n\n/-- The extremal consequence of Theorem 1.1, expanded into positive\nconstant bounds for every sufficiently large real cutoff. -/\ntheorem alpha_maximum_order (hprior : Prior) :\n    ∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧\n      ∀ X : ℝ, X₀ ≤ X →\n        a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧\n        (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X := by\n    exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder hprior\n\n/-- Theorem 1.1: shared absolute constants for the universal upper bound,\nthe density-one lower bound, and the simultaneous natural- and real-cutoff\nproportions, together with the real-cutoff extremal order. -/\ntheorem alpha_asymptotic_order (hprior : Prior) :\n    (∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧\n      (∀ n : ℕ, n₀ ≤ n →\n        (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) ∧\n      Filter.Tendsto\n        (fun N : ℕ ↦\n          (((Finset.Icc 5 N).filter fun n : ℕ ↦\n            c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ))\n        Filter.atTop (nhds 1) ∧\n      Filter.Tendsto\n        (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ))\n        Filter.atTop (nhds 1) ∧\n      Filter.Tendsto\n        (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X)\n        Filter.atTop (nhds 1)) ∧\n    (∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧\n      ∀ X : ℝ, X₀ ≤ X →\n        a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧\n        (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X) := by\n  obtain ⟨C, hC, n₀, hn₀, hupper⟩ := alpha_eventual_upper hprior\n  obtain ⟨c, hc, hlower⟩ := alpha_lower_density_one hprior\n  exact ⟨⟨c, C, hc, hC, n₀, hn₀, hupper, hlower,\n    alpha_simultaneous_density_one hprior c C n₀ hupper hlower⟩,\n    alpha_maximum_order hprior⟩\n\nend AntichainOfGivenSize\n\n#modelClosureOfType AntichainOfGivenSize.attainable_count\n#modelClosureOfType AntichainOfGivenSize.Model.attainableValues_membership\n#print axioms AntichainOfGivenSize.attainable_count\n\n-- Meta/Audit checks Model/ for surplus after loading every registered claim.\n\n#modelClosureOfType AntichainOfGivenSize.alpha_asymptotic_order\n#print axioms AntichainOfGivenSize.alpha_asymptotic_order\n\n#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.alpha_asymptotic_order\n"
+      }
+    ],
+    "auditSurfaceNotes": [],
+    "capstone": "AntichainOfGivenSize.alpha_asymptotic_order",
+    "concerns": []
+  },
+  "interfacePlan": {
+    "files": [],
+    "skipped": "the paper states no algorithm, so there is no `Model/Program.lean` and nothing for `Interface/` to translate"
+  },
+  "agentPlan": {
+    "briefs": [],
+    "definitionOfDone": [
+      "The mechanical checks pass. They are run by the extension over the whole project between rounds — the build, the `sorry` warnings, the axiom profile of every headline, a sweep for escape hatches, the closure checks, and the two layout rules — and what they find comes back to you as the next round's brief. Build the modules you created and read their errors; do not try to run the gate.",
+      "`#print axioms` on the capstone reports exactly the three ambient axioms — propext, Classical.choice, Quot.sound — and nothing else.",
+      "No `declaration uses sorry` warning anywhere in the build output.",
+      "A grep sweep for `sorry`, `admit`, `native_decide` and `axiom` over the project comes back clean, and agrees with the other two checks.",
+      "The closure checks have been observed to *fail* on a deliberately broken control, so that their passing means something.",
+      "The audit surface still states the paper's theorem: every claim the paper makes is in it, and nothing was weakened to make a proof go through. No script decides this one — the extension's handoff check reads the paper and the surface side by side, and it runs as the last step of a run."
+    ],
+    "risks": [
+      {
+        "risk": "A round closes the capstone by leaning on lemmas that are themselves still `sorry`, which looks like progress and is not.",
+        "mitigation": "The open-goal list is read out of the Lean sources every round, so a lemma left `sorry` stays on it however the declaration above it was closed."
+      },
+      {
+        "risk": "An agent weakens an intermediate lemma until it is provable but useless.",
+        "mitigation": "Whatever depends on it stops building, and the next round re-reads the sources rather than the plan."
+      }
+    ]
+  },
+  "paperProofMapping": {
+    "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+    "baseLedgerDigest": "sha256-0b380341b6ccbd7bfb9d13c13ebdcdf49ee995d67be1832217275161a9b4c9fe"
+  }
+}

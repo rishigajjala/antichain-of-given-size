@@ -1,0 +1,694 @@
+{
+  "generatedAt": "2026-10-27T07:19:21.488Z",
+  "providerLabel": "ChatGPT subscription · gpt-6-astra",
+  "projectPath": ".",
+  "target": {
+    "id": "t18",
+    "kind": "theorem",
+    "environment": "theorem",
+    "title": "Counting attainable ideal sizes",
+    "titleCitations": [],
+    "label": "thm:attainable-count",
+    "body": "\\label{thm:attainable-count}\nThere exists an absolute integer $B_{\\mathrm{cnt}}$ such that, for all integers\n$B\\ge B_{\\mathrm{cnt}}$ and $K$ satisfying\n\\[\n  1\\le K\\le\\frac{(\\log B)^2}{100\\log\\log B},\n\\]\none has\n\\[\n  |\\V(B,K)|\\le2^{B-\\sqrt B}.\n\\]",
+    "start": {
+      "file": "paper/Generating_Antichains_Simplified.tex",
+      "line": 987
+    },
+    "end": {
+      "file": "paper/Generating_Antichains_Simplified.tex",
+      "line": 997
+    },
+    "sectionPath": [
+      "The lower bound as a counting problem"
+    ]
+  },
+  "approvedChanges": [],
+  "correspondence": {
+    "headline": {
+      "requestedStatement": "paper/Generating_Antichains_Simplified.tex:987, thm:attainable-count: “There exists an absolute integer $B_{\\mathrm{cnt}}$ such that, for all integers $B\\ge B_{\\mathrm{cnt}}$ and $K$ satisfying \\[1\\le K\\le\\frac{(\\log B)^2}{100\\log\\log B},\\] one has \\[|\\V(B,K)|\\le2^{B-\\sqrt B}.\\]”",
+      "leanDeclaration": "AntichainOfGivenSize.attainable_count",
+      "leanStatement": "AntichainOfGivenSize/Model/Theorem.lean:44:\ntheorem attainable_count (hprior : Prior) :\n    ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B →\n      (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /\n        (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) →\n      ((Paper.attainableValues B K).card : ℝ) ≤\n        (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ))",
+      "verdict": "formalized",
+      "why": "Read independently, Lean asserts that, given the empty proposition structure Prior, one natural threshold works for every natural B and K satisfying the displayed budget, bounding the number of distinct attainable values by the exact real power 2^(B−√B). This matches the requested mathematics. The paper explicitly specifies base-two logarithms at line 215. Its integer parameters are positive in the relevant range; enlarging either existential threshold to at least 1 makes the natural/integer formulations equivalent. The quantifier order, lower bound 1 on K, constant 100, squared logarithm, iterated logarithm, and unrounded square-root saving all match. The definition and proved membership equivalence identify attainableValues with exact generated-ideal sizes of nonempty families having at most K generators, each of size at most B, over arbitrary finite ambient universes. Deduplication and padding preserve these values; neither an antichain restriction nor a bound n < 2^B is imposed. Prior has no fields and is discharged by ⟨⟩: it is a vacuous modelling artifact, not an additional mathematical premise. Profile load bounds encode the paper's assumptions; zero empty-pattern multiplicity encodes its deletion of unused ground elements. Finiteness and decidable equality instances are representation machinery, not restrictions on the paper's families. Gate 1 therefore agrees. Gate 2 is supported by inspected saved evidence: all 138 recorded source/input hashes match current files, with no unrecorded project Lean files; lake build --wfail has recorded exit code 0 and a successful 3548-job log without sorry warnings; the axiom audit reports only [propext, Classical.choice, Quot.sound] across 124 library modules, including this headline and the membership bridge. Saved closure output succeeds for both statements. The source sweep found no proof holes, custom axioms, native_decide, implemented_by, unsafe, or opaque declarations; the three partial definitions belong to audit tooling. These checks were inspected, not rerun. To reproduce the axiom audit from the project root: lake env lean -DwarningAsError=true scripts/CheckAxioms.lean. Gate 3 is not applicable to this deterministic counting theorem. The separate probability corollary does use a native uniform PMF.",
+      "mismatches": []
+    },
+    "statements": [
+      {
+        "paperRef": "thm:main — paper/Generating_Antichains_Simplified.tex:156",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+        "verdict": "exact",
+        "note": "Model/Theorem.lean:106. Includes the eventual upper bound, density-one lower bound, simultaneous bounds with shared c and C, and extremal order for sufficiently large real cutoffs. The real and natural density formulations express the same paper conclusion. This is a separate result from the selected counting theorem.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "t2 — paper/Generating_Antichains_Simplified.tex:196",
+        "kind": "definition",
+        "leanDeclaration": "AntichainOfGivenSize.generatedIdeal",
+        "verdict": "exact",
+        "note": "Model/ProblemSetting.lean:45 defines the union of powersets. Paper.generatedIdeal_isLowerSet, Paper/BasicResults.lean:13, verifies downward closure using Mathlib's IsLowerSet. AntichainReduction.lean:37,57,80 proves that pruning to maximal generators gives an antichain with the same ideal; this also yields the assertion about minimal generating families. The finite-family setting matches the paper's generating objects.",
+        "headlineDependsOnIt": true
+      },
+      {
+        "paperRef": "t3 — paper/Generating_Antichains_Simplified.tex:204",
+        "kind": "definition",
+        "leanDeclaration": "AntichainOfGivenSize.alpha",
+        "verdict": "generalized",
+        "note": "Model/ProblemSetting.lean:178. The minimum is implemented by natural sInf. BasicLemmas.lean:88,99,103 proves existence, attainment, and minimality, so this is not an empty-infimum surrogate. Lean additionally defines the value at n=0; the paper declares ℕ={1,2,…}.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "lem:splitting — paper/Generating_Antichains_Simplified.tex:240",
+        "kind": "lemma",
+        "leanDeclaration": "AntichainOfGivenSize.alpha_splitting",
+        "verdict": "exact",
+        "note": "Model/Theorem.lean:129. The hypotheses 0<m and 0<n reproduce the paper's explicit positive-natural-number convention at line 192. They are not extra assumptions. The underlying splittingLemma at BasicLemmas.lean:169 additionally permits n=0.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "lem:lifting — paper/Generating_Antichains_Simplified.tex:254",
+        "kind": "lemma",
+        "leanDeclaration": "AntichainOfGivenSize.liftingLemma",
+        "verdict": "generalized",
+        "note": "BasicLemmas.lean:259 proves alpha (2^t*n) ≤ alpha n for all Lean naturals, including zero values excluded by the paper's convention.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:bit-matching — paper/Generating_Antichains_Simplified.tex:276",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.bitMatchingInt",
+        "verdict": "exact",
+        "note": "Paper/Results.lean:37. Quantifies every integer residue y and positive q, with one witness m satisfying positivity, the strict size bound, the congruence modulo 2^(2^q), and alpha m ≤ 2*q.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:fresh-element-separation — paper/Generating_Antichains_Simplified.tex:350",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.BitMatching.fresh_separation",
+        "verdict": "generalized",
+        "note": "Paper/BitMatching.lean:120. For every active-stage set, a fresh vertex g lies in the primary intersection at address i exactly when g is active and i=g. This includes both temporal assertions of the paper and holds for arbitrary active sets. The Boolean pair labels are a relabelling of the paper's even/odd generator indices.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:primary-intersection-size — paper/Generating_Antichains_Simplified.tex:365",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card",
+        "verdict": "generalized",
+        "note": "Paper/BitMatching.lean:162. Gives cardinality i for every active set omitting i, which includes the state immediately before stage i.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:nonprimary-larger — paper/Generating_Antichains_Simplified.tex:387",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.BitMatching.proper_intersection_card",
+        "verdict": "generalized",
+        "note": "Paper/BitMatching.lean:168. Proves the strict inequality for every proper subset of the primary address and every active set omitting i. It also permits the empty query, interpreted as the full finite vertex universe.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:first-upper — paper/Generating_Antichains_Simplified.tex:473",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.firstUpper",
+        "verdict": "exact",
+        "note": "Paper/Results.lean:47 proves the exact interval bound 4*q^2+3, including q=0. Paper.quadraticUpper at line 52 supplies the stated asymptotic consequence.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:block-matching — paper/Generating_Antichains_Simplified.tex:564",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.blockMatching",
+        "verdict": "generalized",
+        "note": "Paper/Results.lean:43, with BlockMatchingStatement expanded in Paper/UpperParameters.lean:26. Proves the existential-constant claim with explicit positive witnesses a=5 and b=3. Every integer residue is covered, and all conclusions concern the same positive m.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:pattern-gadget — paper/Generating_Antichains_Simplified.tex:672",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits",
+        "verdict": "exact",
+        "note": "Paper/PatternGadget.lean:132. The tagged canonical family has ideal cardinality exactly 2^ell+d for d<2^ell. Its initial segments realize the paper's nested subsets, and its distinct tags realize the fresh z_k.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:position-addressing — paper/Generating_Antichains_Simplified.tex:716",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.UpperConstruction.position_intersection",
+        "verdict": "generalized",
+        "note": "Paper/UpperConstructionGeometry.lean:120. Identifies the position-only intersection with the addressed blocks and entire pattern universe. Holds for arbitrary finite pattern families and histories, provided stage i is inactive; the paper's construction is an instance.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:block-increment — paper/Generating_Antichains_Simplified.tex:733",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment",
+        "verdict": "generalized",
+        "note": "Paper/UpperConstructionIncrement.lean:5. States the actual before/after ideal-cardinality difference modulo 2^((i+1)*ell), with sign (-1)^r and factor d*2^(i*ell). It holds for arbitrary histories with inactive i. The proof rewrites the increment as an added cardinality, so natural subtraction does not truncate a negative difference.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "clm:block-final-bounds — paper/Generating_Antichains_Simplified.tex:803",
+        "kind": "claim",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.LiteralUpperParameters.exists_literal_constructed_size_threshold",
+        "verdict": "generalized",
+        "note": "Paper/LiteralUpperParameters.lean:231. Uses the paper's literal floor/ceiling parameters and proves both constants 5 and 3 for the actual constructed ideal. It additionally bounds individual generator sizes and covers every active set and history, hence the final construction.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "lem:direct-reduction — paper/Generating_Antichains_Simplified.tex:851",
+        "kind": "lemma",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.directReduction",
+        "verdict": "exact",
+        "note": "Paper/DirectReduction.lean:107. Preserves positive absolute constants, one threshold, 1≤n'<n, and both bounds on the same witness n'.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:universal-upper — paper/Generating_Antichains_Simplified.tex:909",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.universalUpper_from_five",
+        "verdict": "exact",
+        "note": "Paper/Extremal.lean:19. Covers every n≥5 with a positive absolute constant and the exact base-two scale. The reference immediately before the counting theorem motivates the counting problem; it is not a premise of its proof.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "thm:attainable-count — paper/Generating_Antichains_Simplified.tex:987",
+        "kind": "theorem",
+        "leanDeclaration": "AntichainOfGivenSize.attainable_count",
+        "verdict": "exact",
+        "note": "Model/Theorem.lean:44. This is the selected headline. Its proof supplies all internal numerical conditions through FaithfulLower.exists_paper_counting_threshold, Paper/FaithfulCounting/CompleteCounting.lean:54.",
+        "headlineDependsOnIt": true
+      },
+      {
+        "paperRef": "cor:block-probability — paper/Generating_Antichains_Simplified.tex:1369",
+        "kind": "corollary",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.typicalLowerBound_probability",
+        "verdict": "exact",
+        "note": "Paper/TypicalProbability.lean:50. Uses PMF.uniformOfFinset on the exact half-open dyadic block, the strict event K<alpha n, and the error 2^(1−√B). Its positive threshold ensures a nonempty sample space internally. PMF.toMeasure evaluates this native discrete distribution; it is not an externally supplied probability space. This is a consequence of the headline, not a prerequisite.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "cor:almost-all-order — paper/Generating_Antichains_Simplified.tex:1392",
+        "kind": "corollary",
+        "leanDeclaration": "AntichainOfGivenSize.Paper.realAlmostAllGoodProportion",
+        "verdict": "exact",
+        "note": "Paper/Results.lean:75, with the proposition expanded in Paper/RealDensity.lean:26. Positive shared c,C give the displayed limit for arbitrary real cutoffs. The floor implements the inclusive integer endpoint n≤X.",
+        "headlineDependsOnIt": false
+      },
+      {
+        "paperRef": "t21 — paper/Generating_Antichains_Simplified.tex:1531",
+        "kind": "remark",
+        "leanDeclaration": "AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization",
+        "verdict": "exact",
+        "note": "Paper/FaithfulCounting/ExactClaimBundles.lean:12 proves padding and ground-set normalization, including the derived bound N≤K*B. Together with attainable_count and the membership equivalence, this confirms that no balancedness, intermediate-intersection restriction, or independent ambient-size cap is assumed. This is a normalization fact used in the counting argument, restated later as a remark.",
+        "headlineDependsOnIt": true
+      }
+    ],
+    "auditSurface": [
+      {
+        "declaration": "AntichainOfGivenSize.Model.attainableValues_membership",
+        "file": "AntichainOfGivenSize/Model/Prelude.lean:56",
+        "claims": "For natural B,K,n with K>0, n belongs to attainableValues B K exactly when some finite ambient universe supports a nonempty family of at most K generators, each of size at most B, whose union of powersets has cardinality n.",
+        "paperSays": "At lines 981–986: “For integers $B,K\\ge1$, let … $\\V(B,K):=\\{\\Phi(\\mathcal A): \\mathcal A=(A_1,\\ldots,A_s),\\quad 1\\le s\\le K,\\quad |A_i|\\le B\\text{ for all }i\\}$.” At lines 221–224, Φ is defined as the cardinality of the union of the generators' powersets.",
+        "verdict": "stronger",
+        "why": "Agrees throughout the paper's domain and also handles B=0. The latter gives exactly the size 1 when K>0. Arbitrary finite ambient universes, tuple deduplication, and padding preserve the represented values. The guard K>0 is necessary for this implementation: at K=0 its empty indexed family yields value 0, whereas the paper's nonempty-family condition admits no family. The headline already requires K≥1.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero",
+        "file": "AntichainOfGivenSize/Model/ProblemSetting.lean:103",
+        "claims": "Every bounded profile has multiplicity zero for the empty incidence pattern.",
+        "paperSays": "In the counting proof after line 1009: “Delete ground elements that lie in no generator, and identify the remaining ground set with $[N]$.”",
+        "verdict": "agrees",
+        "why": "This structure-field projection describes the normalized representation, not an additional restriction on the original family. The membership equivalence proves that normalization preserves the entire attainable-value set in the headline's range.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le",
+        "file": "AntichainOfGivenSize/Model/ProblemSetting.lean:104",
+        "claims": "For every generator index of a bounded profile, the sum of multiplicities of incidence patterns containing that index is at most B.",
+        "paperSays": "The definition preceding thm:attainable-count requires “$|A_i|\\le B\\text{ for all }i$.”",
+        "verdict": "agrees",
+        "why": "The load is exactly the cardinality of the canonical generator. This field encodes the paper's stated bound; it adds no balancedness or intersection hypothesis.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.attainable_count",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:44",
+        "claims": "One absolute threshold bounds the number of attainable ideal sizes by 2^(B−√B) for all B above it and all K between 1 and (log₂ B)^2/(100 log₂ log₂ B).",
+        "paperSays": "thm:attainable-count, line 987: “There exists an absolute integer $B_{\\mathrm{cnt}}$ such that, for all integers $B\\ge B_{\\mathrm{cnt}}$ and $K$ satisfying … $1\\le K\\le\\frac{(\\log B)^2}{100\\log\\log B}$, … $|\\V(B,K)|\\le2^{B-\\sqrt B}$.”",
+        "verdict": "agrees",
+        "why": "The threshold is independent of K, all constants and real operations match, and the membership bridge identifies the counted object exactly. Prior is empty and adds no assumption.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:78",
+        "claims": "There are C>0 and a natural threshold n₀≥5 such that alpha n is at most C times the quadratic-log-log scale for every n≥n₀.",
+        "paperSays": "thm:main(i), line 156: “$\\alpha(n)\\le C\\growth{n}$ for every integer $n\\ge n_0$.”",
+        "verdict": "agrees",
+        "why": "This is the first component of the main theorem. Requiring the existential threshold to be at least 5 is harmless enlargement. It is not presented here as the stronger all-n≥5 theorem, which has its own exact counterpart.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_lower_density_one",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:86",
+        "claims": "For some c>0, the proportion of integers 5≤n≤N satisfying c times the quadratic-log-log scale ≤ alpha n tends to 1.",
+        "paperSays": "thm:main(ii), line 156: “the set of integers $n\\ge5$ satisfying $\\alpha(n)\\ge c\\growth{n}$ has natural density $1$.”",
+        "verdict": "agrees",
+        "why": "The finite interval, inequality direction, positive constant, and normalization by N express exactly natural density one. Prior is empty.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:96",
+        "claims": "There are positive lower and upper constants and a real threshold above 4 such that the maximum alpha n over positive integers strictly below X lies between those constants times the scale at X for every larger real X.",
+        "paperSays": "The extremal consequence of thm:main states “for every sufficiently large $X$, $\\max_{1\\le n<X}\\alpha(n)=\\Theta(\\growth{X})$.”",
+        "verdict": "agrees",
+        "why": "maximumBelow uses Finset.Ico 1 ⌈X⌉₊, which includes precisely the positive integers strictly below X. The eventual two-sided bounds expand the paper's Θ notation.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:106",
+        "claims": "Shared positive c,C give an eventual universal upper bound, density-one lower bound, and simultaneous two-sided density-one bounds at natural and real cutoffs; separate positive constants give eventual extremal order below real cutoffs.",
+        "paperSays": "thm:main, line 156, states the eventual upper and density-one lower bounds, followed by “$\\alpha(n)=\\Theta(\\growth{n})$ for almost all positive integers $n$” and “$\\max_{1\\le n<X}\\alpha(n)=\\Theta(\\growth{X})$” for sufficiently large X.",
+        "verdict": "agrees",
+        "why": "All assertions of the main theorem are present. Natural and real cutoff formulations are equivalent expressions of its density conclusion. The extremal constants need not equal the pointwise/density constants in either formulation.",
+        "severity": "note"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_splitting",
+        "file": "AntichainOfGivenSize/Model/Theorem.lean:129",
+        "claims": "For positive natural m and n, alpha(m+n) ≤ alpha m + alpha(n+1), given the vacuous Prior parameter.",
+        "paperSays": "lem:splitting, line 240: “For all $m,n\\in\\mathbb N$, $\\alpha(m+n)\\le\\alpha(m)+\\alpha(n+1)$.” The convention at line 192 is “Throughout the paper, $\\mathbb N=\\{1,2,\\ldots\\}$.”",
+        "verdict": "agrees",
+        "why": "Both positivity hypotheses are paper-stated domain restrictions, not Lean-forced additions. There is no zero-boundary defect to report against this manuscript.",
+        "severity": "note"
+      }
+    ],
+    "unresolved": []
+  },
+  "assumptions": {
+    "verdict": "pass",
+    "assumptions": [
+      {
+        "assumption": "B₀ ≤ B and 1 ≤ K ≤ (log₂ B)² / (100 log₂(log₂ B)).",
+        "where": "AntichainOfGivenSize/Model/Theorem.lean:44",
+        "kind": "binder",
+        "classification": "paper-states-it",
+        "severity": "note",
+        "fix": "None. These are the paper's displayed hypotheses. The existential threshold precedes both universal parameters, so it is independent of K. The paper explicitly adopts base-two logarithms at paper/Generating_Antichains_Simplified.tex:215."
+      },
+      {
+        "assumption": "(hprior : Prior), where Prior has no fields.",
+        "where": "AntichainOfGivenSize/Model/Theorem.lean:44; AntichainOfGivenSize/Model/Prior.lean:22",
+        "kind": "binder",
+        "classification": "modelling-artifact",
+        "severity": "note",
+        "fix": "No mathematical repair needed: Prior is inhabited by ⟨⟩. The proof performs cases hprior and obtains the unconditional counting threshold. Removing this redundant binder would only simplify the interface. There are no borrowed-result or conjecture fields to discharge."
+      },
+      {
+        "assumption": "B₀, B and K are natural numbers rather than integers.",
+        "where": "AntichainOfGivenSize/Model/Theorem.lean:45",
+        "kind": "binder",
+        "classification": "modelling-artifact",
+        "severity": "note",
+        "fix": "None for the requested eventual positive range. Enlarge the existential threshold to at least 1 and convert positive integers to naturals. CompleteCounting.lean:54 already supplies a threshold satisfying 1 ≤ B₀."
+      },
+      {
+        "assumption": "BoundedProfile.atom takes values in Fin (B + 1), and empty_zero requires atom ∅ = 0.",
+        "where": "AntichainOfGivenSize/Model/ProblemSetting.lean:101",
+        "kind": "structure-field",
+        "classification": "modelling-artifact",
+        "severity": "note",
+        "fix": "Already discharged by the representation proofs. Every nonempty Venn atom lies inside a generator and therefore has size at most B; points outside all generators can be removed without changing the generated ideal. BoundedProfiles.lean constructs normalized profiles and proves value preservation. These fields impose no extra restriction on the paper's attainable sizes."
+      },
+      {
+        "assumption": "BoundedProfile.load_le requires each generator's load to be at most B.",
+        "where": "AntichainOfGivenSize/Model/ProblemSetting.lean:104",
+        "kind": "structure-field",
+        "classification": "paper-states-it",
+        "severity": "note",
+        "fix": "None. This encodes |A_i| ≤ B from paper/Generating_Antichains_Simplified.tex:985. The equality between profile load and generator cardinality is proved in LowerBound/BoundedProfiles.lean."
+      },
+      {
+        "assumption": "Fintype and DecidableEq instances used for finite indices, canonical profile points and finite families.",
+        "where": "AntichainOfGivenSize/Model/ProblemSetting.lean:45,53,65,70,73,106,110",
+        "kind": "typeclass",
+        "classification": "modelling-artifact",
+        "severity": "note",
+        "fix": "None. These are computational representation requirements, instantiated internally by finite types and classical equality. No mathematical Nonempty, Fact, order or measurability assumption is imposed on the headline's inputs."
+      },
+      {
+        "assumption": "The membership bridge requires 0 < K and represents a nonempty family G over an existential finite universe Fin N.",
+        "where": "AntichainOfGivenSize/Model/Prelude.lean:56; AntichainOfGivenSize/Paper/Representation.lean:24",
+        "kind": "binder",
+        "classification": "paper-states-it",
+        "severity": "note",
+        "fix": "None. The headline's 1 ≤ K supplies positivity, and G.Nonempty corresponds to 1 ≤ s. N has no upper bound; finite generator unions can be relabelled into Fin N. Empty generators remain allowed. At K = 0 the profile image contains 0 whereas no nonempty family has at most zero generators; that boundary is explicitly outside the paper's domain."
+      }
+    ],
+    "axiomProfile": {
+      "verified": true,
+      "reported": "The supplied fresh elaborator output and the inspected saved outputs agree: 'AntichainOfGivenSize.attainable_count' depends on axioms: [propext, Classical.choice, Quot.sound]. The membership bridge has the same axiom profile. The saved project-wide audit reports 3086 declarations checked across 124 library modules, with only those three axioms. I inspected these outputs and their source provenance; I did not rerun Lean."
+    },
+    "trustedCodeBase": [],
+    "notes": [
+      "Gate 1 — pass, exact mathematical correspondence. Reading the Lean statement independently: one absolute natural threshold works for every sufficiently large B and every positive K within the displayed base-two logarithmic budget; the number of distinct exact generated-ideal sizes is at most the real number 2^(B − √B).",
+      "Paper quotation — thm:attainable-count, paper/Generating_Antichains_Simplified.tex:987: \"There exists an absolute integer $B_{\\mathrm{cnt}}$ such that, for all integers $B\\ge B_{\\mathrm{cnt}}$ and $K$ satisfying \\[ 1\\le K\\le\\frac{(\\log B)^2}{100\\log\\log B}, \\] one has \\[ |\\V(B,K)|\\le2^{B-\\sqrt B}. \\]\"",
+      "Lean quotation — AntichainOfGivenSize.attainable_count, AntichainOfGivenSize/Model/Theorem.lean:44: \"theorem attainable_count (hprior : Prior) : ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B → (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 / (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) → ((Paper.attainableValues B K).card : ℝ) ≤ (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ))\".",
+      "Quantity correspondence: the paper defines Φ as the cardinality of a union of powersets at line 223, and V(B,K) using 1 ≤ s ≤ K and |A_i| ≤ B at lines 981–985. Lean's generatedIdeal uses exactly that union. attainableValues is an image under exact cardinality, so distinct sizes are counted once. Representation.lean:89 proves both directions of the family-membership equivalence. Its proof constructs profiles from arbitrary bounded families and pads by repeating a generator; the reverse direction deduplicates and relabels canonical generators. There is no residue reduction, restriction to values below 2^B, balancedness condition, or extra ambient-size bound.",
+      "Binder and conclusion mapping: B₀ corresponds to B_cnt; B and K retain their universal order and ranges; the two budget conjuncts correspond to the two inequalities in the paper; cardinality is cast to ℝ only for comparison. The constant 100, exponent base 2, and unrounded square-root saving are unchanged. The paper has one conclusion and Lean includes it completely. The empty Prior binder adds no mathematical condition.",
+      "Gate 2 — pass. Checked explicit binders, enclosing sections and variable declarations, instance binders, every field of the structures in the counted quantity, definition arguments, and implicit parameters. No additional auto-bound proposition or substantive input hypothesis was found. The representation and counting assembly discharge their internal conditions instead of exposing them to callers.",
+      "Read-only source searches covered all 129 local Lean files, excluding dependency checkouts. Matches for sorry, sorryAx and custom-axiom terminology were comments or audit implementation text, not unfinished proofs or custom axiom declarations. No native_decide, implemented_by, unsafe or explicit opaque declaration was found. The three partial definitions are traversal helpers in Meta/ModelClosure.lean and Meta/CostSeal.lean; they do not occur in the mathematical statement or proof dependency chain and do not expand its logical trusted code base.",
+      "Verification provenance: I recomputed all 138 SHA-256 entries in .blueprint/verification/checks.json; every hash matched the current files, and every local Lean file was recorded. The manifest records exit code 0 for lake build --wfail, the axiom audit and Model/Theorem.lean elaboration. build.txt ends with 'Build completed successfully (3548 jobs)' and contains no sorry warnings. model-checks.txt records successful statement-closure checks for the headline and membership bridge. These are inspected saved checks, not commands rerun during this review.",
+      "The closure checker traverses declaration types, values and structure constructors. Its saved headline and membership checks report 18 and 17 project constants respectively. The relevant defining chain is in Model/. Its general Arlib.Computation exception is not needed by this counting statement. The empty paper-statements.txt was not treated as proof of success; the separate manifest records that command's exit status, and correspondence was independently checked from source.",
+      "Reproduce the headline axiom profile and closure checks from the project root with: lake env lean -DwarningAsError=true AntichainOfGivenSize/Model/Theorem.lean",
+      "Gate 3 — not-applicable. The requested theorem is a deterministic cardinality bound. Probability vocabulary for separate corollaries does not make this theorem randomized.",
+      "Gates 4–5 are optional follow-up work under the advisory instructions. The requested mapping is thm:attainable-count at paper/Generating_Antichains_Simplified.tex:987 ↔ AntichainOfGivenSize.attainable_count at AntichainOfGivenSize/Model/Theorem.lean:44, correspondence exact. No missing claim was identified for this target. Completeness of counterparts for the paper's other statements was not established by this focused review; they are outside this target's scope, not reported as gaps.",
+      "No statement change or approval inference was needed. This verdict concerns mathematical correspondence and assumptions only; it does not decide theorem lifecycle or authorization."
+    ]
+  },
+  "probability": {
+    "randomized": "no",
+    "why": "The requested theorem states “|\\V(B,K)|\\le2^{B-\\sqrt B}” (paper/Generating_Antichains_Simplified.tex:987). Lean likewise bounds “((Paper.attainableValues B K).card : ℝ)” by “(2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ))” (AntichainOfGivenSize/Model/Theorem.lean:44). Inspection of the source and defining chain establishes a deterministic cardinality claim, with no sampling, probability, or expectation. Probability declarations for the separate dyadic-block corollary do not trigger this gate for the requested theorem.",
+    "denotation": "none",
+    "verdict": "not-applicable",
+    "findings": [],
+    "continuousException": {
+      "claimed": false,
+      "justification": "No continuous sampling occurs in the requested result."
+    }
+  },
+  "unknowns": [],
+  "narrative": "The supplied audit found no mathematical mismatch or additional substantive assumption between the selected counting statement, `thm:attainable-count` at `paper/Generating_Antichains_Simplified.tex:987`, and `AntichainOfGivenSize.attainable_count` at `AntichainOfGivenSize/Model/Theorem.lean:44`. The recorded proof checks also support the Lean result. These are separate conclusions: correspondence rests on inspection of the statement and its definitions; proof status rests on the supplied elaborator output and inspected verification records. The readers did not rerun Lean during this review.\n\nLean preserves the paper’s quantifier order: one absolute threshold works for every sufficiently large B and every K in the stated range. The lower bound K ≥ 1, constant 100, squared logarithm, iterated logarithm, and exact real bound \\(2^{B-\\sqrt B}\\) all agree. Lean explicitly uses base-two logarithms, as the paper specifies at line 215. Its natural-number parameters differ from the paper’s integer parameters only in representation within this eventual positive range; the internal threshold result already supplies a threshold of at least 1.\n\nThe identification of the counted objects is supported by `AntichainOfGivenSize.Model.attainableValues_membership` at `AntichainOfGivenSize/Model/Prelude.lean:56`. For K > 0, it characterizes membership by a nonempty family of at most K generators, each of size at most B, over an arbitrary finite ambient universe. `generatedIdeal` is the union of the generators’ powersets, and `attainableValues` counts distinct exact cardinalities. The representation proofs justify deduplication, padding, and removal of unused ground elements. Consequently, the profile representation adds no antichain requirement, balancedness condition, intermediate-intersection restriction, independent ambient-size cap, or restriction to values below \\(2^B\\).\n\nTwo interface details deserve clarification. The argument `(hprior : Prior)` is vacuous: `Prior` has no fields and is inhabited by `⟨⟩`, so it contributes no mathematical premise. The membership bridge also extends to B = 0, but requires K > 0. At K = 0 the implementation contains the value 0, whereas the paper’s nonempty-family definition admits no family. That difference lies outside the selected theorem’s K ≥ 1 range. The bounded-profile fields and finite-type instances are justified representation machinery, rather than additional hypotheses on the paper’s families.\n\nFor proof verification, the supplied fresh elaborator output and inspected saved outputs agree that the headline declaration and membership bridge depend only on `propext`, `Classical.choice`, and `Quot.sound`. The saved project-wide axiom audit reports the same profile across 3,086 declarations in 124 library modules. All 138 recorded source/input hashes matched the current files, and every local Lean file was recorded. The saved `lake build --wfail` run records exit code 0 and successful completion of 3,548 jobs without `sorry` warnings; saved closure checks also succeeded for the headline and membership bridge. Source inspection found no proof holes or custom axioms. The three partial definitions identified belong to audit tooling and are outside the mathematical proof dependency chain.\n\nThis evidence is specific to the selected counting theorem and its supporting representation. Although the audit records correspondences for other paper statements, the focused review did not establish exhaustive coverage of the paper. The selected theorem is deterministic; the separate probability corollary is a consequence, not a premise.\n\nNo mathematical repair is identified. For a fresh reproduction of the recorded evidence, the audit supplies these commands to run from the project root:\n\n- `lake env lean -DwarningAsError=true AntichainOfGivenSize/Model/Theorem.lean` — headline axiom profile and closure checks.\n- `lake env lean -DwarningAsError=true scripts/CheckAxioms.lean` — project-wide axiom audit.",
+  "claimProgress": {
+    "rows": [
+      {
+        "claimId": "claim:2eae2c90-53c5-4f63-86b5-63a596cd0a3f",
+        "claimVersionId": "claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
+        "label": "One absolute threshold works for every B above it and every K in the exact stated real-log budget, and |V(B,K)| ≤ 2^(B−√B).",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-71f6d228d7ec86f87fde4fb80951ae6aa21ae180ca7da03dda1d4b91d27f3a18"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.attainable_count"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:b1655035-c139-40f1-badf-4f7139a0bca4",
+        "claimVersionId": "claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
+        "label": "V(B,K) consists exactly of numerical ideal sizes from nonempty families of at most K generators of individual size at most B, with no ambient cap.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-e167b838f45bd33fd8f871f2518390e3880b979ac84fd8618941092fe08a74ff"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.Model.attainableValues_membership"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:23ffb6d0-93a7-4c89-922f-32f436f57265",
+        "claimVersionId": "claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
+        "label": "Repeating a final generator and relabelling the active ground set preserve the ideal size and give N ≤ KB.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-f03a03e6d69412082e662beed478607e89416249826466b89a3414036ae5abcd"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:580133b2-18ab-47b3-ba65-7d7b0c458f88",
+        "claimVersionId": "claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
+        "label": "Φ equals the complete signed inclusion–exclusion sum over nonempty queries.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-a2d5f4c3c3e2b4cfab84d072a64a57fbb71b9bc342d19de6ebb1c96f77a40d46"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:43c55239-e4a2-49f5-8856-60ed6dae84df",
+        "claimVersionId": "claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
+        "label": "Each eligible family admits a structural header; there are at most (J+1)K^K possible headers.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-69abdd04b3817fbbd85bb6c868d475d4b85ef3128e307bbe56a5ace159135d78"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.paper_headers"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:1ae6bfc0-31a0-49c8-a8c0-a95ff739ac61",
+        "claimVersionId": "claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+        "label": "The exceptional set has size at most 2Kρ/λ^6 and cluster members agree off it.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-7de3049944a2a38c2cc0940cc3cf45d8f4f3a3f732fb8169c236480c250515f2"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:774b3bc1-4135-4670-bd8a-6edd91a45509",
+        "claimVersionId": "claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
+        "label": "The incidence record and central exponent transcript determine the exact signed central sum Z.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-3b1a5179a0f011d590cf87b8eeebb9a9d5b134035eb3e9b7b6b2f1dc572227ae"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:ba11b244-d5c4-403e-af70-6baa251dcb68",
+        "claimVersionId": "claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
+        "label": "There are at most (KB+1)2^(2K²ρ/λ⁶) incidence records and (B+1)^(2^J(1+K2^h)) central transcripts.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-52e1ca563452a0d7f1aab59c6820da54ecb79b21e03fc963e50f7a8d985109dd"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.paper_record_counts"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:ed5fca89-7fec-42f9-b554-0ed2ef6e7863",
+        "claimVersionId": "claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
+        "label": "Every noncentral exponent is at most B−ρ; the signed tail lies in an interval with at most 2^(B−ρ+K+2) integer values.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-e014e30b3070b2b108d4bd268c7f3645af283624e582a189f460feb17fa11e67"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.paper_tail_bounds"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:970c9edc-e206-4314-90bd-57b6b7c31293",
+        "claimVersionId": "claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
+        "label": "For each header the attainable-value count is bounded by the product of the incidence, transcript and tail-interval counts.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-187ebd399b63dd7a363466cb8bfcb30e1413d0864f14bb369f8070777b870fc0"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:04a370e6-90a4-4114-ba1d-f960b45b2e20",
+        "claimVersionId": "claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
+        "label": "Uniformly in admissible K, Γ≥2^(7λ/10), eventually d≤1/4 and L_rec≤Γ/2, and eventually Γ/4≥√B; summing over headers yields the stronger intermediate bound 2^(B−Γ/4).",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-d3f9919cac2127a7895bcf1872133495fe86130101f136dfa38ea420efad99ab"
+          }
+        },
+        "coverage": "mapped",
+        "mappingConfidence": "validated",
+        "proofSnapshot": "certified",
+        "proof": "proved",
+        "conditions": [],
+        "declarations": [
+          "AntichainOfGivenSize.FaithfulLower.paper_numerics_full"
+        ],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:cf2b83ad-dfa8-4522-a47a-cfc165070638",
+        "claimVersionId": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+        "label": "The existing endpoint proves the exact target with a different, larger clustered record encoding; identify reuse honestly and preserve the correspondence note.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-99a3fd064bfb3680385e5d982b426881bbea5576911e0b2a83e2b270205b3f09"
+          }
+        },
+        "coverage": "excluded",
+        "mappingConfidence": "proposed",
+        "proofSnapshot": "none",
+        "proof": "not-applicable",
+        "conditions": [],
+        "declarations": [],
+        "nearestBlockers": [],
+        "changes": []
+      },
+      {
+        "claimId": "claim:9cde5f15-e6fb-4086-8551-a1c1440a0acd",
+        "claimVersionId": "claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
+        "label": "This target asserts no probabilistic or computational resource result; the following uniformly sampled dyadic corollary is separate.",
+        "source": {
+          "kind": "resolved",
+          "anchor": {
+            "file": "paper/Generating_Antichains_Simplified.tex",
+            "excerptDigest": "sha256-78646172a2b7b802946c63e2c972a6303f6db31121cd428f6dd2fdb03d02448e"
+          }
+        },
+        "coverage": "excluded",
+        "mappingConfidence": "proposed",
+        "proofSnapshot": "none",
+        "proof": "not-applicable",
+        "conditions": [],
+        "declarations": [],
+        "nearestBlockers": [],
+        "changes": []
+      }
+    ],
+    "coverageCounts": {
+      "mapped": 11,
+      "unmapped": 0,
+      "pending-review": 0,
+      "unsupported": 0,
+      "disputed": 0,
+      "excluded": 2,
+      "stale": 0
+    },
+    "proofCounts": {
+      "proved": 11,
+      "proved-conditional": 0,
+      "candidate-closed": 0,
+      "assembled": 0,
+      "implemented": 0,
+      "open": 0,
+      "blocked": 0,
+      "assumed-instead": 0,
+      "refuted": 0,
+      "not-applicable": 2,
+      "unknown": 0
+    },
+    "complete": false,
+    "whollyProved": false
+  }
+}

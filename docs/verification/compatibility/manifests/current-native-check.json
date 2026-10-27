@@ -1,0 +1,125 @@
+{
+  "schema": "antichain.current-native-mechanical-check/1",
+  "recordedAtUTC": "2026-10-27T06:57:53.158806+00:00",
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "sourceCommit": "420d09b23a8449bf144b3a0d391331e899292e5f",
+  "runtime": "v17-main",
+  "sessionId": 6885,
+  "command": "/check",
+  "overall": "FAILED",
+  "failedRules": [
+    "surface-states",
+    "hypothesis-is-in-the-bundle"
+  ],
+  "actualLog": {
+    "path": "logs/native-check-after-helper-20261027.txt",
+    "sha256": "e0b6acb16b1013f9563572980a8461ca95c761a589edd728c8be34f99ef3e56b"
+  },
+  "rawCapture": {
+    "path": "manifests/native-check-raw-chunks.json",
+    "sha256": "23445a2988a85f3a1be9b2f0665088cb5088e48162ecd35c581f713cc1e3dfc3",
+    "chunkCount": 8,
+    "normalizedConcatenationMatchesLog": true,
+    "normalization": "CRLF and remaining CR to LF; exactly one trailing newline"
+  },
+  "passingChecks": {
+    "build": true,
+    "noSorryWarnings": true,
+    "headlineAmbientAxiomRoots": 37,
+    "noSorryAdmitNativeDecideOrAxiomInSources": true,
+    "closure": true,
+    "layout": true,
+    "modelFiles": 4,
+    "sealInvocations": true
+  },
+  "surfaceStates": {
+    "nativeDisplayedEntries": 5,
+    "isolatedUnchangedHeuristicAffectedCount": 6,
+    "eachActualBodyIsOneExact": true,
+    "reproduction": "heuristic/reproduction.json",
+    "affectedWrappers": [
+      {
+        "file": "AntichainOfGivenSize/Model/Prelude.lean",
+        "line": 56,
+        "declaration": "attainableValues_membership",
+        "lines": 5,
+        "actualProofLines": [
+          "exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership (B := B) (K := K) (n := n) hK"
+        ]
+      },
+      {
+        "file": "AntichainOfGivenSize/Model/Theorem.lean",
+        "line": 44,
+        "declaration": "attainable_count",
+        "lines": 6,
+        "actualProofLines": [
+          "exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableCount hprior"
+        ]
+      },
+      {
+        "file": "AntichainOfGivenSize/Model/Theorem.lean",
+        "line": 78,
+        "declaration": "alpha_eventual_upper",
+        "lines": 4,
+        "actualProofLines": [
+          "exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper hprior"
+        ]
+      },
+      {
+        "file": "AntichainOfGivenSize/Model/Theorem.lean",
+        "line": 86,
+        "declaration": "alpha_lower_density_one",
+        "lines": 6,
+        "actualProofLines": [
+          "exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne hprior"
+        ]
+      },
+      {
+        "file": "AntichainOfGivenSize/Model/Theorem.lean",
+        "line": 96,
+        "declaration": "alpha_maximum_order",
+        "lines": 5,
+        "actualProofLines": [
+          "exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder hprior"
+        ]
+      },
+      {
+        "file": "AntichainOfGivenSize/Model/Theorem.lean",
+        "line": 106,
+        "declaration": "alpha_asymptotic_order",
+        "lines": 19,
+        "actualProofLines": [
+          "exact Analysis.TheoremProof.alphaAsymptoticOrder hprior (alpha_simultaneous_density_one hprior)"
+        ]
+      }
+    ]
+  },
+  "hypothesisBundle": {
+    "affectedDeclarations": [
+      "AntichainOfGivenSize.FaithfulLower.paper_headers",
+      "AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement",
+      "AntichainOfGivenSize.FaithfulLower.paper_record_counts",
+      "AntichainOfGivenSize.FaithfulLower.paper_tail_bounds"
+    ],
+    "dataType": "BoundedProfile K B",
+    "fields": [
+      "empty_zero",
+      "load_le"
+    ],
+    "interpretation": "These fields encode the paper domain: unused ground elements are removed and each generating set has size at most B. The proved membership equivalence connects this representation to attainable ideal sizes. This explanation does not change the recorded native failure."
+  },
+  "topDownWarning": {
+    "provedDeclarations": 104,
+    "files": 8,
+    "capstoneReachesFiles": 117,
+    "interpretation": "The warning describes the selected capstone import closure; it is separate from full-project build and axiom checks and is retained unsuppressed."
+  },
+  "packagingActions": {
+    "nativeWorkflowExecuted": false,
+    "compilerExecuted": false,
+    "repositoryEdited": false,
+    "checkerChanged": false,
+    "regressionSuitesRerun": false,
+    "isolatedPureHeuristicReproductionPerformed": true
+  }
+}

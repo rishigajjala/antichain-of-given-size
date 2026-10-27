@@ -1,0 +1,220 @@
+{
+  "checkedAtUTC": "2026-10-27T04:38:02.275431+00:00",
+  "node": "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "nativeInput": "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+  "nativeInputSha256": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7",
+  "results": [
+    {
+      "suite": "test-adapter.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-extension.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-future-surface-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-inspection-prompt.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-integration.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-lifecycle-ui.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-stale-refresh.cjs",
+      "exitCode": 0
+    },
+    {
+      "suite": "test-surface-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "adapter.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "cli-helpers.js",
+      "exitCode": 0
+    },
+    {
+      "syntax": "extend.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "future-surface-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "inspection-prompt.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "lifecycle-ui.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "native-host.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "patch.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "surface-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-adapter.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-extension.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-future-surface-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-inspection-prompt.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-integration.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-lifecycle-ui.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-stale-refresh.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "test-surface-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "syntax": "validator-loop.cjs",
+      "exitCode": 0
+    }
+  ],
+  "files": {
+    "README.md": "fcef58659e486eec92e4abd6eb59a0fa4cf04a7ae0928f3eb2d90b28b2aeea1a",
+    "adapter.cjs": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+    "cli-helpers.js": "b9c0abbda1a485cd4395246e1dc4f2711358e61771852c983c77970667f29bf0",
+    "extend.cjs": "d7460b11c506f8f8bf716ac6e8b65bba46bea580c38f1b9059c3695044883088",
+    "future-surface-review.cjs": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+    "inspection-prompt.cjs": "79a4221ae289edaab656ab572525c52a7f3bbfa246916760e9f8e18dd8f0692c",
+    "lifecycle-ui.cjs": "6966b1925037a99a668a112776e0a1e5d626b89decf16d5c9f8dd3aa27f41c6a",
+    "native-host.cjs": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4",
+    "patch.cjs": "47f69a7261eb8fe7b653d8ff8c14120afb7fdc942752ed46753d259514d38356",
+    "surface-review.cjs": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+    "test-adapter.cjs": "33b303524d0a25d7ef92a09a6994cb6ca1d6f5acdf48a019404d2970abd4ece6",
+    "test-extension.cjs": "ef4381273490816ec16cae0e33c193aa4691ba3a3f66703b706321255bd467bb",
+    "test-future-surface-review.cjs": "bb021166a1958e3dee2aea6ef6583e7deea6d587e33bd95ebfdb828723129039",
+    "test-inspection-prompt.cjs": "63946e0acc2eb9cc736303f3b1c3c671408d29b783b896bd103899fa389ce885",
+    "test-integration.cjs": "9f4e6a8174b3e9eb5d0d3087ccd7dc1cd14b155f7c119e92e4df9647a51dab91",
+    "test-lifecycle-ui.cjs": "0ee43e32b69996bfff89c7eb898803f6e955c640271fc759da2b99fa79d464ca",
+    "test-stale-refresh.cjs": "06d4737e27bbcd8ae69de582b8948c072d3e0dbda8301918f381e8b2ac44c9cb",
+    "test-surface-review.cjs": "984a97af241575063eab81ad160b10169671f8fbb968635a449b2a7b8ad6fa3f",
+    "validator-loop.cjs": "49ab648ec550e5b8156b85aebabfc6e061f1b43cfc4d67da486a5e7f329605d1"
+  },
+  "builds": {
+    "main": {
+      "output": "/tmp/antichain-tex2lean-compat-20261027-v17-main",
+      "command": [
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/tmp/antichain-stale-refresh-20261027/extensions/extend.cjs",
+        "--input",
+        "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+        "--output",
+        "/tmp/antichain-tex2lean-compat-20261027-v17-main",
+        "--node",
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--ledger-authority-pin",
+        "sha256-03dbcb6c57b02318f694ef98d20d2474e8b93d79c733995435587a87fa77fc3d",
+        "--lifecycle-ui-fixes",
+        "true"
+      ],
+      "manifestSha256": "eb63abffaab32e6888fab73f0cc8011973138ffb7cb8d72dfa560d6654cab4f0",
+      "bundleSha256": "3ad5d8e73e524e1f24618c01718857e4d0aba12eacab6ad7979bfbb5e62f2ed0",
+      "supportModules": {
+        "adapter.cjs": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+        "surface-review.cjs": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+        "future-surface-review.cjs": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+        "native-host.cjs": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4"
+      },
+      "unchanged": {
+        "ModelClosure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "CostSeal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a",
+        "native-ledger-replay-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-binding-validator-loop": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298"
+      },
+      "lifecycleUnchanged": {
+        "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+        "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+        "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+        "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-interface-certifier": "57e4baf3039b8bff0c33a0d13e66b78218298500c2308c0b572e132e85f4e9e6",
+        "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+      }
+    },
+    "counting": {
+      "output": "/tmp/antichain-tex2lean-compat-20261027-v17-counting",
+      "command": [
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/tmp/antichain-stale-refresh-20261027/extensions/extend.cjs",
+        "--input",
+        "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+        "--output",
+        "/tmp/antichain-tex2lean-compat-20261027-v17-counting",
+        "--node",
+        "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--ledger-authority-pin",
+        "sha256-f86c8538d13009c13d27b9f7403dfab4ea0b2c1afb046683558f4c1bab19079f",
+        "--lifecycle-ui-fixes",
+        "true"
+      ],
+      "manifestSha256": "83cf771d815b9ca11536dca1a2a40a87878a40d52e3e25a248af4408aec2519f",
+      "bundleSha256": "f3c83567f9b8d50dcc8aaa935024a6a264ca1dda519420f5a29d6c02106bbee6",
+      "supportModules": {
+        "adapter.cjs": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+        "surface-review.cjs": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+        "future-surface-review.cjs": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+        "native-host.cjs": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4"
+      },
+      "unchanged": {
+        "ModelClosure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "CostSeal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a",
+        "native-ledger-replay-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-binding-validator-loop": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298"
+      },
+      "lifecycleUnchanged": {
+        "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+        "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+        "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+        "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+        "native-interface-certifier": "57e4baf3039b8bff0c33a0d13e66b78218298500c2308c0b572e132e85f4e9e6",
+        "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+        "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+      }
+    }
+  },
+  "runtimeExecuted": false,
+  "compilerExecuted": false,
+  "realLedgerMutated": false,
+  "repositoryChanged": false,
+  "nativeValidatorChanged": false
+}
