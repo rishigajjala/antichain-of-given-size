@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
-  "slug": "lem-splitting-zz89cu",
-  "updatedAt": "2026-10-27T04:11:47.155Z",
+  "slug": "thm-main-db8crq",
+  "updatedAt": "2026-10-27T04:29:09.557Z",
   "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "buildFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "dependencyFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-27T04:11:47.155Z",
+  "elaboratedAt": "2026-10-27T04:29:09.557Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -127,14 +127,13 @@
     "AntichainOfGivenSize.Section6.Survivors",
     "AntichainOfGivenSize.Theorem"
   ],
-  "round": 1,
   "target": {
-    "key": "label:lem:splitting",
-    "id": "t4",
-    "title": "Splitting Lemma",
-    "label": "lem:splitting",
-    "location": "paper/Generating_Antichains_Simplified.tex:240",
-    "paperDigest": "03f2dc59f6da"
+    "key": "label:thm:main",
+    "id": "t1",
+    "title": "Main theorem",
+    "label": "thm:main",
+    "location": "paper/Generating_Antichains_Simplified.tex:156",
+    "paperDigest": "7a4bf6274170"
   },
   "nodes": [
     {
@@ -1823,14 +1822,14 @@
       "line": 11,
       "declaration": "AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
       "statementKind": "theorem",
-      "role": "author-statement",
+      "role": "supporting-lemma",
       "header": "theorem AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting (hprior : AntichainOfGivenSize.Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : AntichainOfGivenSize.alpha (m + n) ≤ AntichainOfGivenSize.alpha m + AntichainOfGivenSize.alpha (n + 1) := by",
       "references": [
         "AntichainOfGivenSize.Prior",
         "AntichainOfGivenSize.alpha",
         "AntichainOfGivenSize.splittingLemma"
       ],
-      "status": "proved",
+      "status": "closed",
       "inAuditSurface": false,
       "hasSorry": false,
       "paperRefs": [
@@ -34111,26 +34110,116 @@
       "paperRefs": []
     },
     {
-      "id": "mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "id": "mapping-claim:claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
       "kind": "paper-claim",
-      "label": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
+      "label": "For an absolute c > 0, the integers n >= 5 with c f(n) <= alpha(n) have natural density 1; c is chosen independently of all n and cutoffs.",
       "status": "unknown",
-      "mappingId": "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "mappingId": "claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
       "file": "paper/Generating_Antichains_Simplified.tex"
     },
     {
-      "id": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
-      "kind": "obligation",
-      "label": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
-      "status": "open",
-      "mappingId": "obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d"
+      "id": "mapping-claim:claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "kind": "paper-claim",
+      "label": "There exist a,A > 0 and X_0 > 4 such that a f(X) <= max_{1<=n<X} alpha(n) <= A f(X) for every real X >= X_0.",
+      "status": "unknown",
+      "mappingId": "claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "file": "paper/Generating_Antichains_Simplified.tex"
     },
     {
-      "id": "mapping-target:target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "id": "mapping-claim:claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "kind": "paper-claim",
+      "label": "For X >= 0, realGoodInputs c C X consists exactly of the integers n with 5 <= n <= X satisfying both non-strict bounds.",
+      "status": "unknown",
+      "mappingId": "claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "file": "paper/Generating_Antichains_Simplified.tex"
+    },
+    {
+      "id": "mapping-claim:claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "kind": "paper-claim",
+      "label": "A density-zero count of orderExceptions is equivalent to the density-one goodInputs proportion, and the natural-cutoff good proportion gives the same real-cutoff proportion.",
+      "status": "unknown",
+      "mappingId": "claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "file": "paper/Generating_Antichains_Simplified.tex"
+    },
+    {
+      "id": "mapping-claim:claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "kind": "paper-claim",
+      "label": "For X > 1, maximumBelow X is the maximum of alpha(n) over exactly the positive integers n < X.",
+      "status": "unknown",
+      "mappingId": "claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "file": "paper/Generating_Antichains_Simplified.tex"
+    },
+    {
+      "id": "mapping-claim:claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "kind": "paper-claim",
+      "label": "For fixed positive absolute c and C, the simultaneous inequalities c f(n) <= alpha(n) <= C f(n) hold on a set of positive integers of natural density 1.",
+      "status": "unknown",
+      "mappingId": "claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "file": "paper/Generating_Antichains_Simplified.tex"
+    },
+    {
+      "id": "mapping-claim:claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "kind": "paper-claim",
+      "label": "There exist absolute C > 0 and an integer n_0 such that alpha(n) <= C f(n) for every integer n >= n_0.",
+      "status": "unknown",
+      "mappingId": "claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "file": "paper/Generating_Antichains_Simplified.tex"
+    },
+    {
+      "id": "mapping-obligation:obligation:038389cd-6a08-4f02-beb4-d6c6721caa84",
+      "kind": "obligation",
+      "label": "A density-zero count of orderExceptions is equivalent to the density-one goodInputs proportion, and the natural-cutoff good proportion gives the same real-cutoff proportion.",
+      "status": "open",
+      "mappingId": "obligation:038389cd-6a08-4f02-beb4-d6c6721caa84"
+    },
+    {
+      "id": "mapping-obligation:obligation:277e247f-4fef-4ca4-9c6e-a9eea2cbcdc2",
+      "kind": "obligation",
+      "label": "For X >= 0, realGoodInputs c C X consists exactly of the integers n with 5 <= n <= X satisfying both non-strict bounds.",
+      "status": "open",
+      "mappingId": "obligation:277e247f-4fef-4ca4-9c6e-a9eea2cbcdc2"
+    },
+    {
+      "id": "mapping-obligation:obligation:2eb4ed80-2142-4c64-9844-8068dd22ba8c",
+      "kind": "obligation",
+      "label": "For an absolute c > 0, the integers n >= 5 with c f(n) <= alpha(n) have natural density 1; c is chosen independently of all n and cutoffs.",
+      "status": "open",
+      "mappingId": "obligation:2eb4ed80-2142-4c64-9844-8068dd22ba8c"
+    },
+    {
+      "id": "mapping-obligation:obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b",
+      "kind": "obligation",
+      "label": "For X > 1, maximumBelow X is the maximum of alpha(n) over exactly the positive integers n < X.",
+      "status": "open",
+      "mappingId": "obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b"
+    },
+    {
+      "id": "mapping-obligation:obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7",
+      "kind": "obligation",
+      "label": "There exist a,A > 0 and X_0 > 4 such that a f(X) <= max_{1<=n<X} alpha(n) <= A f(X) for every real X >= X_0.",
+      "status": "open",
+      "mappingId": "obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7"
+    },
+    {
+      "id": "mapping-obligation:obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666",
+      "kind": "obligation",
+      "label": "For fixed positive absolute c and C, the simultaneous inequalities c f(n) <= alpha(n) <= C f(n) hold on a set of positive integers of natural density 1.",
+      "status": "open",
+      "mappingId": "obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666"
+    },
+    {
+      "id": "mapping-obligation:obligation:95f3a780-de19-4e7c-8daa-704335dec5fa",
+      "kind": "obligation",
+      "label": "There exist absolute C > 0 and an integer n_0 such that alpha(n) <= C f(n) for every integer n >= n_0.",
+      "status": "open",
+      "mappingId": "obligation:95f3a780-de19-4e7c-8daa-704335dec5fa"
+    },
+    {
+      "id": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
       "kind": "paper-target",
-      "label": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "label": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
       "status": "target",
-      "mappingId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d"
+      "mappingId": "target-version:76e9dd83-3247-4599-9260-572210e5154d"
     },
     {
       "id": "paper:paper/Generating_Antichains_Simplified.tex",
@@ -34163,6 +34252,18 @@
       ]
     },
     {
+      "id": "paper:paper/Generating_Antichains_Simplified.tex:156",
+      "kind": "paper",
+      "label": "Main theorem",
+      "file": "paper/Generating_Antichains_Simplified.tex",
+      "line": 156,
+      "status": "target",
+      "paperRefs": [
+        "paper/Generating_Antichains_Simplified.tex:156",
+        "thm:main"
+      ]
+    },
+    {
       "id": "paper:paper/Generating_Antichains_Simplified.tex:166",
       "kind": "paper",
       "label": "paper/Generating_Antichains_Simplified.tex:166",
@@ -34188,10 +34289,9 @@
       "label": "paper/Generating_Antichains_Simplified.tex:240",
       "file": "paper/Generating_Antichains_Simplified.tex",
       "line": 240,
-      "status": "target",
+      "status": "external",
       "paperRefs": [
-        "paper/Generating_Antichains_Simplified.tex:240",
-        "lem:splitting"
+        "paper/Generating_Antichains_Simplified.tex:240"
       ]
     },
     {
@@ -34275,12 +34375,6 @@
   ],
   "edges": [
     {
-      "from": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
-      "to": "lean:AntichainOfGivenSize.alpha_splitting",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d->lean:AntichainOfGivenSize.alpha_splitting"
-    },
-    {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
       "to": "paper:paper/Generating_Antichains_Simplified.tex:909",
       "kind": "cites",
@@ -34329,10 +34423,46 @@
       "id": "cites:file:AntichainOfGivenSize/Paper/Statements.lean->paper:paper/Generating_Antichains_Simplified.tex"
     },
     {
-      "from": "mapping-target:target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
-      "to": "mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
       "kind": "contains",
-      "id": "contains:mapping-target:target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d->mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486"
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a"
+    },
+    {
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "kind": "contains",
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4"
+    },
+    {
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "kind": "contains",
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c"
+    },
+    {
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "kind": "contains",
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75"
+    },
+    {
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "kind": "contains",
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5"
+    },
+    {
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "kind": "contains",
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922"
+    },
+    {
+      "from": "mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "to": "mapping-claim:claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "kind": "contains",
+      "id": "contains:mapping-target:target-version:76e9dd83-3247-4599-9260-572210e5154d->mapping-claim:claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda"
     },
     {
       "from": "lean:AntichainOfGivenSize.adjoinRightEmbedding",
@@ -85017,11 +85147,32 @@
       "id": "depends-on:lean:AntichainOfGivenSize.VennProfile.VennProfileObstructionInfinitelyOften->lean:AntichainOfGivenSize.VennProfile.superLogLogPowerScale"
     },
     {
-      "from": "lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
-      "to": "lean:AntichainOfGivenSize.alpha_splitting",
+      "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper",
+      "to": "lean:AntichainOfGivenSize.alpha_eventual_upper",
       "kind": "discharges",
       "label": "proof-side declaration discharges audit-surface wrapper",
-      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting->lean:AntichainOfGivenSize.alpha_splitting"
+      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper->lean:AntichainOfGivenSize.alpha_eventual_upper"
+    },
+    {
+      "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne",
+      "to": "lean:AntichainOfGivenSize.alpha_lower_density_one",
+      "kind": "discharges",
+      "label": "proof-side declaration discharges audit-surface wrapper",
+      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne->lean:AntichainOfGivenSize.alpha_lower_density_one"
+    },
+    {
+      "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder",
+      "to": "lean:AntichainOfGivenSize.alpha_maximum_order",
+      "kind": "discharges",
+      "label": "proof-side declaration discharges audit-surface wrapper",
+      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder->lean:AntichainOfGivenSize.alpha_maximum_order"
+    },
+    {
+      "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
+      "to": "lean:AntichainOfGivenSize.alpha_simultaneous_density_one",
+      "kind": "discharges",
+      "label": "proof-side declaration discharges audit-surface wrapper",
+      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne->lean:AntichainOfGivenSize.alpha_simultaneous_density_one"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
@@ -86525,12 +86676,6 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
-      "to": "paper:paper/Generating_Antichains_Simplified.tex:240",
-      "kind": "renders",
-      "id": "renders:lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting->paper:paper/Generating_Antichains_Simplified.tex:240"
-    },
-    {
-      "from": "lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
       "to": "paper:paper/Generating_Antichains_Simplified.tex:240–252",
       "kind": "renders",
       "id": "renders:lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting->paper:paper/Generating_Antichains_Simplified.tex:240–252"
@@ -86548,15 +86693,51 @@
       "id": "renders:lean:AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership->paper:paper/Generating_Antichains_Simplified.tex:981-986"
     },
     {
-      "from": "mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
-      "to": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
+      "from": "mapping-claim:claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
+      "to": "mapping-obligation:obligation:2eb4ed80-2142-4c64-9844-8068dd22ba8c",
       "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486->mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d"
+      "id": "requires:mapping-claim:claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a->mapping-obligation:obligation:2eb4ed80-2142-4c64-9844-8068dd22ba8c"
+    },
+    {
+      "from": "mapping-claim:claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "to": "mapping-obligation:obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7",
+      "kind": "requires",
+      "id": "requires:mapping-claim:claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4->mapping-obligation:obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7"
+    },
+    {
+      "from": "mapping-claim:claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "to": "mapping-obligation:obligation:277e247f-4fef-4ca4-9c6e-a9eea2cbcdc2",
+      "kind": "requires",
+      "id": "requires:mapping-claim:claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c->mapping-obligation:obligation:277e247f-4fef-4ca4-9c6e-a9eea2cbcdc2"
+    },
+    {
+      "from": "mapping-claim:claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "to": "mapping-obligation:obligation:038389cd-6a08-4f02-beb4-d6c6721caa84",
+      "kind": "requires",
+      "id": "requires:mapping-claim:claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75->mapping-obligation:obligation:038389cd-6a08-4f02-beb4-d6c6721caa84"
+    },
+    {
+      "from": "mapping-claim:claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "to": "mapping-obligation:obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b",
+      "kind": "requires",
+      "id": "requires:mapping-claim:claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5->mapping-obligation:obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b"
+    },
+    {
+      "from": "mapping-claim:claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "to": "mapping-obligation:obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666",
+      "kind": "requires",
+      "id": "requires:mapping-claim:claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922->mapping-obligation:obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666"
+    },
+    {
+      "from": "mapping-claim:claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "to": "mapping-obligation:obligation:95f3a780-de19-4e7c-8daa-704335dec5fa",
+      "kind": "requires",
+      "id": "requires:mapping-claim:claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda->mapping-obligation:obligation:95f3a780-de19-4e7c-8daa-704335dec5fa"
     }
   ],
   "attempts": [],
   "feedback": [],
   "recoveries": [],
   "recoveryFindings": [],
-  "mappingDigest": "sha256-97b80df8cd3efdfce88f87bd5714849e27553f137806f5815bb42702f34b57fd"
+  "mappingDigest": "sha256-0c916a0e627288f8612195aecf2d39bb41be7d147cc255ae574bf94b1099acc3"
 }
