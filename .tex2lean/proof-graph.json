@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
   "slug": "lem-splitting-zz89cu",
-  "updatedAt": "2026-10-27T01:56:50.414Z",
-  "sourceFingerprint": "sha256:f2d9f3bc3bc70649defa309fa1844d974f2b17422b858202ab34f3a09c1bc07d",
-  "buildFingerprint": "sha256:f2d9f3bc3bc70649defa309fa1844d974f2b17422b858202ab34f3a09c1bc07d",
-  "dependencyFingerprint": "sha256:f2d9f3bc3bc70649defa309fa1844d974f2b17422b858202ab34f3a09c1bc07d",
+  "updatedAt": "2026-10-27T04:11:47.155Z",
+  "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+  "buildFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+  "dependencyFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-27T01:56:50.414Z",
+  "elaboratedAt": "2026-10-27T04:11:47.155Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -65,11 +65,9 @@
     "AntichainOfGivenSize.MainTheorems",
     "AntichainOfGivenSize.MatchingParameters",
     "AntichainOfGivenSize.Meta.ModelClosure",
-    "AntichainOfGivenSize.Model.CountingVocabulary",
-    "AntichainOfGivenSize.Model.MainVocabulary",
     "AntichainOfGivenSize.Model.Prelude",
     "AntichainOfGivenSize.Model.Prior",
-    "AntichainOfGivenSize.Model.ProbabilityVocabulary",
+    "AntichainOfGivenSize.Model.ProblemSetting",
     "AntichainOfGivenSize.Model.Theorem",
     "AntichainOfGivenSize.Paper.AlmostAll",
     "AntichainOfGivenSize.Paper.BasicResults",
@@ -656,24 +654,6 @@
       "paperRefs": []
     },
     {
-      "id": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "kind": "file",
-      "label": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "module": "AntichainOfGivenSize.Model.CountingVocabulary",
-      "status": "unknown",
-      "paperRefs": []
-    },
-    {
-      "id": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "kind": "file",
-      "label": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "module": "AntichainOfGivenSize.Model.MainVocabulary",
-      "status": "unknown",
-      "paperRefs": []
-    },
-    {
       "id": "file:AntichainOfGivenSize/Model/Prelude.lean",
       "kind": "file",
       "label": "AntichainOfGivenSize/Model/Prelude.lean",
@@ -692,11 +672,11 @@
       "paperRefs": []
     },
     {
-      "id": "file:AntichainOfGivenSize/Model/ProbabilityVocabulary.lean",
+      "id": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "file",
-      "label": "AntichainOfGivenSize/Model/ProbabilityVocabulary.lean",
-      "file": "AntichainOfGivenSize/Model/ProbabilityVocabulary.lean",
-      "module": "AntichainOfGivenSize.Model.ProbabilityVocabulary",
+      "label": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "module": "AntichainOfGivenSize.Model.ProblemSetting",
       "status": "unknown",
       "paperRefs": []
     },
@@ -1246,8 +1226,8 @@
       "id": "lean:AntichainOfGivenSize.alpha",
       "kind": "lean",
       "label": "AntichainOfGivenSize.alpha",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "line": 32,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 178,
       "declaration": "AntichainOfGivenSize.alpha",
       "statementKind": "def",
       "role": "definition",
@@ -1328,6 +1308,7 @@
         "AntichainOfGivenSize.Paper.realGoodInputs",
         "AntichainOfGivenSize.Prior",
         "AntichainOfGivenSize.alpha",
+        "AntichainOfGivenSize.alpha_simultaneous_density_one",
         "AntichainOfGivenSize.quadraticLogLogScale"
       ],
       "status": "proved",
@@ -1839,7 +1820,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
       "file": "AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "line": 22,
+      "line": 11,
       "declaration": "AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
       "statementKind": "theorem",
       "role": "author-statement",
@@ -1909,12 +1890,11 @@
       "declaration": "AntichainOfGivenSize.Analysis.TheoremProof.alphaAsymptoticOrder",
       "statementKind": "theorem",
       "role": "supporting-lemma",
-      "header": "theorem Analysis.TheoremProof.alphaAsymptoticOrder (hprior : Prior) : (∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧ (∀ n : ℕ, n₀ ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) ∧ Filter.Tendsto (fun N : ℕ ↦ (((Finset.Icc 5 N).filter fun n : ℕ ↦ c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X) Filter.atTop (nhds 1)) ∧ (∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧ ∀ X : ℝ, X₀ ≤ X → a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧ (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X) := by",
+      "header": "theorem Analysis.TheoremProof.alphaAsymptoticOrder (hprior : Prior) (hsimultaneous : ∀ (c C : ℝ) (n₀ : ℕ), (∀ n : ℕ, n₀ ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) → Filter.Tendsto (fun N : ℕ ↦ (((Finset.Icc 5 N).filter fun n : ℕ ↦ c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) → Filter.Tendsto (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X) Filter.atTop (nhds 1)) : (∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧ (∀ n : ℕ, n₀ ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) ∧ Filter.Tendsto (fun N : ℕ ↦ (((Finset.Icc 5 N).filter fun n : ℕ ↦ c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X) Filter.atTop (nhds 1)) ∧ (∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧ ∀ X : ℝ, X₀ ≤ X → a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧ (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X) := by",
       "references": [
         "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper",
         "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne",
         "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder",
-        "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
         "AntichainOfGivenSize.Paper.goodInputs",
         "AntichainOfGivenSize.Paper.maximumBelow",
         "AntichainOfGivenSize.Paper.realGoodInputs",
@@ -7566,8 +7546,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 66,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 87,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
       "statementKind": "def",
       "role": "definition",
@@ -7582,8 +7562,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 80,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 101,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
       "statementKind": "inductive",
       "role": "definition",
@@ -7598,8 +7578,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 81,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 102,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
       "statementKind": "def",
       "role": "definition",
@@ -7641,8 +7621,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 82,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 103,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -7814,8 +7794,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 83,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 104,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -7834,8 +7814,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 80,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 101,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion",
       "statementKind": "def",
       "role": "definition",
@@ -7990,8 +7970,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 93,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 114,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
       "statementKind": "def",
       "role": "definition",
@@ -8051,8 +8031,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 98,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 119,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value",
       "statementKind": "def",
       "role": "definition",
@@ -8395,8 +8375,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.boundedValues",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.boundedValues",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 110,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 131,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.boundedValues",
       "statementKind": "def",
       "role": "definition",
@@ -10002,8 +9982,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.instDecidableEqBoundedProfile",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.instDecidableEqBoundedProfile",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 89,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 110,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.instDecidableEqBoundedProfile",
       "statementKind": "def",
       "role": "definition",
@@ -10074,8 +10054,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 85,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 106,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile",
       "statementKind": "def",
       "role": "definition",
@@ -11862,8 +11842,8 @@
       "id": "lean:AntichainOfGivenSize.ClusterLowerBound.profileLoad",
       "kind": "lean",
       "label": "AntichainOfGivenSize.ClusterLowerBound.profileLoad",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 71,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 92,
       "declaration": "AntichainOfGivenSize.ClusterLowerBound.profileLoad",
       "statementKind": "def",
       "role": "definition",
@@ -19167,8 +19147,8 @@
       "id": "lean:AntichainOfGivenSize.generatedIdeal",
       "kind": "lean",
       "label": "AntichainOfGivenSize.generatedIdeal",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 24,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 45,
       "declaration": "AntichainOfGivenSize.generatedIdeal",
       "statementKind": "def",
       "role": "definition",
@@ -19495,8 +19475,8 @@
       "id": "lean:AntichainOfGivenSize.HasGeneratorCount",
       "kind": "lean",
       "label": "AntichainOfGivenSize.HasGeneratorCount",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "line": 23,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 169,
       "declaration": "AntichainOfGivenSize.HasGeneratorCount",
       "statementKind": "def",
       "role": "definition",
@@ -21142,8 +21122,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.attainableValues",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.attainableValues",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 121,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 142,
       "declaration": "AntichainOfGivenSize.Paper.attainableValues",
       "statementKind": "def",
       "role": "definition",
@@ -21257,8 +21237,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.address",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.address",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 37,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 257,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.address",
       "statementKind": "def",
       "role": "definition",
@@ -21269,7 +21249,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21278,7 +21258,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.address_nonempty",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 51,
+      "line": 37,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.address_nonempty",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21299,7 +21279,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.address_subset_iff",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 64,
+      "line": 50,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.address_subset_iff",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21323,7 +21303,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.alpha_idealCard_le",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 560,
+      "line": 520,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.alpha_idealCard_le",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21349,7 +21329,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.bitsEquiv",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 399,
+      "line": 360,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.bitsEquiv",
       "statementKind": "def",
       "role": "definition",
@@ -21367,8 +21347,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.block",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.block",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 118,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 279,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.block",
       "statementKind": "def",
       "role": "definition",
@@ -21378,7 +21358,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.blockEmbedding"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21386,8 +21366,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.blockEmbedding",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.blockEmbedding",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 114,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 275,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.blockEmbedding",
       "statementKind": "def",
       "role": "definition",
@@ -21398,7 +21378,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21407,7 +21387,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.blocks_disjoint",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 127,
+      "line": 88,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.blocks_disjoint",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21427,15 +21407,15 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.BlockVertex",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.BlockVertex",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 27,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 246,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.BlockVertex",
       "statementKind": "def",
       "role": "definition",
       "header": "abbrev BlockVertex (q : ℕ) := (j : Fin q) × Fin (2 ^ j.val)",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21444,7 +21424,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_address",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 48,
+      "line": 34,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_address",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21465,7 +21445,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_block",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 124,
+      "line": 85,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_block",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21485,7 +21465,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_blockVertex",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 449,
+      "line": 409,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_blockVertex",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21504,7 +21484,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_core",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 149,
+      "line": 110,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_core",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21529,7 +21509,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_fixed_bit",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 420,
+      "line": 381,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_fixed_bit",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21549,7 +21529,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_freshPart_le",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 454,
+      "line": 414,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_freshPart_le",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21570,7 +21550,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_generator_false_lt",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 475,
+      "line": 435,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_generator_false_lt",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21597,7 +21577,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.card_generator_le",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 463,
+      "line": 423,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.card_generator_le",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21625,7 +21605,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.chosen_mem_address",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 45,
+      "line": 31,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.chosen_mem_address",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21646,8 +21626,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 33,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 253,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding",
       "statementKind": "def",
       "role": "definition",
@@ -21658,7 +21638,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.chosenIndex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21666,8 +21646,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.chosenIndex",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.chosenIndex",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 30,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 250,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.chosenIndex",
       "statementKind": "def",
       "role": "definition",
@@ -21677,7 +21657,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Stage"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21685,8 +21665,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.core",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.core",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 121,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 282,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.core",
       "statementKind": "def",
       "role": "definition",
@@ -21698,7 +21678,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.block"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21707,7 +21687,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.exists_matching",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 567,
+      "line": 527,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.exists_matching",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21732,7 +21712,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.exists_matching_active",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 355,
+      "line": 316,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.exists_matching_active",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21762,7 +21742,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.exists_matching_int",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 586,
+      "line": 546,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.exists_matching_int",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21781,7 +21761,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.fixedBitEquiv",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 405,
+      "line": 366,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.fixedBitEquiv",
       "statementKind": "def",
       "role": "definition",
@@ -21797,7 +21777,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.fresh_not_mem_intersection",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 268,
+      "line": 229,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.fresh_not_mem_intersection",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21821,7 +21801,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.fresh_separation",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 159,
+      "line": 120,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.fresh_separation",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21850,7 +21830,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.freshPart",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 437,
+      "line": 397,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.freshPart",
       "statementKind": "def",
       "role": "definition",
@@ -21868,8 +21848,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.generator",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.generator",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 79,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 265,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.generator",
       "statementKind": "def",
       "role": "definition",
@@ -21882,7 +21862,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -21891,7 +21871,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.generator_decomposition",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 441,
+      "line": 401,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.generator_decomposition",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21916,7 +21896,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.generatorBound",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 432,
+      "line": 392,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.generatorBound",
       "statementKind": "def",
       "role": "definition",
@@ -21932,7 +21912,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.idealCard",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 231,
+      "line": 192,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.idealCard",
       "statementKind": "def",
       "role": "definition",
@@ -21955,7 +21935,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.idealCard_insert",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 285,
+      "line": 246,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.idealCard_insert",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -21985,7 +21965,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.idealCard_le_targetCeiling",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 350,
+      "line": 311,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.idealCard_le_targetCeiling",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22010,7 +21990,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.idealCard_lt",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 551,
+      "line": 511,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.idealCard_lt",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22032,7 +22012,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.idealCard_lt_uniform",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 492,
+      "line": 452,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.idealCard_lt_uniform",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22058,7 +22038,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.idealCard_pos",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 555,
+      "line": 515,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.idealCard_pos",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22080,15 +22060,15 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.Index",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.Index",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 25,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 242,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.Index",
       "statementKind": "def",
       "role": "definition",
       "header": "abbrev Index (q : ℕ) := Fin q × Bool",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -22097,7 +22077,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.inr_not_mem_core",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 144,
+      "line": 105,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.inr_not_mem_core",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22118,8 +22098,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.intersection",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.intersection",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 89,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 270,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.intersection",
       "statementKind": "def",
       "role": "definition",
@@ -22132,7 +22112,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -22141,7 +22121,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.intersection_antitone",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 100,
+      "line": 71,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.intersection_antitone",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22164,7 +22144,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.intersection_eq_inf'",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 107,
+      "line": 78,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.intersection_eq_inf'",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22190,7 +22170,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.intersection_insert",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 234,
+      "line": 195,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.intersection_insert",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22216,7 +22196,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.intersection_insert_card",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 275,
+      "line": 236,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.intersection_insert_card",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22241,7 +22221,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.mem_address",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 40,
+      "line": 26,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.mem_address",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22262,7 +22242,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.mem_core_block",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 138,
+      "line": 99,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.mem_core_block",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22284,7 +22264,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.mem_generator",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 84,
+      "line": 60,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.mem_generator",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22307,7 +22287,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.mem_intersection",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 94,
+      "line": 65,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.mem_intersection",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22330,7 +22310,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.oldPart",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 434,
+      "line": 394,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.oldPart",
       "statementKind": "def",
       "role": "definition",
@@ -22348,8 +22328,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.Present",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.Present",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 74,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 260,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.Present",
       "statementKind": "def",
       "role": "definition",
@@ -22361,7 +22341,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -22370,7 +22350,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.primary_intersection",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 174,
+      "line": 135,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.primary_intersection",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22402,7 +22382,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 201,
+      "line": 162,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22426,7 +22406,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.proper_intersection_card",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 207,
+      "line": 168,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.proper_intersection_card",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22457,7 +22437,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.selected_card_modEq",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 337,
+      "line": 298,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.selected_card_modEq",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22483,7 +22463,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.selected_card_zmod_signed",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 296,
+      "line": 257,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.selected_card_zmod_signed",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22517,7 +22497,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.signed_half_modulus",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 324,
+      "line": 285,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.signed_half_modulus",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22534,15 +22514,15 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.Stage",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.Stage",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 26,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 244,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.Stage",
       "statementKind": "def",
       "role": "definition",
       "header": "abbrev Stage (q : ℕ) := Fin (2 ^ q)",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -22551,7 +22531,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.stage_eq_of_bits",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 55,
+      "line": 41,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.stage_eq_of_bits",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22571,7 +22551,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.targetCeiling",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 347,
+      "line": 308,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.targetCeiling",
       "statementKind": "def",
       "role": "definition",
@@ -22592,7 +22572,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.twice_le_half_pow_add_two",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 518,
+      "line": 478,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.twice_le_half_pow_add_two",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22608,7 +22588,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.twice_le_two_pow",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 508,
+      "line": 468,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.twice_le_two_pow",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22624,7 +22604,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.uniform_bound_le",
       "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 534,
+      "line": 494,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.uniform_bound_le",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -22643,8 +22623,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.BitMatching.Vertex",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.BitMatching.Vertex",
-      "file": "AntichainOfGivenSize/Paper/BitMatching.lean",
-      "line": 28,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 248,
       "declaration": "AntichainOfGivenSize.Paper.BitMatching.Vertex",
       "statementKind": "def",
       "role": "definition",
@@ -22654,7 +22634,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Stage"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -24866,8 +24846,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.dyadicUniformPMF",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.dyadicUniformPMF",
-      "file": "AntichainOfGivenSize/Model/ProbabilityVocabulary.lean",
-      "line": 7,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 216,
       "declaration": "AntichainOfGivenSize.Paper.dyadicUniformPMF",
       "statementKind": "def",
       "role": "definition",
@@ -25348,8 +25328,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.goodInputs",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.goodInputs",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "line": 44,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 190,
       "declaration": "AntichainOfGivenSize.Paper.goodInputs",
       "statementKind": "def",
       "role": "definition",
@@ -25880,8 +25860,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.maximumBelow",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.maximumBelow",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "line": 54,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 200,
       "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
       "statementKind": "def",
       "role": "definition",
@@ -26107,8 +26087,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.baseline",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.baseline",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 20,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 307,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.baseline",
       "statementKind": "def",
       "role": "definition",
@@ -26117,7 +26097,7 @@
         "AntichainOfGivenSize.Paper.PatternGadget.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26126,7 +26106,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.baseline_selected",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 53,
+      "line": 38,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.baseline_selected",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26145,7 +26125,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.card_baseline",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 47,
+      "line": 32,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.card_baseline",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26164,7 +26144,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.card_initialSegment",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 50,
+      "line": 35,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.card_initialSegment",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26183,7 +26163,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.card_selected",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 59,
+      "line": 44,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.card_selected",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26202,7 +26182,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.card_selected_le",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 63,
+      "line": 48,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.card_selected_le",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26222,7 +26202,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.card_tagged",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 84,
+      "line": 69,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.card_tagged",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26244,7 +26224,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.disjoint_baseline_tagged",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 95,
+      "line": 80,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.disjoint_baseline_tagged",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26267,7 +26247,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.disjoint_tagged",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 102,
+      "line": 87,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.disjoint_tagged",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26289,8 +26269,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.generator",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.generator",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 26,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 313,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.generator",
       "statementKind": "def",
       "role": "definition",
@@ -26302,7 +26282,7 @@
         "AntichainOfGivenSize.Paper.PatternGadget.initialSegment"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26311,7 +26291,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.ideal_card",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 134,
+      "line": 119,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.ideal_card",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26340,7 +26320,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 150,
+      "line": 132,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26365,7 +26345,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.ideal_decomposition",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 111,
+      "line": 96,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.ideal_decomposition",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26393,15 +26373,15 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.Index",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.Index",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 18,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 305,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.Index",
       "statementKind": "def",
       "role": "definition",
       "header": "abbrev Index (ell : ℕ) := Option (Fin ell)",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26409,8 +26389,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.initialSegment",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.initialSegment",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 23,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 310,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.initialSegment",
       "statementKind": "def",
       "role": "definition",
@@ -26419,7 +26399,7 @@
         "AntichainOfGivenSize.Paper.PatternGadget.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26428,7 +26408,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.initialSegment_subset_baseline",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 43,
+      "line": 28,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.initialSegment_subset_baseline",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26448,7 +26428,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.inr_not_mem_initialSegment",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 40,
+      "line": 25,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.inr_not_mem_initialSegment",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26467,7 +26447,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.mem_baseline",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 36,
+      "line": 21,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.mem_baseline",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26486,7 +26466,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.mem_tagged_iff",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 68,
+      "line": 53,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.mem_tagged_iff",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26506,8 +26486,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.selected",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.selected",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 30,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 317,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.selected",
       "statementKind": "def",
       "role": "definition",
@@ -26516,7 +26496,7 @@
         "AntichainOfGivenSize.Paper.PatternGadget.Index"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26524,15 +26504,15 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.selectedBits",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.selectedBits",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 146,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 320,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.selectedBits",
       "statementKind": "def",
       "role": "definition",
       "header": "def selectedBits (ell d : ℕ) : Finset (Fin ell) :=",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26541,7 +26521,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.some_selected_iff",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 56,
+      "line": 41,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.some_selected_iff",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -26560,7 +26540,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.tagged",
       "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 33,
+      "line": 18,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.tagged",
       "statementKind": "def",
       "role": "definition",
@@ -26578,15 +26558,15 @@
       "id": "lean:AntichainOfGivenSize.Paper.PatternGadget.Vertex",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.PatternGadget.Vertex",
-      "file": "AntichainOfGivenSize/Paper/PatternGadget.lean",
-      "line": 17,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 303,
       "declaration": "AntichainOfGivenSize.Paper.PatternGadget.Vertex",
       "statementKind": "def",
       "role": "definition",
       "header": "abbrev Vertex (ell : ℕ) := Fin ell ⊕ Fin ell",
       "references": [],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -26716,8 +26696,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.realGoodInputs",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.realGoodInputs",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "line": 50,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 196,
       "declaration": "AntichainOfGivenSize.Paper.realGoodInputs",
       "statementKind": "def",
       "role": "definition",
@@ -27058,7 +27038,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.block_increment",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 137,
+      "line": 129,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.block_increment",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27219,7 +27199,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.core_subset_chosen",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 35,
+      "line": 30,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.core_subset_chosen",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27249,7 +27229,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.core_subset_oldUniverse",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 26,
+      "line": 21,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.core_subset_oldUniverse",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27271,8 +27251,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.digitSelection",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.digitSelection",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 127,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 375,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.digitSelection",
       "statementKind": "def",
       "role": "definition",
@@ -27283,7 +27263,7 @@
         "AntichainOfGivenSize.Paper.PatternGadget.selectedBits"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -27357,7 +27337,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.fresh_not_mem_generator",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 43,
+      "line": 44,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.fresh_not_mem_generator",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27385,7 +27365,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.full_position_intersection",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 90,
+      "line": 67,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.full_position_intersection",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27429,8 +27409,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.generator",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.generator",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 54,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 363,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.generator",
       "statementKind": "def",
       "role": "definition",
@@ -27444,7 +27424,7 @@
         "AntichainOfGivenSize.Paper.UpperConstruction.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -27483,7 +27463,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.generator_update",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 50,
+      "line": 51,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.generator_update",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27513,8 +27493,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.idealCard",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.idealCard",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 102,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 369,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.idealCard",
       "statementKind": "def",
       "role": "definition",
@@ -27530,7 +27510,7 @@
         "AntichainOfGivenSize.Section6.generatedIdealIdx"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -27628,7 +27608,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.idealCard_update",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 108,
+      "line": 103,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.idealCard_update",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27658,8 +27638,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.Index",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.Index",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 11,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 344,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.Index",
       "statementKind": "def",
       "role": "definition",
@@ -27668,7 +27648,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Index"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -27677,7 +27657,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.intersection_update",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 68,
+      "line": 69,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.intersection_update",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27709,7 +27689,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.mem_generator",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 60,
+      "line": 37,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.mem_generator",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27733,7 +27713,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.missing_position_intersection_ge",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 178,
+      "line": 155,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.missing_position_intersection_ge",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27773,7 +27753,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.old_generator_subset",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 17,
+      "line": 12,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.old_generator_subset",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27797,8 +27777,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.oldUniverse",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.oldUniverse",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 14,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 348,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.oldUniverse",
       "statementKind": "def",
       "role": "definition",
@@ -27809,7 +27789,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -27850,7 +27830,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.pattern_subtype_ideal",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 130,
+      "line": 122,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.pattern_subtype_ideal",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27907,7 +27887,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.position_intersection",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 143,
+      "line": 120,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.position_intersection",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -27935,8 +27915,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.Present",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.Present",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 45,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 354,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.Present",
       "statementKind": "def",
       "role": "definition",
@@ -27952,7 +27932,7 @@
         "AntichainOfGivenSize.Paper.UpperConstruction.selected"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -27960,8 +27940,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.selected",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.selected",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 42,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 351,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.selected",
       "statementKind": "def",
       "role": "definition",
@@ -27973,7 +27953,7 @@
         "AntichainOfGivenSize.Paper.UpperConstruction.Index"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -28011,7 +27991,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.selected_ideal_eq",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 26,
+      "line": 27,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.selected_ideal_eq",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -28039,7 +28019,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.stage_card_zmod",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 212,
+      "line": 189,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.stage_card_zmod",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -28070,7 +28050,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.stageEmbedding",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 67,
+      "line": 44,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.stageEmbedding",
       "statementKind": "def",
       "role": "definition",
@@ -28092,7 +28072,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.stageEmbedding_univ",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
-      "line": 14,
+      "line": 15,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.stageEmbedding_univ",
       "statementKind": "theorem",
       "role": "supporting-lemma",
@@ -28117,7 +28097,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.stageGenerator",
       "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 84,
+      "line": 61,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.stageGenerator",
       "statementKind": "def",
       "role": "definition",
@@ -28238,8 +28218,8 @@
       "id": "lean:AntichainOfGivenSize.Paper.UpperConstruction.Vertex",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Paper.UpperConstruction.Vertex",
-      "file": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
-      "line": 12,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 346,
       "declaration": "AntichainOfGivenSize.Paper.UpperConstruction.Vertex",
       "statementKind": "def",
       "role": "definition",
@@ -28249,7 +28229,7 @@
         "AntichainOfGivenSize.Paper.BitMatching.Vertex"
       ],
       "status": "closed",
-      "inAuditSurface": false,
+      "inAuditSurface": true,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -28273,8 +28253,8 @@
       "id": "lean:AntichainOfGivenSize.quadraticLogLogScale",
       "kind": "lean",
       "label": "AntichainOfGivenSize.quadraticLogLogScale",
-      "file": "AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "line": 37,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 183,
       "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
       "statementKind": "def",
       "role": "definition",
@@ -31261,8 +31241,8 @@
       "id": "lean:AntichainOfGivenSize.Section6.generatedIdealIdx",
       "kind": "lean",
       "label": "AntichainOfGivenSize.Section6.generatedIdealIdx",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 37,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 58,
       "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx",
       "statementKind": "def",
       "role": "definition",
@@ -33858,8 +33838,8 @@
       "id": "lean:AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
       "kind": "lean",
       "label": "AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 52,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 73,
       "declaration": "AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
       "statementKind": "def",
       "role": "definition",
@@ -33876,8 +33856,8 @@
       "id": "lean:AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
       "kind": "lean",
       "label": "AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 49,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 70,
       "declaration": "AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
       "statementKind": "def",
       "role": "definition",
@@ -33950,8 +33930,8 @@
       "id": "lean:AntichainOfGivenSize.VennProfile.profileGenerator",
       "kind": "lean",
       "label": "AntichainOfGivenSize.VennProfile.profileGenerator",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 57,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 78,
       "declaration": "AntichainOfGivenSize.VennProfile.profileGenerator",
       "statementKind": "def",
       "role": "definition",
@@ -33985,8 +33965,8 @@
       "id": "lean:AntichainOfGivenSize.VennProfile.ProfilePoint",
       "kind": "lean",
       "label": "AntichainOfGivenSize.VennProfile.ProfilePoint",
-      "file": "AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "line": 47,
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "line": 68,
       "declaration": "AntichainOfGivenSize.VennProfile.ProfilePoint",
       "statementKind": "def",
       "role": "definition",
@@ -34295,6 +34275,12 @@
   ],
   "edges": [
     {
+      "from": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
+      "to": "lean:AntichainOfGivenSize.alpha_splitting",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d->lean:AntichainOfGivenSize.alpha_splitting"
+    },
+    {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
       "to": "paper:paper/Generating_Antichains_Simplified.tex:909",
       "kind": "cites",
@@ -34482,9 +34468,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.alpha",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.alpha->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.alpha->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.AlphaAntichainWitnessStatement",
@@ -36192,21 +36178,21 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.card_profileGenerator_le",
@@ -36216,9 +36202,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.empty_zero->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.exceptionalSet_card_le",
@@ -36258,15 +36244,15 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.load_le->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.ofIndexedFamily",
@@ -36318,9 +36304,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value_cast",
@@ -36348,9 +36334,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.boundedResidues_card_le_boundedValues_card",
@@ -36426,9 +36412,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.boundedValues",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.boundedValues->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.boundedValues->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.card_clusterEncoding_le_two_pow_of_bounds",
@@ -36840,9 +36826,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.instDecidableEqBoundedProfile",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.instDecidableEqBoundedProfile->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.instDecidableEqBoundedProfile->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.instDecidableEqClusterEncoding",
@@ -36864,9 +36850,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.instFintypeClusterEncoding",
@@ -37320,9 +37306,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.profileLoad",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.profileLoad->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.ClusterLowerBound.profileLoad->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.ClusterLowerBound.ProfilesAtGap",
@@ -39366,9 +39352,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.generatedIdeal",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.generatedIdeal->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.generatedIdeal->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.generatedIdealIdx_card_le_card_mul_pow",
@@ -39426,9 +39412,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.HasGeneratorCount",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.HasGeneratorCount->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.HasGeneratorCount->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.improvedScale",
@@ -39948,9 +39934,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.attainableValues",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.attainableValues->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.attainableValues->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.badBlock_subset_attainableValues",
@@ -39984,9 +39970,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.address",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.address->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.address->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.alpha_idealCard_le",
@@ -40002,15 +39988,15 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.block",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.block->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.block->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.blockEmbedding",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.blockEmbedding->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.blockEmbedding->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.blocks_disjoint",
@@ -40020,9 +40006,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.BlockVertex",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.BlockVertex->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.BlockVertex->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.card_address",
@@ -40080,21 +40066,21 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.chosenEmbedding->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.chosenIndex",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.chosenIndex->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.chosenIndex->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.core",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.core->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.core->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.exists_matching_active",
@@ -40146,9 +40132,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.generator",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.generator->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.generator->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.generatorBound",
@@ -40194,9 +40180,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.Index",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Index->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Index->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.inr_not_mem_core",
@@ -40230,9 +40216,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.intersection",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.intersection->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.intersection->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.mem_address",
@@ -40266,9 +40252,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.Present",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Present->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Present->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card",
@@ -40314,9 +40300,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.Stage",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Stage->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Stage->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.targetCeiling",
@@ -40344,9 +40330,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.BitMatching.Vertex",
-      "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Vertex->file:AntichainOfGivenSize/Paper/BitMatching.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.BitMatching.Vertex->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.bitMatchingInt",
@@ -40998,9 +40984,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.dyadicUniformPMF",
-      "to": "file:AntichainOfGivenSize/Model/ProbabilityVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.dyadicUniformPMF->file:AntichainOfGivenSize/Model/ProbabilityVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.dyadicUniformPMF->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.eventually_good_interval",
@@ -41130,9 +41116,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.goodInputs",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.goodInputs->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.goodInputs->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.growth_pos_of_four_lt",
@@ -41274,9 +41260,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.maximumBelow",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.maximumBelow->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.maximumBelow->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.mem_attainableValues_iff",
@@ -41340,9 +41326,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.baseline",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.baseline->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.baseline->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.card_baseline",
@@ -41388,9 +41374,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.generator",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.generator->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.generator->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits",
@@ -41412,9 +41398,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.Index",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.Index->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.Index->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.initialSegment_subset_baseline",
@@ -41424,9 +41410,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.initialSegment",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.initialSegment->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.initialSegment->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.inr_not_mem_initialSegment",
@@ -41448,15 +41434,15 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.selected",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.selected->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.selected->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.selectedBits",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.selectedBits->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.selectedBits->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.some_selected_iff",
@@ -41472,9 +41458,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.PatternGadget.Vertex",
-      "to": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.Vertex->file:AntichainOfGivenSize/Paper/PatternGadget.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.PatternGadget.Vertex->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.quadratic_upper_of_matching",
@@ -41514,9 +41500,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.realGoodInputs",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.realGoodInputs->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.realGoodInputs->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.tendsto_block_error",
@@ -41664,9 +41650,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.digitSelection",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.digitSelection->file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.digitSelection->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.exists_matching_history",
@@ -41706,9 +41692,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.generator",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.generator->file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.generator->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.idealCard_bound",
@@ -41736,15 +41722,15 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.idealCard",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.idealCard->file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.idealCard->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.Index",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.Index->file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.Index->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.intersection_update",
@@ -41772,9 +41758,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.oldUniverse",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.oldUniverse->file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.oldUniverse->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment",
@@ -41808,9 +41794,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.Present",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.Present->file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.Present->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.selected_card_zmod",
@@ -41826,9 +41812,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.selected",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.selected->file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.selected->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.stage_card_zmod",
@@ -41886,9 +41872,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Paper.UpperConstruction.Vertex",
-      "to": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.Vertex->file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Paper.UpperConstruction.Vertex->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Prior",
@@ -41898,9 +41884,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.quadraticLogLogScale",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.quadraticLogLogScale->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.quadraticLogLogScale->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.quotient_lt_doubleExp_of_remainderBits",
@@ -42768,9 +42754,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Section6.generatedIdealIdx",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.Section6.generatedIdealIdx->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.Section6.generatedIdealIdx->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.Section6.generatorCount_le_two_pow",
@@ -43494,15 +43480,15 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.instFintypeProfilePoint->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.instFintypeProfilePoint->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.mem_membershipPattern",
@@ -43524,9 +43510,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.profileGenerator",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.profileGenerator->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.profileGenerator->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.profileIntersectionSize",
@@ -43536,9 +43522,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.ProfilePoint",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.ProfilePoint->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.VennProfile.ProfilePoint->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.VennProfile.real_le_alpha_iff_no_vennProfile_below",
@@ -43689,6 +43675,12 @@
       "to": "lean:AntichainOfGivenSize.alpha",
       "kind": "depends-on",
       "id": "depends-on:lean:AntichainOfGivenSize.alpha_asymptotic_order->lean:AntichainOfGivenSize.alpha"
+    },
+    {
+      "from": "lean:AntichainOfGivenSize.alpha_asymptotic_order",
+      "to": "lean:AntichainOfGivenSize.alpha_simultaneous_density_one",
+      "kind": "depends-on",
+      "id": "depends-on:lean:AntichainOfGivenSize.alpha_asymptotic_order->lean:AntichainOfGivenSize.alpha_simultaneous_density_one"
     },
     {
       "from": "lean:AntichainOfGivenSize.alpha_asymptotic_order",
@@ -44421,12 +44413,6 @@
       "to": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder",
       "kind": "depends-on",
       "id": "depends-on:lean:AntichainOfGivenSize.Analysis.TheoremProof.alphaAsymptoticOrder->lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder"
-    },
-    {
-      "from": "lean:AntichainOfGivenSize.Analysis.TheoremProof.alphaAsymptoticOrder",
-      "to": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
-      "kind": "depends-on",
-      "id": "depends-on:lean:AntichainOfGivenSize.Analysis.TheoremProof.alphaAsymptoticOrder->lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne"
     },
     {
       "from": "lean:AntichainOfGivenSize.Analysis.TheoremProof.alphaAsymptoticOrder",
@@ -85159,81 +85145,15 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
+      "to": "file:AntichainOfGivenSize/BasicLemmas.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Analysis/AlphaLowerDensityOneProof.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Analysis/AlphaLowerDensityOneProof.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Analysis/AlphaMaximumOrderProof.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Analysis/AlphaMaximumOrderProof.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Analysis/AttainableCountProof.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Analysis/AttainableCountProof.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Meta/ModelClosure.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Meta/ModelClosure.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Model/Prelude.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Model/Prelude.lean"
+      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/BasicLemmas.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
       "to": "file:AntichainOfGivenSize/Model/Prior.lean",
       "kind": "imports",
       "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Model/Prior.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Paper/FiniteTwoGeneratorBound.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Paper/FiniteTwoGeneratorBound.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Paper/MainSemantics.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Paper/MainSemantics.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Paper/RealDensity.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Paper/RealDensity.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Paper/TypicalGoodEvent.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Paper/TypicalGoodEvent.lean"
-    },
-    {
-      "from": "file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
-      "to": "file:AntichainOfGivenSize/Paper/TypicalProbability.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean->file:AntichainOfGivenSize/Paper/TypicalProbability.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AttainableCountProof.lean",
@@ -85261,9 +85181,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean",
@@ -85561,9 +85481,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/LowerBound/BoundedProfiles.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/LowerBound/BoundedProfiles.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/LowerBound/BoundedProfiles.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/LowerBound/ClusterCore.lean",
@@ -85609,9 +85529,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/LowerBound/ClusterImageBound.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/LowerBound/ClusterImageBound.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/LowerBound/ClusterImageBound.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/LowerBound/ClusterProfileCodes.lean",
@@ -85729,9 +85649,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/LowerBound/VennProfiles.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/LowerBound/VennProfiles.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/LowerBound/VennProfiles.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/LowerBound/VennProfiles.lean",
@@ -85741,9 +85661,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/MainStatement.lean",
-      "to": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/MainStatement.lean->file:AntichainOfGivenSize/Model/MainVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/MainStatement.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/MainTheorems.lean",
@@ -85782,12 +85702,6 @@
       "id": "imports:file:AntichainOfGivenSize/MatchingParameters.lean->file:AntichainOfGivenSize/RangeReduction.lean"
     },
     {
-      "from": "file:AntichainOfGivenSize/Model/MainVocabulary.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
-      "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Model/MainVocabulary.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
-    },
-    {
       "from": "file:AntichainOfGivenSize/Model/Prelude.lean",
       "to": "file:AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean",
       "kind": "imports",
@@ -85795,9 +85709,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Model/Prelude.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Model/Prelude.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/Model/Prelude.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Model/Prelude.lean",
@@ -85912,6 +85826,12 @@
       "to": "file:AntichainOfGivenSize/Paper/Typical.lean",
       "kind": "imports",
       "id": "imports:file:AntichainOfGivenSize/Paper/BasicResults.lean->file:AntichainOfGivenSize/Paper/Typical.lean"
+    },
+    {
+      "from": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "kind": "imports",
+      "id": "imports:file:AntichainOfGivenSize/Paper/BitMatching.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
@@ -86191,6 +86111,12 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "kind": "imports",
+      "id": "imports:file:AntichainOfGivenSize/Paper/PatternGadget.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
+    },
+    {
+      "from": "file:AntichainOfGivenSize/Paper/PatternGadget.lean",
       "to": "file:AntichainOfGivenSize/Section6/Core.lean",
       "kind": "imports",
       "id": "imports:file:AntichainOfGivenSize/Paper/PatternGadget.lean->file:AntichainOfGivenSize/Section6/Core.lean"
@@ -86329,9 +86255,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/Statements.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Paper/Statements.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/Paper/Statements.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/Typical.lean",
@@ -86353,9 +86279,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/TypicalProbability.lean",
-      "to": "file:AntichainOfGivenSize/Model/ProbabilityVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Paper/TypicalProbability.lean->file:AntichainOfGivenSize/Model/ProbabilityVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/Paper/TypicalProbability.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/TypicalProbability.lean",
@@ -86389,6 +86315,12 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "kind": "imports",
+      "id": "imports:file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
+    },
+    {
+      "from": "file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
       "to": "file:AntichainOfGivenSize/Paper/BitMatching.lean",
       "kind": "imports",
       "id": "imports:file:AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean->file:AntichainOfGivenSize/Paper/BitMatching.lean"
@@ -86404,6 +86336,12 @@
       "to": "file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
       "kind": "imports",
       "id": "imports:file:AntichainOfGivenSize/Paper/UpperConstructionIncrement.lean->file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean"
+    },
+    {
+      "from": "file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "kind": "imports",
+      "id": "imports:file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
@@ -86515,9 +86453,9 @@
     },
     {
       "from": "file:AntichainOfGivenSize/Section6/Core.lean",
-      "to": "file:AntichainOfGivenSize/Model/CountingVocabulary.lean",
+      "to": "file:AntichainOfGivenSize/Model/ProblemSetting.lean",
       "kind": "imports",
-      "id": "imports:file:AntichainOfGivenSize/Section6/Core.lean->file:AntichainOfGivenSize/Model/CountingVocabulary.lean"
+      "id": "imports:file:AntichainOfGivenSize/Section6/Core.lean->file:AntichainOfGivenSize/Model/ProblemSetting.lean"
     },
     {
       "from": "file:AntichainOfGivenSize/Section6/IndexedBounds.lean",
@@ -86620,5 +86558,5 @@
   "feedback": [],
   "recoveries": [],
   "recoveryFindings": [],
-  "mappingDigest": "sha256-8aa385640e298c07980c6c97a11040977045a94554ba3c685b3b7599867fdd29"
+  "mappingDigest": "sha256-97b80df8cd3efdfce88f87bd5714849e27553f137806f5815bb42702f34b57fd"
 }
