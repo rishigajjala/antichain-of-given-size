@@ -1,0 +1,159 @@
+{
+  "id": "sha256-2061274221eb57a55d8dad7ca5c9de43e64fa9ab17f4c7a242bc202c402f75f2",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-c898f54bc6550ea2fb7f7f9a5d5cf2e80b0dd528a7fabc66396889e1be653573",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-6fd81163312ce82a42b40fe796f8d931dc6d3c4f8badba8880f053cd201654ae",
+    "obligationId": "obligation:ea8de31f-5c80-4580-bc7d-915930bf928b",
+    "declaration": "AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records",
+    "file": "AntichainOfGivenSize/Paper/FaithfulCounting/CanonicalHeader.lean",
+    "module": "AntichainOfGivenSize.Paper.FaithfulCounting.CanonicalHeader",
+    "role": "headline",
+    "status": "verified",
+    "semanticApprovalDecisionId": "sha256-804ce5e4b23d2a66c85c2d8b672fe6187946dadb643ea9f356754c110fa62337",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-2d80222af91b6f8cde54bd57419476b4791c3ab9ff38b03857149504f268cdd4",
+      "elaboratedTypeDigest": "sha256-abd4c8ca940047e05a6ffbdb5334a0f0dffc1de37b939ef8f040e11acf1f8c89",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.ClusterCore.compressionKey",
+          "valueDigest": "sha256-3fabd2737c284c58828ef1e546c9c87de686f7859de791cc201a311b221869f5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterCore.IEQuery",
+          "valueDigest": "sha256-ebbfb0baaae2f496e9976ea623c365ab5b62cbe2f04dae95f75d41c79c7d46fc"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterCore.regularIntersectionSize",
+          "valueDigest": "sha256-0a72b3bae32d5ec6e3f75e21ead654051c6bb9750b3e540f004445976a3a3ee6"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode",
+          "valueDigest": "sha256-ed7e38bbd06afd7597d3821ea11238e73b876c06e310c0e927b5f462bbd372f8"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.mk",
+          "valueDigest": "sha256-c5e288d295b07966a7270b6cb640a8117b7a12ed614c1d55e8fe543e71aaab76"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.ofNat",
+          "valueDigest": "sha256-732278282e5eade314b3dd3651e8a4b6c78b6f850ec2a464780f9d3facb88ce2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.ofNat._proof_1",
+          "valueDigest": "sha256-9b9e8abc617eb0a805f9c76333f0dc6c7554988284adb9f66a9156a252f74973"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.ofNat._proof_2",
+          "valueDigest": "sha256-56a80b3809a373f93d25ab02e3720e4a4955210bc2b6010606af1547f29812d4"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalCenters",
+          "valueDigest": "sha256-70a923e9514fd951a268fb4c85198fb4ae3ed17b6b9100bb87aa05125e9e05b5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalClusterFamily",
+          "valueDigest": "sha256-829eedb51bad1f5ff253c1321298e3e37ff1db29d737c7c8532a34b47de86d9d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalExceptional",
+          "valueDigest": "sha256-4df70c8270dedea6e09351c85a44106378d580874462d3224306c775b9a9ec04"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.CanonicalIsCenter",
+          "valueDigest": "sha256-a7866d8847b1ecb9237bde5d5088a0897ce208bb14e9d2834566dba60e19b5d6"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalRole",
+          "valueDigest": "sha256-28f7d33be49718627712b96d074a1df8ac6ba55f56daa4ad8d9b58687008feaf"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.centralExponentVector",
+          "valueDigest": "sha256-e14a442acb7a6c1112520edcca6c1b52477870ecfb57e20f3cd7117ecfa22fd0"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.centralExponentVector._proof_1",
+          "valueDigest": "sha256-ce8e77fad3164252843e10e3b4d552e508b5148eb5ec6c15722ddfb775582749"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.centralKeys",
+          "valueDigest": "sha256-845d58f2a6f036f9d21afbcf5f76ae61eb36a9067f1bd638a9527acbdb4a596f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.centralRepresentative",
+          "valueDigest": "sha256-867916eab2d50dd6ecb839f59dbac1675224d92d2df6fd68c7f038fa8a8b183c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.centralRepresentative._proof_1",
+          "valueDigest": "sha256-9ce53f4b1a8053b1e3dc83a5426bcf718303b173cafa2a327206a6cff8cb4136"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.clusterVariation",
+          "valueDigest": "sha256-a3a78a86ad197f13a0472eb61938397b892a5caa5e49f796be8e128671b6aee9"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.incidenceCount",
+          "valueDigest": "sha256-d9bdd32a82d94e2fd55028c673ef3e36b40f8715ab1634056647fbb55465482c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.incidenceSparseCode",
+          "valueDigest": "sha256-4d0dbda64789d6448a4e451b69583e10c51dcb509654d5eaa8fabd7d1ccaeb3c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.incidenceSparseCode._proof_1",
+          "valueDigest": "sha256-383c7930405cd6b34640a56dfdfe71f94c111d28ed0346aa824ce6fc25cafbae"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.intrinsicExceptional",
+          "valueDigest": "sha256-4c13e0dc347739d6ad002f47ecbe068f3c50d663436d636411967c1c6878481b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.originalCentralSum",
+          "valueDigest": "sha256-f5cd29b28c8a60830403d11c58fcb8c5624011a9fedca6618f0f629f88c643fa"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Partition",
+          "valueDigest": "sha256-70f75035d31eebb322161834290a034c301bbfa4fd740f9ebd759b6a6d6587e4"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.partitionCode",
+          "valueDigest": "sha256-11bcbf9dcf25061f507afe12d8e7be8e5afc252f61a726be336b66659e8b459d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.partitionCode._proof_1",
+          "valueDigest": "sha256-95c76133c3eaf0251eda342a906337f6dad1b36c06f6c75188180c10e44f3451"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.regularIntersectionSize_le_generator_bound",
+          "valueDigest": "sha256-2a1a713910427c8ac70fffdb336cc035a9d472848a46ea29713f740f5fd2d292"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.sum_incidenceCount",
+          "valueDigest": "sha256-0acc22442fcd41d1df1495ff352a37f58ae066dff5bcf7c5726253c1f973adf0"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Section6.generatorIntersection",
+          "valueDigest": "sha256-884f1852beb20b97eb63f8346dd5df3d6041c9c2556cbffb71b9517b833cc617"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Section6.generatorIntersection._proof_1",
+          "valueDigest": "sha256-c6761a72ac14ea5608c2836af6e8bca27f0bfaac28c114ebe96ce436a83ef539"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.membershipPattern",
+          "valueDigest": "sha256-298173fba51ffaa4d7d109779b2cf20793b6a0ac6f710fd1941a93b36d479263"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-2dc71485b1683ed2077f598b3648cc8aae83fe514507f29d81f5aef95cbaefa5",
+    "verifiedByDecisionId": "sha256-2061274221eb57a55d8dad7ca5c9de43e64fa9ab17f4c7a242bc202c402f75f2"
+  }
+}

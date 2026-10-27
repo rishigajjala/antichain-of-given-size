@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
   "slug": "thm-attainable-count-1twuckp",
-  "updatedAt": "2026-10-27T04:40:19.797Z",
+  "updatedAt": "2026-10-27T05:38:05.881Z",
   "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "buildFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "dependencyFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-27T04:40:19.797Z",
+  "elaboratedAt": "2026-10-27T05:38:05.881Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -34440,10 +34440,70 @@
   ],
   "edges": [
     {
+      "from": "mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a->lean:AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement"
+    },
+    {
+      "from": "mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d->lean:AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization"
+    },
+    {
+      "from": "mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_numerics_full",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2->lean:AntichainOfGivenSize.FaithfulLower.paper_numerics_full"
+    },
+    {
+      "from": "mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad->lean:AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le"
+    },
+    {
+      "from": "mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_tail_bounds",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829->lean:AntichainOfGivenSize.FaithfulLower.paper_tail_bounds"
+    },
+    {
+      "from": "mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_record_counts",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72->lean:AntichainOfGivenSize.FaithfulLower.paper_record_counts"
+    },
+    {
+      "from": "mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
+      "to": "lean:AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c->lean:AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion"
+    },
+    {
+      "from": "mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
+      "to": "lean:AntichainOfGivenSize.attainable_count",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d->lean:AntichainOfGivenSize.attainable_count"
+    },
+    {
       "from": "mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b",
       "to": "lean:AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records",
       "kind": "binds",
       "id": "binds:mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b->lean:AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records"
+    },
+    {
+      "from": "mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb",
+      "to": "lean:AntichainOfGivenSize.Model.attainableValues_membership",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb->lean:AntichainOfGivenSize.Model.attainableValues_membership"
+    },
+    {
+      "from": "mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac",
+      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_headers",
+      "kind": "binds",
+      "id": "binds:mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac->lean:AntichainOfGivenSize.FaithfulLower.paper_headers"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
@@ -86856,5 +86916,5 @@
   "feedback": [],
   "recoveries": [],
   "recoveryFindings": [],
-  "mappingDigest": "sha256-d43d61e2fbbee9c3ead130d7ea21227dd9c84426514b5b643b5b4e0277a6ef7d"
+  "mappingDigest": "sha256-832251cc7b9d5602f6324093ddf9d8653df9f10b2116688ade53f723e1251924"
 }
