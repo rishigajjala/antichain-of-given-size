@@ -1,0 +1,50 @@
+{
+  "id": "sha256-102643c20765620a2c2de9972bcab60d215f072431a9c1b88a768d1a240a1a34",
+  "ledgerId": "ledger:15fa240b-4b1f-4c1d-9de3-51c3581b1cc3",
+  "baseLedgerDigest": "sha256-c01bb5b2ebe281544ecb0fb91b42eccdcc1d90159c648c6c6833306846984ef5",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-4b79cfe428c62ade2988bcca8a31464dd928401d900abee35c6cc09866f108fd",
+    "obligationId": "obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b",
+    "declaration": "AntichainOfGivenSize.Paper.maximumBelow_spec",
+    "file": "AntichainOfGivenSize/Paper/MainSemantics.lean",
+    "module": "AntichainOfGivenSize.Paper.MainSemantics",
+    "role": "headline",
+    "status": "verified",
+    "supersedes": [
+      "sha256-25ae5fde525df5db7cf3881bf95665cac9d34a3fb750cb04ce4d28fb49139509"
+    ],
+    "semanticApprovalDecisionId": "sha256-0c7d2f0ad1195e422cb78221aa9c7a9f04716c3b3e0091f90becd36b2b545445",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-ac70e9ed0def51ce3c496f9bf7a9eabf052b2ce91346cb5c12e5e4d2bfc60b71",
+      "elaboratedTypeDigest": "sha256-29231cba860896dd22d9e59b9a14707986c87001334300b8fdbf3d29115026ef",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.alpha",
+          "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.generatedIdeal",
+          "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+          "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+          "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-ef686a8b5bb2471484b91669b25282472e6584fe425602044ad91fc7adf11b19",
+    "verifiedByDecisionId": "sha256-102643c20765620a2c2de9972bcab60d215f072431a9c1b88a768d1a240a1a34"
+  }
+}

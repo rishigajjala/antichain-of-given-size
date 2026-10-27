@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
   "slug": "thm-main-db8crq",
-  "updatedAt": "2026-10-27T06:21:13.943Z",
-  "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
-  "buildFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
-  "dependencyFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+  "updatedAt": "2026-10-27T06:52:02.982Z",
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-27T06:21:13.943Z",
+  "elaboratedAt": "2026-10-27T06:52:02.982Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -1295,7 +1295,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.alpha_asymptotic_order",
       "file": "AntichainOfGivenSize/Model/Theorem.lean",
-      "line": 126,
+      "line": 106,
       "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
       "statementKind": "theorem",
       "role": "author-statement",
@@ -1599,7 +1599,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.alpha_maximum_order",
       "file": "AntichainOfGivenSize/Model/Theorem.lean",
-      "line": 116,
+      "line": 96,
       "declaration": "AntichainOfGivenSize.alpha_maximum_order",
       "statementKind": "theorem",
       "role": "author-statement",
@@ -1619,11 +1619,11 @@
       "id": "lean:AntichainOfGivenSize.alpha_simultaneous_density_one",
       "kind": "lean",
       "label": "AntichainOfGivenSize.alpha_simultaneous_density_one",
-      "file": "AntichainOfGivenSize/Model/Theorem.lean",
-      "line": 97,
+      "file": "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
+      "line": 102,
       "declaration": "AntichainOfGivenSize.alpha_simultaneous_density_one",
       "statementKind": "theorem",
-      "role": "author-statement",
+      "role": "supporting-lemma",
       "header": "theorem alpha_simultaneous_density_one (hprior : Prior) (c C : ℝ) (n₀ : ℕ) (hupper : ∀ n : ℕ, n₀ ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) (hlower : Filter.Tendsto (fun N : ℕ ↦ (((Finset.Icc 5 N).filter fun n : ℕ ↦ c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1)) : Filter.Tendsto (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X) Filter.atTop (nhds 1) := by",
       "references": [
         "AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
@@ -1633,8 +1633,8 @@
         "AntichainOfGivenSize.alpha",
         "AntichainOfGivenSize.quadraticLogLogScale"
       ],
-      "status": "proved",
-      "inAuditSurface": true,
+      "status": "closed",
+      "inAuditSurface": false,
       "hasSorry": false,
       "paperRefs": []
     },
@@ -1643,7 +1643,7 @@
       "kind": "lean",
       "label": "AntichainOfGivenSize.alpha_splitting",
       "file": "AntichainOfGivenSize/Model/Theorem.lean",
-      "line": 149,
+      "line": 129,
       "declaration": "AntichainOfGivenSize.alpha_splitting",
       "statementKind": "theorem",
       "role": "author-statement",
@@ -34616,9 +34616,9 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.alpha_simultaneous_density_one",
-      "to": "file:AntichainOfGivenSize/Model/Theorem.lean",
+      "to": "file:AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
       "kind": "declared-in",
-      "id": "declared-in:lean:AntichainOfGivenSize.alpha_simultaneous_density_one->file:AntichainOfGivenSize/Model/Theorem.lean"
+      "id": "declared-in:lean:AntichainOfGivenSize.alpha_simultaneous_density_one->file:AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean"
     },
     {
       "from": "lean:AntichainOfGivenSize.alpha_splitting",
@@ -85210,13 +85210,6 @@
       "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder->lean:AntichainOfGivenSize.alpha_maximum_order"
     },
     {
-      "from": "lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne",
-      "to": "lean:AntichainOfGivenSize.alpha_simultaneous_density_one",
-      "kind": "discharges",
-      "label": "proof-side declaration discharges audit-surface wrapper",
-      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.simultaneousDensityOne->lean:AntichainOfGivenSize.alpha_simultaneous_density_one"
-    },
-    {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
       "to": "file:AntichainOfGivenSize/Analysis/AttainableCountProof.lean",
       "kind": "imports",
@@ -86781,5 +86774,5 @@
   "feedback": [],
   "recoveries": [],
   "recoveryFindings": [],
-  "mappingDigest": "sha256-a3066e81868ad23b52b9ed419e59544f31608ea6aef4e7fefb7a105619b1f07a"
+  "mappingDigest": "sha256-c0e841599fd9a004252f9f0671078b78b6e584fd54a0620a8f96fdc7e2a9123f"
 }
