@@ -1,0 +1,2 @@
+function Ffe(e){let t=[];for(let{file:n,text:r}of e.auditSurfaceSources){let i=r.split(`
+`),o,a=()=>{o&&!o.sorried&&t.push({file:n,line:o.line,declaration:o.declaration,lines:o.count}),o=void 0};for(let s=0;s<i.length;s++){let d=i[s]??"",l=/^\s*(?:private\s+|protected\s+)?(?:theorem|lemma)\s+(\S+)/.exec(d);if(l){a(),o={line:s+1,declaration:In(l[1]??""),count:0,sorried:!1};continue}if(o){if(/\b(sorry|admit)\b/.test(d)){o.sorried=!0;continue}if(/^\S/.test(d)){a();continue}d.trim()&&!d.trim().startsWith("--")&&o.count++}}a()}return t}

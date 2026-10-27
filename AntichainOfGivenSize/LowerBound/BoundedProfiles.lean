@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.LowerBound.VennProfiles
 
 /-!
@@ -14,17 +15,6 @@ open Finset
 
 namespace AntichainOfGivenSize.ClusterLowerBound
 
-/-- The natural-valued multiplicity function underlying a finite profile. -/
-def atomMultiplicity {K B : ℕ}
-    (x : Finset (Fin K) → Fin (B + 1)) (A : Finset (Fin K)) : ℕ :=
-  (x A).1
-
-/-- Load of generator `i` in a finite Venn profile. -/
-def profileLoad {K B : ℕ}
-    (x : Finset (Fin K) → Fin (B + 1)) (i : Fin K) : ℕ :=
-  ∑ A ∈ Finset.univ.powerset.filter (fun A : Finset (Fin K) ↦ i ∈ A),
-    atomMultiplicity x A
-
 /-- An atom belonging to generator `i` is counted in the singleton
 intersection exponent at `i`. -/
 theorem atom_le_singletonIntersection {K : ℕ}
@@ -35,30 +25,6 @@ theorem atom_le_singletonIntersection {K : ℕ}
   unfold VennProfile.profileIntersectionSize
   apply Finset.single_le_sum (fun _ _ ↦ Nat.zero_le _)
   simp [hi]
-
-/-- A finite Venn profile with `K` labelled generators and maximum load `B`.
-
-The empty-pattern multiplicity is normalized to zero because points outside
-all generators do not affect the generated ideal. -/
-structure BoundedProfile (K B : ℕ) where
-  atom : Finset (Fin K) → Fin (B + 1)
-  empty_zero : atom ∅ = 0
-  load_le : ∀ i : Fin K, profileLoad atom i ≤ B
-
-noncomputable instance (K B : ℕ) : Fintype (BoundedProfile K B) :=
-  Fintype.ofInjective BoundedProfile.atom (by
-    intro x y h
-    cases x
-    cases y
-    simp_all)
-
-noncomputable instance (K B : ℕ) : DecidableEq (BoundedProfile K B) :=
-  Classical.decEq _
-
-/-- The natural-valued Venn multiplicities of a bounded profile. -/
-def BoundedProfile.toNatProfile {K B : ℕ} (x : BoundedProfile K B) :
-    Finset (Fin K) → ℕ :=
-  atomMultiplicity x.atom
 
 /-- Package a natural-valued profile whose empty atom is zero and whose
 singleton intersection exponents are bounded by `B`. -/
@@ -94,12 +60,6 @@ noncomputable def BoundedProfile.ofNatProfile {K B : ℕ}
 def BoundedProfile.intersectionSize {K B : ℕ} (x : BoundedProfile K B)
     (I : Finset (Fin K)) : ℕ :=
   VennProfile.profileIntersectionSize x.toNatProfile I
-
-/-- Cardinality of the canonical ideal represented by a bounded profile. -/
-noncomputable def BoundedProfile.value {K B : ℕ}
-    (x : BoundedProfile K B) : ℕ :=
-  (Section6.generatedIdealIdx Finset.univ
-    (VennProfile.profileGenerator x.toNatProfile)).card
 
 /-- The canonical profile value is exactly its inclusion--exclusion
 expression. -/

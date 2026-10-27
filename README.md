@@ -128,7 +128,7 @@ and Almost-All Lower Bounds*
 by L. Sunil Chandran, Rishikesh Gajjala, Kuldeep S. Meel, and Daniel J. Zhang.
 This manuscript is separate from the earlier arXiv paper linked above.
 
-The counting theorem `Paper.countingBound` keeps the manuscript's constant
+The counting theorem `Paper.faithfulCountingBound` keeps the manuscript's constant
 100: for every sufficiently large integer $B$ and
 $1\leq K\leq (\log_2 B)^2/(100\log_2\log_2 B)$,
 
@@ -154,6 +154,36 @@ every input: a power of two needs only one generator. The very large
 integers $n_b$ used for block-count attainment are compatible with these
 bounds in terms of $n$.
 
+## Tex2Lean workflow and proof provenance
+
+The Lean development has checked endpoints for all 18 numbered proof targets
+in the frozen manuscript. [The correspondence document](docs/current-paper.md)
+lists the exact statements and differences in proof implementation.
+
+The selected Tex2Lean runs cover the main and counting theorems, with the
+splitting lemma as a pilot. This follows the tool's documented workflow for
+[selected results](https://github.com/meelgroup/tex2lean-releases/blob/main/README.md),
+reusing the existing Lean project. All three have certified mathematical bindings
+and matching handoffs: seven for the main theorem, eleven for counting, and one
+for splitting. Exact exports preserve each target's graph, certificate, and
+handoff. The main handoff retains two verification limitations; counting retains
+two excluded metadata notes and its native false aggregate-completion flags.
+The other 15 numbered results have no separate native plan; their Lean proofs
+remain covered by the source audit. Earlier native mapping records remain in the
+immutable history. The strict command results, source hashes, and execution times
+are recorded in [checks.json](.blueprint/verification/checks.json).
+
+The native `/check` result remains `FAIL` for two documented heuristic rules;
+these diagnostics are separate from strict Lean verification.
+
+This run uses Tex2Lean 1.0.2's bundled CLI through a reproducible local
+[compatibility build](scripts/tex2lean-compat/README.md), with an optional
+[review extension](scripts/tex2lean-compat/extensions/README.md). The extension
+records Codex's review of exact Lean types, definitions, and paper statements
+through native immutable decisions; it does not assert human semantic approval.
+Native proof verification supplies the verified bindings and certificates.
+The correspondence document records the exact evidence and tool diagnostics. The ordinary Lean build and audits below do not require Tex2Lean.
+
 ## Use and verify
 
 The project pins Lean and mathlib to `v4.32.0`.
@@ -177,14 +207,16 @@ import AntichainOfGivenSize
 #check AntichainOfGivenSize.mainExplicitBlockWitness
 #check AntichainOfGivenSize.mainUpperBound
 #check AntichainOfGivenSize.mainLowerBound_explicit
-#check AntichainOfGivenSize.Paper.countingBound
+#check AntichainOfGivenSize.Paper.faithfulCountingBound
 #check AntichainOfGivenSize.Paper.mainTheorem
 #check AntichainOfGivenSize.Paper.almostAllGoodProportion
 #check AntichainOfGivenSize.Paper.realAlmostAllGoodProportion
 #check AntichainOfGivenSize.Paper.bitMatchingInt
+#check AntichainOfGivenSize.Paper.typicalLowerBound_probability
 ```
 
-The source contains no `sorry`, `admit`, or custom axioms.
+The strict audit checks that every library declaration is free of `sorryAx`
+and uses only the permitted foundational axioms.
 The [repository guide](docs/proof-guide.md#checking-the-axioms) explains how
 to inspect the foundational axioms used by the public certificates.
 CI also compares the audit's module list with every library source file,
@@ -193,8 +225,8 @@ manuscript's explicit constants, quantifiers, and endpoints independently
 of the library's statement aliases:
 
 ```bash
-lake env lean -DwarningAsError=true scripts/check-axioms.lean
-lake env lean -DwarningAsError=true scripts/check-paper-statements.lean
+lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
+lake env lean -DwarningAsError=true scripts/CheckPaperStatements.lean
 ```
 
 The Lean definition of `alpha` specifies a mathematical minimum. This

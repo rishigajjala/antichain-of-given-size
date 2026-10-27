@@ -4,3 +4,5 @@
 *.olean
 .DS_Store
 /.blueprint/
+/.tex2lean-inspection-*
+/.tex2lean-interface-*

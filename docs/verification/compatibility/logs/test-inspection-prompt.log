@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "before": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7",
+  "after": "4268db0fdda61deb1e3be7d52879d8952e67caaf4931e6c1a9fdbfdff39327d6",
+  "tests": [
+    "actual dte/ste/lte generators; Codex read-only capability equivalents",
+    "mandatory actual source inspection; exact JSON-only write exception",
+    "no-write task remains no-write; forbidden builds/network/git/source edits",
+    "Claude prompt and native tool whitelist unchanged",
+    "ordinary full-access proof prompt and Codex arguments unchanged",
+    "unique-anchor/double-application refusal; native validator/store unchanged"
+  ],
+  "cliExecuted": false,
+  "providerInvoked": false,
+  "compilerExecuted": false,
+  "repositoryChanged": false
+}

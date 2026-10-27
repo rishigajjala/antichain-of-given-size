@@ -1,7 +1,14 @@
 name = "AntichainOfGivenSize"
 version = "0.1.0"
-defaultTargets = ["AntichainOfGivenSize"]
+fixedToolchain = true
+defaultTargets = ["AntichainOfGivenSize", "AntichainOfGivenSizeTest"]
 
+[[require]]
+name = "arlib"
+git = "https://github.com/meelgroup/arlib.git"
+rev = "6262f60ad7556be62e94e87f6b5811cf299e7d94"
+
+# Mathlib comes last so its transitive dependency pins take precedence.
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
@@ -10,3 +17,12 @@ rev = "v4.32.0"
 [[lean_lib]]
 name = "AntichainOfGivenSize"
 roots = ["AntichainOfGivenSize"]
+
+# Tex2Lean checks all local Lean sources through Lake module targets.
+# Keep the standalone audit commands usable as buildable modules as well.
+[[lean_lib]]
+name = "AuditScripts"
+roots = ["scripts.CheckAxioms", "scripts.CheckPaperStatements"]
+
+[[lean_lib]]
+name = "AntichainOfGivenSizeTest"

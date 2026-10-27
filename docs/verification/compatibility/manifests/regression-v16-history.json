@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-10-27T00:43:22.355108+00:00",
+  "node": "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "nativeInput": "/tmp/antichain-tex2lean-compat-20261026-v8/out/cli.cjs",
+  "results": [
+    {
+      "test": "test-adapter.cjs",
+      "exit": 0
+    },
+    {
+      "test": "test-extension.cjs",
+      "exit": 0
+    },
+    {
+      "test": "test-future-surface-review.cjs",
+      "exit": 0
+    },
+    {
+      "test": "test-inspection-prompt.cjs",
+      "exit": 0
+    },
+    {
+      "test": "test-integration.cjs",
+      "exit": 0
+    },
+    {
+      "test": "test-lifecycle-ui.cjs",
+      "exit": 0
+    },
+    {
+      "test": "test-surface-review.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "adapter.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "extend.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "future-surface-review.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "inspection-prompt.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "lifecycle-ui.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "native-host.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "patch.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "surface-review.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-adapter.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-extension.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-future-surface-review.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-inspection-prompt.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-integration.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-lifecycle-ui.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "test-surface-review.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "validator-loop.cjs",
+      "exit": 0
+    },
+    {
+      "syntax": "cli-helpers.js",
+      "exit": 0
+    }
+  ],
+  "files": {
+    "lifecycle-ui.cjs": "6966b1925037a99a668a112776e0a1e5d626b89decf16d5c9f8dd3aa27f41c6a",
+    "test-lifecycle-ui.cjs": "0ee43e32b69996bfff89c7eb898803f6e955c640271fc759da2b99fa79d464ca",
+    "extend.cjs": "d7460b11c506f8f8bf716ac6e8b65bba46bea580c38f1b9059c3695044883088",
+    "test-extension.cjs": "ef4381273490816ec16cae0e33c193aa4691ba3a3f66703b706321255bd467bb",
+    "README.md": "0e8201a0114700b9f04e2f15773af48e07df8d8b05559c192364351d1faacb8a"
+  },
+  "cliExecuted": false,
+  "compilerExecuted": false,
+  "realLedgerMutated": false,
+  "defaultBundleSha256": "4268db0fdda61deb1e3be7d52879d8952e67caaf4931e6c1a9fdbfdff39327d6",
+  "lifecycleBundleWithoutLedgerSha256": "93ba6bbb3707b65c69f29eda8e24cf92bb53ba0dff873a86975f6195b9021e5e",
+  "lifecycleUnchanged": {
+    "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+    "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+    "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+    "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+    "native-interface-certifier": "50e46ed4d2d80b3d4a0580cf753ffd29df149de0738154c50bf33ed69f2cbe82",
+    "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+    "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "nativeValidatorLoopSha256": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298",
+  "tests": "native stale→superseded plus exact reviewed successor; fresh semantic approval; no verified shortcuts; all interrupted prefixes safe; immutable history/claim coverage retained; ordinary native validator still mandatory",
+  "runtimeExecuted": false,
+  "compilerExecuted": false,
+  "realLedgerMutated": false
+}

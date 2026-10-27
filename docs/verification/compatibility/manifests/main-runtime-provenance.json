@@ -1,0 +1,112 @@
+{
+  "schema": "antichain.main-runtime-provenance/1",
+  "recordedAtUTC": "2026-10-27T06:10:38.974696+00:00",
+  "basis": "Read-only native publication/immutable-ledger/archive checks plus parent-operated runtime report",
+  "reviewPublication": {
+    "path": "/var/folders/vp/_98678nn6zs2j5pb1lwfrzqc0000gp/T/tex2lean-ledger-review-n8SsGf/publication.json",
+    "sha256": "d5419f12d30cf1f771152a64b2bd7ea506973eeee7c5eae9b176f7da8c5940a9",
+    "manifestDigest": "sha256-cda3b293307c889c140a82c3e43d863dc2396050079de2f118f3940806f162e2",
+    "finalLedgerDigest": "sha256-4786f6dd2bd3c5185bf476c0cf4601c65251e58014ba9c3bd4b12c082945f523",
+    "ledgerObjectSha256": "f78f8bd342a59c5868be6226a4b6b19c2de013cdc0006ef8eeccd5435d8cf4c7",
+    "generationReportedByParent": 75,
+    "nativeDecisionCount": 28,
+    "staleSuccessorsProposed": 7,
+    "historicalBindingsSuperseded": 7,
+    "verifiedBindingsAtPublication": 0,
+    "proofCertification": "not run; select the exact saved target for native proof reconciliation and handoff afterwards"
+  },
+  "graphRefresh": {
+    "archiveDirectory": "/tmp/antichain-main-final-graph-refresh-20261027",
+    "file": "proof-graph.before-main-refresh.json",
+    "rawSHA256": "a72a0e3fc83a6c119c8e5180eb7bc1390342557f73d6910b9c9d46ca5ededda0",
+    "bytes": 4702590,
+    "preservedTargetSlug": "thm-attainable-count-1twuckp",
+    "preservedMappingDigest": "sha256-832251cc7b9d5602f6324093ddf9d8653df9f10b2116688ade53f723e1251924",
+    "preservedSourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "countingAlreadyExported": true,
+    "movedOnlyGeneratedSharedGraph": true,
+    "sourceAndLedgerStatusManuallyModified": false,
+    "nativeRuntimePatched": false,
+    "note": "This preserved the already-exported counting graph before the final main run; it is not a main certificate and does not alter counting evidence.",
+    "recoveryNoteSha256": "7a9ddfa34da947d430eb4797f57e8f2b3aa69b200e2bfab3aa7207ce0448a67e",
+    "mappingHistoryAndLeanSourcesUnchanged": true
+  },
+  "configurationPreparationCorrection": {
+    "reportedByParent": true,
+    "problem": "An external preparation script initially copied the counting configuration pin into main review preparation.",
+    "resolution": "Recomputed the main-specific configuration fingerprint; it matched the historical main fingerprint. Corrected the preparation input.",
+    "nativeRuntimePatched": false
+  },
+  "mainRuntime": {
+    "launcher": "/tmp/antichain-tex2lean-compat-20261027-v17-main/tex2lean",
+    "priorInspectionSessionId": "21437",
+    "currentSessionId": "40094",
+    "flags": [
+      "--project",
+      "/Users/sg9396/Desktop/boxicity/Documents New project/research/antichain-of-given-size",
+      "--lean",
+      ".",
+      "--output",
+      ".blueprint",
+      "--provider",
+      "codex-cli",
+      "--agents",
+      "3",
+      "--effort",
+      "high",
+      "--no-commit"
+    ],
+    "stageReportedByParent": "Handoff finished with a blocking helper-placement finding; source correction made and new validation pending",
+    "finalCertificateObserved": true,
+    "finalHandoffObserved": true,
+    "completionClaimed": false,
+    "proofRoundsReportedByParent": 0,
+    "handoffProviderReportedByParent": "Codex CLI, gpt-6-astra, high effort",
+    "handoffAcceptedAsCleanFinal": false
+  },
+  "packagingActions": {
+    "testsRerun": false,
+    "runtimeInvoked": false,
+    "compilerInvoked": false,
+    "repositoryWritten": false,
+    "ledgerWritten": false
+  },
+  "certificateObserved": {
+    "observedAtUTC": "2026-10-27T06:23:23.627328+00:00",
+    "head": {
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "generation": 83,
+      "ledgerDigest": "sha256-a3066e81868ad23b52b9ed419e59544f31608ea6aef4e7fefb7a105619b1f07a",
+      "certifiedSnapshotDigest": "sha256-13f76849000a8e30db818e8e339a8572429e537a13610c70ea7494a55cb5c187"
+    },
+    "certificate": {
+      "schema": "tex2lean.certified-mapping-snapshot/1",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "ledgerDigest": "sha256-a3066e81868ad23b52b9ed419e59544f31608ea6aef4e7fefb7a105619b1f07a",
+      "paperPacketDigest": "sha256-45b60bf79d94c942fdc3a009d3514a926e14db4bb71a9fa8ab461396f36c5703",
+      "leanEvidenceSnapshotDigest": "sha256-331f093d6760eb83842ebcd3b4a53f18ca152a8b1ff8b1b61ac5ee058392d29e",
+      "graphDigest": "sha256-95549b312634ff8f2413f77eac9747812c493dcb4e4e217618339a6168e64335",
+      "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+      "buildFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+      "dependencyFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+      "created": {
+        "at": "2026-10-27T06:21:14.022Z",
+        "by": "proof-graph-reconciliation"
+      }
+    },
+    "certificateFileSha256": "7971815d2547594f7e32a0b9ec94e9baabc8aedc431f01ebc0104a8d872fc78d",
+    "ledgerObjectFileSha256": "bb79846d84edb18c32e6d01d48ff2ca1a293706e9d665ad6ae10a8c186dff344",
+    "activeVerifiedBindings": 7,
+    "supersededHistoricalBindings": 7,
+    "basis": "Read-only current native head, snapshot and immutable ledger inspection; not a new validator execution."
+  },
+  "evidenceValidityAfterHelperRelocation": {
+    "status": "historical source only",
+    "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+    "currentSourceRevalidationPending": true,
+    "reference": "helper-relocation-source-transition.json"
+  },
+  "laterCurrentSourceOutcomeReference": "../manifest.json#/currentNativeUsage",
+  "historicalObservationRetained": true
+}

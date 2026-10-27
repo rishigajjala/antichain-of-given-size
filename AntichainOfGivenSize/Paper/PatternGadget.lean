@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Section6.Core
 import AntichainOfGivenSize.Section6.Remainder
 
@@ -13,22 +14,6 @@ with that tag adjoined.
 open Finset
 
 namespace AntichainOfGivenSize.Paper.PatternGadget
-
-abbrev Vertex (ell : ℕ) := Fin ell ⊕ Fin ell
-abbrev Index (ell : ℕ) := Option (Fin ell)
-
-def baseline (ell : ℕ) : Finset (Vertex ell) :=
-  Finset.univ.map Function.Embedding.inl
-
-def initialSegment {ell : ℕ} (a : Fin ell) : Finset (Vertex ell) :=
-  (Finset.Iio a).map Function.Embedding.inl
-
-def generator {ell : ℕ} : Index ell → Finset (Vertex ell)
-  | none => baseline ell
-  | some a => insert (Sum.inr a) (initialSegment a)
-
-def selected {ell : ℕ} (D : Finset (Fin ell)) : Finset (Index ell) :=
-  insert none (D.image some)
 
 def tagged {ell : ℕ} (a : Fin ell) : Finset (Finset (Vertex ell)) :=
   (initialSegment a).powerset.image (insert (Sum.inr a))
@@ -142,9 +127,6 @@ theorem ideal_card {ell : ℕ} (D : Finset (Fin ell)) :
   · rw [Finset.disjoint_biUnion_right]
     intro a _ha
     exact disjoint_baseline_tagged a
-
-def selectedBits (ell d : ℕ) : Finset (Fin ell) :=
-  Finset.univ.filter fun a ↦ d.testBit a.val
 
 /-- Claim 6.2 in the current manuscript, including the unchanged `+d`. -/
 theorem ideal_card_bits {ell d : ℕ} (hd : d < 2 ^ ell) :

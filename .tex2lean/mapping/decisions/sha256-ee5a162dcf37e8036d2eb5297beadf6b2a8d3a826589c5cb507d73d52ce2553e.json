@@ -1,0 +1,62 @@
+{
+  "id": "sha256-ee5a162dcf37e8036d2eb5297beadf6b2a8d3a826589c5cb507d73d52ce2553e",
+  "ledgerId": "ledger:15fa240b-4b1f-4c1d-9de3-51c3581b1cc3",
+  "baseLedgerDigest": "sha256-a460548266055b203888da63a60ee7821ac6aee6e189824261adf73b611d64e7",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-9b18ff6b2e1bdfe7148c40f6b90c6a5dbd8fc1f0bed85cae53036f6efbb71450",
+    "obligationId": "obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7",
+    "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+    "file": "AntichainOfGivenSize/Model/Theorem.lean",
+    "module": "AntichainOfGivenSize.Model.Theorem",
+    "role": "headline",
+    "status": "verified",
+    "supersedes": [
+      "sha256-239e09fb29577a7e3ac67ef9ad1cc451d03657c729a98667e5f5f283e738c850"
+    ],
+    "semanticApprovalDecisionId": "sha256-a3968840660a84030c4d46bc879c7608289baf01ecaa36b468806376186c2bc7",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-34bf2cb9476624324c58e0eca49a2b10d4b19c78756e9e6dc685f346fbea3733",
+      "elaboratedTypeDigest": "sha256-9d8e2316f49f87e5df630eabc94e0c182b626158c430b0dcac3127bc7edbb970",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.alpha",
+          "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.generatedIdeal",
+          "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+          "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+          "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Prior",
+          "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+          "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+          "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-ef686a8b5bb2471484b91669b25282472e6584fe425602044ad91fc7adf11b19",
+    "verifiedByDecisionId": "sha256-ee5a162dcf37e8036d2eb5297beadf6b2a8d3a826589c5cb507d73d52ce2553e"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "Isolated unchanged native heuristic reproduction after helper relocation; no compiler/native workflow execution",
+  "sourceCommit": "420d09b23a8449bf144b3a0d391331e899292e5f",
+  "bundle": {
+    "path": "/tmp/antichain-tex2lean-compat-20261027-v17-main/out/cli.cjs",
+    "sha256": "3ad5d8e73e524e1f24618c01718857e4d0aba12eacab6ad7979bfbb5e62f2ed0"
+  },
+  "nativeFunctions": {
+    "In": {
+      "file": "native/In.js",
+      "sha256": "ec16f7bd7d1e1f904444290b54fff5ffdb1fc0c15b97ebfd83c8b2168c2c417d"
+    },
+    "Ffe": {
+      "file": "native/Ffe.js",
+      "sha256": "652401fd3f940e8b9258e0528087f5b2c1503216c20a85f7b8c2324e66189a29"
+    },
+    "zhe": {
+      "file": "native/zhe.js",
+      "sha256": "4693d95191b75e9961ce6f955a6544d781f4f3b0731dac062f7862d4ebeea73c"
+    }
+  },
+  "sources": {
+    "AntichainOfGivenSize/Model/Prelude.lean": {
+      "sha256": "cd02c7277d8f19055f68ae598cceeb537366d44f929f0c97e5fcd93aba6b7ea3"
+    },
+    "AntichainOfGivenSize/Model/Prior.lean": {
+      "sha256": "77be77d438292a55c1533bf7169eccae6f52168dffa7e0af7d69539cb4641d6d"
+    },
+    "AntichainOfGivenSize/Model/ProblemSetting.lean": {
+      "sha256": "51794442487ae04dee58b138890e0188128eb02d99be95152c12e843be78795a"
+    },
+    "AntichainOfGivenSize/Model/Theorem.lean": {
+      "sha256": "3b56fb8feda7fd042891f059d6331141a01d50ebc318002741025a35e3a78e90"
+    }
+  },
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828"
+}

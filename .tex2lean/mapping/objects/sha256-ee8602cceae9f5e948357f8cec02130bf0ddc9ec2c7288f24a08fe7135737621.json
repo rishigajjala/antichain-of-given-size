@@ -1,0 +1,554 @@
+{
+  "schema": "tex2lean.paper-proof-map/1",
+  "ledgerId": "ledger:15fa240b-4b1f-4c1d-9de3-51c3581b1cc3",
+  "paper": {
+    "id": "paper:a7190ee7-8fa6-4d62-baa7-f171c602755f"
+  },
+  "target": {
+    "id": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+    "paperId": "paper:a7190ee7-8fa6-4d62-baa7-f171c602755f",
+    "activeVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d"
+  },
+  "activeClaimSetReceiptId": "claim-set:e07c56d2-4ece-49e2-8906-ed68859a4e9d",
+  "activeSurfaceInventoryId": "surface-inventory:d077d219-5d0e-4114-b899-3b5a8569d7de",
+  "targetVersions": [
+    {
+      "id": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "paperPacketDigest": "sha256-45b60bf79d94c942fdc3a009d3514a926e14db4bb71a9fa8ab461396f36c5703",
+      "bodyDigest": "sha256-10a9f10ed40b531c309379739d37b1eaefad0f9de0089a21513f5a242b08f642",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "label": "thm:main",
+        "environment": "theorem",
+        "from": 156,
+        "to": 170,
+        "excerptDigest": "sha256-2b16374d80cccf1399c9eb874dd59cf3b506828f8a8762b1b12f498720ead13f"
+      },
+      "status": "active"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:8fdf6206-7cc5-414c-af95-d5836195bad6",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:8f5bead0-1ac7-47a5-b6ad-f1bac17870ea",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:25a5918c-8c7e-4f3d-a084-b241bd3f72c2",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:4115e09b-29c4-440b-9c58-a25b96884368",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:89584538-91d7-4928-9763-b49835ef71f5",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:a14c1072-8c6e-47fa-8e62-d44b8448f686",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:2d18e97a-7315-43a1-8c4b-ed6bb92572e0",
+      "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+      "activeVersionId": "claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "role": "reportable"
+    }
+  ],
+  "claimVersions": [
+    {
+      "id": "claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "claimId": "claim:8fdf6206-7cc5-414c-af95-d5836195bad6",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-cac2be97fead5a3bb0d7c3375ea794aa86feb3c519bc040775eadaad774f331f"
+      },
+      "text": "There exist absolute C > 0 and an integer n_0 such that alpha(n) <= C f(n) for every integer n >= n_0.",
+      "normalizedTextDigest": "sha256-0ee0f64c9749e18e8229f7bc458626ba5c060d252221f661b113a24568ee75b7",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-cac2be97fead5a3bb0d7c3375ea794aa86feb3c519bc040775eadaad774f331f"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
+      "claimId": "claim:8f5bead0-1ac7-47a5-b6ad-f1bac17870ea",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-0a5ae3c243a3c2ed317f9ba5fdfdf7fb64edd7f1790d9ab45185836bc8f7a16a"
+      },
+      "text": "For an absolute c > 0, the integers n >= 5 with c f(n) <= alpha(n) have natural density 1; c is chosen independently of all n and cutoffs.",
+      "normalizedTextDigest": "sha256-1c1731480db8b68caa37e3da3b1fb1c7c7e0da9523045662da3e99b13664976f",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-0a5ae3c243a3c2ed317f9ba5fdfdf7fb64edd7f1790d9ab45185836bc8f7a16a"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "claimId": "claim:25a5918c-8c7e-4f3d-a084-b241bd3f72c2",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-6b54bd9ec2d366111231d9cc67ab5af533b656ed330ee4137fb143e11ace70eb"
+      },
+      "text": "For fixed positive absolute c and C, the simultaneous inequalities c f(n) <= alpha(n) <= C f(n) hold on a set of positive integers of natural density 1.",
+      "normalizedTextDigest": "sha256-8abac860e4601a81ae15f743c8b76700f9d71ed82c888b616554c8f294eed152",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-6b54bd9ec2d366111231d9cc67ab5af533b656ed330ee4137fb143e11ace70eb"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "claimId": "claim:4115e09b-29c4-440b-9c58-a25b96884368",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-5b658bb96f2b48856711539e40bc7b7cf0416b75e7fc36ae7bc7b02dc3bf0845"
+      },
+      "text": "There exist a,A > 0 and X_0 > 4 such that a f(X) <= max_{1<=n<X} alpha(n) <= A f(X) for every real X >= X_0.",
+      "normalizedTextDigest": "sha256-36be4d2d59be34269c70bc811e77b8d2d9713b9a10014bfc44885cfdc6843622",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-5b658bb96f2b48856711539e40bc7b7cf0416b75e7fc36ae7bc7b02dc3bf0845"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "claimId": "claim:89584538-91d7-4928-9763-b49835ef71f5",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-9064ca3024f84b0407a3343651d58921cede604d81d40b37340ed99fdf2aa359"
+      },
+      "text": "For X >= 0, realGoodInputs c C X consists exactly of the integers n with 5 <= n <= X satisfying both non-strict bounds.",
+      "normalizedTextDigest": "sha256-bb1e9da3d668ff232e552f2c2de5ad1582a02ac861d2cafe5f223d1ce8143537",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-9064ca3024f84b0407a3343651d58921cede604d81d40b37340ed99fdf2aa359"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "claimId": "claim:a14c1072-8c6e-47fa-8e62-d44b8448f686",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-4aec5e33bb24fb13d9e96a9b86509dc54742000a653670c742f206c809053865"
+      },
+      "text": "A density-zero count of orderExceptions is equivalent to the density-one goodInputs proportion, and the natural-cutoff good proportion gives the same real-cutoff proportion.",
+      "normalizedTextDigest": "sha256-7e5ac43d28a3272ac013b3c70e226e6acb4f3cc8a656110f52e0d71522f9900e",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-4aec5e33bb24fb13d9e96a9b86509dc54742000a653670c742f206c809053865"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "claimId": "claim:2d18e97a-7315-43a1-8c4b-ed6bb92572e0",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-0963614d7df272e0d1e4e722a651d57b43be2a19d0a24f02d9f70c9358bd9754"
+      },
+      "text": "For X > 1, maximumBelow X is the maximum of alpha(n) over exactly the positive integers n < X.",
+      "normalizedTextDigest": "sha256-9d93995e5c499d73bdb1905400b79b0711cde947fa71e26101b2de64eb5978b3",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-0963614d7df272e0d1e4e722a651d57b43be2a19d0a24f02d9f70c9358bd9754"
+        }
+      ],
+      "status": "active"
+    }
+  ],
+  "plans": [
+    {
+      "claimVersionId": "claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:95f3a780-de19-4e7c-8daa-704335dec5fa"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-132fb7f797f5164b59dad8cf3a67de76d85a18410d15a8b4270b1352fd2444c2"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Model/Theorem."
+    },
+    {
+      "claimVersionId": "claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:2eb4ed80-2142-4c64-9844-8068dd22ba8c"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-31a4db23d1b037c3366b6d7debe0c74e48196017d27353ea38be829d24157a64"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Model/Theorem."
+    },
+    {
+      "claimVersionId": "claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-b92c3456f33ea385014e6becc26b1605b8b155a57a2886a352242b6cd8a19963"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Model/Theorem."
+    },
+    {
+      "claimVersionId": "claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-be4e086c3f17a1b3d4e6cd3022f5c0b2595db2831db9c038b5e2a2b58566fb2f"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Model/Theorem."
+    },
+    {
+      "claimVersionId": "claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:277e247f-4fef-4ca4-9c6e-a9eea2cbcdc2"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-8aee64a3794e6f0f9f653c47bbc4adf1d65c55599c1b27c89a3f1799fd41ee5e"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Interface."
+    },
+    {
+      "claimVersionId": "claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:038389cd-6a08-4f02-beb4-d6c6721caa84"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-ee17d10e1ea114bcf3215289bff277cb2059fd3e70c9c30e05cd56bc2bbaee67"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Interface."
+    },
+    {
+      "claimVersionId": "claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-9c484bf556e63fa2f5087e43a21492c39365339ad72b1d43810e3269bbd0f0dd"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Interface."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "obligation:95f3a780-de19-4e7c-8daa-704335dec5fa",
+      "kind": "headline",
+      "summary": "There exist absolute C > 0 and an integer n_0 such that alpha(n) <= C f(n) for every integer n >= n_0.",
+      "rationale": "The finalized blueprint assigns this paper claim to Model/Theorem.",
+      "owner": "Model/Theorem",
+      "status": "materialized"
+    },
+    {
+      "id": "obligation:2eb4ed80-2142-4c64-9844-8068dd22ba8c",
+      "kind": "headline",
+      "summary": "For an absolute c > 0, the integers n >= 5 with c f(n) <= alpha(n) have natural density 1; c is chosen independently of all n and cutoffs.",
+      "rationale": "The finalized blueprint assigns this paper claim to Model/Theorem.",
+      "owner": "Model/Theorem",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:8b8d119f-2ba6-47a9-b62c-efd9e4814666",
+      "kind": "headline",
+      "summary": "For fixed positive absolute c and C, the simultaneous inequalities c f(n) <= alpha(n) <= C f(n) hold on a set of positive integers of natural density 1.",
+      "rationale": "The finalized blueprint assigns this paper claim to Model/Theorem.",
+      "owner": "Model/Theorem",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:8a76a3c0-025e-4716-b8b9-ddcc091c63f7",
+      "kind": "headline",
+      "summary": "There exist a,A > 0 and X_0 > 4 such that a f(X) <= max_{1<=n<X} alpha(n) <= A f(X) for every real X >= X_0.",
+      "rationale": "The finalized blueprint assigns this paper claim to Model/Theorem.",
+      "owner": "Model/Theorem",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:277e247f-4fef-4ca4-9c6e-a9eea2cbcdc2",
+      "kind": "headline",
+      "summary": "For X >= 0, realGoodInputs c C X consists exactly of the integers n with 5 <= n <= X satisfying both non-strict bounds.",
+      "rationale": "The finalized blueprint assigns this paper claim to Interface.",
+      "owner": "Interface",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:038389cd-6a08-4f02-beb4-d6c6721caa84",
+      "kind": "headline",
+      "summary": "A density-zero count of orderExceptions is equivalent to the density-one goodInputs proportion, and the natural-cutoff good proportion gives the same real-cutoff proportion.",
+      "rationale": "The finalized blueprint assigns this paper claim to Interface.",
+      "owner": "Interface",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b",
+      "kind": "headline",
+      "summary": "For X > 1, maximumBelow X is the maximum of alpha(n) over exactly the positive integers n < X.",
+      "rationale": "The finalized blueprint assigns this paper claim to Interface.",
+      "owner": "Interface",
+      "status": "planned"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "binding:97416218-b517-42b2-a1d0-d5cee4f4640e",
+      "obligationId": "obligation:95f3a780-de19-4e7c-8daa-704335dec5fa",
+      "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "module": "AntichainOfGivenSize.Model.Theorem",
+      "role": "headline",
+      "status": "proposed",
+      "semanticApprovalDecisionId": "sha256-c1ac4395625fe0cdea054fbcb7661b88699c0c3513af023f904fc47f9d1617e8"
+    }
+  ],
+  "leanRelations": [],
+  "claimSetReceipts": [
+    {
+      "id": "claim-set:e07c56d2-4ece-49e2-8906-ed68859a4e9d",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "paperPacketDigest": "sha256-45b60bf79d94c942fdc3a009d3514a926e14db4bb71a9fa8ab461396f36c5703",
+      "claimVersionIds": [
+        "claim-version:fad8c500-9ffd-49e7-b6a3-8b4f8c0d1fda",
+        "claim-version:21bb8fa0-0286-4f18-a058-80af0a93298a",
+        "claim-version:d20f4f47-31a0-4adf-a44a-ca8bfae89922",
+        "claim-version:22e56616-e423-4d70-9d62-4412be3ba6b4",
+        "claim-version:66b057a5-a4c6-410e-a114-3e1eddefcb4c",
+        "claim-version:ac76fa41-a175-4a10-98f9-c2bb86c82c75",
+        "claim-version:b866aeee-b83c-4c65-8c37-2b9fd44ce6d5"
+      ],
+      "readerProvenance": "reader-agent"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sha256-132fb7f797f5164b59dad8cf3a67de76d85a18410d15a8b4270b1352fd2444c2",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-cac2be97fead5a3bb0d7c3375ea794aa86feb3c519bc040775eadaad774f331f"
+        }
+      ]
+    },
+    {
+      "id": "sha256-31a4db23d1b037c3366b6d7debe0c74e48196017d27353ea38be829d24157a64",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-0a5ae3c243a3c2ed317f9ba5fdfdf7fb64edd7f1790d9ab45185836bc8f7a16a"
+        }
+      ]
+    },
+    {
+      "id": "sha256-b92c3456f33ea385014e6becc26b1605b8b155a57a2886a352242b6cd8a19963",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-6b54bd9ec2d366111231d9cc67ab5af533b656ed330ee4137fb143e11ace70eb"
+        }
+      ]
+    },
+    {
+      "id": "sha256-be4e086c3f17a1b3d4e6cd3022f5c0b2595db2831db9c038b5e2a2b58566fb2f",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-5b658bb96f2b48856711539e40bc7b7cf0416b75e7fc36ae7bc7b02dc3bf0845"
+        }
+      ]
+    },
+    {
+      "id": "sha256-8aee64a3794e6f0f9f653c47bbc4adf1d65c55599c1b27c89a3f1799fd41ee5e",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-9064ca3024f84b0407a3343651d58921cede604d81d40b37340ed99fdf2aa359"
+        }
+      ]
+    },
+    {
+      "id": "sha256-ee17d10e1ea114bcf3215289bff277cb2059fd3e70c9c30e05cd56bc2bbaee67",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-4aec5e33bb24fb13d9e96a9b86509dc54742000a653670c742f206c809053865"
+        }
+      ]
+    },
+    {
+      "id": "sha256-9c484bf556e63fa2f5087e43a21492c39365339ad72b1d43810e3269bbd0f0dd",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-0963614d7df272e0d1e4e722a651d57b43be2a19d0a24f02d9f70c9358bd9754"
+        }
+      ]
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 150,
+          "to": 160,
+          "excerptDigest": "sha256-04e6ad3c859e46948e11f4832cd99c4ef6969de230c15ef22a0cf06a353daf4e"
+        }
+      ],
+      "id": "sha256-227a272e7bee08c49c40041a3462d88ba8a450a163f0574baf59b16063dbac39"
+    }
+  ],
+  "surfaceInventories": [
+    {
+      "id": "surface-inventory:d077d219-5d0e-4114-b899-3b5a8569d7de",
+      "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+      "source": "sealed-blueprint",
+      "blueprintDigest": "sha256-bcd0adaaa91ef6a6fc407c5e4b48a52b57ae07d765518b2f9c190beebce889c2",
+      "declarations": [
+        {
+          "declaration": "AntichainOfGivenSize.attainable_count",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_lower_density_one",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_simultaneous_density_one",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        }
+      ]
+    }
+  ],
+  "appliedDecisionIds": [
+    "sha256-ef12e668f33ba9d995c1b7d0f91cd3f0ddac8496e519b591d735408e459852f5",
+    "sha256-c889bfd5aab1f6ae01a1c9e3943d9b8a2af6bf9c8cc6c4bd19f14f07083bd10d",
+    "sha256-c1ac4395625fe0cdea054fbcb7661b88699c0c3513af023f904fc47f9d1617e8"
+  ]
+}

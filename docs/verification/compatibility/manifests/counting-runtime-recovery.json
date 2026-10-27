@@ -1,0 +1,99 @@
+{
+  "schema": "antichain.native-runtime-recovery/1",
+  "recordedAtUTC": "2026-10-27T05:32:07.746952+00:00",
+  "source": "Parent-operated workflow report plus read-only archived-artifact hash checks",
+  "priorSession": {
+    "id": "88104",
+    "closedCleanly": true,
+    "problem": "An unchanged-source saved graph carried the pre-review mapping digest, so current proposed bindings were not reconciled; launch omitted explicit provider/agents/effort and handoff selected default Claude without file-reading access.",
+    "handoffAcceptedAsFinal": false
+  },
+  "archive": {
+    "path": "/tmp/antichain-counting-stale-graph-handoff-20261027",
+    "files": {
+      ".blueprint/handoff/thm-attainable-count/HANDOFF.md": {
+        "sha256": "a43a2c336ea4a8dde185213b1edc8918e5962f07554baefd785321480c912136",
+        "bytes": 7502
+      },
+      ".blueprint/handoff/thm-attainable-count/handoff.json": {
+        "sha256": "a2ed3dff61ffd0bc636ea8b69b84c901dc15a5f8456d798765f04682eebd290f",
+        "bytes": 39781
+      },
+      ".tex2lean/proof-graph.json": {
+        "sha256": "a825c202acfc5f454de42bad8f6f809f55a23d7b75663db3b0c3ba9c47c20b4c",
+        "bytes": 4699098
+      },
+      "moved-proof-graph.json": {
+        "sha256": "a825c202acfc5f454de42bad8f6f809f55a23d7b75663db3b0c3ba9c47c20b4c",
+        "bytes": 4699098
+      }
+    }
+  },
+  "recovery": {
+    "movedOnlyGeneratedGraph": ".tex2lean/proof-graph.json",
+    "graphSha256": "a825c202acfc5f454de42bad8f6f809f55a23d7b75663db3b0c3ba9c47c20b4c",
+    "dirtySidecarPresentBeforeRecovery": false,
+    "ledgerStatusModifiedManually": false,
+    "sourceModified": false,
+    "nativeCodePatched": false
+  },
+  "replacementSession": {
+    "id": "42597",
+    "launcher": "/tmp/antichain-tex2lean-compat-20261027-v17-counting/tex2lean",
+    "flags": [
+      "--project",
+      "/Users/sg9396/Desktop/boxicity/Documents New project/research/antichain-of-given-size",
+      "--lean",
+      ".",
+      "--output",
+      ".blueprint",
+      "--provider",
+      "codex-cli",
+      "--agents",
+      "3",
+      "--effort",
+      "high",
+      "--no-commit"
+    ],
+    "targetSelection": "No-argument /plan; select only saved counting target",
+    "stageReportedByParent": "Native saved counting verification restarted",
+    "certificateClaimed": false,
+    "completionClaimed": false,
+    "handoffAcceptedAsFinal": false
+  },
+  "diagnosis": {
+    "bundle": "/tmp/antichain-tex2lean-compat-20261027-v17-counting/out/cli.cjs",
+    "bundleSha256": "f3c83567f9b8d50dcc8aaa935024a6a264ca1dda519420f5a29d6c02106bbee6",
+    "sourceFunctions": [
+      "Oue",
+      "Xg",
+      "ts",
+      "wt (local in Oue)",
+      "ai (local in Oue)",
+      "yk",
+      "BT",
+      "tq"
+    ],
+    "cause": "Oue begins with Ge undefined. The opening wt/dn path can accept a saved same-source graph through Xg when the optional expected mapping digest is undefined, before ai reads the current ledger.",
+    "missingGraphEffect": "ts returns no previous graph, so wt must invoke normal ai reconciliation, including current-ledger interface receipts, Vy validation, and any resulting native certified snapshot.",
+    "exposedForceRefreshCommandFound": false,
+    "dirtyMarkerAloneReliable": false
+  },
+  "packagingActions": {
+    "runtimeInvoked": false,
+    "compilerInvoked": false,
+    "repositoryWritten": false,
+    "ledgerWritten": false
+  },
+  "finalObservedOutcome": {
+    "observedAtUTC": "2026-10-27T05:48:57.626574+00:00",
+    "reference": "counting-final-export-reference.json",
+    "sessionId": "42597",
+    "certificateDigest": "sha256-9b84f979c6f6a6b9becc7601c39dd144882545acd7218560ef2de6c98d37a8ed",
+    "handoffGeneratedAt": "2026-10-27T05:42:20.946Z",
+    "activeMathematicalRowsProved": 11,
+    "excludedMetadataRows": 2,
+    "handoffUnknowns": [],
+    "nativeAggregateComplete": false
+  }
+}

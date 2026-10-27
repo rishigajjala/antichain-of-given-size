@@ -1,0 +1,20 @@
+{
+  "purpose": "Exact historical handoff before the conditional density helper was relocated. Its findings are retained, not current verification verdicts.",
+  "generatedAt": "2026-10-27T06:27:01.255Z",
+  "sourceFingerprint": "sha256:0d23ccef6c0362ca734519676a9e93d267c3c80e0667bc1ef8bf47a5886b7513",
+  "currentReplacement": "../../native/thm-main.summary.json",
+  "files": [
+    {
+      "file": "handoff.json",
+      "originalPath": ".blueprint/handoff/thm-main/handoff.json",
+      "sha256": "4f054cefa9ca07bedbbcec5c14f41ccc3df93799f7789731cf861db4d3061ef4",
+      "bytes": 46507
+    },
+    {
+      "file": "HANDOFF.md",
+      "originalPath": ".blueprint/handoff/thm-main/HANDOFF.md",
+      "sha256": "d65cce6e6494972b494ea2c8c69dafc70076d45a00027bb1236bdac15e1ee6f9",
+      "bytes": 6725
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "id": "sha256-fee153a715c8e9a5b031de298dba6b98089f66062e9c5e9db8312211ba766d58",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-2ac8966318c511b424bb4651312d285904f87f900d01de9d4792113f4ccee708",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-607ab206274e4c6290dca35b3962979b1300d7694db515dbc24fb40a5ae46949",
+    "obligationId": "obligation:a0f09070-388d-42b6-99d2-e6d09b457f72",
+    "declaration": "AntichainOfGivenSize.FaithfulLower.paper_record_counts",
+    "file": "AntichainOfGivenSize/Paper/FaithfulCounting/ClaimBundles.lean",
+    "module": "AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles",
+    "role": "headline",
+    "status": "verified",
+    "supersedes": [
+      "sha256-951bf30954a6b4eedd5e18ae977adf4b8cb73bfecd3d6c518bb0f726f0714664"
+    ],
+    "semanticApprovalDecisionId": "sha256-56c58afe5633139c2fe16938c9baf51ac7a8e64880ae5b440219b33707d0b164",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-40512d435d3d97e51bd1493c057d62f82227a6b8b0ba7a9590de0fe3338cd792",
+      "elaboratedTypeDigest": "sha256-8f6e3da434d08280bd613a52ad3df14d2567b7fa5aff860103245a3832bb4389",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.ClusterCore.compressionKey",
+          "valueDigest": "sha256-3fabd2737c284c58828ef1e546c9c87de686f7859de791cc201a311b221869f5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterCore.IEQuery",
+          "valueDigest": "sha256-ebbfb0baaae2f496e9976ea623c365ab5b62cbe2f04dae95f75d41c79c7d46fc"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
+          "valueDigest": "sha256-9043d23e60b52475179900ca2a82836ace1539985c17180b7bfbed897b12aac2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
+          "valueDigest": "sha256-714b11e1576582e917137e25209fe87e4878a0002c6ab13b7499d3c2a51c884c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
+          "valueDigest": "sha256-1560248eaffee1b0eca3b32f7172e5240a05c7ec74c9738dfe356be9ebc5d627"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.generators",
+          "valueDigest": "sha256-d6d86222287e0a033aefdee74b6d16387c4335bdb1ceed2bb335d5a9c54206b5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.Point",
+          "valueDigest": "sha256-735de20d2cc97ee7dc27cb080e0cd0d5a1ae90ed4e5ffd6b2feb8b248385b7eb"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
+          "valueDigest": "sha256-79456ddd64f8efd6804e35f6031b11a6d98303cc40954a5a3d23daa398cd6c2b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeSparseCodeOfDecidableEq",
+          "valueDigest": "sha256-6f035ce615689bb3bd471dd94924d8ebe19f7886b3f2cd9807baa3fbe3ce4613"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeSparseCodeOfDecidableEq._proof_1",
+          "valueDigest": "sha256-8754ff397619b2ab5398efc900b6ea49684a442a4f51b718b8260860a91f6ac2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters",
+          "valueDigest": "sha256-e8c075009a3e542360d4d7a9a1e198cdab3e0162518a638ab66ed55dab72aba5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.cluster",
+          "valueDigest": "sha256-e03af42507e6ed6cd9c4fd5380daca4c3e0ca755cbb91d645946d85bc144649c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.componentFiber",
+          "valueDigest": "sha256-c9a3d0f7856398f2ef1ea8c341de65cf123b2c7a4e87f48d06de1c6794c7e00f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.componentLabel",
+          "valueDigest": "sha256-3e7e8de475fc714a2fa8ea8dbc1b0e47770922847779ca4d7aabc5394e05c95e"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.componentLabel._proof_1",
+          "valueDigest": "sha256-523c8b69c669687799e26d42913acd9d4aae3081b926ec3b3b11b351db8003c1"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.residual",
+          "valueDigest": "sha256-aa86e1433fb7519befa9c4fea421cc2ee8b026c4be13760320acd458acc08079"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.residualComponent_count_le",
+          "valueDigest": "sha256-812439ac9020f09a457ea3cf04680a5a5d91740914def00f5b755d0211d47a0f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.role",
+          "valueDigest": "sha256-f0211bb05b86e05ba47bba379a26c18c29679cfbcb5188701f5e937be79071c3"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode",
+          "valueDigest": "sha256-ed7e38bbd06afd7597d3821ea11238e73b876c06e310c0e927b5f462bbd372f8"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.casesOn",
+          "valueDigest": "sha256-cf3f04f5d48754fe2c60c6312c72a52d845bbff8484bb5e5002c5a3b4978e371"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.count",
+          "valueDigest": "sha256-17286f1f7ec67719613a510fb8e14c89fab58a4bf0706a319009723451a69184"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.mk",
+          "valueDigest": "sha256-c5e288d295b07966a7270b6cb640a8117b7a12ed614c1d55e8fe543e71aaab76"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.mk.congr_simp",
+          "valueDigest": "sha256-0244fb4b6bf7cfe142e7c22ab87b427684bceb122c67365c2de3bdcc9e9e8074"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.SparseCode.rec",
+          "valueDigest": "sha256-1f4c6354de998f20f333bf966d55e8b2ab77515ba9c493fad320a38f861ab39d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalCenters",
+          "valueDigest": "sha256-70a923e9514fd951a268fb4c85198fb4ae3ed17b6b9100bb87aa05125e9e05b5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalClusterFamily",
+          "valueDigest": "sha256-829eedb51bad1f5ff253c1321298e3e37ff1db29d737c7c8532a34b47de86d9d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalExceptional",
+          "valueDigest": "sha256-4df70c8270dedea6e09351c85a44106378d580874462d3224306c775b9a9ec04"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.CanonicalIsCenter",
+          "valueDigest": "sha256-a7866d8847b1ecb9237bde5d5088a0897ce208bb14e9d2834566dba60e19b5d6"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.canonicalRole",
+          "valueDigest": "sha256-28f7d33be49718627712b96d074a1df8ac6ba55f56daa4ad8d9b58687008feaf"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.centralKeys",
+          "valueDigest": "sha256-845d58f2a6f036f9d21afbcf5f76ae61eb36a9067f1bd638a9527acbdb4a596f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.clusterVariation",
+          "valueDigest": "sha256-a3a78a86ad197f13a0472eb61938397b892a5caa5e49f796be8e128671b6aee9"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.headerLabel",
+          "valueDigest": "sha256-51f06f854acb9c1e4d2e98882032d6fc8dddcb8156e6dec6c73f635d49208c18"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.headerLabel.match_1",
+          "valueDigest": "sha256-9a5ac80847c8b2ec19e919e3c7c32bf1051224c06d4cdd23c26b58d1d48da99c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.headerPartition",
+          "valueDigest": "sha256-0449ea513c1e244adc15e1016089cbe4f0ea165ba5243a96305f112e939c08fc"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.intrinsicExceptional",
+          "valueDigest": "sha256-4c13e0dc347739d6ad002f47ecbe068f3c50d663436d636411967c1c6878481b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Numerical.clusterSize",
+          "valueDigest": "sha256-947fa65d851374f0e27cc31c5a5e192da95b1bc2a89b3b916b34defbdac13ecd"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Numerical.clusterSize._proof_1",
+          "valueDigest": "sha256-90c06a2b3a487e66638a039e8b2e7c81492c682086eb0d4fe527d9649a559eec"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Numerical.literalScale",
+          "valueDigest": "sha256-38cf697c14ed9bcbe63840c5c52ffcc3c410bbe1a90e72dc82d153dcdbc6d219"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Numerical.literalScales",
+          "valueDigest": "sha256-7ece8fcb66116168dbd26fb39e6056e9411d65e4cf0c7f6192ad8f3ea9433880"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Numerical.packingBound",
+          "valueDigest": "sha256-af67bd1fafda1eb7ffbce9279add9f70e743bee73bcb0ffec107a25f6a21d93a"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Partition",
+          "valueDigest": "sha256-70f75035d31eebb322161834290a034c301bbfa4fd740f9ebd759b6a6d6587e4"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.partitionCode",
+          "valueDigest": "sha256-11bcbf9dcf25061f507afe12d8e7be8e5afc252f61a726be336b66659e8b459d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.partitionCode._proof_1",
+          "valueDigest": "sha256-95c76133c3eaf0251eda342a906337f6dad1b36c06f6c75188180c10e44f3451"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.realProximityGraph",
+          "valueDigest": "sha256-de7c345629b84c18727988c7e7087d1b4eb465035bc2f69ffe21fc9afd87966d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.realProximityGraph._proof_1",
+          "valueDigest": "sha256-17d3070c6f2f113d2a9b458d3d00f0bd03f7183ce00ddf619f582c66e33c8df5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.realProximityGraph._proof_2",
+          "valueDigest": "sha256-06ff1f8bdc3c08b0b156dce28b536f11cb8680da531dfee3d04c96f594ab87d2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.ValidHeader",
+          "valueDigest": "sha256-6f68b48cb816666871a1ef8d80087449659ac75e0b71394c37542cbb0a0fcc1a"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
+          "valueDigest": "sha256-1a0d184f1d0817026fc9b34c03b00f36d6fcfe97a15d70f20fdd42f1583f3dc8"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
+          "valueDigest": "sha256-803e17699435cafd61d50d2fc331ab99d7fd5c207ebd3ced5c6c0cdc5c8b9cae"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.profileGenerator",
+          "valueDigest": "sha256-6a979ad092b644943a4ada88ea2307b4e37b5370f5beaca6fb1b4791cb39594e"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.ProfilePoint",
+          "valueDigest": "sha256-0e66cbdef4d04d3035194b71065f4ea7297f287f47b2e58ded8abdcdba9efbe8"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-5614d3a1a952a52a6a46edc4a5cc55656b349dbed62a6135406617ed0c2c2a18",
+    "verifiedByDecisionId": "sha256-fee153a715c8e9a5b031de298dba6b98089f66062e9c5e9db8312211ba766d58"
+  }
+}

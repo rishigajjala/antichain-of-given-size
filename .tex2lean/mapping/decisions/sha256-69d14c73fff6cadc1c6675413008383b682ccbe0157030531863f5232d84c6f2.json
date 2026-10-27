@@ -1,0 +1,47 @@
+{
+  "id": "sha256-69d14c73fff6cadc1c6675413008383b682ccbe0157030531863f5232d84c6f2",
+  "ledgerId": "ledger:15fa240b-4b1f-4c1d-9de3-51c3581b1cc3",
+  "baseLedgerDigest": "sha256-68ccf6cd873aec0c962667a5d0bde0c9cc47e74015b1476ed59dae2677b58b54",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-25ae5fde525df5db7cf3881bf95665cac9d34a3fb750cb04ce4d28fb49139509",
+    "obligationId": "obligation:88635a78-2ddb-44c0-8142-1ee3c83a7a2b",
+    "declaration": "AntichainOfGivenSize.Paper.maximumBelow_spec",
+    "file": "AntichainOfGivenSize/Paper/MainSemantics.lean",
+    "module": "AntichainOfGivenSize.Paper.MainSemantics",
+    "role": "headline",
+    "status": "verified",
+    "semanticApprovalDecisionId": "sha256-80a9d9f9ab7c89a3335f2f7d80ea380493817bbdb609376ea96ac7c8f2042d02",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-ac70e9ed0def51ce3c496f9bf7a9eabf052b2ce91346cb5c12e5e4d2bfc60b71",
+      "elaboratedTypeDigest": "sha256-29231cba860896dd22d9e59b9a14707986c87001334300b8fdbf3d29115026ef",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.alpha",
+          "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.generatedIdeal",
+          "valueDigest": "sha256-4bf4902542f194a29613a1ad0568a2ac45216842092670242f3b3e11e0f6ee5b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+          "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+          "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-bdd4d4ace4f694661a38ffb1d68804fe4568e33daae23c54c584dee756081e13",
+    "verifiedByDecisionId": "sha256-69d14c73fff6cadc1c6675413008383b682ccbe0157030531863f5232d84c6f2"
+  }
+}

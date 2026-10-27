@@ -1,0 +1,89 @@
+{
+  "schema": "tex2lean.checkpoint/1",
+  "slug": "thm-main-db8crq",
+  "createdAt": "2026-10-26T21:37:58.319Z",
+  "updatedAt": "2026-10-27T06:52:18.787Z",
+  "state": "complete",
+  "paper": "paper/Generating_Antichains_Simplified.tex",
+  "target": {
+    "key": "label:thm:main",
+    "id": "t1",
+    "title": "Main theorem",
+    "label": "thm:main",
+    "location": "paper/Generating_Antichains_Simplified.tex:156",
+    "paperDigest": "7a4bf6274170"
+  },
+  "config": {
+    "leanProjectPath": ".",
+    "outputDirectory": ".blueprint",
+    "agentCount": 3
+  },
+  "recovery": {
+    "budget": 5,
+    "attempts": {},
+    "diagnostics": {}
+  },
+  "proofCycles": {
+    "granted": 64,
+    "spent": 0
+  },
+  "completed": [],
+  "partials": ".blueprint/in-progress",
+  "resume": {
+    "command": "formalize.resumeRun",
+    "args": [
+      "thm-main-db8crq"
+    ],
+    "uri": "vscode://kuldeepmeel.tex2lean4/resume?slug=thm-main-db8crq"
+  },
+  "closeSituation": "proof-completed",
+  "statement": {
+    "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+    "statement": "theorem alpha_asymptotic_order (hprior : Prior) : (∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧ (∀ n : ℕ, n₀ ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)) ∧ Filter.Tendsto (fun N : ℕ ↦ (((Finset.Icc 5 N).filter fun n : ℕ ↦ c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun N : ℕ ↦ ((Paper.goodInputs c C N).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1) ∧ Filter.Tendsto (fun X : ℝ ↦ ((Paper.realGoodInputs c C X).card : ℝ) / X) Filter.atTop (nhds 1)) ∧ (∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧ ∀ X : ℝ, X₀ ≤ X → a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧ (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X)",
+    "assumptions": [],
+    "surface": [
+      {
+        "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+        "statement": "theorem alpha_eventual_upper (hprior : Prior) : ∃ C : ℝ, 0 < C ∧ ∃ n₀ : ℕ, 5 ≤ n₀ ∧ ∀ n : ℕ, n₀ ≤ n → (alpha n : ℝ) ≤ C * quadraticLogLogScale (n : ℝ)"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_lower_density_one",
+        "statement": "theorem alpha_lower_density_one (hprior : Prior) : ∃ c : ℝ, 0 < c ∧ Filter.Tendsto (fun N : ℕ ↦ (((Finset.Icc 5 N).filter fun n : ℕ ↦ c * quadraticLogLogScale (n : ℝ) ≤ (alpha n : ℝ)).card : ℝ) / (N : ℝ)) Filter.atTop (nhds 1)"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+        "statement": "theorem alpha_maximum_order (hprior : Prior) : ∃ a A : ℝ, 0 < a ∧ 0 < A ∧ ∃ X₀ : ℝ, 4 < X₀ ∧ ∀ X : ℝ, X₀ ≤ X → a * quadraticLogLogScale X ≤ (Paper.maximumBelow X : ℝ) ∧ (Paper.maximumBelow X : ℝ) ≤ A * quadraticLogLogScale X"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.alpha_splitting",
+        "statement": "theorem alpha_splitting (hprior : Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : alpha (m + n) ≤ alpha m + alpha (n + 1)"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.attainable_count",
+        "statement": "theorem attainable_count (hprior : Prior) : ∃ B₀ : ℕ, ∀ B K : ℕ, B₀ ≤ B → (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 / (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) → ((Paper.attainableValues B K).card : ℝ) ≤ (2 : ℝ) ^ ((B : ℝ) - Real.sqrt (B : ℝ))"
+      },
+      {
+        "declaration": "AntichainOfGivenSize.Model.attainableValues_membership",
+        "statement": "theorem attainableValues_membership {B K n : ℕ} (hK : 0 < K) : n ∈ Paper.attainableValues B K ↔ ∃ N : ℕ, ∃ G : Finset (Finset (Fin N)), G.Nonempty ∧ G.card ≤ K ∧ (∀ A ∈ G, A.card ≤ B) ∧ (generatedIdeal G).card = n"
+      }
+    ]
+  },
+  "modelSources": [
+    {
+      "file": "AntichainOfGivenSize/Model/Prelude.lean",
+      "digest": "sha256-8ff9e198c059dadb024858a552aa2b3e8f42aff460e6f60f572ff405eb29a60c"
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Prior.lean",
+      "digest": "sha256-16fbc4417ae3c7d93e246fec4b66ddf1d9ce54348d53578f777ea77e6a0709b2"
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "digest": "sha256-0fe56671e6a0e7184667d5648c5a6d886f9d7016fc6a48a902e42dcde454d98e"
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "digest": "sha256-ef971284996362f4bd62f0f0d02d68fe34ee4884165ea6a82333753e077e6bcf"
+    }
+  ]
+}

@@ -109,16 +109,21 @@ which assumed principles do the formal proofs depend on?
 After building, run the repository-wide dependency check:
 
 ```bash
-lake env lean scripts/check-axioms.lean
+lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
 ```
 
-It checks every theorem declaration originating in the project library
-modules, including private and automatically generated declarations.
-It rejects unexpected axioms and also prints the dependencies of the nine
-public certificates. This check supports the semantic audit; it cannot
-itself decide whether a definition expresses the intended problem.
+It checks every declaration originating in the project library modules,
+including definitions, instances, private declarations, and automatically
+generated declarations. It also checks that the source files, explicit
+module registry, and imports agree. The
+[verification report](../.blueprint/verification/checks.json) identifies the exact
+source snapshot, while [the manuscript correspondence](current-paper.md) describes
+the expanded statement checks. The strict command
+rejects omitted-proof dependencies and unexpected axioms. These checks support
+the semantic audit; they do not decide whether a definition expresses the
+intended problem.
 
-To inspect all nine public certificates, save the following as
+To inspect the nine original public certificates, save the following as
 `/tmp/AntichainAxioms.lean`:
 
 ```lean

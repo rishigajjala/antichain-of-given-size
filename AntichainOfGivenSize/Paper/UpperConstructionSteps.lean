@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Paper.UpperConstructionGeometry
 import AntichainOfGivenSize.Paper.PatternGadget
 import AntichainOfGivenSize.Section6.Construction
@@ -99,12 +100,6 @@ theorem intersection_update {r ell : ℕ} {K V : Type*}
     by_cases hs : t.val ⊆ selected i D <;>
       simp [hs,hv,generatorIntersection,Finset.mem_inf',hmem]
 
-noncomputable def idealCard {r ell : ℕ} {K V : Type*}
-    [Fintype K] [DecidableEq K] [Fintype V] [DecidableEq V]
-    (active : Finset (BitMatching.Stage r)) (hist : BitMatching.Stage r → Finset K)
-    (R : K → Finset V) : ℕ :=
-  (generatedIdealIdx Finset.univ (generator (ell := ell) active hist R)).card
-
 theorem idealCard_update {r ell : ℕ} {K V : Type*}
     [Fintype K] [DecidableEq K] [Fintype V] [DecidableEq V]
     (active : Finset (BitMatching.Stage r)) (hist : BitMatching.Stage r → Finset K)
@@ -123,9 +118,6 @@ theorem idealCard_update {r ell : ℕ} {K V : Type*}
     rw [generatorIntersection,Finset.mem_inf'] at h
     exact fresh_not_mem_generator active hist R i hi p (h p hp)
   by_cases hs : t.val ⊆ selected i D <;> simp [hs,hnot]
-
-def digitSelection (ell d : ℕ) : Finset (PatternGadget.Index ell) :=
-  PatternGadget.selected (PatternGadget.selectedBits ell d)
 
 theorem pattern_subtype_ideal (ell : ℕ) (D : Finset (PatternGadget.Index ell)) :
     generatedIdealIdx Finset.univ (fun k : D => PatternGadget.generator k.val) =

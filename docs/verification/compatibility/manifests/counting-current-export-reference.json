@@ -1,0 +1,92 @@
+{
+  "schema": "antichain.native-export-reference/1",
+  "recordedAtUTC": "2026-10-27T07:24:08.866545+00:00",
+  "targetLabel": "thm:attainable-count",
+  "export": {
+    "directory": "/tmp/antichain-final-native-evidence-after-helper-relocation-20261027/thm-attainable-count",
+    "manifestFile": "EXPORT.json",
+    "rawSha256": "e6265192cd22ae9731aee03b586d2c74b4af059694b8a299b1be0d2d45a2628c",
+    "exportedAtUTC": "2026-10-27T07:22:17.596Z",
+    "fullExportIncludedInCompatibilityPackage": false
+  },
+  "runtime": {
+    "build": "v17-main",
+    "sessionId": 6885,
+    "route": "Ordinary native saved-plan proof and handoff; no optional ledger operation during these refreshes",
+    "explicitProvider": "codex-cli",
+    "agents": 3,
+    "effort": "high"
+  },
+  "head": {
+    "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+    "generation": 141,
+    "ledgerDigest": "sha256-eb9cc53d2f226e3a18794e7161ad3c9921c0bbcb4a0ff2f4072fd78c56cb5c87",
+    "certifiedSnapshotDigest": "sha256-57d40cf9af07c5c19fcfecb249b3b639971f64a48295d9b32adfc4604b17f19e"
+  },
+  "certificate": {
+    "schema": "tex2lean.certified-mapping-snapshot/1",
+    "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+    "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+    "ledgerDigest": "sha256-eb9cc53d2f226e3a18794e7161ad3c9921c0bbcb4a0ff2f4072fd78c56cb5c87",
+    "paperPacketDigest": "sha256-13345dccd16feaa54c7a2ad25499f7c4b97d962b5201be8bd2d46ca2d1b4db2c",
+    "leanEvidenceSnapshotDigest": "sha256-5614d3a1a952a52a6a46edc4a5cc55656b349dbed62a6135406617ed0c2c2a18",
+    "graphDigest": "sha256-8f17a8709975adf861b20bd20ccfb3494cb040c0fc7cca5c0b44cb0c58e8d94e",
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "created": {
+      "at": "2026-10-27T07:14:16.811Z",
+      "by": "proof-graph-reconciliation"
+    }
+  },
+  "observedHandoff": {
+    "generatedAt": "2026-10-27T07:19:21.488Z",
+    "headline": "formalized",
+    "assumptions": "pass",
+    "probability": "not-applicable",
+    "unknowns": [],
+    "complete": false,
+    "whollyProved": false,
+    "proofCounts": {
+      "proved": 11,
+      "proved-conditional": 0,
+      "candidate-closed": 0,
+      "assembled": 0,
+      "implemented": 0,
+      "open": 0,
+      "blocked": 0,
+      "assumed-instead": 0,
+      "refuted": 0,
+      "not-applicable": 2,
+      "unknown": 0
+    },
+    "coverageCounts": {
+      "mapped": 11,
+      "unmapped": 0,
+      "pending-review": 0,
+      "unsupported": 0,
+      "disputed": 0,
+      "excluded": 2,
+      "stale": 0
+    }
+  },
+  "activeVerifiedBindingCount": 11,
+  "excludedMetadataCount": 2,
+  "limitations": [
+    "Does not run the compiler or native validator.",
+    "Does not authenticate the author role as human review.",
+    "Selected paper/configuration bytes and all Lean source hashes are preserved; pair this export with the matching Git source tree. External dependency binaries are not independently hashed.",
+    "Full immutable mapping history must also be exported once after all selected runs."
+  ],
+  "nativeDigestChecks": [
+    "ledger",
+    "certificate (created omitted)",
+    "lean evidence",
+    "complete graph",
+    "paper packet",
+    "interface receipts",
+    "toolchain",
+    "verification publication predecessor/successor ledgers"
+  ],
+  "packagingDoesNotCertifyOrChangeVerdicts": true
+}

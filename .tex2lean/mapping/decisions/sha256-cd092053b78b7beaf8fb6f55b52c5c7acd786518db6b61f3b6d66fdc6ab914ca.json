@@ -1,0 +1,11 @@
+{
+  "id": "sha256-cd092053b78b7beaf8fb6f55b52c5c7acd786518db6b61f3b6d66fdc6ab914ca",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-caa03e1dbafbe32219a572edcb3352308fc27e44dd0fb26adc9bdfacf81f6987",
+  "actor": "validator",
+  "provenance": "elaborated Lean interface changed during proof-graph certification",
+  "mode": "automatic",
+  "kind": "stale-binding",
+  "bindingId": "sha256-9d17f024a37d90203f2a7911e7aaeb1953a98e502b6e6293e195d55799ff0992",
+  "reason": "elaborated type or semantic roots changed"
+}

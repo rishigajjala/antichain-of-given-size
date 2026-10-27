@@ -1,3 +1,4 @@
+import AntichainOfGivenSize.Model.ProblemSetting
 import AntichainOfGivenSize.Paper.BitMatching
 import AntichainOfGivenSize.Paper.UpperConstructionCore
 
@@ -7,12 +8,6 @@ open scoped BigOperators
 namespace AntichainOfGivenSize.Paper.UpperConstruction
 
 open AntichainOfGivenSize.Section6
-
-abbrev Index (r : ℕ) (K : Type*) := BitMatching.Index r ⊕ K
-abbrev Vertex (r ell : ℕ) (V : Type*) := (BitMatching.Vertex r × Fin ell) ⊕ (V ⊕ BitMatching.Stage r)
-
-noncomputable def oldUniverse (r : ℕ) : Finset (BitMatching.Vertex r) :=
-  Finset.univ.disjSum (Finset.univ.disjSum ∅)
 
 theorem old_generator_subset {r : ℕ} (p : BitMatching.Index r) :
     BitMatching.generator ∅ p ⊆ oldUniverse r := by
@@ -38,24 +33,6 @@ theorem core_subset_chosen {r : ℕ} (hr : 0 < r) (i : BitMatching.Stage r) (j :
   rw [← BitMatching.primary_intersection hr ∅ i (by simp)] at hv
   exact (BitMatching.mem_generator _ _ _).mpr
     ((BitMatching.mem_intersection _ _ _).mp hv _ (BitMatching.chosen_mem_address i j))
-
-def selected {r : ℕ} {K : Type*} (i : BitMatching.Stage r) (D : Finset K) :
-    Finset (Index r K) := (BitMatching.address i).disjSum D
-
-noncomputable def Present {r ell : ℕ} {K V : Type*} [DecidableEq V]
-    (active : Finset (BitMatching.Stage r)) (hist : BitMatching.Stage r → Finset K) (R : K → Finset V) :
-    Index r K → Vertex r ell V → Prop
-  | Sum.inl p, Sum.inl u => u.1 ∈ BitMatching.generator ∅ p
-  | Sum.inr _, Sum.inl u => u.1 ∈ oldUniverse r
-  | Sum.inl _, Sum.inr (Sum.inl _) => True
-  | Sum.inr k, Sum.inr (Sum.inl v) => v ∈ R k
-  | p, Sum.inr (Sum.inr g) => g ∈ active ∧ p ∈ selected g (hist g)
-
-noncomputable def generator {r ell : ℕ} {K V : Type*} [Fintype V] [DecidableEq V]
-    (active : Finset (BitMatching.Stage r)) (hist : BitMatching.Stage r → Finset K) (R : K → Finset V)
-    (p : Index r K) : Finset (Vertex r ell V) := by
-  classical
-  exact Finset.univ.filter (Present active hist R p)
 
 @[simp] theorem mem_generator {r ell : ℕ} {K V : Type*} [Fintype V] [DecidableEq V]
     (active : Finset (BitMatching.Stage r)) (hist : BitMatching.Stage r → Finset K) (R : K → Finset V)

@@ -1,0 +1,38 @@
+{
+  "id": "sha256-6a502e014502555ce6484c7848f005ae4af6d755c25dd2dec81777451063ec2f",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-02be50aa81fafa11901ab0a636a9e53eb4b50294786578d726414c4fa8e8e2c1",
+  "actor": "validator",
+  "provenance": "approved correspondence matched the current elaborated Lean interface",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-aacb2bbaa591ed2b8bca577cbc95ae56f954ef419d2533362604a88507b65d4a",
+    "obligationId": "obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
+    "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion",
+    "file": "AntichainOfGivenSize/Section6/Core.lean",
+    "module": "AntichainOfGivenSize.Section6.Core",
+    "role": "headline",
+    "status": "verified",
+    "supersedes": [
+      "sha256-da83566c34754180874876b27e459f545d971e6d8302deb7d0e5e53c22843eb4"
+    ],
+    "semanticApprovalDecisionId": "sha256-1edd79ba7e55e62f20f2359edda847a73ed19573c74480350a67b856a8008232",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-ceb5b3a0718993d942263d1e18b92adef2328be28a77165dc67aeee119e6e23f",
+      "elaboratedTypeDigest": "sha256-7207d54281d92dbb43c700b037220b49938343bca3a56129f1eae735d42a93be",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx",
+          "valueDigest": "sha256-246a084c3e3cd491062c6197cee58b6c425a86d087c8b6608a1ffcfa675e4946"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-2dc71485b1683ed2077f598b3648cc8aae83fe514507f29d81f5aef95cbaefa5",
+    "verifiedByDecisionId": "sha256-6a502e014502555ce6484c7848f005ae4af6d755c25dd2dec81777451063ec2f"
+  }
+}

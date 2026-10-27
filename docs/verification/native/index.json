@@ -1,0 +1,41 @@
+{
+  "schema": "antichain.selected-native-archives/1",
+  "purpose": "Preserved exports for three selected native runs, independent of complete 18-result Lean coverage",
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "exports": [
+    {
+      "targetLabel": "thm:main",
+      "archive": "thm-main.tar.gz",
+      "archiveSHA256": "93b41fad8ded34d587c42c77c1c660ecca79e8bc3a36ca12e7456ddfc1494466",
+      "summary": "thm-main.summary.json",
+      "summarySHA256": "713604b80e0d6c7a6e87fca695a5ab68f457cc76fff9a94be9f47f5e5a2e80ef",
+      "generation": 91,
+      "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828"
+    },
+    {
+      "targetLabel": "thm:attainable-count",
+      "archive": "thm-attainable-count.tar.gz",
+      "archiveSHA256": "dd9f710f6526f8645cae4a5a65b42c182e1b692ad4d6bad9acd43d8c6d927426",
+      "summary": "thm-attainable-count.summary.json",
+      "summarySHA256": "7d7de5e5649f33e842eb0f489490a645ae8946d3954e76fc8143d31ed4092d23",
+      "generation": 141,
+      "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828"
+    },
+    {
+      "targetLabel": "lem:splitting",
+      "archive": "lem-splitting.tar.gz",
+      "archiveSHA256": "b5d9063d8cd2ef8e030369c8bc52800792b042b87a45707e806ec80c61c2fc1c",
+      "summary": "lem-splitting.summary.json",
+      "summarySHA256": "2f5da180db6cee89e06507f47386b6af908f6338cc5aff8122218a0e6596df29",
+      "generation": 9,
+      "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828"
+    }
+  ],
+  "exportHelpers": {
+    "lem:splitting": "b538eb1777398a1736f49c34e4a3c66a6ef93de0c7b319c8a42b88bf04039a09",
+    "thm:main": "b538eb1777398a1736f49c34e4a3c66a6ef93de0c7b319c8a42b88bf04039a09",
+    "thm:attainable-count": "b538eb1777398a1736f49c34e4a3c66a6ef93de0c7b319c8a42b88bf04039a09"
+  },
+  "mappingHistory": "The complete immutable history remains at .tex2lean/mapping in the repository",
+  "validationScope": "Exact archive/export bytes and shared recorded source fingerprint; no compiler or native validator is run"
+}

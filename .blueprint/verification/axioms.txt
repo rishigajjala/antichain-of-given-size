@@ -1,0 +1,180 @@
+PASS: 3086 declarations checked across 124 project library modules and matching source files; 2433 theorem declarations; 82 theorem declarations require no axioms.
+Observed axiom union: [propext, Classical.choice, Quot.sound]
+MODULE AntichainOfGivenSize: 0 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AlphaEventualUpperProof: 1 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof: 6 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof: 1 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof: 11 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AlphaSplittingProof: 1 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AttainableCountProof: 1 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof: 1 theorem declarations
+MODULE AntichainOfGivenSize.Analysis.TheoremProof: 1 theorem declarations
+MODULE AntichainOfGivenSize.AntichainReduction: 13 theorem declarations
+MODULE AntichainOfGivenSize.AsymptoticBridge: 7 theorem declarations
+MODULE AntichainOfGivenSize.BasicLemmas: 45 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.AssembleClusters: 34 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.AssembledError: 5 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.AssembledGrid: 2 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.Binary: 3 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ClusterGrid: 4 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ClusterPartition: 37 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ErrorArithmetic: 10 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ErrorToGrid: 2 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ExplicitWitness: 14 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ExtremalRecursion: 11 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.FiniteExponents: 5 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.FiniteIncrement: 2 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.FiniteScales: 16 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.GapArithmetic: 3 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ReductionCertificate: 2 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ScaledIdeals: 44 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.SingletonBound: 8 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.TermGap: 3 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.Tight: 4 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.Upper: 32 theorem declarations
+MODULE AntichainOfGivenSize.BlockCount.ValuationBounds: 37 theorem declarations
+MODULE AntichainOfGivenSize.Definitions: 0 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.BinaryBlocks: 38 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.BoundedProfiles: 38 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.CarrySensitive: 71 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterCore: 37 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterEncoding: 59 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterFiber: 14 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterImageBound: 4 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterParameters: 162 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterProfileCodes: 22 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterSparsityAssembly: 41 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterState: 13 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ClusterStateConstruction: 35 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.Conductor: 28 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.FiniteFiberBound: 5 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.IdealBlockCount: 9 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.InfinitelyOften: 27 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.Matching: 3 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ProfilePadding: 16 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.QuadraticLogEndpoint: 54 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.SignedPowers: 12 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.SparseEncoding: 18 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.ThresholdFiltration: 31 theorem declarations
+MODULE AntichainOfGivenSize.LowerBound.VennProfiles: 22 theorem declarations
+MODULE AntichainOfGivenSize.MainStatement: 2 theorem declarations
+MODULE AntichainOfGivenSize.MainTheorems: 11 theorem declarations
+MODULE AntichainOfGivenSize.MatchingParameters: 34 theorem declarations
+MODULE AntichainOfGivenSize.Meta.Audit: 0 theorem declarations
+MODULE AntichainOfGivenSize.Meta.CostSeal: 0 theorem declarations
+MODULE AntichainOfGivenSize.Meta.ModelClosure: 0 theorem declarations
+MODULE AntichainOfGivenSize.Model.ProblemSetting: 11 theorem declarations
+MODULE AntichainOfGivenSize.Model.Prelude: 1 theorem declarations
+MODULE AntichainOfGivenSize.Model.Prior: 0 theorem declarations
+MODULE AntichainOfGivenSize.Model.Theorem: 6 theorem declarations
+MODULE AntichainOfGivenSize.Paper.AlmostAll: 8 theorem declarations
+MODULE AntichainOfGivenSize.Paper.BasicResults: 26 theorem declarations
+MODULE AntichainOfGivenSize.Paper.BitMatching: 91 theorem declarations
+MODULE AntichainOfGivenSize.Paper.CountingEstimates: 59 theorem declarations
+MODULE AntichainOfGivenSize.Paper.CountingParameters: 18 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Density: 14 theorem declarations
+MODULE AntichainOfGivenSize.Paper.DirectReduction: 3 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Extremal: 11 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.ActualCounting: 16 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.CanonicalHeader: 32 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting: 3 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.ConnectedSubset: 5 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.HeaderExistence: 14 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.IncidenceCount: 8 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.LiteralScales: 13 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.NumericalParameters: 21 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.OriginalQueryReconstruction: 52 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.PartitionHeader: 12 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.RealTailFiberCore: 21 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.ScalarNormalization: 5 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FirstUpper: 20 theorem declarations
+MODULE AntichainOfGivenSize.Paper.GeneralCounting: 47 theorem declarations
+MODULE AntichainOfGivenSize.Paper.PatternGadget: 30 theorem declarations
+MODULE AntichainOfGivenSize.Paper.RealDensity: 15 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Representation: 4 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles: 13 theorem declarations
+MODULE AntichainOfGivenSize.Paper.LiteralBlockMatching: 3 theorem declarations
+MODULE AntichainOfGivenSize.Paper.LiteralUpperParameters: 9 theorem declarations
+MODULE AntichainOfGivenSize.Paper.MainSemantics: 18 theorem declarations
+MODULE AntichainOfGivenSize.Paper.UpperConstructionIncrement: 1 theorem declarations
+MODULE AntichainOfGivenSize.Paper.TypicalGoodEvent: 3 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound: 7 theorem declarations
+MODULE AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles: 4 theorem declarations
+MODULE AntichainOfGivenSize.Paper.TypicalProbability: 7 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Results: 13 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Scale: 12 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Statements: 2 theorem declarations
+MODULE AntichainOfGivenSize.Paper.Typical: 10 theorem declarations
+MODULE AntichainOfGivenSize.Paper.UpperConstructionBounds: 28 theorem declarations
+MODULE AntichainOfGivenSize.Paper.UpperConstructionCore: 15 theorem declarations
+MODULE AntichainOfGivenSize.Paper.UpperConstructionGeometry: 41 theorem declarations
+MODULE AntichainOfGivenSize.Paper.UpperConstructionSteps: 22 theorem declarations
+MODULE AntichainOfGivenSize.Paper.UpperParameters: 23 theorem declarations
+MODULE AntichainOfGivenSize.RangeArithmetic: 35 theorem declarations
+MODULE AntichainOfGivenSize.RangeReduction: 52 theorem declarations
+MODULE AntichainOfGivenSize.Section6.Address: 23 theorem declarations
+MODULE AntichainOfGivenSize.Section6.Blocks: 94 theorem declarations
+MODULE AntichainOfGivenSize.Section6.Construction: 49 theorem declarations
+MODULE AntichainOfGivenSize.Section6.Core: 50 theorem declarations
+MODULE AntichainOfGivenSize.Section6.IndexedBounds: 11 theorem declarations
+MODULE AntichainOfGivenSize.Section6.ModularIncrement: 62 theorem declarations
+MODULE AntichainOfGivenSize.Section6.NatParameters: 6 theorem declarations
+MODULE AntichainOfGivenSize.Section6.Remainder: 30 theorem declarations
+MODULE AntichainOfGivenSize.Section6.StageArithmetic: 3 theorem declarations
+MODULE AntichainOfGivenSize.Section6.StageBridge: 10 theorem declarations
+MODULE AntichainOfGivenSize.Section6.Survivors: 33 theorem declarations
+MODULE AntichainOfGivenSize.Theorem: 6 theorem declarations
+'AntichainOfGivenSize.mainAlphaHasAntichainWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainUpperBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainLowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainLowerBound_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainBlockCountLowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainBlockCountUpperBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainBlockCountBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainBlockCountTightBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.mainExplicitBlockWitness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.bitMatching' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.bitMatchingInt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.quadraticUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.blockMatching' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.firstUpper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.directReduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.countingBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.faithfulCountingBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.paper_counting_at_parameters' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.exists_paper_counting_threshold_strong' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.exists_paper_counting_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.attainable_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Model.attainableValues_membership' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.alpha_asymptotic_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.typicalLowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.almostAllLowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.almostAllOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.almostAllGoodProportion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.realAlmostAllGoodProportion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.extremalOrder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.mainTheorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.LiteralUpperParameters.blockMatching' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.normalized_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.paper_headers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.paper_record_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.paper_tail_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.FaithfulLower.paper_numerics_and_strong_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'AntichainOfGivenSize.Paper.density_representations' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AntichainOfGivenSize.Paper.maximumBelow_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

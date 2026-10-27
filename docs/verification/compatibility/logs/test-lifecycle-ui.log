@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "before": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7",
+  "after": "7d53bb6a49c0aa5e8470fc365bfb52b4e7881c140cea82e6385829dedbd7c7d1",
+  "unchanged": {
+    "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+    "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+    "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+    "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+    "native-interface-certifier": "50e46ed4d2d80b3d4a0580cf753ffd29df149de0738154c50bf33ed69f2cbe82",
+    "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+    "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+  },
+  "tests": [
+    "actual requestChoice/answerIfAsked: repeated same-ID requests and duplicate renders",
+    "actual dn/Lt/native QJ: old candidate-closed reproduction and certified projection",
+    "all semantic/source/ledger/nested timestamp changes reject reuse; absent certificate and unverified bindings stay unproved",
+    "matching-target handoff guard; wrong target/head/source/graph/session and read errors omit safely"
+  ],
+  "cliExecuted": false,
+  "compilerExecuted": false,
+  "ledgerWrites": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sha256-05cd4b6ebe50819a693d60a5ec6d779eb2770f8fbdb5c854e4fcaae786688ed6",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-86e690f95b0612515e817d534b7334b771bd14f3ab7ee24607d768b54adf5968",
+  "actor": "author",
+  "mode": "automatic",
+  "provenance": "Codex assistant review under user-authorized formalization; no human review asserted\n{\"manifestDigest\":\"sha256-ac0267c257fbe611811490b34c733b4e8a1a59bb3849eed1137932946850f26f\",\"authorizationDigest\":\"sha256-6db72c5aca96669c1ebe9b93c10d7645f3966dd8f305651d3b8b828f596fb735\",\"claimVersionId\":\"claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95\",\"exactClaimText\":\"The existing endpoint proves the exact target with a different, larger clustered record encoding; identify reuse honestly and preserve the correspondence note.\",\"category\":\"implementation-provenance\",\"reason\":\"This is a statement about which Lean implementation was reused, not a mathematical claim in the manuscript. The old Paper.countingBound remains a complete alternative proof. Current headline owner uses FaithfulLower.exists_paper_counting_threshold, so old-route attribution must not be presented as the current proof. No mathematical row1-11 is excluded.\",\"exactQuotes\":[{\"file\":\".blueprint/thm-attainable-count-04ffa9e627/BLUEPRINT.md\",\"from\":124,\"to\":124,\"text\":\"- The existing endpoint proves the exact target with a different, larger clustered record encoding; identify reuse honestly and preserve the correspondence note. (correctness, Handoff; CountingParameters.lean:119–136; docs/current-paper.md:166–175.)\",\"fileDigest\":\"sha256-465cf6898caaf4d3cdebd63917ee25d1d7225026f58d479b6b167498739a9d36\"},{\"file\":\"docs/current-paper.md\",\"from\":177,\"to\":204,\"text\":\"* **The counting proof.** The fourteen modules in\\n  [`Paper/FaithfulCounting/`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean)\\n  formalize Sections 8--10.1: the maximum-packing plateau, connected clusters\\n  of exactly `h` vertices, the partition count `(J+1)K^K`, the intrinsic\\n  exceptional set with bound `2Kρ'`, the incidence and exponent records,\\n  original signed inclusion--exclusion terms, and the integer tail interval.\\n  `NumericalParameters` uses the exact real logarithm, floor, scale sequence,\\n  and denominator `100`. `CompleteCounting` exports both the `Γ/4` and\\n  square-root savings above one absolute threshold.\\n  Least-element block labels encode the paper's canonical ordering. Pattern\\n  multiplicities encode its sorted incidence words. Taking `ceil(ρ)` gives\\n  exactly the real-threshold proximity graph; this equivalence is proved.\\n  The numerical absorption uses an explicit polynomial times `2^(3λ/10)`\\n  bound for the recording cost. These representations preserve the paper's\\n  counting argument. `ClaimBundles` exposes the combined intermediate\\n  estimates explicitly. Its normalization theorem relabels the actual union\\n  of the original generators onto `Fin N`, with `N≤KB`, full union, bounded\\n  generators, and unchanged ideal cardinality. Padding repeats index zero;\\n  [`ExactClaimBundles.lean`](../AntichainOfGivenSize/Paper/FaithfulCounting/ExactClaimBundles.lean)\\n  additionally proves the literal final-index padding identity for the entire\\n  generated ideal, paired with all normalization conclusions. Its\\n  `paper_numerics_full` retains the preliminary Gamma estimate for every\\n  `λ≥20` as well as the common threshold for all later numerical/counting bounds.\\n  The earlier larger encoding remains as `Paper.countingBound` in\\n  [`CountingParameters.lean`](../AntichainOfGivenSize/Paper/CountingParameters.lean).\\n  The public dyadic, density, and extremal certificates in `Paper.Results`\\n  now use `Paper.faithfulCountingBound`. The new Model lower-density and\\n  extremal interfaces use the same route through `attainableCount`.\",\"fileDigest\":\"sha256-7d823e379632094ce8b48888152434ffaeac57c1069dd5e28ba56f9b8cf5dd00\"},{\"file\":\"AntichainOfGivenSize/Paper/CountingParameters.lean\",\"from\":117,\"to\":136,\"text\":\"/-- Theorem 7.1 for every sufficiently large natural `B`, with the paper's\\nconstant 100 and its real square-root saving. -/\\ntheorem countingBound : CountingBoundStatement := by\\n  refine ⟨2 ^ (2 ^ 20), ?_⟩\\n  intro B K hB hK\\n  have hBpos : 0 < B := lt_of_lt_of_le (by positivity : 0 < (2 : ℕ) ^ (2 ^ 20)) hB\\n  have hb : 2 ^ 20 ≤ countLog B :=\\n    (Nat.le_log_iff_pow_le (by norm_num) (by omega : B ≠ 0)).2 hB\\n  have ht := countLogLog_bounds hb\\n  have hlogs := countLog_bounds hBpos\\n  have haux := CountingEstimates.counting_card_le\\n    (by omega : 16 ≤ countLogLog B) ht.2.2.2 ht.2.2.1 hlogs.1 hlogs.2\\n  have hkle : K ≤ countBudget B := admissibleBudget_le_countBudget hBpos\\n    ((show (64 : ℕ) ≤ 2 ^ 20 by norm_num).trans hb)\\n    (by omega) hK\\n  have hcard : (attainableValues B K).card ≤ 2 ^ (B - countSaving B) := by\\n    exact (attainableValues_card_mono hkle (by have := hK.1; omega)).trans haux\\n  have hs := countSaving_bounds hBpos\\n    ((show (4 : ℕ) ≤ 2 ^ 20 by norm_num).trans hb)\\n  exact attainableValues_real_card_le_of_nat_bound hs.1 hs.2 hcard\",\"fileDigest\":\"sha256-c006457611870b13f6b707337af3edbdd315f465ce7577aafbe2fba3c327b223\"}]}",
+  "kind": "put-evidence",
+  "evidence": {
+    "kind": "source-reading",
+    "anchors": [
+      {
+        "file": ".blueprint/thm-attainable-count-04ffa9e627/BLUEPRINT.md",
+        "from": 124,
+        "to": 124,
+        "excerptDigest": "sha256-242b4d7f308571f9a346e9a72745183a095d6f275656962761c61bee5b93e257"
+      },
+      {
+        "file": "docs/current-paper.md",
+        "from": 177,
+        "to": 204,
+        "excerptDigest": "sha256-740eefdb9884e9d9368457e5aee15355f492a5d206c5614b923e40157400f2bf"
+      },
+      {
+        "file": "AntichainOfGivenSize/Paper/CountingParameters.lean",
+        "from": 117,
+        "to": 136,
+        "excerptDigest": "sha256-a5ae2b95f31932e412a347c35303a48bab28ff582a89f292a425220ea53a89e7"
+      }
+    ],
+    "id": "sha256-f2d8d9eb8b8852b087bbbbd82b32865553165880aa6b886bb1ea69c4ca8122b3"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "inputSha256": "93d40c1b5465f43c456a0a46c63995a2d5f4439027fccbd57c3ecfee877af4b7",
+  "outputSha256": "3ad5d8e73e524e1f24618c01718857e4d0aba12eacab6ad7979bfbb5e62f2ed0",
+  "bugFix": {
+    "name": "Codex read-only source-inspection capabilities",
+    "changes": [
+      "Pass the actual provider kind to the existing standing-prompt generator",
+      "Allow provider-specific wording without changing configured tool permissions",
+      "Replace only Codex inspection wording with capability-based read permission and exact JSON-only output limits"
+    ]
+  },
+  "optionalLedger": {
+    "enabled": true,
+    "authorityRecordPin": "sha256-03dbcb6c57b02318f694ef98d20d2474e8b93d79c733995435587a87fa77fc3d",
+    "changes": [
+      "Add optional read-only material renderer and guarded handler",
+      "Expose actual elaborated review types/bodies only when explicitly requested; ordinary receipts unchanged",
+      "Accept identical normalized probe rows and selected values only; reject conflicting duplicates with exact diagnostics",
+      "Register optional command metadata",
+      "Expose slash command with idle prerequisites",
+      "Wire handler after normal CLI boot",
+      "Preserve normal no-work and batch guard semantics",
+      "Prevent another registered command from entering during the leased review",
+      "Skip only ledger-review post-handler theorem-record reconciliation; retain entry guards"
+    ]
+  },
+  "optionalLifecycleUi": {
+    "enabled": true,
+    "changes": [
+      "Give each native choice request a process-local sequence without changing its public ID or actions",
+      "Deduplicate repeated renders of the same request while allowing a later request with the same ID",
+      "Retain the previous graph only when the freshly derived graph differs solely in top-level updatedAt",
+      "Record the identity of the already validated native certificate in the ephemeral UI projection",
+      "Preserve every existing strict certificate comparison before attaching its read-only identity",
+      "Keep unvalidated working projections without any certificate identity",
+      "Attach handoff progress only for the selected target and exact current native certificate/source/graph",
+      "Install read-only UI projection helpers; standalone or mismatched progress is safely omitted"
+    ],
+    "unchanged": {
+      "native-certification": "c66db8a50170386b1a5ef2a7151454986f3e0a815a0238156f7ba884e4f9d821",
+      "native-graph-construction": "8ee03e49aaa6885b226423295d46d5b28a78a4c8e9a70e12721245c2b8555451",
+      "native-claim-progress": "c0bb744448fd92f381ad9f8e821de751aa99550b8b4501b9723721f8a6c3f31d",
+      "native-ledger-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+      "native-interface-certifier": "57e4baf3039b8bff0c33a0d13e66b78218298500c2308c0b572e132e85f4e9e6",
+      "native-model-closure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+      "native-cost-seal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a"
+    }
+  },
+  "unchanged": {
+    "ModelClosure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+    "CostSeal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a",
+    "native-ledger-replay-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+    "native-binding-validator-loop": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298"
+  },
+  "cliExecuted": false,
+  "compilerExecuted": false,
+  "supportModules": {
+    "adapter.cjs": "d36d06e8043406f96bc42ed0c80f15f29190bd5fdf72ff7f6937334021fd523e",
+    "surface-review.cjs": "abe81e87b709a6df3d750ec8098ff77ca00516333edc808ff38f0b75777bc007",
+    "future-surface-review.cjs": "d065aa3345315d0b32c33f6269c6d75f00d329d2741d70347cbe60907128374e",
+    "native-host.cjs": "1257a8bb9a75801e9fed048ef4cfa912b7139b104fdb733ece1501708231aba4"
+  },
+  "node": "/Users/sg9396/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "output": "/tmp/antichain-tex2lean-compat-20261027-v17-main"
+}

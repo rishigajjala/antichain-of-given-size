@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "defaultRepairSha256": "4268db0fdda61deb1e3be7d52879d8952e67caaf4931e6c1a9fdbfdff39327d6",
+  "optionalCompositionSha256": "0cfbeba3f822482f5824d48cad78081c797b7a7b72181bf2c62f66b2932a52e9",
+  "ledgerDefaultEnabled": false,
+  "unchanged": {
+    "ModelClosure": "4decc75f0f568076797d0d2878a7aab2b5e91795bc65c34ffdef79859b7bfaa0",
+    "CostSeal": "4852bd2d191bec02ba655215a508750204d9380edc74e6c760f570bddac1615a",
+    "native-ledger-replay-validation-store": "3ffe1713839376445a6e811015ee021627d6fefef5bd8b98cd504cc6498f9e58",
+    "native-binding-validator-loop": "bf40186db5a2845ecab27fb8f88f3aef001b14d5a2d302e938c3af5a361e2298"
+  },
+  "cliExecuted": false,
+  "compilerExecuted": false
+}

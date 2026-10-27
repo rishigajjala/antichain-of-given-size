@@ -1,0 +1,1 @@
+function zhe(e){let t=e.surfaceProofs.filter(n=>n.lines>jhe);return t.length?{id:"surface-states",title:"proofs written into the audit surface",ok:!1,detail:t.slice(0,10).map(n=>`${n.file}:${n.line}: ${n.declaration} (${n.lines} lines of proof)`)}:{id:"surface-states",title:"no proofs in the audit surface \u2014 it states, the proof side proves",ok:!0,detail:[]}}

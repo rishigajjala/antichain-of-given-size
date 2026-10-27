@@ -1,0 +1,1119 @@
+{
+  "schema": "tex2lean.paper-proof-map/1",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "paper": {
+    "id": "paper:699ee035-8fcf-4355-b39a-56e3ae5776bf"
+  },
+  "target": {
+    "id": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+    "paperId": "paper:699ee035-8fcf-4355-b39a-56e3ae5776bf",
+    "activeVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4"
+  },
+  "activeClaimSetReceiptId": "claim-set:9dddaf81-e098-40c6-805c-712c561e8633",
+  "activeSurfaceInventoryId": "surface-inventory:0ea7c42d-b07d-448f-aab6-518ec3ee3b13",
+  "targetVersions": [
+    {
+      "id": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "paperPacketDigest": "sha256-13345dccd16feaa54c7a2ad25499f7c4b97d962b5201be8bd2d46ca2d1b4db2c",
+      "bodyDigest": "sha256-9f5ec5d2ed42ee7617c83407290f401e4219aecce998491f11c687886157ada4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "label": "thm:attainable-count",
+        "environment": "theorem",
+        "from": 987,
+        "to": 997,
+        "excerptDigest": "sha256-b98607f52901b25c56a108b4c214cfbe7abb1a3db193b250ed019d991d5d160d"
+      },
+      "status": "active"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:2eae2c90-53c5-4f63-86b5-63a596cd0a3f",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:b1655035-c139-40f1-badf-4f7139a0bca4",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:23ffb6d0-93a7-4c89-922f-32f436f57265",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:580133b2-18ab-47b3-ba65-7d7b0c458f88",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:43c55239-e4a2-49f5-8856-60ed6dae84df",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:1ae6bfc0-31a0-49c8-a8c0-a95ff739ac61",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:774b3bc1-4135-4670-bd8a-6edd91a45509",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:ba11b244-d5c4-403e-af70-6baa251dcb68",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:ed5fca89-7fec-42f9-b554-0ed2ef6e7863",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:970c9edc-e206-4314-90bd-57b6b7c31293",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:04a370e6-90a4-4114-ba1d-f960b45b2e20",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:cf2b83ad-dfa8-4522-a47a-cfc165070638",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+      "role": "reportable"
+    },
+    {
+      "id": "claim:9cde5f15-e6fb-4086-8551-a1c1440a0acd",
+      "targetId": "target:dba29c12-9eef-4c73-a091-1ac777e05e5f",
+      "activeVersionId": "claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
+      "role": "reportable"
+    }
+  ],
+  "claimVersions": [
+    {
+      "id": "claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
+      "claimId": "claim:2eae2c90-53c5-4f63-86b5-63a596cd0a3f",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-71f6d228d7ec86f87fde4fb80951ae6aa21ae180ca7da03dda1d4b91d27f3a18"
+      },
+      "text": "One absolute threshold works for every B above it and every K in the exact stated real-log budget, and |V(B,K)| ≤ 2^(B−√B).",
+      "normalizedTextDigest": "sha256-7d9ad0e961e048a6a7254009eaff6a4d1be9e961cb3875835761381fa189d4b1",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-71f6d228d7ec86f87fde4fb80951ae6aa21ae180ca7da03dda1d4b91d27f3a18"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
+      "claimId": "claim:b1655035-c139-40f1-badf-4f7139a0bca4",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-e167b838f45bd33fd8f871f2518390e3880b979ac84fd8618941092fe08a74ff"
+      },
+      "text": "V(B,K) consists exactly of numerical ideal sizes from nonempty families of at most K generators of individual size at most B, with no ambient cap.",
+      "normalizedTextDigest": "sha256-42d87277d9c4ab177c1c1b42e2d174d7b129121ede6fa7b9a2e9ca7e1e7d1631",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-e167b838f45bd33fd8f871f2518390e3880b979ac84fd8618941092fe08a74ff"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
+      "claimId": "claim:23ffb6d0-93a7-4c89-922f-32f436f57265",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-f03a03e6d69412082e662beed478607e89416249826466b89a3414036ae5abcd"
+      },
+      "text": "Repeating a final generator and relabelling the active ground set preserve the ideal size and give N ≤ KB.",
+      "normalizedTextDigest": "sha256-af99d907532868b62d6197f3ba3148d1d842d86839a3db5fb22d0d46431b0582",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-f03a03e6d69412082e662beed478607e89416249826466b89a3414036ae5abcd"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
+      "claimId": "claim:580133b2-18ab-47b3-ba65-7d7b0c458f88",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-a2d5f4c3c3e2b4cfab84d072a64a57fbb71b9bc342d19de6ebb1c96f77a40d46"
+      },
+      "text": "Φ equals the complete signed inclusion–exclusion sum over nonempty queries.",
+      "normalizedTextDigest": "sha256-40c64750656d01f962243019a9f1271a72d1469f861a48c7d24cb0285c90d8b4",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-a2d5f4c3c3e2b4cfab84d072a64a57fbb71b9bc342d19de6ebb1c96f77a40d46"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
+      "claimId": "claim:43c55239-e4a2-49f5-8856-60ed6dae84df",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-69abdd04b3817fbbd85bb6c868d475d4b85ef3128e307bbe56a5ace159135d78"
+      },
+      "text": "Each eligible family admits a structural header; there are at most (J+1)K^K possible headers.",
+      "normalizedTextDigest": "sha256-ea729e2732fdade52db91593f8cfb68894c8e7b398b2ad9c269845c274e2a79b",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-69abdd04b3817fbbd85bb6c868d475d4b85ef3128e307bbe56a5ace159135d78"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+      "claimId": "claim:1ae6bfc0-31a0-49c8-a8c0-a95ff739ac61",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-7de3049944a2a38c2cc0940cc3cf45d8f4f3a3f732fb8169c236480c250515f2"
+      },
+      "text": "The exceptional set has size at most 2Kρ/λ^6 and cluster members agree off it.",
+      "normalizedTextDigest": "sha256-aeab0c007638983dd49ce856476e038be9f9a1b309d3a79b3b4adc4a9209e055",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-7de3049944a2a38c2cc0940cc3cf45d8f4f3a3f732fb8169c236480c250515f2"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
+      "claimId": "claim:774b3bc1-4135-4670-bd8a-6edd91a45509",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-3b1a5179a0f011d590cf87b8eeebb9a9d5b134035eb3e9b7b6b2f1dc572227ae"
+      },
+      "text": "The incidence record and central exponent transcript determine the exact signed central sum Z.",
+      "normalizedTextDigest": "sha256-1f1b8f1af4aafb822faad0403b5a97c0f49d8bcd25761b62ff6942ce538f32bc",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-3b1a5179a0f011d590cf87b8eeebb9a9d5b134035eb3e9b7b6b2f1dc572227ae"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
+      "claimId": "claim:ba11b244-d5c4-403e-af70-6baa251dcb68",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-52e1ca563452a0d7f1aab59c6820da54ecb79b21e03fc963e50f7a8d985109dd"
+      },
+      "text": "There are at most (KB+1)2^(2K²ρ/λ⁶) incidence records and (B+1)^(2^J(1+K2^h)) central transcripts.",
+      "normalizedTextDigest": "sha256-aa711be26f3ecc4254b879c02b950edfbb9ca17963cefc3a46121ea519d600dd",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-52e1ca563452a0d7f1aab59c6820da54ecb79b21e03fc963e50f7a8d985109dd"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
+      "claimId": "claim:ed5fca89-7fec-42f9-b554-0ed2ef6e7863",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-e014e30b3070b2b108d4bd268c7f3645af283624e582a189f460feb17fa11e67"
+      },
+      "text": "Every noncentral exponent is at most B−ρ; the signed tail lies in an interval with at most 2^(B−ρ+K+2) integer values.",
+      "normalizedTextDigest": "sha256-1e13cd23f8c4517b71c9dd4b9e02ea62fa447f6f127b8673cd5b3d390330dbee",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-e014e30b3070b2b108d4bd268c7f3645af283624e582a189f460feb17fa11e67"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
+      "claimId": "claim:970c9edc-e206-4314-90bd-57b6b7c31293",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-187ebd399b63dd7a363466cb8bfcb30e1413d0864f14bb369f8070777b870fc0"
+      },
+      "text": "For each header the attainable-value count is bounded by the product of the incidence, transcript and tail-interval counts.",
+      "normalizedTextDigest": "sha256-4bd3a2526b97756655603fdcfe77709ecbeea91e57326bc2e45c8729b359c393",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-187ebd399b63dd7a363466cb8bfcb30e1413d0864f14bb369f8070777b870fc0"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
+      "claimId": "claim:04a370e6-90a4-4114-ba1d-f960b45b2e20",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-d3f9919cac2127a7895bcf1872133495fe86130101f136dfa38ea420efad99ab"
+      },
+      "text": "Uniformly in admissible K, Γ≥2^(7λ/10), eventually d≤1/4 and L_rec≤Γ/2, and eventually Γ/4≥√B; summing over headers yields the stronger intermediate bound 2^(B−Γ/4).",
+      "normalizedTextDigest": "sha256-04681f552afe5778c919fa259710dcd44f7ce085bfbe58ee8b0b759ab39e9ca2",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-d3f9919cac2127a7895bcf1872133495fe86130101f136dfa38ea420efad99ab"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+      "claimId": "claim:cf2b83ad-dfa8-4522-a47a-cfc165070638",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-99a3fd064bfb3680385e5d982b426881bbea5576911e0b2a83e2b270205b3f09"
+      },
+      "text": "The existing endpoint proves the exact target with a different, larger clustered record encoding; identify reuse honestly and preserve the correspondence note.",
+      "normalizedTextDigest": "sha256-fa6f75e82c827c8bd823c973f66a2dc12133c41ec98f917e22f0003736fcb622",
+      "kind": "correctness",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-99a3fd064bfb3680385e5d982b426881bbea5576911e0b2a83e2b270205b3f09"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": "claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
+      "claimId": "claim:9cde5f15-e6fb-4086-8551-a1c1440a0acd",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-78646172a2b7b802946c63e2c972a6303f6db31121cd428f6dd2fdb03d02448e"
+      },
+      "text": "This target asserts no probabilistic or computational resource result; the following uniformly sampled dyadic corollary is separate.",
+      "normalizedTextDigest": "sha256-38664bec4b41a4dd5a469b4b7df147742c9f6b94d300429045423f05b93d4f9f",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-78646172a2b7b802946c63e2c972a6303f6db31121cd428f6dd2fdb03d02448e"
+        }
+      ],
+      "status": "active"
+    }
+  ],
+  "plans": [
+    {
+      "claimVersionId": "claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-ea8d33180675f47d2d9c3c46fa53467d4df40736855154d3fa1b50049e09e0a3"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Model/Theorem."
+    },
+    {
+      "claimVersionId": "claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-ecbee6612ebbfa476cdd49c2bd0eb2f3e8c22b87466fc3ab4a67323b7b17555c"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Interface."
+    },
+    {
+      "claimVersionId": "claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-cb1f2631a5626716cab876e9ceec7ed0ca26324b62bf5efbaf35cbc8a170cb96"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-ff81c21064c0b4f14385e3a3d7263e8a8fd42fce6a8ade81597be6d74512023e"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-9c6c4fdfc8c18244b6632a78147e9393f90357cb6dc17267f3175aee56bbd889"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:01a891fc-e12d-461f-bee3-466dea5dab5a"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-e77b5c17f9d81615e44db7270945279b9e23379c303508fa25ebc05436df4bbc"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:ea8de31f-5c80-4580-bc7d-915930bf928b"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-c6e58e3b3700cce3c590a5726f35cde662752da8be86b1367aef4d7afb3080c9"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:a0f09070-388d-42b6-99d2-e6d09b457f72"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-b5df934c7f9d04cf59e9ff89d3a0c57955cd68a6df5fec8e53a58d146dcd619c"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:741c9fbb-d585-466a-b868-43513d3b1829"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-5dd78fca578633154b344e6948590bc8a429d01aa45ac7237b6809fbed7afd57"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:4e838d21-9386-4fa5-a789-dec43559f6ad"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-297f3550b1b62e54a277e15b96f82a7ea7be3128b8f5891cfa3a1cb14074edf7"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:4966f7cb-704c-4633-8f61-2342aeb368d2"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-5078287f3c4c29cddea15ba79a9fb6ee7e857df3660dd625a5efb1329851f838"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Analysis."
+    },
+    {
+      "claimVersionId": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:f95b173a-07f4-455a-b354-5c991c193c79"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-eb643572c6fee937e1fb9efc4255e7be3bad8320a3255a646f128a74aed8f581"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Handoff."
+    },
+    {
+      "claimVersionId": "claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:17f558b0-1c3a-4d24-871e-be1588e9c770"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-71ebf5f7bfa656ed73b564ceaefac05e36b6e605363b0bb533f33fa4cd239dde"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Handoff."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
+      "kind": "headline",
+      "summary": "One absolute threshold works for every B above it and every K in the exact stated real-log budget, and |V(B,K)| ≤ 2^(B−√B).",
+      "rationale": "The finalized blueprint assigns this paper claim to Model/Theorem.",
+      "owner": "Model/Theorem",
+      "status": "materialized"
+    },
+    {
+      "id": "obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb",
+      "kind": "headline",
+      "summary": "V(B,K) consists exactly of numerical ideal sizes from nonempty families of at most K generators of individual size at most B, with no ambient cap.",
+      "rationale": "The finalized blueprint assigns this paper claim to Interface.",
+      "owner": "Interface",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
+      "kind": "headline",
+      "summary": "Repeating a final generator and relabelling the active ground set preserve the ideal size and give N ≤ KB.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
+      "kind": "headline",
+      "summary": "Φ equals the complete signed inclusion–exclusion sum over nonempty queries.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac",
+      "kind": "headline",
+      "summary": "Each eligible family admits a structural header; there are at most (J+1)K^K possible headers.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:01a891fc-e12d-461f-bee3-466dea5dab5a",
+      "kind": "headline",
+      "summary": "The exceptional set has size at most 2Kρ/λ^6 and cluster members agree off it.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:ea8de31f-5c80-4580-bc7d-915930bf928b",
+      "kind": "headline",
+      "summary": "The incidence record and central exponent transcript determine the exact signed central sum Z.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:a0f09070-388d-42b6-99d2-e6d09b457f72",
+      "kind": "headline",
+      "summary": "There are at most (KB+1)2^(2K²ρ/λ⁶) incidence records and (B+1)^(2^J(1+K2^h)) central transcripts.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:741c9fbb-d585-466a-b868-43513d3b1829",
+      "kind": "headline",
+      "summary": "Every noncentral exponent is at most B−ρ; the signed tail lies in an interval with at most 2^(B−ρ+K+2) integer values.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:4e838d21-9386-4fa5-a789-dec43559f6ad",
+      "kind": "headline",
+      "summary": "For each header the attainable-value count is bounded by the product of the incidence, transcript and tail-interval counts.",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:4966f7cb-704c-4633-8f61-2342aeb368d2",
+      "kind": "headline",
+      "summary": "Uniformly in admissible K, Γ≥2^(7λ/10), eventually d≤1/4 and L_rec≤Γ/2, and eventually Γ/4≥√B; summing over headers yields the stronger intermediate bound 2^(B−Γ/4).",
+      "rationale": "The finalized blueprint assigns this paper claim to Analysis.",
+      "owner": "Analysis",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:f95b173a-07f4-455a-b354-5c991c193c79",
+      "kind": "headline",
+      "summary": "The existing endpoint proves the exact target with a different, larger clustered record encoding; identify reuse honestly and preserve the correspondence note.",
+      "rationale": "The finalized blueprint assigns this paper claim to Handoff.",
+      "owner": "Handoff",
+      "status": "planned"
+    },
+    {
+      "id": "obligation:17f558b0-1c3a-4d24-871e-be1588e9c770",
+      "kind": "headline",
+      "summary": "This target asserts no probabilistic or computational resource result; the following uniformly sampled dyadic corollary is separate.",
+      "rationale": "The finalized blueprint assigns this paper claim to Handoff.",
+      "owner": "Handoff",
+      "status": "planned"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "binding:7a5f2e41-5669-47b4-8224-adb8592517a6",
+      "obligationId": "obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
+      "declaration": "AntichainOfGivenSize.attainable_count",
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "module": "AntichainOfGivenSize.Model.Theorem",
+      "role": "headline",
+      "status": "verified",
+      "semanticApprovalDecisionId": "sha256-8f6a322c99ade7bd0359ed2c5f3c2f409cb11712a8d6fa950a99065cc4eeda8a",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-588add14367b0574150b4e8ce557290bf821bb8bc90b5d06e37ef598b599f481",
+        "elaboratedTypeDigest": "sha256-4c2b6c1821d6f3086b2c0dd834d38ffe2e91cec5e02ee1644437832c239dc13e",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
+            "valueDigest": "sha256-9043d23e60b52475179900ca2a82836ace1539985c17180b7bfbed897b12aac2"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
+            "valueDigest": "sha256-714b11e1576582e917137e25209fe87e4878a0002c6ab13b7499d3c2a51c884c"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
+            "valueDigest": "sha256-1560248eaffee1b0eca3b32f7172e5240a05c7ec74c9738dfe356be9ebc5d627"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.casesOn",
+            "valueDigest": "sha256-ecd36b6fa954ad8cfa03d2242bf5ab560e0ca3005a0de4e2f8721c7ca630a695"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk",
+            "valueDigest": "sha256-9771d98b469c2b1c3cdf0460723a5f57b79b554fbd23a1b0be04221cdd272d83"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.inj",
+            "valueDigest": "sha256-d5bcdb009ba6fbe2d8ade70a94592b74f35a3c20b80cade32f4d5ecd8086c4b6"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.injEq",
+            "valueDigest": "sha256-64e7d0f030ab72fc2714d20f4c5125a8a48d24024784d7e4e9e6c55766e858d4"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion",
+            "valueDigest": "sha256-6a0b40d34d4740db93466b5bb3d8eed24bdbd0169010a32e6d934be7baee08e1"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.noConfusion",
+            "valueDigest": "sha256-1db5b50bdb4ddc7ff8415dc21984105265f11da02449eee8bb55ed9fb2913aca"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.noConfusionType",
+            "valueDigest": "sha256-96ade7ab4ba58758b508a92e5d448a88b1d3c35abdb469c6d00769f522efa256"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.rec",
+            "valueDigest": "sha256-a2fef4daaa154ae1d5ad4f9d7014f1268202cbbe17514880a4fb1a65d3495c43"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
+            "valueDigest": "sha256-79456ddd64f8efd6804e35f6031b11a6d98303cc40954a5a3d23daa398cd6c2b"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value",
+            "valueDigest": "sha256-4568e7047818202c0083b5f0e423a52af81ee7c2d9af32e37eb4db087be84089"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.boundedValues",
+            "valueDigest": "sha256-6f27b8c5b94ad291151c3ebe5847500e7dbf5b0b32c764b042e39455fcc194a9"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile",
+            "valueDigest": "sha256-5dd3d6ebfd12d40d530408be11e713368baae3934f64e5375992853d13250f77"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile._proof_1",
+            "valueDigest": "sha256-beae8092f5a4d4ba406f38d895c291ac28dff1fcf5ee7c2a2ea08f18c2b49d0a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile.match_1",
+            "valueDigest": "sha256-2f5668798e35672e95c5d2f1f534899f8cfc9f5f1c308c3329bf9f8c6f1ac5d9"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile.match_3",
+            "valueDigest": "sha256-080a80cce82a8f5339722b5255d4abbc869e825c7efba9647dbdec9ffb4721ad"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.ClusterLowerBound.profileLoad",
+            "valueDigest": "sha256-fc571685cf0f4e567a303ed08031cd7d2452cad3e1d58a7347d0de38a24525f2"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.attainableValues",
+            "valueDigest": "sha256-9bc8da5ab9184406b2903f87bdeaecd4c6b2463473fe3a62244f16d564f53260"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx",
+            "valueDigest": "sha256-6a810927d07e6b827b1b71ed2e8a899ddf9b9a479b5aa1f7ca3cc61ea00944c6"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
+            "valueDigest": "sha256-1a0d184f1d0817026fc9b34c03b00f36d6fcfe97a15d70f20fdd42f1583f3dc8"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
+            "valueDigest": "sha256-992f29c8a5c91cd012a13c912e3432cc2386edc994ff2f756b593d50b926f532"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.VennProfile.profileGenerator",
+            "valueDigest": "sha256-9564558b51220a3b65959dadcad1bd7dd5c0f1855f566b3a5cb2833339ea464e"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.VennProfile.ProfilePoint",
+            "valueDigest": "sha256-0e66cbdef4d04d3035194b71065f4ea7297f287f47b2e58ded8abdcdba9efbe8"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      },
+      "leanEvidenceSnapshotId": "sha256-ad05cf9b982722507a124d97d8777a362ba0dfd07a8de1b5460717469a9b1c31",
+      "verifiedByDecisionId": "sha256-74dd545544f964bd68c5bf3295a183bf8a9f5de5d7308f434fa07d63b2ea4e9a"
+    },
+    {
+      "id": "sha256-9d17f024a37d90203f2a7911e7aaeb1953a98e502b6e6293e195d55799ff0992",
+      "obligationId": "obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb",
+      "declaration": "AntichainOfGivenSize.Model.attainableValues_membership",
+      "file": "AntichainOfGivenSize/Model/Prelude.lean",
+      "module": "AntichainOfGivenSize.Model.Prelude",
+      "role": "headline",
+      "status": "proposed",
+      "semanticApprovalDecisionId": "sha256-15c6cc47145694a27a8fcfc649bcb591a2e56c1870affba9976f3e304be518b8"
+    },
+    {
+      "id": "sha256-96ec0eb1924eeb07e1ca5c7950c4716b0557c2123f87dcefe53bd79205ca8569",
+      "obligationId": "obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
+      "declaration": "AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization",
+      "file": "AntichainOfGivenSize/Paper/FaithfulCounting/ExactClaimBundles.lean",
+      "module": "AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles",
+      "role": "headline",
+      "status": "proposed",
+      "semanticApprovalDecisionId": "sha256-605d7a08c48332616366ce69507ed506ccf976a93936035eeaec4b9a659634a0"
+    },
+    {
+      "id": "sha256-da83566c34754180874876b27e459f545d971e6d8302deb7d0e5e53c22843eb4",
+      "obligationId": "obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
+      "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion",
+      "file": "AntichainOfGivenSize/Section6/Core.lean",
+      "module": "AntichainOfGivenSize.Section6.Core",
+      "role": "headline",
+      "status": "proposed",
+      "semanticApprovalDecisionId": "sha256-25d35c3688358139337dbd697bdffb101284f288e7ea3f6d499653bf3beb3928"
+    },
+    {
+      "id": "sha256-ac01dfb2a3f62237f91a3c4c813dd68342d82ed20e00453cfbdc96f54d67ada4",
+      "obligationId": "obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac",
+      "declaration": "AntichainOfGivenSize.FaithfulLower.paper_headers",
+      "file": "AntichainOfGivenSize/Paper/FaithfulCounting/ClaimBundles.lean",
+      "module": "AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles",
+      "role": "headline",
+      "status": "proposed",
+      "semanticApprovalDecisionId": "sha256-c0d4b3f4a39a2d03304d122351d3923450956d1b8d55423f6815d82e3b135be2"
+    },
+    {
+      "id": "sha256-a79f03d6c210726ac81699671d6f991d82b54b77de00ce5b637d9034f58ff257",
+      "obligationId": "obligation:01a891fc-e12d-461f-bee3-466dea5dab5a",
+      "declaration": "AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement",
+      "file": "AntichainOfGivenSize/Paper/FaithfulCounting/ClaimBundles.lean",
+      "module": "AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles",
+      "role": "headline",
+      "status": "proposed",
+      "semanticApprovalDecisionId": "sha256-d8f94763465183617e93b8c88b082ea0c7d321f7e70b793d5697471e8982c7bf"
+    }
+  ],
+  "leanRelations": [],
+  "claimSetReceipts": [
+    {
+      "id": "claim-set:9dddaf81-e098-40c6-805c-712c561e8633",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "paperPacketDigest": "sha256-13345dccd16feaa54c7a2ad25499f7c4b97d962b5201be8bd2d46ca2d1b4db2c",
+      "claimVersionIds": [
+        "claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
+        "claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
+        "claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
+        "claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
+        "claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
+        "claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+        "claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
+        "claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
+        "claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
+        "claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
+        "claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
+        "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
+        "claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f"
+      ],
+      "readerProvenance": "reader-agent"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sha256-ea8d33180675f47d2d9c3c46fa53467d4df40736855154d3fa1b50049e09e0a3",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-71f6d228d7ec86f87fde4fb80951ae6aa21ae180ca7da03dda1d4b91d27f3a18"
+        }
+      ]
+    },
+    {
+      "id": "sha256-ecbee6612ebbfa476cdd49c2bd0eb2f3e8c22b87466fc3ab4a67323b7b17555c",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-e167b838f45bd33fd8f871f2518390e3880b979ac84fd8618941092fe08a74ff"
+        }
+      ]
+    },
+    {
+      "id": "sha256-cb1f2631a5626716cab876e9ceec7ed0ca26324b62bf5efbaf35cbc8a170cb96",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-f03a03e6d69412082e662beed478607e89416249826466b89a3414036ae5abcd"
+        }
+      ]
+    },
+    {
+      "id": "sha256-ff81c21064c0b4f14385e3a3d7263e8a8fd42fce6a8ade81597be6d74512023e",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-a2d5f4c3c3e2b4cfab84d072a64a57fbb71b9bc342d19de6ebb1c96f77a40d46"
+        }
+      ]
+    },
+    {
+      "id": "sha256-9c6c4fdfc8c18244b6632a78147e9393f90357cb6dc17267f3175aee56bbd889",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-69abdd04b3817fbbd85bb6c868d475d4b85ef3128e307bbe56a5ace159135d78"
+        }
+      ]
+    },
+    {
+      "id": "sha256-e77b5c17f9d81615e44db7270945279b9e23379c303508fa25ebc05436df4bbc",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-7de3049944a2a38c2cc0940cc3cf45d8f4f3a3f732fb8169c236480c250515f2"
+        }
+      ]
+    },
+    {
+      "id": "sha256-c6e58e3b3700cce3c590a5726f35cde662752da8be86b1367aef4d7afb3080c9",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-3b1a5179a0f011d590cf87b8eeebb9a9d5b134035eb3e9b7b6b2f1dc572227ae"
+        }
+      ]
+    },
+    {
+      "id": "sha256-b5df934c7f9d04cf59e9ff89d3a0c57955cd68a6df5fec8e53a58d146dcd619c",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-52e1ca563452a0d7f1aab59c6820da54ecb79b21e03fc963e50f7a8d985109dd"
+        }
+      ]
+    },
+    {
+      "id": "sha256-5dd78fca578633154b344e6948590bc8a429d01aa45ac7237b6809fbed7afd57",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-e014e30b3070b2b108d4bd268c7f3645af283624e582a189f460feb17fa11e67"
+        }
+      ]
+    },
+    {
+      "id": "sha256-297f3550b1b62e54a277e15b96f82a7ea7be3128b8f5891cfa3a1cb14074edf7",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-187ebd399b63dd7a363466cb8bfcb30e1413d0864f14bb369f8070777b870fc0"
+        }
+      ]
+    },
+    {
+      "id": "sha256-5078287f3c4c29cddea15ba79a9fb6ee7e857df3660dd625a5efb1329851f838",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-d3f9919cac2127a7895bcf1872133495fe86130101f136dfa38ea420efad99ab"
+        }
+      ]
+    },
+    {
+      "id": "sha256-eb643572c6fee937e1fb9efc4255e7be3bad8320a3255a646f128a74aed8f581",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-99a3fd064bfb3680385e5d982b426881bbea5576911e0b2a83e2b270205b3f09"
+        }
+      ]
+    },
+    {
+      "id": "sha256-71ebf5f7bfa656ed73b564ceaefac05e36b6e605363b0bb533f33fa4cd239dde",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-78646172a2b7b802946c63e2c972a6303f6db31121cd428f6dd2fdb03d02448e"
+        }
+      ]
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 981,
+          "to": 986,
+          "excerptDigest": "sha256-8bfea6b6412044f356f0372160ea057064b094fd28aa30a0f0432e937dba5097"
+        }
+      ],
+      "id": "sha256-5e0aa4ae6d5ce8dcfb40e231c51240b47b820d00d2373586812a48ea6c2ba6a6"
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 1011,
+          "to": 1018,
+          "excerptDigest": "sha256-78074f57f6efc881e44fc76b42c82cef729a3bc5e8b738cfe4d66104618379a7"
+        }
+      ],
+      "id": "sha256-fabead6f9d09697188bdd7abaf574b2105443b2160956a1835d705e43f16a913"
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 1019,
+          "to": 1025,
+          "excerptDigest": "sha256-b20af9aa8b3e4becbe985b4acb45c177b09c6bd7509d7790b85b354b6d4519d7"
+        }
+      ],
+      "id": "sha256-9220e709056dcab0b1a35639f65eda79ccb53f49053c3c97e78dce4b88a58efd"
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 1090,
+          "to": 1171,
+          "excerptDigest": "sha256-77b619aa30fec2086849a51162804f148a2ab7d619cd777ef00aed8ddd770e93"
+        }
+      ],
+      "id": "sha256-f7268e0f36f3b3aeb3f71b6111b0d35d5fcb36e631835dc1cede3931ef33ced4"
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 1175,
+          "to": 1200,
+          "excerptDigest": "sha256-28e596330348a611a9b9393662ce815705de0336bd0a0bef3333d135f4ecb6ea"
+        }
+      ],
+      "id": "sha256-f797946b83195e925ed31ab5c7565c6c5540fd1526fd1da26bac36e2a885d7a1"
+    }
+  ],
+  "surfaceInventories": [
+    {
+      "id": "surface-inventory:0ea7c42d-b07d-448f-aab6-518ec3ee3b13",
+      "targetVersionId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "source": "sealed-blueprint",
+      "blueprintDigest": "sha256-e4d7a87d93384f74c40d91fb8211b555ddc8fefdb105696025fb0b5292d7c364",
+      "declarations": [
+        {
+          "declaration": "AntichainOfGivenSize.attainable_count",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        }
+      ]
+    }
+  ],
+  "appliedDecisionIds": [
+    "sha256-8f6a322c99ade7bd0359ed2c5f3c2f409cb11712a8d6fa950a99065cc4eeda8a",
+    "sha256-1329168203f5e26b5f6c38be6fb1d61bc9680ea508c09ec5c127ea355dfda610",
+    "sha256-74dd545544f964bd68c5bf3295a183bf8a9f5de5d7308f434fa07d63b2ea4e9a",
+    "sha256-c4361f777d33e7f5d96db1fee54bd0a739f7cdb2d31b14b8cdcfee7f49ee0893",
+    "sha256-3f51501f77aa702a39c97063e986d19a79d0f5f7c5bc2b056f697bcaf80bae8c",
+    "sha256-15c6cc47145694a27a8fcfc649bcb591a2e56c1870affba9976f3e304be518b8",
+    "sha256-af77c70137f31783ed34fccd912f9019fc5bedfdf9f59824219a7dddf43d62a5",
+    "sha256-83d8cd5616a38fff1dd697e91daeb7e1cd2b57d86a88d01520c9279f03759098",
+    "sha256-605d7a08c48332616366ce69507ed506ccf976a93936035eeaec4b9a659634a0",
+    "sha256-ad4f458de76b030a937951c292bf213e551bad8bdfb777d21e0ea906cfb1e525",
+    "sha256-62172064cdef7e31b0b74e3611ad3f15a429af859aa23041b032fad60bc8b1c7",
+    "sha256-25d35c3688358139337dbd697bdffb101284f288e7ea3f6d499653bf3beb3928",
+    "sha256-ec69c1d8cbcb294c7c7dbba4539effdee75e3febe3d72d45ae9eeaa24e65550f",
+    "sha256-86ea4546ac7b74ec3a5a298ce1a13eb053d796839b781d96951c8019ed645b40",
+    "sha256-c0d4b3f4a39a2d03304d122351d3923450956d1b8d55423f6815d82e3b135be2",
+    "sha256-2bda3e794ec798df42087f3f2b0ed67444f34d504c6b741a10bd7477899199ad",
+    "sha256-4868bd7beeb552ff293389e6eb418d3c7b6256113df189d91c9fd09c43f60625",
+    "sha256-d8f94763465183617e93b8c88b082ea0c7d321f7e70b793d5697471e8982c7bf"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "antichain.compatibility-publication-content-audit/1",
+  "checkedAtUTC": "2026-10-27T07:24:08.866545+00:00",
+  "scope": "This small compatibility evidence package only, not the separately preserved complete native export",
+  "authorityRecordsIncluded": false,
+  "fullPrivatePromptsIncluded": false,
+  "credentialsIncluded": false,
+  "runtimeBundlesIncluded": false,
+  "absolutePathsRetained": "Observed workspace, executable, and external evidence locations for reproducibility; no credential or private account file contents",
+  "checkMethod": "Reviewed package file roles and selected fields; scanned for credential markers and full prompt/authority fields. Native export references omit full semantic-review payloads."
+}

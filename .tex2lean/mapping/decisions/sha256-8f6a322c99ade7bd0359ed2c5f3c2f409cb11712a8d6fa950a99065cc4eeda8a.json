@@ -1,0 +1,19 @@
+{
+  "id": "sha256-8f6a322c99ade7bd0359ed2c5f3c2f409cb11712a8d6fa950a99065cc4eeda8a",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-8c1c001a6de48f1b33e9b00b5e314cc78367b913b161bffb5a7640e4b626b68c",
+  "actor": "author",
+  "provenance": "author approved this capstone against the paper at the theorem-statement gate",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "binding:7a5f2e41-5669-47b4-8224-adb8592517a6",
+    "obligationId": "obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
+    "declaration": "AntichainOfGivenSize.attainable_count",
+    "file": "AntichainOfGivenSize/Model/Theorem.lean",
+    "module": "AntichainOfGivenSize.Model.Theorem",
+    "role": "headline",
+    "status": "proposed",
+    "semanticApprovalDecisionId": "sha256-8f6a322c99ade7bd0359ed2c5f3c2f409cb11712a8d6fa950a99065cc4eeda8a"
+  }
+}

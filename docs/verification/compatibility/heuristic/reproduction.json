@@ -1,0 +1,80 @@
+{
+  "kind": "Isolated unchanged native heuristic reproduction after helper relocation; no compiler/native workflow execution",
+  "sourceCommit": "420d09b23a8449bf144b3a0d391331e899292e5f",
+  "bundleSha256": "3ad5d8e73e524e1f24618c01718857e4d0aba12eacab6ad7979bfbb5e62f2ed0",
+  "modelFileCount": 4,
+  "affectedWrapperCount": 6,
+  "affectedWrappers": [
+    {
+      "file": "AntichainOfGivenSize/Model/Prelude.lean",
+      "line": 56,
+      "declaration": "attainableValues_membership",
+      "lines": 5,
+      "actualProofLines": [
+        "exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership (B := B) (K := K) (n := n) hK"
+      ]
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "line": 44,
+      "declaration": "attainable_count",
+      "lines": 6,
+      "actualProofLines": [
+        "exact AntichainOfGivenSize.Analysis.AttainableCountProof.attainableCount hprior"
+      ]
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "line": 78,
+      "declaration": "alpha_eventual_upper",
+      "lines": 4,
+      "actualProofLines": [
+        "exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.eventualUpper hprior"
+      ]
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "line": 86,
+      "declaration": "alpha_lower_density_one",
+      "lines": 6,
+      "actualProofLines": [
+        "exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.lowerDensityOne hprior"
+      ]
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "line": 96,
+      "declaration": "alpha_maximum_order",
+      "lines": 5,
+      "actualProofLines": [
+        "exact AntichainOfGivenSize.Analysis.AlphaAsymptoticOrderProof.maximumOrder hprior"
+      ]
+    },
+    {
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "line": 106,
+      "declaration": "alpha_asymptotic_order",
+      "lines": 19,
+      "actualProofLines": [
+        "exact Analysis.TheoremProof.alphaAsymptoticOrder hprior (alpha_simultaneous_density_one hprior)"
+      ]
+    }
+  ],
+  "nativeDiagnostic": {
+    "id": "surface-states",
+    "title": "proofs written into the audit surface",
+    "ok": false,
+    "detail": [
+      "AntichainOfGivenSize/Model/Prelude.lean:56: attainableValues_membership (5 lines of proof)",
+      "AntichainOfGivenSize/Model/Theorem.lean:44: attainable_count (6 lines of proof)",
+      "AntichainOfGivenSize/Model/Theorem.lean:78: alpha_eventual_upper (4 lines of proof)",
+      "AntichainOfGivenSize/Model/Theorem.lean:86: alpha_lower_density_one (6 lines of proof)",
+      "AntichainOfGivenSize/Model/Theorem.lean:96: alpha_maximum_order (5 lines of proof)",
+      "AntichainOfGivenSize/Model/Theorem.lean:106: alpha_asymptotic_order (19 lines of proof)"
+    ]
+  },
+  "nativeWorkflowExecuted": false,
+  "compilerExecuted": false,
+  "overallNativeCheckPassClaim": false,
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828"
+}

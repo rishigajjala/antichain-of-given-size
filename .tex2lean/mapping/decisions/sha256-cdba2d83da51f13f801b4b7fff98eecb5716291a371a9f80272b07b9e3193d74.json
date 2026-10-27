@@ -1,0 +1,206 @@
+{
+  "id": "sha256-cdba2d83da51f13f801b4b7fff98eecb5716291a371a9f80272b07b9e3193d74",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-854c2db819967e9cd762c2276ac90188da193e58df4055023ff5c671067ae5c8",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-216ad805e4e8ec9c22fdb9fb6412042f03cc2d44b7876a03f663b40d769bf649",
+    "obligationId": "obligation:4e838d21-9386-4fa5-a789-dec43559f6ad",
+    "declaration": "AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le",
+    "file": "AntichainOfGivenSize/Paper/FaithfulCounting/ActualCounting.lean",
+    "module": "AntichainOfGivenSize.Paper.FaithfulCounting.ActualCounting",
+    "role": "headline",
+    "status": "verified",
+    "supersedes": [
+      "sha256-b1baf0a1acad71de03299b4ee0dd938a712667ffd7967b09389b668dd02cd6ec"
+    ],
+    "semanticApprovalDecisionId": "sha256-4cf8999ab8181153d3fe4eaffa76b0b1b114fadc8bd55ec7ada52674155738a8",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-6e036575599c0f64e405161bbd34253dd954601957e2a6ac4a8e39324d5985d4",
+      "elaboratedTypeDigest": "sha256-77a100264df66d5c38d7ecfae9e84d005ac230fdd020be3c8d6f46430418c28b",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.atomMultiplicity",
+          "valueDigest": "sha256-9043d23e60b52475179900ca2a82836ace1539985c17180b7bfbed897b12aac2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile",
+          "valueDigest": "sha256-714b11e1576582e917137e25209fe87e4878a0002c6ab13b7499d3c2a51c884c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.atom",
+          "valueDigest": "sha256-1560248eaffee1b0eca3b32f7172e5240a05c7ec74c9738dfe356be9ebc5d627"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.casesOn",
+          "valueDigest": "sha256-ecd36b6fa954ad8cfa03d2242bf5ab560e0ca3005a0de4e2f8721c7ca630a695"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.generators",
+          "valueDigest": "sha256-d6d86222287e0a033aefdee74b6d16387c4335bdb1ceed2bb335d5a9c54206b5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk",
+          "valueDigest": "sha256-9771d98b469c2b1c3cdf0460723a5f57b79b554fbd23a1b0be04221cdd272d83"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.inj",
+          "valueDigest": "sha256-73cb8967576966f8c7ccd55780280a9cf834d4beaa1a615aeccdd8d2e7d5d801"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.injEq",
+          "valueDigest": "sha256-50bb1e49b4e37c59dfabf1a5bba3097e88c006fedb72a403f07d31ff099a5e50"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.mk.noConfusion",
+          "valueDigest": "sha256-6a0b40d34d4740db93466b5bb3d8eed24bdbd0169010a32e6d934be7baee08e1"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.noConfusion",
+          "valueDigest": "sha256-1db5b50bdb4ddc7ff8415dc21984105265f11da02449eee8bb55ed9fb2913aca"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.noConfusionType",
+          "valueDigest": "sha256-cd1d961aeb5cc743e38937b30bd7a3e7f8f125d9124b0fcbc5c1f33bbbf7b321"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.Point",
+          "valueDigest": "sha256-735de20d2cc97ee7dc27cb080e0cd0d5a1ae90ed4e5ffd6b2feb8b248385b7eb"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.rec",
+          "valueDigest": "sha256-a2fef4daaa154ae1d5ad4f9d7014f1268202cbbe17514880a4fb1a65d3495c43"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.toNatProfile",
+          "valueDigest": "sha256-79456ddd64f8efd6804e35f6031b11a6d98303cc40954a5a3d23daa398cd6c2b"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.BoundedProfile.value",
+          "valueDigest": "sha256-4568e7047818202c0083b5f0e423a52af81ee7c2d9af32e37eb4db087be84089"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile",
+          "valueDigest": "sha256-5dd3d6ebfd12d40d530408be11e713368baae3934f64e5375992853d13250f77"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile._proof_1",
+          "valueDigest": "sha256-5f7fd5284be314dad7404b00a81cb3906c3cf01cd530a08f64768c02414c9073"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile.match_1",
+          "valueDigest": "sha256-7aa68b374bc39ce5fd5116b200969eef4f7116c9e6fdf9f33fbd1caf54fcfe56"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.instFintypeBoundedProfile.match_3",
+          "valueDigest": "sha256-01e4f15cf216fd4cadbf80626180716bedc5816239084fd6d40a4f0faa25b6aa"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters",
+          "valueDigest": "sha256-e8c075009a3e542360d4d7a9a1e198cdab3e0162518a638ab66ed55dab72aba5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.cluster",
+          "valueDigest": "sha256-e03af42507e6ed6cd9c4fd5380daca4c3e0ca755cbb91d645946d85bc144649c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.componentFiber",
+          "valueDigest": "sha256-c9a3d0f7856398f2ef1ea8c341de65cf123b2c7a4e87f48d06de1c6794c7e00f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.componentLabel",
+          "valueDigest": "sha256-3e7e8de475fc714a2fa8ea8dbc1b0e47770922847779ca4d7aabc5394e05c95e"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.componentLabel._proof_1",
+          "valueDigest": "sha256-523c8b69c669687799e26d42913acd9d4aae3081b926ec3b3b11b351db8003c1"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.residual",
+          "valueDigest": "sha256-aa86e1433fb7519befa9c4fea421cc2ee8b026c4be13760320acd458acc08079"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.residualComponent_count_le",
+          "valueDigest": "sha256-812439ac9020f09a457ea3cf04680a5a5d91740914def00f5b755d0211d47a0f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.PackedClusters.role",
+          "valueDigest": "sha256-f0211bb05b86e05ba47bba379a26c18c29679cfbcb5188701f5e937be79071c3"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.ClusterLowerBound.profileLoad",
+          "valueDigest": "sha256-fc571685cf0f4e567a303ed08031cd7d2452cad3e1d58a7347d0de38a24525f2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.headerLabel",
+          "valueDigest": "sha256-51f06f854acb9c1e4d2e98882032d6fc8dddcb8156e6dec6c73f635d49208c18"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.headerLabel.match_1",
+          "valueDigest": "sha256-9a5ac80847c8b2ec19e919e3c7c32bf1051224c06d4cdd23c26b58d1d48da99c"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.headerPartition",
+          "valueDigest": "sha256-0449ea513c1e244adc15e1016089cbe4f0ea165ba5243a96305f112e939c08fc"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.HeaderProfiles",
+          "valueDigest": "sha256-768384b5e3bbec66c27b938c4d283d1cf3af2ed94e9443a39539d3288796c096"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.Partition",
+          "valueDigest": "sha256-70f75035d31eebb322161834290a034c301bbfa4fd740f9ebd759b6a6d6587e4"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.realProximityGraph",
+          "valueDigest": "sha256-de7c345629b84c18727988c7e7087d1b4eb465035bc2f69ffe21fc9afd87966d"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.realProximityGraph._proof_1",
+          "valueDigest": "sha256-17d3070c6f2f113d2a9b458d3d00f0bd03f7183ce00ddf619f582c66e33c8df5"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.realProximityGraph._proof_2",
+          "valueDigest": "sha256-06ff1f8bdc3c08b0b156dce28b536f11cb8680da531dfee3d04c96f594ab87d2"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.ValidHeader",
+          "valueDigest": "sha256-6f68b48cb816666871a1ef8d80087449659ac75e0b71394c37542cbb0a0fcc1a"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.FaithfulLower.valuesAtHeader",
+          "valueDigest": "sha256-b393727125d633524347bdf397328d09f1389c9e6c5b5947fab6a66c657a5339"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx",
+          "valueDigest": "sha256-246a084c3e3cd491062c6197cee58b6c425a86d087c8b6608a1ffcfa675e4946"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.instDecidableEqProfilePoint",
+          "valueDigest": "sha256-1a0d184f1d0817026fc9b34c03b00f36d6fcfe97a15d70f20fdd42f1583f3dc8"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.instFintypeProfilePoint",
+          "valueDigest": "sha256-803e17699435cafd61d50d2fc331ab99d7fd5c207ebd3ced5c6c0cdc5c8b9cae"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.profileGenerator",
+          "valueDigest": "sha256-6a979ad092b644943a4ada88ea2307b4e37b5370f5beaca6fb1b4791cb39594e"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.VennProfile.ProfilePoint",
+          "valueDigest": "sha256-0e66cbdef4d04d3035194b71065f4ea7297f287f47b2e58ded8abdcdba9efbe8"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-5614d3a1a952a52a6a46edc4a5cc55656b349dbed62a6135406617ed0c2c2a18",
+    "verifiedByDecisionId": "sha256-cdba2d83da51f13f801b4b7fff98eecb5716291a371a9f80272b07b9e3193d74"
+  }
+}

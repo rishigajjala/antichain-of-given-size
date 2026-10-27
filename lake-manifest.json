@@ -11,6 +11,16 @@
    "inputRev": "v4.32.0",
    "inherited": false,
    "configFile": "lakefile.lean"},
+  {"url": "https://github.com/meelgroup/arlib.git",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "6262f60ad7556be62e94e87f6b5811cf299e7d94",
+   "name": "arlib",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "6262f60ad7556be62e94e87f6b5811cf299e7d94",
+   "inherited": false,
+   "configFile": "lakefile.toml"},
   {"url": "https://github.com/leanprover-community/plausible",
    "type": "git",
    "subDir": null,
@@ -93,4 +103,4 @@
    "configFile": "lakefile.toml"}],
  "name": "AntichainOfGivenSize",
  "lakeDir": ".lake",
- "fixedToolchain": false}
+ "fixedToolchain": true}

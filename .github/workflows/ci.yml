@@ -21,6 +21,6 @@ jobs:
         with:
           build-args: "--wfail"
       - name: Check proof dependencies
-        run: lake env lean -DwarningAsError=true scripts/check-axioms.lean
+        run: lake env lean -DwarningAsError=true scripts/CheckAxioms.lean
       - name: Check manuscript statements
-        run: lake env lean -DwarningAsError=true scripts/check-paper-statements.lean
+        run: lake env lean -DwarningAsError=true scripts/CheckPaperStatements.lean

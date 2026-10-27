@@ -1,0 +1,6 @@
+{
+  "decisionId": "sha256-25d35c3688358139337dbd697bdffb101284f288e7ea3f6d499653bf3beb3928",
+  "baseLedgerDigest": "sha256-c11d512f8e5c284c04a51b64e23bc0222b476a86451281323bdc7a69c9719780",
+  "resultingLedgerDigest": "sha256-5f80d363ae031f6fe6596b281036e77299c42fb89730c15a0bb1538845ada050",
+  "resultingHeadGeneration": 14
+}

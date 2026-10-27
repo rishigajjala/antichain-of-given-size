@@ -1,0 +1,38 @@
+{
+  "id": "sha256-4d6f76d5dec7a06101af467ae2909a4c53f3a358f7e8c9ecab51a4e3fadd82e2",
+  "ledgerId": "ledger:703225d9-0201-48cb-91f3-44cd94ab88c8",
+  "baseLedgerDigest": "sha256-1d8c8975f760234adc5f4f624622837bf546075ba250944255eaea77217d3b32",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "sha256-39194ecb181d5c90f5a5709ee89b02d47257a3bb1976bc6d7dc16d1b88a1424a",
+    "obligationId": "obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
+    "declaration": "AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization",
+    "file": "AntichainOfGivenSize/Paper/FaithfulCounting/ExactClaimBundles.lean",
+    "module": "AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles",
+    "role": "headline",
+    "status": "verified",
+    "supersedes": [
+      "sha256-96ec0eb1924eeb07e1ca5c7950c4716b0557c2123f87dcefe53bd79205ca8569"
+    ],
+    "semanticApprovalDecisionId": "sha256-5a10b279b2e51defcfe2de6815e8b2fd48704fb44e603fb9936404131ed1820f",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-382eff8aaed641b0e842946b70edc83957f3f63690bf88d72284f5a0ef80ea8f",
+      "elaboratedTypeDigest": "sha256-50b0dca316cb5c17a65565a623c862d2c71e1b765cf9b186fcbf5faf28a51d3b",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.Section6.generatedIdealIdx",
+          "valueDigest": "sha256-246a084c3e3cd491062c6197cee58b6c425a86d087c8b6608a1ffcfa675e4946"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-5614d3a1a952a52a6a46edc4a5cc55656b349dbed62a6135406617ed0c2c2a18",
+    "verifiedByDecisionId": "sha256-4d6f76d5dec7a06101af467ae2909a4c53f3a358f7e8c9ecab51a4e3fadd82e2"
+  }
+}

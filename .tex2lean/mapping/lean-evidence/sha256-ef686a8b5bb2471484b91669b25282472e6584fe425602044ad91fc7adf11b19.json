@@ -1,0 +1,299 @@
+{
+  "schema": "tex2lean.lean-evidence/1",
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+  "interfaceReceipts": [
+    {
+      "bindingId": "sha256-c34ca82d9e2c2e35cd54e43ec4320880e3f29ed1047bdafeb91ec7d75e6c04f1",
+      "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+      "receiptDigest": "sha256-712e9c70392e03ad2e8847dc18c03fefda08994c3d276910753e386cce1f7220",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-cadf0c2158c9ad19aa0c091d8d5022aa089a617d2b7c2b695a1a5978336dc937",
+        "elaboratedTypeDigest": "sha256-49311cee5ad52bcc3bdfdcf54d274d5cd2834c4879f83aa727f4b02cc91b07d5",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+            "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+            "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    },
+    {
+      "bindingId": "sha256-b6fa8eae3736ae05065e4f281f0275cc81f40ddcab86e210aa0222b96ff822ff",
+      "declaration": "AntichainOfGivenSize.alpha_lower_density_one",
+      "receiptDigest": "sha256-de022f66798f2ff7d3412bd401328a0f1ed7e1f328e063cb318260ec50dcf171",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-77b6064004c9a257a6b9c14bb75138c3cc8feb02e45365c81ea89302711f0e08",
+        "elaboratedTypeDigest": "sha256-c70667e9e61f2698c37aeaecead04a851ff61ac95ade246cd13806be650deb34",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+            "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+            "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    },
+    {
+      "bindingId": "sha256-d995050a6594a0c4e5679adf774b3aee30da0600a517ee18dc32b2c5341bde59",
+      "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+      "receiptDigest": "sha256-a6fcb2963e6bcd61fcd997955ebdddb631d8f83903df33b16ed21b1f57747b17",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-0c274e43383df012bb6028e6ec7116c74fc517d03c024e023c48bc9d741e9d21",
+        "elaboratedTypeDigest": "sha256-f7ed933579c8d0f6aa5f3e89600e9f82de11be337c2fc9e8e294b2c01db7a23f",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.goodInputs",
+            "valueDigest": "sha256-072848f3a61a21589ee2523da075868d6ac885b0e9cc0e565060a8b6bd0a81be"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+            "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.realGoodInputs",
+            "valueDigest": "sha256-5d98470df0f17788d512699472df1ffdf79054592b2ee9c1c5bfc6d886315fc1"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+            "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+            "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    },
+    {
+      "bindingId": "sha256-9b18ff6b2e1bdfe7148c40f6b90c6a5dbd8fc1f0bed85cae53036f6efbb71450",
+      "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+      "receiptDigest": "sha256-33b8574035b5e4381fa69b6ae657efe33694762d81667041b285b9e69ead1cbd",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-34bf2cb9476624324c58e0eca49a2b10d4b19c78756e9e6dc685f346fbea3733",
+        "elaboratedTypeDigest": "sha256-9d8e2316f49f87e5df630eabc94e0c182b626158c430b0dcac3127bc7edbb970",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+            "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+            "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+            "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    },
+    {
+      "bindingId": "sha256-aa506a1439b6422862501b1ebc28986495a9ef23514290808e057687f2e142ac",
+      "declaration": "AntichainOfGivenSize.Paper.mem_realGoodInputs_iff",
+      "receiptDigest": "sha256-be9026ff5898bc062d7f9293a101135ecc8c2c2b4aa8c1bc5e3e62fe139e743a",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-1647a800aaa9c4b6c09c3de82f74db90fb77998941337f0bd89ffd44ffe0383f",
+        "elaboratedTypeDigest": "sha256-1f922ffdb790b8404006f60c9bc2a8b7fc1aac793cec3e6e9b2a699f8d041f91",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.goodInputs",
+            "valueDigest": "sha256-072848f3a61a21589ee2523da075868d6ac885b0e9cc0e565060a8b6bd0a81be"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.realGoodInputs",
+            "valueDigest": "sha256-5d98470df0f17788d512699472df1ffdf79054592b2ee9c1c5bfc6d886315fc1"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+            "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+            "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    },
+    {
+      "bindingId": "sha256-8e3985f51ed3363a0b8992752bab1e5b2b69fbd110fd5b2a349f6b6d59664705",
+      "declaration": "AntichainOfGivenSize.Paper.density_representations",
+      "receiptDigest": "sha256-20010e33ef4dd18b99575e77546176f137e54e7ba1163e3284890931241d4889",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-7a0f933d0786acaa5ea15c6f9230d38296966fa9607f1c2acd96fb614721f2cb",
+        "elaboratedTypeDigest": "sha256-36a6d9b0e0c9ea38b8a45fecd1dc4e505c90d5dacdbcbeea4a76d172fa55f900",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.goodInputs",
+            "valueDigest": "sha256-072848f3a61a21589ee2523da075868d6ac885b0e9cc0e565060a8b6bd0a81be"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.realGoodInputs",
+            "valueDigest": "sha256-5d98470df0f17788d512699472df1ffdf79054592b2ee9c1c5bfc6d886315fc1"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale",
+            "valueDigest": "sha256-d749195d6ad6cf4cd75609d67f79130e8c89d055f77d19148e22d8bca95928e7"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.quadraticLogLogScale._proof_1",
+            "valueDigest": "sha256-7bb3107c04d47e20d2a24748bcfa3b63a02fb39122be315e1c90b9a41a2eb3ce"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    },
+    {
+      "bindingId": "sha256-4b79cfe428c62ade2988bcca8a31464dd928401d900abee35c6cc09866f108fd",
+      "declaration": "AntichainOfGivenSize.Paper.maximumBelow_spec",
+      "receiptDigest": "sha256-8da2c1622ce6a85e31f52e6988158313a1a2936d74e92e3023bf66f66037ea3b",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-ac70e9ed0def51ce3c496f9bf7a9eabf052b2ce91346cb5c12e5e4d2bfc60b71",
+        "elaboratedTypeDigest": "sha256-29231cba860896dd22d9e59b9a14707986c87001334300b8fdbf3d29115026ef",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Paper.maximumBelow",
+            "valueDigest": "sha256-ef1e27ee6083901b3b5c1dd4afa78b1c4695dbb2f830b0512977d408d353fce8"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    }
+  ],
+  "relationEvidence": []
+}

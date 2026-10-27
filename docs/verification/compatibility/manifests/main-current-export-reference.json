@@ -1,0 +1,101 @@
+{
+  "schema": "antichain.native-export-reference/1",
+  "recordedAtUTC": "2026-10-27T07:24:08.866545+00:00",
+  "targetLabel": "thm:main",
+  "export": {
+    "directory": "/tmp/antichain-final-native-evidence-after-helper-relocation-20261027/thm-main",
+    "manifestFile": "EXPORT.json",
+    "rawSha256": "c5a22f14f4b2a37d74ceb5ae514d61468f28483125258438095387da7a964dc9",
+    "exportedAtUTC": "2026-10-27T07:09:09.387Z",
+    "fullExportIncludedInCompatibilityPackage": false
+  },
+  "runtime": {
+    "build": "v17-main",
+    "sessionId": 6885,
+    "route": "Ordinary native saved-plan proof and handoff; no optional ledger operation during these refreshes",
+    "explicitProvider": "codex-cli",
+    "agents": 3,
+    "effort": "high"
+  },
+  "head": {
+    "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+    "generation": 91,
+    "ledgerDigest": "sha256-c0e841599fd9a004252f9f0671078b78b6e584fd54a0620a8f96fdc7e2a9123f",
+    "certifiedSnapshotDigest": "sha256-5075c6521a0f5882888b6b1417a393c05b40fb1b231f0bfe1bca2d7085d3611e"
+  },
+  "certificate": {
+    "schema": "tex2lean.certified-mapping-snapshot/1",
+    "targetId": "target:6d290646-6ef6-4d8e-8d05-9ae814b12874",
+    "targetVersionId": "target-version:76e9dd83-3247-4599-9260-572210e5154d",
+    "ledgerDigest": "sha256-c0e841599fd9a004252f9f0671078b78b6e584fd54a0620a8f96fdc7e2a9123f",
+    "paperPacketDigest": "sha256-45b60bf79d94c942fdc3a009d3514a926e14db4bb71a9fa8ab461396f36c5703",
+    "leanEvidenceSnapshotDigest": "sha256-ef686a8b5bb2471484b91669b25282472e6584fe425602044ad91fc7adf11b19",
+    "graphDigest": "sha256-39244e1d2478bf3a6a82b3269eb24e922b65031f5e1d36d6b82a88917d9a97dd",
+    "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+    "created": {
+      "at": "2026-10-27T06:52:03.071Z",
+      "by": "proof-graph-reconciliation"
+    }
+  },
+  "observedHandoff": {
+    "generatedAt": "2026-10-27T06:57:31.876Z",
+    "headline": "formalized",
+    "assumptions": "pass",
+    "probability": "not-applicable",
+    "unknowns": [
+      "No fresh Lean build or closure execution was performed during this read-only review. Verification conclusions rely on inspected successful logs, recorded commands and exit codes, current matching hashes for all 138 recorded files, and the supplied current headline axiom output. Dependency checkout contents under .lake were not independently audited or hashed.",
+      "paper-statements.txt is empty and supplies no elaborator output by itself. checks.json separately records the warnings-as-errors statement-check command with exit code 0, and its source hash matches. Correspondences above were established by reading the declarations and definitions, not inferred from the empty log."
+    ],
+    "complete": true,
+    "whollyProved": true,
+    "proofCounts": {
+      "proved": 7,
+      "proved-conditional": 0,
+      "candidate-closed": 0,
+      "assembled": 0,
+      "implemented": 0,
+      "open": 0,
+      "blocked": 0,
+      "assumed-instead": 0,
+      "refuted": 0,
+      "not-applicable": 0,
+      "unknown": 0
+    },
+    "coverageCounts": {
+      "mapped": 7,
+      "unmapped": 0,
+      "pending-review": 0,
+      "unsupported": 0,
+      "disputed": 0,
+      "excluded": 0,
+      "stale": 0
+    }
+  },
+  "activeVerifiedBindingCount": 7,
+  "excludedMetadataCount": 0,
+  "limitations": [
+    "Does not run the compiler or native validator.",
+    "Does not authenticate the author role as human review.",
+    "Selected paper/configuration bytes and all Lean source hashes are preserved; pair this export with the matching Git source tree. External dependency binaries are not independently hashed.",
+    "Full immutable mapping history must also be exported once after all selected runs."
+  ],
+  "nativeDigestChecks": [
+    "ledger",
+    "certificate (created omitted)",
+    "lean evidence",
+    "complete graph",
+    "paper packet",
+    "interface receipts",
+    "toolchain",
+    "verification publication predecessor/successor ledgers"
+  ],
+  "packagingDoesNotCertifyOrChangeVerdicts": true,
+  "handoffLimitationsReview": {
+    "rawSha256": "10ff9a677bceaba3d656b8e725935336d61c35587508001b6bd76b10ac631711",
+    "purpose": "Preserve the observed native report with explicitly reviewed verification limitations; no unknown or native verdict is cleared.",
+    "unknownsRetainedExactly": true,
+    "reviewContainedInSeparateFullExport": true
+  }
+}

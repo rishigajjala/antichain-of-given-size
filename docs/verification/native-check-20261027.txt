@@ -1,0 +1,84 @@
+Native /check on the final consolidated sources, captured after dispatch on 27 October 2026; CRLF normalized.
+The initial command echo/banner is omitted. The complete pass/failure summary and all 37 axiom outputs follow.
+
+handoff evidence: Lean certified sorry status in 129/129 file(s)
+axioms: AntichainOfGivenSize.attainable_count — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Model.attainableValues_membership — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.alpha_eventual_upper — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.alpha_lower_density_one — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.alpha_simultaneous_density_one — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.alpha_maximum_order — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.alpha_asymptotic_order — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Analysis.TheoremProof.alphaAsymptoticOrder — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.mem_realGoodInputs_iff — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.density_representations — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.mem_maximumBelow_domain — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.maximumBelow_spec — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.typicalLowerBound_good — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.alpha_le_two_of_base_range — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.paper_headers — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.paper_record_counts — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.paper_tail_bounds — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.FaithfulLower.paper_numerics_full — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.dyadicUniformPMF_apply — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.dyadicUniformPMF_support — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.dyadicUniformPMF_probabilityMeasure — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.dyadicUniformPMF_event_measure — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.dyadicUniformPMF_good_probability — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.typicalLowerBound_probability — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.alpha_splitting — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.BitMatching.fresh_separation — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.BitMatching.primary_intersection_card — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.BitMatching.proper_intersection_card — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.PatternGadget.ideal_card_bits — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.UpperConstruction.position_intersection — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.UpperConstruction.paper_block_increment — propext, Classical.choice, Quot.sound
+axioms: AntichainOfGivenSize.Paper.LiteralUpperParameters.exists_literal_constructed_size_threshold — propext, Classical.choice, Quot.sound
+check: ok   lake build succeeds
+check: ok   no 'declaration uses sorry' warnings in the build
+check: ok   every headline rests on the ambient axioms and nothing else (37)
+check: ok   no sorry, admit, native_decide or axiom in the sources
+check: ok   closure checks are present and passed
+check: FAIL proofs written into the audit surface
+check:        AntichainOfGivenSize/Model/Prelude.lean:56: attainableValues_membership (5 lines of proof)
+check:        AntichainOfGivenSize/Model/Theorem.lean:44: attainable_count (6 lines of proof)
+check:        AntichainOfGivenSize/Model/Theorem.lean:78: alpha_eventual_upper (4 lines of proof)
+check:        AntichainOfGivenSize/Model/Theorem.lean:86: alpha_lower_density_one (6 lines of proof)
+check:        AntichainOfGivenSize/Model/Theorem.lean:97: alpha_simultaneous_density_one (15 lines of proof)
+check: ok   no file name is used in two directories of the layout
+check: ok   Model/, Interface/ and Meta/ hold only the files they are for
+check: ok   no file here declares anything in arlib's namespace
+check: ok   `Model/` is 4 file(s) and every seal command is invoked
+check: ok   no `Interface/` in this project — nothing is bridged, and nothing needs to be
+check: ok   no bridge in this project — there is no ladder to stand on
+check: ok   nothing this development was asked to prove is assumed
+check: ok   every assumption is stated in the surface's own vocabulary
+check: ok   `Model/Prelude.lean` is vocabulary, not prior-work assumptions
+check: ok   nothing is carried as a conjecture
+check: FAIL the headline stands on assumptions that are not in the bundle
+check:        `AntichainOfGivenSize.FaithfulLower.paper_headers` takes `(x : BoundedProfile K B)` — `BoundedProfile` carries 2 assumption(s), starting with `empty_zero`
+check:        `AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement` takes `(x : BoundedProfile K B)` — `BoundedProfile` carries 2 assumption(s), starting with `empty_zero`
+check:        `AntichainOfGivenSize.FaithfulLower.paper_record_counts` takes `(x : BoundedProfile K B)` — `BoundedProfile` carries 2 assumption(s), starting with `empty_zero`
+check:        `AntichainOfGivenSize.FaithfulLower.paper_tail_bounds` takes `(x : BoundedProfile K B)` — `BoundedProfile` carries 2 assumption(s), starting with `empty_zero`
+check:        A structure of hypotheses the headline quantifies over is an assumption bundle whatever it is called, and only `Prior` is governed: gated when a field is added, put to the author, listed as prior work, and audited against the paper. Nothing else here sees it — the build is clean and `#print axioms` is honest, because a hypothesis is not an axiom.
+check: ok   every standard object in the surface is defined or constrained
+ ! the mechanical checks FAILED — surface-states, hypothesis-is-in-the-bundle
+   proofs written into the audit surface —
+   AntichainOfGivenSize/Model/Prelude.lean:56: attainableValues_membership
+   (5 lines of proof)
+   the headline stands on assumptions that are not in the bundle —
+   `AntichainOfGivenSize.FaithfulLower.paper_headers` takes `(x :
+   BoundedProfile K B)` — `BoundedProfile` carries 2 assumption(s), starting
+   with `empty_zero`
+
+   Still unanswered, because no mechanical check can answer it: whether the
+   audit surface states what the paper states. A development can pass every
+   check above and formalize the wrong theorem. The handoff check reads the
+   paper and the surface side by side and reports where they disagree.
+
+tex2lean> 
