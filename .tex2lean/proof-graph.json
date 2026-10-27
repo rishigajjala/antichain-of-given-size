@@ -1,12 +1,12 @@
 {
   "schema": "tex2lean.proof-graph/6",
-  "slug": "thm-attainable-count-1twuckp",
-  "updatedAt": "2026-10-27T07:14:16.719Z",
+  "slug": "lem-splitting-zz89cu",
+  "updatedAt": "2026-10-27T07:26:59.644Z",
   "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
   "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
   "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
   "dependencySource": "lean-environment",
-  "elaboratedAt": "2026-10-27T07:14:16.719Z",
+  "elaboratedAt": "2026-10-27T07:26:59.644Z",
   "rootModule": "AntichainOfGivenSize.Model.Theorem",
   "reachableModules": [
     "AntichainOfGivenSize.Analysis.AlphaEventualUpperProof",
@@ -128,12 +128,12 @@
     "AntichainOfGivenSize.Theorem"
   ],
   "target": {
-    "key": "label:thm:attainable-count",
-    "id": "t18",
-    "title": "Counting attainable ideal sizes",
-    "label": "thm:attainable-count",
-    "location": "paper/Generating_Antichains_Simplified.tex:987",
-    "paperDigest": "de72c27ce1d9"
+    "key": "label:lem:splitting",
+    "id": "t4",
+    "title": "Splitting Lemma",
+    "label": "lem:splitting",
+    "location": "paper/Generating_Antichains_Simplified.tex:240",
+    "paperDigest": "03f2dc59f6da"
   },
   "nodes": [
     {
@@ -1822,14 +1822,14 @@
       "line": 11,
       "declaration": "AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
       "statementKind": "theorem",
-      "role": "supporting-lemma",
+      "role": "author-statement",
       "header": "theorem AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting (hprior : AntichainOfGivenSize.Prior) (m n : ℕ) (hm : 0 < m) (hn : 0 < n) : AntichainOfGivenSize.alpha (m + n) ≤ AntichainOfGivenSize.alpha m + AntichainOfGivenSize.alpha (n + 1) := by",
       "references": [
         "AntichainOfGivenSize.Prior",
         "AntichainOfGivenSize.alpha",
         "AntichainOfGivenSize.splittingLemma"
       ],
-      "status": "closed",
+      "status": "proved",
       "inAuditSurface": false,
       "hasSorry": false,
       "paperRefs": [
@@ -34110,192 +34110,26 @@
       "paperRefs": []
     },
     {
-      "id": "mapping-claim:claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+      "id": "mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
       "kind": "paper-claim",
-      "label": "The exceptional set has size at most 2Kρ/λ^6 and cluster members agree off it.",
+      "label": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
       "status": "unknown",
-      "mappingId": "claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+      "mappingId": "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
       "file": "paper/Generating_Antichains_Simplified.tex"
     },
     {
-      "id": "mapping-claim:claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
-      "kind": "paper-claim",
-      "label": "The existing endpoint proves the exact target with a different, larger clustered record encoding; identify reuse honestly and preserve the correspondence note.",
-      "status": "unknown",
-      "mappingId": "claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
-      "kind": "paper-claim",
-      "label": "One absolute threshold works for every B above it and every K in the exact stated real-log budget, and |V(B,K)| ≤ 2^(B−√B).",
-      "status": "unknown",
-      "mappingId": "claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
-      "kind": "paper-claim",
-      "label": "V(B,K) consists exactly of numerical ideal sizes from nonempty families of at most K generators of individual size at most B, with no ambient cap.",
-      "status": "unknown",
-      "mappingId": "claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
-      "kind": "paper-claim",
-      "label": "For each header the attainable-value count is bounded by the product of the incidence, transcript and tail-interval counts.",
-      "status": "unknown",
-      "mappingId": "claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
-      "kind": "paper-claim",
-      "label": "There are at most (KB+1)2^(2K²ρ/λ⁶) incidence records and (B+1)^(2^J(1+K2^h)) central transcripts.",
-      "status": "unknown",
-      "mappingId": "claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
-      "kind": "paper-claim",
-      "label": "The incidence record and central exponent transcript determine the exact signed central sum Z.",
-      "status": "unknown",
-      "mappingId": "claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
-      "kind": "paper-claim",
-      "label": "Repeating a final generator and relabelling the active ground set preserve the ideal size and give N ≤ KB.",
-      "status": "unknown",
-      "mappingId": "claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
-      "kind": "paper-claim",
-      "label": "Φ equals the complete signed inclusion–exclusion sum over nonempty queries.",
-      "status": "unknown",
-      "mappingId": "claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
-      "kind": "paper-claim",
-      "label": "Uniformly in admissible K, Γ≥2^(7λ/10), eventually d≤1/4 and L_rec≤Γ/2, and eventually Γ/4≥√B; summing over headers yields the stronger intermediate bound 2^(B−Γ/4).",
-      "status": "unknown",
-      "mappingId": "claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
-      "kind": "paper-claim",
-      "label": "Every noncentral exponent is at most B−ρ; the signed tail lies in an interval with at most 2^(B−ρ+K+2) integer values.",
-      "status": "unknown",
-      "mappingId": "claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
-      "kind": "paper-claim",
-      "label": "Each eligible family admits a structural header; there are at most (J+1)K^K possible headers.",
-      "status": "unknown",
-      "mappingId": "claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-claim:claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
-      "kind": "paper-claim",
-      "label": "This target asserts no probabilistic or computational resource result; the following uniformly sampled dyadic corollary is separate.",
-      "status": "unknown",
-      "mappingId": "claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
-      "file": "paper/Generating_Antichains_Simplified.tex"
-    },
-    {
-      "id": "mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a",
+      "id": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
       "kind": "obligation",
-      "label": "The exceptional set has size at most 2Kρ/λ^6 and cluster members agree off it.",
+      "label": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
       "status": "open",
-      "mappingId": "obligation:01a891fc-e12d-461f-bee3-466dea5dab5a"
+      "mappingId": "obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d"
     },
     {
-      "id": "mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
-      "kind": "obligation",
-      "label": "Repeating a final generator and relabelling the active ground set preserve the ideal size and give N ≤ KB.",
-      "status": "open",
-      "mappingId": "obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d"
-    },
-    {
-      "id": "mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2",
-      "kind": "obligation",
-      "label": "Uniformly in admissible K, Γ≥2^(7λ/10), eventually d≤1/4 and L_rec≤Γ/2, and eventually Γ/4≥√B; summing over headers yields the stronger intermediate bound 2^(B−Γ/4).",
-      "status": "open",
-      "mappingId": "obligation:4966f7cb-704c-4633-8f61-2342aeb368d2"
-    },
-    {
-      "id": "mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad",
-      "kind": "obligation",
-      "label": "For each header the attainable-value count is bounded by the product of the incidence, transcript and tail-interval counts.",
-      "status": "open",
-      "mappingId": "obligation:4e838d21-9386-4fa5-a789-dec43559f6ad"
-    },
-    {
-      "id": "mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829",
-      "kind": "obligation",
-      "label": "Every noncentral exponent is at most B−ρ; the signed tail lies in an interval with at most 2^(B−ρ+K+2) integer values.",
-      "status": "open",
-      "mappingId": "obligation:741c9fbb-d585-466a-b868-43513d3b1829"
-    },
-    {
-      "id": "mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72",
-      "kind": "obligation",
-      "label": "There are at most (KB+1)2^(2K²ρ/λ⁶) incidence records and (B+1)^(2^J(1+K2^h)) central transcripts.",
-      "status": "open",
-      "mappingId": "obligation:a0f09070-388d-42b6-99d2-e6d09b457f72"
-    },
-    {
-      "id": "mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
-      "kind": "obligation",
-      "label": "Φ equals the complete signed inclusion–exclusion sum over nonempty queries.",
-      "status": "open",
-      "mappingId": "obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c"
-    },
-    {
-      "id": "mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
-      "kind": "obligation",
-      "label": "One absolute threshold works for every B above it and every K in the exact stated real-log budget, and |V(B,K)| ≤ 2^(B−√B).",
-      "status": "open",
-      "mappingId": "obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d"
-    },
-    {
-      "id": "mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b",
-      "kind": "obligation",
-      "label": "The incidence record and central exponent transcript determine the exact signed central sum Z.",
-      "status": "open",
-      "mappingId": "obligation:ea8de31f-5c80-4580-bc7d-915930bf928b"
-    },
-    {
-      "id": "mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb",
-      "kind": "obligation",
-      "label": "V(B,K) consists exactly of numerical ideal sizes from nonempty families of at most K generators of individual size at most B, with no ambient cap.",
-      "status": "open",
-      "mappingId": "obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb"
-    },
-    {
-      "id": "mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac",
-      "kind": "obligation",
-      "label": "Each eligible family admits a structural header; there are at most (J+1)K^K possible headers.",
-      "status": "open",
-      "mappingId": "obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac"
-    },
-    {
-      "id": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "id": "mapping-target:target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
       "kind": "paper-target",
-      "label": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
+      "label": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
       "status": "target",
-      "mappingId": "target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4"
+      "mappingId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d"
     },
     {
       "id": "paper:paper/Generating_Antichains_Simplified.tex",
@@ -34353,9 +34187,10 @@
       "label": "paper/Generating_Antichains_Simplified.tex:240",
       "file": "paper/Generating_Antichains_Simplified.tex",
       "line": 240,
-      "status": "external",
+      "status": "target",
       "paperRefs": [
-        "paper/Generating_Antichains_Simplified.tex:240"
+        "paper/Generating_Antichains_Simplified.tex:240",
+        "lem:splitting"
       ]
     },
     {
@@ -34415,8 +34250,7 @@
       "line": 987,
       "status": "external",
       "paperRefs": [
-        "paper/Generating_Antichains_Simplified.tex:987",
-        "thm:attainable-count"
+        "paper/Generating_Antichains_Simplified.tex:987"
       ]
     },
     {
@@ -34440,70 +34274,10 @@
   ],
   "edges": [
     {
-      "from": "mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement",
+      "from": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
+      "to": "lean:AntichainOfGivenSize.alpha_splitting",
       "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a->lean:AntichainOfGivenSize.FaithfulLower.paper_exceptional_bound_and_agreement"
-    },
-    {
-      "from": "mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d->lean:AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization"
-    },
-    {
-      "from": "mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_numerics_full",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2->lean:AntichainOfGivenSize.FaithfulLower.paper_numerics_full"
-    },
-    {
-      "from": "mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad->lean:AntichainOfGivenSize.FaithfulLower.valuesAtHeader_card_le"
-    },
-    {
-      "from": "mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_tail_bounds",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829->lean:AntichainOfGivenSize.FaithfulLower.paper_tail_bounds"
-    },
-    {
-      "from": "mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_record_counts",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72->lean:AntichainOfGivenSize.FaithfulLower.paper_record_counts"
-    },
-    {
-      "from": "mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
-      "to": "lean:AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c->lean:AntichainOfGivenSize.Section6.generatedIdealIdx_card_inclusionExclusion"
-    },
-    {
-      "from": "mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
-      "to": "lean:AntichainOfGivenSize.attainable_count",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d->lean:AntichainOfGivenSize.attainable_count"
-    },
-    {
-      "from": "mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b->lean:AntichainOfGivenSize.FaithfulLower.canonical_central_sum_eq_of_records"
-    },
-    {
-      "from": "mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb",
-      "to": "lean:AntichainOfGivenSize.Model.attainableValues_membership",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb->lean:AntichainOfGivenSize.Model.attainableValues_membership"
-    },
-    {
-      "from": "mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac",
-      "to": "lean:AntichainOfGivenSize.FaithfulLower.paper_headers",
-      "kind": "binds",
-      "id": "binds:mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac->lean:AntichainOfGivenSize.FaithfulLower.paper_headers"
+      "id": "binds:mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d->lean:AntichainOfGivenSize.alpha_splitting"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
@@ -34554,82 +34328,10 @@
       "id": "cites:file:AntichainOfGivenSize/Paper/Statements.lean->paper:paper/Generating_Antichains_Simplified.tex"
     },
     {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
+      "from": "mapping-target:target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "to": "mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
       "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:2a429de2-108f-4b45-8210-c126cc2c6a95"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:71fc944e-e00d-472e-8472-b6722d60f161"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c"
-    },
-    {
-      "from": "mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4",
-      "to": "mapping-claim:claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f",
-      "kind": "contains",
-      "id": "contains:mapping-target:target-version:8b5de558-8fd2-40d6-bfe5-69936f2cc0f4->mapping-claim:claim-version:e7fd79a7-be6d-4b9b-847a-18cdb0de891f"
+      "id": "contains:mapping-target:target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d->mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486"
     },
     {
       "from": "lean:AntichainOfGivenSize.adjoinRightEmbedding",
@@ -85314,18 +85016,11 @@
       "id": "depends-on:lean:AntichainOfGivenSize.VennProfile.VennProfileObstructionInfinitelyOften->lean:AntichainOfGivenSize.VennProfile.superLogLogPowerScale"
     },
     {
-      "from": "lean:AntichainOfGivenSize.Analysis.AttainableCountProof.attainableCount",
-      "to": "lean:AntichainOfGivenSize.attainable_count",
+      "from": "lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
+      "to": "lean:AntichainOfGivenSize.alpha_splitting",
       "kind": "discharges",
       "label": "proof-side declaration discharges audit-surface wrapper",
-      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AttainableCountProof.attainableCount->lean:AntichainOfGivenSize.attainable_count"
-    },
-    {
-      "from": "lean:AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership",
-      "to": "lean:AntichainOfGivenSize.Model.attainableValues_membership",
-      "kind": "discharges",
-      "label": "proof-side declaration discharges audit-surface wrapper",
-      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership->lean:AntichainOfGivenSize.Model.attainableValues_membership"
+      "id": "discharges:lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting->lean:AntichainOfGivenSize.alpha_splitting"
     },
     {
       "from": "file:AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
@@ -86829,6 +86524,12 @@
     },
     {
       "from": "lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
+      "to": "paper:paper/Generating_Antichains_Simplified.tex:240",
+      "kind": "renders",
+      "id": "renders:lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting->paper:paper/Generating_Antichains_Simplified.tex:240"
+    },
+    {
+      "from": "lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting",
       "to": "paper:paper/Generating_Antichains_Simplified.tex:240–252",
       "kind": "renders",
       "id": "renders:lean:AntichainOfGivenSize.Analysis.AlphaSplittingProof.splitting->paper:paper/Generating_Antichains_Simplified.tex:240–252"
@@ -86846,75 +86547,15 @@
       "id": "renders:lean:AntichainOfGivenSize.Analysis.AttainableCountProof.attainableValuesMembership->paper:paper/Generating_Antichains_Simplified.tex:981-986"
     },
     {
-      "from": "mapping-claim:claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3",
-      "to": "mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a",
+      "from": "mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "to": "mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
       "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:02ef38da-9f7f-4a27-bf06-3b352b490ef3->mapping-obligation:obligation:01a891fc-e12d-461f-bee3-466dea5dab5a"
-    },
-    {
-      "from": "mapping-claim:claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6",
-      "to": "mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:334ff530-6cc9-4274-9766-085a0b3a14a6->mapping-obligation:obligation:c2e4f389-a027-4e4d-b217-bf27a0440b2d"
-    },
-    {
-      "from": "mapping-claim:claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671",
-      "to": "mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:3483a2a4-2344-4c43-bc2f-6e13a3a2a671->mapping-obligation:obligation:ec418bca-4374-4aa4-890d-98a98c93e1cb"
-    },
-    {
-      "from": "mapping-claim:claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97",
-      "to": "mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:395d67c3-81e0-4e19-9c88-2038dc794a97->mapping-obligation:obligation:4e838d21-9386-4fa5-a789-dec43559f6ad"
-    },
-    {
-      "from": "mapping-claim:claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08",
-      "to": "mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:63137d0b-bf46-41c0-b3e3-0df4633fbe08->mapping-obligation:obligation:a0f09070-388d-42b6-99d2-e6d09b457f72"
-    },
-    {
-      "from": "mapping-claim:claim-version:71fc944e-e00d-472e-8472-b6722d60f161",
-      "to": "mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:71fc944e-e00d-472e-8472-b6722d60f161->mapping-obligation:obligation:ea8de31f-5c80-4580-bc7d-915930bf928b"
-    },
-    {
-      "from": "mapping-claim:claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b",
-      "to": "mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:991b703a-ef78-4f6f-aad6-cab1c095890b->mapping-obligation:obligation:0fb831c3-6b46-47a2-9e21-8b77f958f23d"
-    },
-    {
-      "from": "mapping-claim:claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a",
-      "to": "mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:a5046d34-cd50-4a2c-b39f-15d853bd654a->mapping-obligation:obligation:af6fcb91-1d1b-4cf7-869a-965bb0d2847c"
-    },
-    {
-      "from": "mapping-claim:claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8",
-      "to": "mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:add61627-cbd9-428e-a9e0-b3243b6ddff8->mapping-obligation:obligation:4966f7cb-704c-4633-8f61-2342aeb368d2"
-    },
-    {
-      "from": "mapping-claim:claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112",
-      "to": "mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:b895d930-9612-4fb6-878c-f96e9ccf7112->mapping-obligation:obligation:741c9fbb-d585-466a-b868-43513d3b1829"
-    },
-    {
-      "from": "mapping-claim:claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c",
-      "to": "mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac",
-      "kind": "requires",
-      "id": "requires:mapping-claim:claim-version:dd357164-2fdb-4515-9b40-b7fe4273c58c->mapping-obligation:obligation:fc8b8a29-5f3d-4ed8-a565-16c555cab7ac"
+      "id": "requires:mapping-claim:claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486->mapping-obligation:obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d"
     }
   ],
   "attempts": [],
   "feedback": [],
   "recoveries": [],
   "recoveryFindings": [],
-  "mappingDigest": "sha256-eb9cc53d2f226e3a18794e7161ad3c9921c0bbcb4a0ff2f4072fd78c56cb5c87"
+  "mappingDigest": "sha256-d11468765b1d11682794143ae04c47d7407b9eb69aa13701e714d9825d87315d"
 }

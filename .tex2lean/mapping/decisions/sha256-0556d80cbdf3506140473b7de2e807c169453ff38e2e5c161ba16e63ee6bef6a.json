@@ -1,0 +1,47 @@
+{
+  "id": "sha256-0556d80cbdf3506140473b7de2e807c169453ff38e2e5c161ba16e63ee6bef6a",
+  "ledgerId": "ledger:8e06c088-4540-4225-88b7-db983d23efc9",
+  "baseLedgerDigest": "sha256-97b80df8cd3efdfce88f87bd5714849e27553f137806f5815bb42702f34b57fd",
+  "actor": "validator",
+  "provenance": "unchanged interface receipt observed in the current certified source snapshot",
+  "mode": "automatic",
+  "kind": "put-binding",
+  "binding": {
+    "id": "binding:5c4af20a-dd07-40ff-acde-718b0818ac19",
+    "obligationId": "obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
+    "declaration": "AntichainOfGivenSize.alpha_splitting",
+    "file": "AntichainOfGivenSize/Model/Theorem.lean",
+    "module": "AntichainOfGivenSize.Model.Theorem",
+    "role": "headline",
+    "status": "verified",
+    "semanticApprovalDecisionId": "sha256-952b748962810c7bb4da801a0771ee2ebfb3494b1595c53cc90829d6638361ed",
+    "receipt": {
+      "sourceSignatureDigest": "sha256-acb9b4f68a1563f9b6be40eb9111d8e5285f7e3d71d137b1a61bef67340827e0",
+      "elaboratedTypeDigest": "sha256-ce7355549a6e8b972358f21189056a7f4fd0bc55ee16322357abe9fb0566f74d",
+      "semanticRootPolicyId": "project-type-closure/1",
+      "semanticRootDigests": [
+        {
+          "declaration": "AntichainOfGivenSize.alpha",
+          "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.generatedIdeal",
+          "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+          "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.Prior",
+          "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+        }
+      ],
+      "leanVersion": "4.32.0",
+      "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+      "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+    },
+    "leanEvidenceSnapshotId": "sha256-3be92d3d1f317dfacfe986b20df390c83ad1cd736eaedd16460dcbf932dbcc1e",
+    "verifiedByDecisionId": "sha256-0556d80cbdf3506140473b7de2e807c169453ff38e2e5c161ba16e63ee6bef6a"
+  }
+}

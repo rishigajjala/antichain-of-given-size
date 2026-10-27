@@ -1,0 +1,317 @@
+{
+  "schema": "tex2lean.paper-proof-map/1",
+  "ledgerId": "ledger:8e06c088-4540-4225-88b7-db983d23efc9",
+  "paper": {
+    "id": "paper:d052ea5b-6cc2-4b28-8b20-9c3aa7f447a5"
+  },
+  "target": {
+    "id": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+    "paperId": "paper:d052ea5b-6cc2-4b28-8b20-9c3aa7f447a5",
+    "activeVersionId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d"
+  },
+  "activeClaimSetReceiptId": "claim-set:9477c9f8-c0e4-45f4-8499-2ef50084f45e",
+  "activeSurfaceInventoryId": "sha256-d5b7adc8f00eb21e8d2770757bf0f7246ca724fa12fff8b309851cc2c184d5a2",
+  "targetVersions": [
+    {
+      "id": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "targetId": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+      "paperPacketDigest": "sha256-85e4fdf18297824b9e8cd93f70c47a6206004b938b47cf7d7a3815aa648e156b",
+      "bodyDigest": "sha256-4c80fb083ff41230aa32448faaf4bcfa3fd1043ede9d4d62ea46a087daa89121",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "label": "lem:splitting",
+        "environment": "lemma",
+        "from": 240,
+        "to": 245,
+        "excerptDigest": "sha256-1aa04c5d54157212fdb52f45c7bdda7f94d109627c06f106673922769488866b"
+      },
+      "status": "active"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:b220415e-b0d9-49e5-904c-d3827772c7d3",
+      "targetId": "target:b340dafe-e1c4-4bdd-a7a9-e888e9282117",
+      "activeVersionId": "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "role": "reportable"
+    }
+  ],
+  "claimVersions": [
+    {
+      "id": "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "claimId": "claim:b220415e-b0d9-49e5-904c-d3827772c7d3",
+      "targetVersionId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "anchor": {
+        "file": "paper/Generating_Antichains_Simplified.tex",
+        "excerptDigest": "sha256-0244ee3029f38cdfb9281ecf982238df1007645a4e755f9f06d5c9d1f5a41c33"
+      },
+      "text": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
+      "normalizedTextDigest": "sha256-0c2f261f6d86aacfe5b1d4d60cffd88d0acea5882954958983891062c942077d",
+      "kind": "other",
+      "evidence": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-0244ee3029f38cdfb9281ecf982238df1007645a4e755f9f06d5c9d1f5a41c33"
+        }
+      ],
+      "status": "active"
+    }
+  ],
+  "plans": [
+    {
+      "claimVersionId": "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486",
+      "disposition": "formalize",
+      "requirements": {
+        "allOf": [
+          {
+            "anyOf": [
+              "obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d"
+            ]
+          }
+        ]
+      },
+      "evidenceIds": [
+        "sha256-2bcf61f4e2499f9f8ddafce883036bcfe7261abd0dd9ce61d8de418cb3358b7a"
+      ],
+      "reason": "Carried from the finalized blueprint claim ledger into Model/Theorem."
+    }
+  ],
+  "obligations": [
+    {
+      "id": "obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
+      "kind": "headline",
+      "summary": "For every positive integer m and every positive integer n, alpha(m+n) ≤ alpha(m)+alpha(n+1).",
+      "rationale": "The finalized blueprint assigns this paper claim to Model/Theorem.",
+      "owner": "Model/Theorem",
+      "status": "materialized"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "binding:5c4af20a-dd07-40ff-acde-718b0818ac19",
+      "obligationId": "obligation:fb2f7c53-3b15-44a8-917e-c8d13e8c0f0d",
+      "declaration": "AntichainOfGivenSize.alpha_splitting",
+      "file": "AntichainOfGivenSize/Model/Theorem.lean",
+      "module": "AntichainOfGivenSize.Model.Theorem",
+      "role": "headline",
+      "status": "verified",
+      "semanticApprovalDecisionId": "sha256-952b748962810c7bb4da801a0771ee2ebfb3494b1595c53cc90829d6638361ed",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-acb9b4f68a1563f9b6be40eb9111d8e5285f7e3d71d137b1a61bef67340827e0",
+        "elaboratedTypeDigest": "sha256-ce7355549a6e8b972358f21189056a7f4fd0bc55ee16322357abe9fb0566f74d",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      },
+      "leanEvidenceSnapshotId": "sha256-3be92d3d1f317dfacfe986b20df390c83ad1cd736eaedd16460dcbf932dbcc1e",
+      "verifiedByDecisionId": "sha256-0556d80cbdf3506140473b7de2e807c169453ff38e2e5c161ba16e63ee6bef6a"
+    }
+  ],
+  "leanRelations": [],
+  "claimSetReceipts": [
+    {
+      "id": "claim-set:9477c9f8-c0e4-45f4-8499-2ef50084f45e",
+      "targetVersionId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "paperPacketDigest": "sha256-85e4fdf18297824b9e8cd93f70c47a6206004b938b47cf7d7a3815aa648e156b",
+      "claimVersionIds": [
+        "claim-version:d8d95b2c-7c00-41b1-9ef4-f2d06561a486"
+      ],
+      "readerProvenance": "reader-agent"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sha256-2bcf61f4e2499f9f8ddafce883036bcfe7261abd0dd9ce61d8de418cb3358b7a",
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "excerptDigest": "sha256-0244ee3029f38cdfb9281ecf982238df1007645a4e755f9f06d5c9d1f5a41c33"
+        }
+      ]
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 240,
+          "to": 245,
+          "excerptDigest": "sha256-c0a9bd6addc831298e94b86409f3d0a5130ee9baac6781cb641ba1f392230376"
+        }
+      ],
+      "id": "sha256-2f97652e01f9506ebe987227755bb5a386ffe7ad95d1063d50710fd768800185"
+    },
+    {
+      "kind": "source-reading",
+      "anchors": [
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 240,
+          "to": 245,
+          "excerptDigest": "sha256-c0a9bd6addc831298e94b86409f3d0a5130ee9baac6781cb641ba1f392230376"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 981,
+          "to": 997,
+          "excerptDigest": "sha256-a0b52d5295468ee1cfded6b8b74b4e4a0ef6153732fefce5818ad69e0e2f7530"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 981,
+          "to": 997,
+          "excerptDigest": "sha256-a0b52d5295468ee1cfded6b8b74b4e4a0ef6153732fefce5818ad69e0e2f7530"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 156,
+          "to": 170,
+          "excerptDigest": "sha256-3f66a9f223fc84417bca532abb8d4bbd752c1db7044951bd722c6d146ddd6fe4"
+        },
+        {
+          "file": "paper/Generating_Antichains_Simplified.tex",
+          "from": 1470,
+          "to": 1477,
+          "excerptDigest": "sha256-939728c16940b667539bf6069336c34b82db827851f78fd8b3396bb2226b4144"
+        }
+      ],
+      "id": "sha256-adf34eecfc205ec628e5a4770098305b39c5bc50b995bd5eed2bcb0cef6afffd"
+    }
+  ],
+  "surfaceInventories": [
+    {
+      "id": "surface-inventory:b09001b5-5f3e-4ce6-925e-cd0494ebe08c",
+      "targetVersionId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "source": "sealed-blueprint",
+      "blueprintDigest": "sha256-9773dd972f1e843204afdfd82aa517831713e5d97ac75103788c657dae95d6be",
+      "declarations": [
+        {
+          "declaration": "AntichainOfGivenSize.attainable_count",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_eventual_upper",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_lower_density_one",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_simultaneous_density_one",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_maximum_order",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_asymptotic_order",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        },
+        {
+          "declaration": "AntichainOfGivenSize.alpha_splitting",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        }
+      ]
+    },
+    {
+      "id": "sha256-d5b7adc8f00eb21e8d2770757bf0f7246ca724fa12fff8b309851cc2c184d5a2",
+      "targetVersionId": "target-version:4b6d52a5-6480-4ae0-8d41-e939a4a27d3d",
+      "source": "author-reviewed-target-scope",
+      "declarations": [
+        {
+          "declaration": "AntichainOfGivenSize.alpha_splitting",
+          "role": "headline",
+          "file": "AntichainOfGivenSize/Model/Theorem.lean",
+          "module": "AntichainOfGivenSize.Model.Theorem"
+        }
+      ]
+    }
+  ],
+  "appliedDecisionIds": [
+    "sha256-bb6793ab70ea262f981eda565884349ed4d4c0033a0120cb7a62be52db45e31c",
+    "sha256-952b748962810c7bb4da801a0771ee2ebfb3494b1595c53cc90829d6638361ed",
+    "sha256-d021baafe80b51a63df4b6c2a27eb9fa591fb9c57467890500414a407f1f3077",
+    "sha256-abd9bf07e0498082978deb855bfd8043120e54eb1af3fdb93593a6dabcd30615",
+    "sha256-9c8a5785da42bb6ac4844371a18348f533ff659e131f0b0fd7229f7cfe39ce33",
+    "sha256-31eb423aaf0071bb815175bed3f541d76f4a6261adc8549616d137a9e803a655",
+    "sha256-0556d80cbdf3506140473b7de2e807c169453ff38e2e5c161ba16e63ee6bef6a"
+  ]
+}

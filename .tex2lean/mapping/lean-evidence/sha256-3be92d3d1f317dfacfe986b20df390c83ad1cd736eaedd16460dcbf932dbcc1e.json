@@ -1,0 +1,41 @@
+{
+  "schema": "tex2lean.lean-evidence/1",
+  "sourceFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "buildFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "dependencyFingerprint": "sha256:197605d33afa8264bf0253403e08b9b204808f9ffaa6696165980b330568d828",
+  "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+  "interfaceReceipts": [
+    {
+      "bindingId": "binding:5c4af20a-dd07-40ff-acde-718b0818ac19",
+      "declaration": "AntichainOfGivenSize.alpha_splitting",
+      "receiptDigest": "sha256-ae70589fc38bfcced6c7721ac5d329dbff8dbd168ce35bbb88ece7eb5d4cbf1e",
+      "receipt": {
+        "sourceSignatureDigest": "sha256-acb9b4f68a1563f9b6be40eb9111d8e5285f7e3d71d137b1a61bef67340827e0",
+        "elaboratedTypeDigest": "sha256-ce7355549a6e8b972358f21189056a7f4fd0bc55ee16322357abe9fb0566f74d",
+        "semanticRootPolicyId": "project-type-closure/1",
+        "semanticRootDigests": [
+          {
+            "declaration": "AntichainOfGivenSize.alpha",
+            "valueDigest": "sha256-4698354bae3ef32fee3da3d905e48ee29845870ff4c386cfa13f55cfaa27b99f"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.generatedIdeal",
+            "valueDigest": "sha256-794dc7546df82a1e96c6d176f348b86c7ea52e0c45ac3ec443ca301706776e8a"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.HasGeneratorCount",
+            "valueDigest": "sha256-51f960edbba9031b6f2d264c67e7ccf783ed1cb69503dbdc593a8c5bbc76d480"
+          },
+          {
+            "declaration": "AntichainOfGivenSize.Prior",
+            "valueDigest": "sha256-c59a4e15562b4460784f82e9ec7b272cf3883eb01d63707d6608d3e587bea49b"
+          }
+        ],
+        "leanVersion": "4.32.0",
+        "toolchainDigest": "sha256-ecec6f0ad427de6422c6595e4ecf5f4b6a2fa27fff9420e58e9db1f641f9b3c5",
+        "optionsDigest": "sha256-b01d333a0ba6076a37c01762a8978eb2d2bebd220d8530e524078067d340079e"
+      }
+    }
+  ],
+  "relationEvidence": []
+}
