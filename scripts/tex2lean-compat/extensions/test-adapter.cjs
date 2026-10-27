@@ -322,7 +322,7 @@ async function testValidator() {
     {sourceFingerprint:broken.snapshot.pins.leanSources}),/reused with different content/);
   return {unchangedNativeLoopDigest:digest,patchRequired:false,negativeControl:'removing the native per-iteration refresh reproduces a stale-head failure'};
 }
-module.exports={nativeHarness,compileLoop};
+module.exports={nativeHarness,compileLoop,setup,makeApproved};
 if(require.main===module)(async()=>{
   await testAdapter();await testReplacement();const hashes=await testValidator();
   console.log(JSON.stringify({ok:true,tests:'native replay/publication, explicit pinned unapproved-proposal replacement, dry-run, provenance-only exclusions, strict pins, authority, concurrency, and unchanged real validator verify/refresh/stale and negative-control regression',validator:hashes},null,2));

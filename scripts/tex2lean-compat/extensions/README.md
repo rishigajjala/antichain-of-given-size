@@ -212,9 +212,10 @@ Review the resulting `dry-run.json`. Only an explicit boolean requests applicati
 /ledger-review {"authority":"/absolute/authority.json","manifest":"/absolute/review-manifest.json","apply":true}
 ```
 
-Binding-review application publishes only native `put-evidence`, `put-binding` with
-`status:"proposed"`, semantic approval decisions, and the two specifically allowed
-metadata exclusions. The first eleven mathematical counting rows cannot be
+Binding-review application uses native `put-evidence`, proposed bindings, semantic
+approval decisions, and the two specifically allowed metadata exclusions. The
+explicit stale-refresh mode below additionally supersedes an exact old stale
+binding before proposing its reviewed successor. The first eleven mathematical counting rows cannot be
 excluded. All receipt membership, mathematical obligations and immutable history
 remain. No proof status, verified binding, or certified snapshot is assigned by
 this command.
@@ -263,6 +264,61 @@ source pins. It never rejects/supersedes a verified binding, changes an
 obligation, or bypasses native proof certification. Reusing one capstone for two
 headline bindings is not a workaround: the native certified-surface validator
 requires exactly one verified binding per surface declaration and role.
+
+### Refreshing an interface that native verification marked stale
+
+This mode is only for `status:"stale"` with the exact native reason
+`elaborated type or semantic roots changed`, an earlier applied semantic approval
+and verification decision, and its historical receipt. A currently `verified`
+binding cannot use it: first run ordinary native reconciliation, which either
+refreshes an unchanged receipt or marks a changed receipt stale. Inspection
+alone does not change statuses. Replanning is unnecessary: use `/plan` with no
+argument, select only the completed result in the picker, and confirm its exact
+saved capstone. The explicit `/plan <id>` route instead invokes planning.
+
+Read a fresh `/ledger-review` inspection of every relevant declaration. Review
+its full current types and semantic-definition lists against the frozen paper
+and previous evidence. Keep the same claim and obligation, declaration, file,
+module and role; use fresh source/configuration/toolchain/paper/head pins. Add
+this explicit block to each stale binding's newly reviewed manifest row:
+
+```json
+"refreshStaleBinding": {
+  "expectedBinding": {"id": "<complete exact current stale record>"},
+  "expectedBindingDigest": "<native digest of that complete record>",
+  "reason": "<why the complete current semantics still match this exact paper obligation>"
+}
+```
+
+The digest is `Pt("delegated-stale-binding/1", binding)` using the native
+canonical hash, also exposed by `staleBindingDigest` in `adapter.cjs`. Obtain the
+record from the fresh inspection's ledger. It is distinct from the unapproved
+proposal digest. Do not carry an old `replaceUnapprovedProposal` block into a
+refresh, and do not repeat metadata exclusions already applied.
+
+Native replay forbids a same-ID `stale → proposed` transition. Application
+therefore records source evidence, changes only the old binding's status to
+`superseded`, creates a **new** proposed binding with `supersedes:[oldId]`, and
+records its new semantic approval. The old receipt and decisions remain in
+immutable history. The successor has exactly the old mathematical identity;
+it inherits no receipt, verified status, verification decision or stale reason.
+Every event uses a fresh checked ledger head and source pins. There is no moment
+with two active bindings for the declaration. A failure after superseding can
+leave a safe, incomplete state that needs a fresh review; the adapter does not
+pretend the operation completed. If interrupted after the unapproved successor
+exists, ordinary fresh proposal approval preserves its `supersedes` lineage.
+
+Dry-run lists `staleRefreshes` with exact old records and successor IDs. Neither
+dry-run nor application creates proof verification. The normal native validator
+must subsequently verify successor receipts and certify the unchanged complete
+target inventory. Same-ID reopening, verified-state shortcuts, identity changes,
+missing history, other stale reasons and stale review pins are rejected.
+
+`test-stale-refresh.cjs` uses the actual native store/replay and unchanged
+validator. It checks every interrupted publication prefix, historical-record
+preservation, no active duplicates, exact-identity/state rejection, semantic and
+source pins, preserved successor lineage, and failure of certified-surface
+validation until ordinary native verification supplies fresh receipts.
 
 ### Reviewing the target's declaration inventory
 
