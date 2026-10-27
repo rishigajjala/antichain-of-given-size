@@ -10,6 +10,7 @@ import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
 import AntichainOfGivenSize.Paper.MainSemantics
 import AntichainOfGivenSize.Paper.TypicalGoodEvent
 import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
+import AntichainOfGivenSize.Paper.TypicalProbability
 
 /-!
 # Counting attainable ideal sizes
@@ -168,3 +169,10 @@ end AntichainOfGivenSize
 #modelClosureOfType AntichainOfGivenSize.Paper.typicalLowerBound_good
 #modelClosureOfType AntichainOfGivenSize.Paper.alpha_le_two_of_base_range
 #modelClosureOfType AntichainOfGivenSize.FaithfulLower.paper_final_padding_and_normalization
+
+#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_apply
+#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_support
+#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_probabilityMeasure
+#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_event_measure
+#modelClosureOfType AntichainOfGivenSize.Paper.dyadicUniformPMF_good_probability
+#modelClosureOfType AntichainOfGivenSize.Paper.typicalLowerBound_probability

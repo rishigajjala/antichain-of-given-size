@@ -12,6 +12,7 @@ import AntichainOfGivenSize.Meta.Audit
 import AntichainOfGivenSize.Paper.TypicalGoodEvent
 import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
 import AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles
+import AntichainOfGivenSize.Paper.TypicalProbability
 
 /-!
 # Antichain of a Given Size

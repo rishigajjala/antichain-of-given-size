@@ -173,3 +173,34 @@ example :
       Real.rpow_logb (by norm_num) (by norm_num) hBpos
     simpa only [gamma, fineCost, recordCost, clusterSize, packingBound, hBL] using
       hbound B hB K hK hbudget
+
+open scoped ENNReal Classical
+
+/-- Expanded denotation: the left-hand side constructs the uniform PMF itself,
+without the project's probability vocabulary alias. -/
+example (B K : ℕ) (hB : 1 ≤ B) :
+    ((PMF.uniformOfFinset
+      (Finset.Ico (2 ^ (B - 1)) (2 ^ B))
+      (Finset.nonempty_Ico.mpr
+        (Nat.pow_lt_pow_right (by decide : 1 < (2 : ℕ))
+          (by omega : B - 1 < B)))).toMeasure
+      {n : ℕ | K < alpha n}).toReal =
+      (((Finset.Ico (2 ^ (B - 1)) (2 ^ B)).filter
+        fun n : ℕ ↦ K < alpha n).card : ℝ) /
+      ((Finset.Ico (2 ^ (B - 1)) (2 ^ B)).card : ℝ) := by
+  simpa only [dyadicUniformPMF] using dyadicUniformPMF_good_probability B K hB
+
+/-- Expanded Corollary10.1: exact sample space, PMF, strict good event, threshold,
+constant100, square-root error and real probability. -/
+example :
+    ∃ B₀ : ℕ, ∃ hB₀ : 1 ≤ B₀, ∀ B K : ℕ, ∀ hB : B₀ ≤ B,
+      (1 ≤ K ∧ (K : ℝ) ≤ (Real.logb 2 (B : ℝ)) ^ 2 /
+        (100 * Real.logb 2 (Real.logb 2 (B : ℝ)))) →
+      1 - (2 : ℝ) ^ (1 - Real.sqrt (B : ℝ)) ≤
+        ((PMF.uniformOfFinset
+          (Finset.Ico (2 ^ (B - 1)) (2 ^ B))
+          (Finset.nonempty_Ico.mpr
+            (Nat.pow_lt_pow_right (by decide : 1 < (2 : ℕ))
+              (by omega : B - 1 < B)))).toMeasure
+          {n : ℕ | K < alpha n}).toReal := by
+  simpa only [dyadicUniformPMF] using typicalLowerBound_probability

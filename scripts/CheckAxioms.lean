@@ -134,6 +134,8 @@ run_cmd do
     `AntichainOfGivenSize.Paper.TypicalGoodEvent,
     `AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound,
     `AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles,
+    `AntichainOfGivenSize.Model.ProbabilityVocabulary,
+    `AntichainOfGivenSize.Paper.TypicalProbability,
     `AntichainOfGivenSize.Paper.Results,
     `AntichainOfGivenSize.Paper.Scale,
     `AntichainOfGivenSize.Paper.Statements,

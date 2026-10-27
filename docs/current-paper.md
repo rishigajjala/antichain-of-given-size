@@ -75,7 +75,7 @@ expanded contracts. CI runs these checks and the snapshot checksum
 | Lemma 6.6: direct reduction | `Paper.directReduction` in [`DirectReduction.lean`](../AntichainOfGivenSize/Paper/DirectReduction.lean), with the complete positivity, strict-decrease, and logarithmic-quotient requirements. Its explicit constants are `a=8`, `C₁=4096`. |
 | Theorem 6.7: upper bound for every integer `n≥5` | `Paper.universalUpper_from_five` in [`Extremal.lean`](../AntichainOfGivenSize/Paper/Extremal.lean). This is stronger than merely restating an unspecified eventual bound. |
 | Theorem 7.1: counting attainable values | `Paper.faithfulCountingBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), using [`FaithfulCounting/CompleteCounting.lean`](../AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean). The Model interface `attainable_count` uses the same proof. It retains the budget denominator `100`, a threshold uniform in `K`, arbitrary sufficiently large integers `B`, and the real exponent `B−sqrt(B)`. |
-| Corollary 10.1: probability in a dyadic block | `Paper.typicalLowerBound_good` in [`TypicalGoodEvent.lean`](../AntichainOfGivenSize/Paper/TypicalGoodEvent.lean) states the literal lower bound for the event `alpha>K`. It uses `Paper.typicalLowerBound` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean), which bounds the complementary event, and the exact finite complement identity. |
+| Corollary 10.1: probability in a dyadic block | `Paper.typicalLowerBound_probability` in [`TypicalProbability.lean`](../AntichainOfGivenSize/Paper/TypicalProbability.lean) bounds the actual uniform probability of `alpha>K`. `Paper.dyadicUniformPMF_good_probability` identifies that probability with the exact cardinality ratio proved by `Paper.typicalLowerBound_good` in [`TypicalGoodEvent.lean`](../AntichainOfGivenSize/Paper/TypicalGoodEvent.lean). |
 | Corollary 10.2: simultaneous almost-all bounds | `Paper.almostAllOrder`, `Paper.almostAllGoodProportion`, and `Paper.realAlmostAllGoodProportion` in [`Results.lean`](../AntichainOfGivenSize/Paper/Results.lean). The first is the density-zero exceptional-set statement, the second is the integer-cutoff proportion, and the third is the displayed limit over arbitrary real cutoffs, implemented in [`RealDensity.lean`](../AntichainOfGivenSize/Paper/RealDensity.lean). |
 
 Sections 8 and 9 contain the counting proof's intermediate constructions
@@ -264,7 +264,7 @@ modules, while the standalone audit scripts consume it: importing those
 scripts back into `Meta/Audit.lean` creates an import cycle.
 
 [`scripts/CheckPaperStatements.lean`](../scripts/CheckPaperStatements.lean)
-separately spells out twelve distinct mathematical contracts from the manuscript,
+separately spells out mathematical contracts from the manuscript,
 checking the counting contract against both complete proofs.
 It checks the integer-residue domain, exact constants and endpoints,
 the intended meaning of `V(B,K)`, density one, and real cutoffs against
@@ -277,6 +277,19 @@ The snapshot digest is also checked in CI against
 statement-to-paper comparison; they do not replace it. The background
 literature discussion, bibliography, and authors' account of AI assistance
 are not mathematical propositions certified by Lean.
+
+### Uniform probability in Corollary 10.1
+
+`Paper.dyadicUniformPMF` in `Model/ProbabilityVocabulary.lean` is Mathlib's
+`PMF.uniformOfFinset` on the half-open block `[2^(B-1), 2^B)`. Its positive
+block index ensures the sample space is nonempty. `Paper/TypicalProbability.lean`
+proves its exact support, reciprocal point masses, and probability-measure
+property, and identifies the probability of every event with its finite count
+ratio. The strict event `K < alpha n` therefore has exactly the ratio used by
+`Paper.typicalLowerBound_good`. The resulting probability bound retains the
+constant `100`, error `2^(1-sqrt B)`, and a single threshold independent of `K`.
+Two expanded contracts construct the raw Mathlib PMF to check this denotation
+and the corollary independently of the project's distribution alias.
 
 ## Main-theorem surface ownership
 
