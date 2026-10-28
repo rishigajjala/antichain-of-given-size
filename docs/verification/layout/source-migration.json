@@ -1,0 +1,1151 @@
+{
+  "schema": "antichain.layout-migration/1",
+  "baselineCommit": "684d670720ebd84433189c6dc0ad4ffb3a1b17cd",
+  "purpose": "Move supporting proof modules under Analysis. Lean declarations, definitions, theorem statements and proof terms are unchanged in source; only imports and the explicit source-module audit registry are rewritten.",
+  "movedModuleCount": 108,
+  "reviewedLeanFileCount": 129,
+  "files": [
+    {
+      "before": "AntichainOfGivenSize.lean",
+      "after": "AntichainOfGivenSize.lean",
+      "beforeSHA256": "680e625f558ddf898cbdf11e206c760ec7f80895989315ebe7af4e722cd193ff",
+      "afterSHA256": "fcd5a33a1a39f5af1ecc6d898fcdc281130ea3f5818e2b5d0080c042ef8b7309",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AlphaEventualUpperProof.lean",
+      "beforeSHA256": "e6992dc73b8f39f3c188b42e3929b38388b35c376eb9418bee612611b79c42de",
+      "afterSHA256": "66c4cb24032d03c27c9d1e646890b7a4c7253edbe863cd878121f4bc39425f7e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AlphaLowerDensityOneProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AlphaLowerDensityOneProof.lean",
+      "beforeSHA256": "e4f3678560715b581b0162aacf48203d5fddd4ad9c5e4e2c9f8be071026f3cf0",
+      "afterSHA256": "dda020104a2234d942a2c66f69e514ba84bb73308a1758abee640b25e5d0780d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AlphaMaximumOrderProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AlphaMaximumOrderProof.lean",
+      "beforeSHA256": "2abb81e224c75bc33cbe507949bd5c91c26654d6b5f79110451c0129ae67b271",
+      "afterSHA256": "fc62dd210918d4b04544f4038218168f0e107492543bc1fc5fc85dc1afe47990",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean",
+      "beforeSHA256": "42bcf65e69cbc154d82d4591565b3e84fe16e0058232047759e90a3c7298d342",
+      "afterSHA256": "93636fe222cb32b52b06ae0f650de1134af2b93605463a5ebc16d49f87c58170",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AlphaSplittingProof.lean",
+      "beforeSHA256": "6d8e5919691e5ade2be53a0236533c9f56ca2ea091b30387431fc19d66de3e37",
+      "afterSHA256": "8f44c7dd1958862e6f401241d32b5feab2858e7babad5b4d894e314cffafbbd6",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AttainableCountProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AttainableCountProof.lean",
+      "beforeSHA256": "07033fa731259a4d9f40f01186d94da7e9885172a7515f31e75b6ba4e19f2e14",
+      "afterSHA256": "5bffd1f8879ae5e05c3ac2d4bafdac4a192d1661eb280bbf2ae8046f7abd81e3",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/AttainableValuesMembershipProof.lean",
+      "beforeSHA256": "2df71bf113396b3e047612b49aef47c485a455422a853697659445cd555f264d",
+      "afterSHA256": "efdbb7149b7bb441c98c12955b5f75aec71415a7fe8deef0137812a7c3c298dd",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Analysis/TheoremProof.lean",
+      "after": "AntichainOfGivenSize/Analysis/TheoremProof.lean",
+      "beforeSHA256": "d6bb0a7f62307fe8215db9bd76575fc86e3f94d9afcb33f385bcbc210e8c232e",
+      "afterSHA256": "d6bb0a7f62307fe8215db9bd76575fc86e3f94d9afcb33f385bcbc210e8c232e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/AntichainReduction.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/AntichainReduction.lean",
+      "beforeSHA256": "ddaf3f0773ee823e55a905c206955347067b7c791d2e056f2db4cc5326d82a65",
+      "afterSHA256": "2ec8c464799556b10540fe0e67f3f4a3ab8e52d9558d614be991c6ec5106d085",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/AsymptoticBridge.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/AsymptoticBridge.lean",
+      "beforeSHA256": "ccf9e2a4010d289bc986096bb266ad2a117aea73224791c77410221209c2c8c5",
+      "afterSHA256": "9f0fc632806834703112da71242a7de019aaff1cda45fca737f7263cbe447ddf",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BasicLemmas.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/BasicLemmas.lean",
+      "beforeSHA256": "f774c7039fc3391156f115bbf1d84567108e552fa6b670619d917bb6ba941170",
+      "afterSHA256": "5fd85ededa11b8ef7c3108215259292855db6e9212cfcf752ec1c8c1d0b4d2fc",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/AssembleClusters.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/AssembleClusters.lean",
+      "beforeSHA256": "dfe875a62bc2eb2b5d42f6d99b1950d31871e904bda6205abbd960d2f2f13369",
+      "afterSHA256": "560e62cedda5d0b050e9a93812a3ae7d687436206f4bf4c330c5f451e1ac2dce",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/AssembledError.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/AssembledError.lean",
+      "beforeSHA256": "7a8863d25ef30add0b1a9214b1efa1035dc2709ba43e23ea9be8ceaeedb045c9",
+      "afterSHA256": "24d888634013bb5dc832698c51d9283b79b75daab63a2fa15c286449adcb546e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/AssembledGrid.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/AssembledGrid.lean",
+      "beforeSHA256": "ba1bdc192806d4e0ce1b2bac75e1a27247e603fc6ad532e992518959a4935b44",
+      "afterSHA256": "7ebf695f682a6f66204fe1cc41da7c6dc0894d5cbd457bf73839308c22e73f46",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/Binary.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/Binary.lean",
+      "beforeSHA256": "229770f8271cb483fde7adc42633a6d814bf4638208c0c83164d03212fd5afd4",
+      "afterSHA256": "b573e464ee966cd677b80e1a39a36dfedb8a6ee10d9442b531845b9a5d61fac7",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ClusterGrid.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ClusterGrid.lean",
+      "beforeSHA256": "bfe7fa260b0ea5f9f94e63ce29929461e038bf09e9c3ac354f968ff2e859dffb",
+      "afterSHA256": "acbba89cdcff4f3b81d83c82b53198e3dfd0e1b37fb80d8718afa2e917ef1b0f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ClusterPartition.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ClusterPartition.lean",
+      "beforeSHA256": "dbe4ec311dead208f185f0109ae32bd0e3690d06b9faf5e9abd3ee5f1d4b3c23",
+      "afterSHA256": "54d7da86c259f22f08f7ced7046b12b6f6fcad8af45b31c532cf3fd9bb6be724",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ErrorArithmetic.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ErrorArithmetic.lean",
+      "beforeSHA256": "b1cf401a2d5e0b8ca9a9468e89ef8f874b0c8167335503ba75eb2dc588356d17",
+      "afterSHA256": "ba0d2345d24dea0de70578c5c6377fa5723e91a99c63960d1bbbbc1fa6aa50a9",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ErrorToGrid.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ErrorToGrid.lean",
+      "beforeSHA256": "0b5eb4d05ed8a3620251ddbcfd7c815874b0c90317c940b5b63808a45fd735c3",
+      "afterSHA256": "b77990406cd4b7071a982c472a9cd347d63578ed6cd3952aeec91b959f831f6d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ExplicitWitness.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ExplicitWitness.lean",
+      "beforeSHA256": "e702beb2a29fdbb031a177a36c75dca89d5d1f6e2c0855432f0a060655ac0b66",
+      "afterSHA256": "60f5acde28ea11af3377312fdfdfabea21c17094c87365cff4cf221f80b8c7b1",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ExtremalRecursion.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ExtremalRecursion.lean",
+      "beforeSHA256": "73b47c0a5e46b528834b7911f7731b41fdf2f9fcab351aa0fee4daad8887280a",
+      "afterSHA256": "7cb92d296b9c174e49d1f7e02a6f616e6e7da03ab38eec3205216266032687b1",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/FiniteExponents.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/FiniteExponents.lean",
+      "beforeSHA256": "4620fce2e59841e37e961bd213bfc8668950f821cc9e309211dbdf71d4424ea3",
+      "afterSHA256": "d352a6d254d59ed818fdbff97839fd4b658881e1546f160ec4899abcde19aec8",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/FiniteIncrement.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/FiniteIncrement.lean",
+      "beforeSHA256": "43730795491999f9dbf82b67fac42b8c91fb257e0b1b7578b27bc91fc5d4c129",
+      "afterSHA256": "05eced76196c83a1f3d29f188cfc64bee8fe9e2b8217844928d777ea12b6050f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/FiniteScales.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/FiniteScales.lean",
+      "beforeSHA256": "7d91a399620b4e5b721582ba68872d13c0eb5cb866b07856c7ff63d5b27d7109",
+      "afterSHA256": "85553ee6778f36af681a589ea13dcf41425eebbf53366265e6077a8f50390f6e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/GapArithmetic.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/GapArithmetic.lean",
+      "beforeSHA256": "2422e39019af40e2520c2f7b8d15598ccd95034e3025793a39c209dfeb007f15",
+      "afterSHA256": "b04785575c677ef03554c95d1a4e681a49da8b76f1e2c073a7c09d93867be703",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ReductionCertificate.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ReductionCertificate.lean",
+      "beforeSHA256": "75d653a51c50d944ecb080d223c8651520a8263510d7a926c4356bd2edd832dc",
+      "afterSHA256": "a7df7246d34a1e178492623520a7cd71f6b384e75e13dae365a634bf5886b720",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ScaledIdeals.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ScaledIdeals.lean",
+      "beforeSHA256": "acba52dc14be06e9f94cc141a44e89d914d0c7613eefd7102b3885c12509464f",
+      "afterSHA256": "30b32c05b5645fe8a2543c5ac4a19d3d276770a02d46650c30fdcc94dae44009",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/SingletonBound.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/SingletonBound.lean",
+      "beforeSHA256": "010ba4f9f8567e2dce19da9a5e608d6eb463376850c4e62bc7a5c9af42ee0075",
+      "afterSHA256": "cd1c611df032aec73aba71c324b8c73d0b7b744e5225e6d53d2ed71543a4f534",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/TermGap.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/TermGap.lean",
+      "beforeSHA256": "9f202ff7502b1288e80d79d7bee6c5cf7b8cb51c7cbb3e855ad18c548ff59d61",
+      "afterSHA256": "e2130f3c64745b2bc482b3c1c81d18ae9cac81b19b664942516216b1f693440a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/Tight.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/Tight.lean",
+      "beforeSHA256": "8f3e01ec483c8d2a8ecc254504bf52a961cdb994c3895c5363aa8f125b0bb75a",
+      "afterSHA256": "bc707b6abea9110bc571809b8d71f58fefadf3bc957feff27c2c7a313138a240",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/Upper.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/Upper.lean",
+      "beforeSHA256": "d09831a68851071b53f7994a535bad01a7229ae7dc3ffa920bb5bb9e9e77e1d6",
+      "afterSHA256": "fafd3cee509c4fe62d784987b607ef1759bd5c11fa71449da5810d777bd80b0a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/BlockCount/ValuationBounds.lean",
+      "after": "AntichainOfGivenSize/Analysis/BlockCount/ValuationBounds.lean",
+      "beforeSHA256": "6aac1fa208f80fd858ed24bad2136282e46894c9b66578c303ec214500ee3c63",
+      "afterSHA256": "022b6ca440bacac510672065c7c7e0d31b53a839bc98e6feedb0e10b20c28553",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Definitions.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/Definitions.lean",
+      "beforeSHA256": "7b366c565b5e055d0dfd6b5033cb75be942ee74ff31448efa17bc586c794065d",
+      "afterSHA256": "1d0c28c6bc262b00919f70ce6c8edbe1f762df99a7e051d10a71c886a454d6e8",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/BinaryBlocks.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/BinaryBlocks.lean",
+      "beforeSHA256": "b2ff472186c6122f42d80e8a1102d9ebfbaad711ec96566df726e0d6cf1b542b",
+      "afterSHA256": "2d5213402432c8f399ddd3fe1cd68a638689f693709328c81d6df1637d152aae",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/BoundedProfiles.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/BoundedProfiles.lean",
+      "beforeSHA256": "3d995fc3751a8de30e2cee23ff9ffe3de5c79b35508c1c09b718ba5bd907b7b2",
+      "afterSHA256": "5b27305f91778d1f50870d294511e1d0d37925911ec0f62376b719272fe92d2a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/CarrySensitive.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/CarrySensitive.lean",
+      "beforeSHA256": "da959e34cdea206bd3f1c1ff385151179c29ffba0ef86ac0e0db5a2f2c6d181f",
+      "afterSHA256": "c7f9b2ab4578f2a39f68c5937496e855c8749666912440fe0649496cb22a9f66",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterCore.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterCore.lean",
+      "beforeSHA256": "e70a958b1a34f27ab7602f48b67cb6344b5f694d907ad2403a5807da84225ba8",
+      "afterSHA256": "2a9d276d72e3bb337274889031174ab79c315d9b61d6c8e8aa451ebdacfec725",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterEncoding.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterEncoding.lean",
+      "beforeSHA256": "ee32af628077bdf79de04653552f0d87ddedba1d0c4193b4510232dc89270c59",
+      "afterSHA256": "7d6b6fdab758566477579206684f7d26b6ca045ab73d8ff0368435540afafa18",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterFiber.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterFiber.lean",
+      "beforeSHA256": "6d63d05d7449ffd3f46e58e4e4f74f96671d1748f44182b67cc16cafe4134ff8",
+      "afterSHA256": "aecffa7608318d973098b948933c0794e12a39c5a1d73c48be7ca83ae8c57170",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterImageBound.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterImageBound.lean",
+      "beforeSHA256": "a4cac7686751cf7617ccea5542dd69a45b70303cf8995433429fb3453c8aed26",
+      "afterSHA256": "48b14d972d4da89ea13d39813bf705b8462a9aff5939a648e88f6edeac310612",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterParameters.lean",
+      "beforeSHA256": "b557d59b20363e6c07251097b73c41c3999f5003ae200a16eda498b7390fe505",
+      "afterSHA256": "b557d59b20363e6c07251097b73c41c3999f5003ae200a16eda498b7390fe505",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterProfileCodes.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterProfileCodes.lean",
+      "beforeSHA256": "604ec8c4d57cdbc6e8f9679d237cab98c7b144f7c237ec25e937a90ee4ec55d9",
+      "afterSHA256": "2641462017c7880c14c2b1af448718a875539856d63dbbccf5edb22e32e2dc30",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterSparsityAssembly.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterSparsityAssembly.lean",
+      "beforeSHA256": "5b5a876e09c597ff818b0eed449f2cf6bdc575ebc56e43b95359918b7d05bd73",
+      "afterSHA256": "6b4e63d59d513fe559ff130abfe7295c5d0acd3cc67b44b2f2150d208afd6906",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterState.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterState.lean",
+      "beforeSHA256": "7be2dae6ab3a3a1920ffb15f62dfd7130f97d097a8f711260411c1fc44ef85b3",
+      "afterSHA256": "1f8aa64c26dc9875a5617e0972c0b34a5277738e742c11247d879c0ae1b75e8e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ClusterStateConstruction.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ClusterStateConstruction.lean",
+      "beforeSHA256": "bb2f9cb0f4edcbd613a699969bd03eede35b42bab2d2b64533a47b1c4b72f000",
+      "afterSHA256": "90ba38360eb3eb45f845075b2de4f7b58aa13e5c21ce71c90ed572b27d9567b8",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/Conductor.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/Conductor.lean",
+      "beforeSHA256": "ecebc23f92c84710f2e9a3f218c1701a6a35dca887bdc6b23b114fd376197943",
+      "afterSHA256": "2b4e4b4531d59bf6735536807ff2c6b4c90aec054ab5177c54dee4c7ba4ae89a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/FiniteFiberBound.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/FiniteFiberBound.lean",
+      "beforeSHA256": "7a08bd93c11e0045c3f2d38dcb69fbcde2c3dc234cbee15e40ff81356df02cfa",
+      "afterSHA256": "7a08bd93c11e0045c3f2d38dcb69fbcde2c3dc234cbee15e40ff81356df02cfa",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/IdealBlockCount.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/IdealBlockCount.lean",
+      "beforeSHA256": "1c3a93f3faa2dcf6dab947682ad7d10a1306875ffd80aa2a46b3fefd40167595",
+      "afterSHA256": "0152a9ed2676653953f2d86f49b4731ad905f2a9cdba3bf691d154c0bf11cdb4",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/InfinitelyOften.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/InfinitelyOften.lean",
+      "beforeSHA256": "2c17005e8ae7bc6dcd17aa6a32c46d1a1212735519ff0bce7b6ebf1c4f6b7f36",
+      "afterSHA256": "040bde3182ff29de89fc9909b25641e136b901392b4f4dfc50769e1f285a422d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/Matching.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/Matching.lean",
+      "beforeSHA256": "35a488e1ee9a4cfb9366e51c4d17c4bc6e8ed66640bdd848c0c91f6e2189c69e",
+      "afterSHA256": "c8bd5287a6be97ce2516acf19f1205829d3f90f0ae3cce0d1b59a982feeb18f3",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ProfilePadding.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ProfilePadding.lean",
+      "beforeSHA256": "8f7a0c89043333d65cfd0a976da10cab72368b2288f884f7e740109b093060e7",
+      "afterSHA256": "76e5a96aaa9e31806519ee8ccd2b515c106494f7b6c061c3b74ad3224567a32f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/QuadraticLogEndpoint.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/QuadraticLogEndpoint.lean",
+      "beforeSHA256": "2ccae48788fecf0575def8383e4ee941e62fad263e78904191fbf047794ec98d",
+      "afterSHA256": "bb0f4ed19a52100f35f591e57923ac4b64fb8f2f3deae80984cf2aefac4bc927",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/SignedPowers.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/SignedPowers.lean",
+      "beforeSHA256": "b37653068f478acf50c63dac1bcb96cdf13e9fca53caacad59dc2020e1abf41b",
+      "afterSHA256": "837c3c61a4a6ea324baed1d14627c89440a9274e37a4a586d9d226b0e85db8a2",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/SparseEncoding.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/SparseEncoding.lean",
+      "beforeSHA256": "acc0acdfb27e68c46fd00ab8644d20fe8227e6fa52e9c4f49c2ac9b4a164a22d",
+      "afterSHA256": "acc0acdfb27e68c46fd00ab8644d20fe8227e6fa52e9c4f49c2ac9b4a164a22d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/ThresholdFiltration.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/ThresholdFiltration.lean",
+      "beforeSHA256": "55c87f3b1fae2d944e0f819df53198618485d9838c1be679201929d5b429a593",
+      "afterSHA256": "e452383bf85496178128b09e1c5667b71f5637fb9eefe228566f2c58c47582f0",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/LowerBound/VennProfiles.lean",
+      "after": "AntichainOfGivenSize/Analysis/LowerBound/VennProfiles.lean",
+      "beforeSHA256": "8b99bb600bf67a7c9a996204997574d583778949aa6a8313ff3777e6a7b0d8bf",
+      "afterSHA256": "47e6e547414fc130ed65d544e593084aa08e8bee22ecdd67c0df4f8aada9dbbf",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/MainStatement.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/MainStatement.lean",
+      "beforeSHA256": "bc248e72fd116ab1096608fc8e6db510c74490670a4ce773d123d097ffc739f8",
+      "afterSHA256": "bc248e72fd116ab1096608fc8e6db510c74490670a4ce773d123d097ffc739f8",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/MainTheorems.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/MainTheorems.lean",
+      "beforeSHA256": "314f5fd42ad1c91bf366d12026f5b3edebdebc3c833236c6e2c1ef0d5018aec2",
+      "afterSHA256": "a1873e80fba74e0f9ef311e667cf6cfc6a8bc67aa37d65e517454f201cd6f605",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/MatchingParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/MatchingParameters.lean",
+      "beforeSHA256": "d12103020683de9a4b1d510a70fe726ef98418a39e40ebbc1beb7a5ea2964c84",
+      "afterSHA256": "df46bc1d839762a00f3a0cc5925310cf85f97cec631fc301aba7f83b16a42df8",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Meta/Audit.lean",
+      "after": "AntichainOfGivenSize/Meta/Audit.lean",
+      "beforeSHA256": "735de1463cc2a2e36070aab69208d5d04a1ec6b289d41959308e95a97cb0f8f3",
+      "afterSHA256": "d08794dfa7f04e53955c715a6128dfe612cc17868617279cffe672efabc563cb",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Meta/CostSeal.lean",
+      "after": "AntichainOfGivenSize/Meta/CostSeal.lean",
+      "beforeSHA256": "04a8a75712cdf44b6f3956c6e9f65e9e3c833ea2e8d56c405f02e7cf57c3d622",
+      "afterSHA256": "04a8a75712cdf44b6f3956c6e9f65e9e3c833ea2e8d56c405f02e7cf57c3d622",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Meta/ModelClosure.lean",
+      "after": "AntichainOfGivenSize/Meta/ModelClosure.lean",
+      "beforeSHA256": "58d66d9d28a2b462c78faee0b1dec46c4e51bfae394241769dca268eaf1b3e90",
+      "afterSHA256": "58d66d9d28a2b462c78faee0b1dec46c4e51bfae394241769dca268eaf1b3e90",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Model/Prelude.lean",
+      "after": "AntichainOfGivenSize/Model/Prelude.lean",
+      "beforeSHA256": "cd02c7277d8f19055f68ae598cceeb537366d44f929f0c97e5fcd93aba6b7ea3",
+      "afterSHA256": "625465e12d99520e713201e12c2e7e35a5a93590ec513a0b3158bfb7f331162d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Model/Prior.lean",
+      "after": "AntichainOfGivenSize/Model/Prior.lean",
+      "beforeSHA256": "77be77d438292a55c1533bf7169eccae6f52168dffa7e0af7d69539cb4641d6d",
+      "afterSHA256": "77be77d438292a55c1533bf7169eccae6f52168dffa7e0af7d69539cb4641d6d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "after": "AntichainOfGivenSize/Model/ProblemSetting.lean",
+      "beforeSHA256": "51794442487ae04dee58b138890e0188128eb02d99be95152c12e843be78795a",
+      "afterSHA256": "51794442487ae04dee58b138890e0188128eb02d99be95152c12e843be78795a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Model/Theorem.lean",
+      "after": "AntichainOfGivenSize/Model/Theorem.lean",
+      "beforeSHA256": "3b56fb8feda7fd042891f059d6331141a01d50ebc318002741025a35e3a78e90",
+      "afterSHA256": "f8ba7db36f21d5b3b8a1695cba9837dcf5d118f4130db88d32589605928b4653",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/AlmostAll.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/AlmostAll.lean",
+      "beforeSHA256": "a90fb874e9e735013e5f1373a097402117713fb639af70075211840717f14c2f",
+      "afterSHA256": "cc92973aefcf591431adda239b913703ea0207f3e6a34f8a5d5f2f4df1bca8d3",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/BasicResults.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/BasicResults.lean",
+      "beforeSHA256": "67c813830b48ba7afad0edfcaccc4bd866ead9baa0678143eb00268ac4cab1e5",
+      "afterSHA256": "d0acce8af6e68d1db241d17a971cc5e4bf99d3a6e5fb848355a68c5b43e39cd6",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/BitMatching.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/BitMatching.lean",
+      "beforeSHA256": "4b8bcc00e9506c104562a42930b95d48f9eca9494d515be3416ce54164a87a2d",
+      "afterSHA256": "6a0f1dbc03c629ec680a8fe15020e28e5fc03eddb6842efab83a8455d50fa67e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/CountingEstimates.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/CountingEstimates.lean",
+      "beforeSHA256": "ed53e2fb8da50c9bc13c4c2ba7f00d460f3d295f35ffff80a7c84f80f91c933a",
+      "afterSHA256": "16f208e6f8fdf3e9d7121aa4e7f462c45f5313f0dd111c5b7290e854e660a4f2",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/CountingParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/CountingParameters.lean",
+      "beforeSHA256": "c006457611870b13f6b707337af3edbdd315f465ce7577aafbe2fba3c327b223",
+      "afterSHA256": "62f7ea2ae0ed32861e5bf26fa6c148dcad139a383cc4528482368b309ac0bdb3",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Density.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Density.lean",
+      "beforeSHA256": "00c9797ec3b7e3a031609a94a8aecb21ea6ca64c6aca37145979aff5dc95ba18",
+      "afterSHA256": "32b48c546d3d1e6fc7590929df5ed14c5021ed3b75d01ea44161655c8bd9778e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/DirectReduction.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/DirectReduction.lean",
+      "beforeSHA256": "e45c3d12af1f58ff40d9c49b217786622f18697ed2d69669d135082a2d5f90aa",
+      "afterSHA256": "2828cc247a800fde98dc2d338cd4ad7d0aa19e401090be2e80c3ccd6b0aa36ab",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Extremal.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Extremal.lean",
+      "beforeSHA256": "f16b1a954873c65b02efb3c1d2b0b0e54b75e33c0e428c16fa7e2c4de04ebdc1",
+      "afterSHA256": "5cd4a8730e97146c1fc8ccc2e6d2ca64dc5bda61eb232b1950e906ce846ee33c",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/ActualCounting.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/ActualCounting.lean",
+      "beforeSHA256": "36f2d41750bdb48cf790593acd6ca990291d8f5489aa06a7ee71df464d80c274",
+      "afterSHA256": "10e79bd714cd8ad89f138f85cd8a1f1f3df18cecef578487f00ae078c389aa2c",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/CanonicalHeader.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/CanonicalHeader.lean",
+      "beforeSHA256": "caeae4cced9eacdef934c53a1bbf2e52b00fe29cd0143a912dc387b250f4cd45",
+      "afterSHA256": "439ab44ea0a13977152d3162f2cc28e6f6d02ec05a200bb574aeba0ae10e886d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/ClaimBundles.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/ClaimBundles.lean",
+      "beforeSHA256": "996ab0949e80f9ded33f0cf829748adee9568b43ffa79a5528cf37a8669c7c13",
+      "afterSHA256": "efc60cf53a2f8ef8aa49f3f462fb09c1da102b4892f628060f897215ee55d29b",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/CompleteCounting.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/CompleteCounting.lean",
+      "beforeSHA256": "7083b31cd5345b0c0897e03911041500763a9f57e5e53aa68f1617311da6780e",
+      "afterSHA256": "a19fbc257d34e3782d9ae0e128b6fdf755a181890f35c6f4d75c540e00175c9b",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/ConnectedSubset.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/ConnectedSubset.lean",
+      "beforeSHA256": "2fb39c5548fff9b6cb664b45768107fdfc34a7e4a605a497ac49fda0084cf47d",
+      "afterSHA256": "2fb39c5548fff9b6cb664b45768107fdfc34a7e4a605a497ac49fda0084cf47d",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/ExactClaimBundles.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/ExactClaimBundles.lean",
+      "beforeSHA256": "6212a6ffabac233c586ee118498e53dd37cda794c94df06c2413aab5865daba4",
+      "afterSHA256": "1bacc75dbef29c54523c9bf34e84cff15283a5158ac70b4b96004e7ead9cf1a7",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/HeaderExistence.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/HeaderExistence.lean",
+      "beforeSHA256": "8efd903d08146d55cbb5c488ca9f79420416cbe3d0e423af87b0026ca04524c2",
+      "afterSHA256": "7cc459fbbd915add31536eed7a72e9b0edb39c1ed29963b3e439c620fd381c10",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/IncidenceCount.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/IncidenceCount.lean",
+      "beforeSHA256": "88457474ca290ba1858182fe244a1764f28ad8aae051b8d7747a6242946bc662",
+      "afterSHA256": "920060abc59f0386d85335e583c83ca8470c306234c50deb01b17735fbff359f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/LiteralScales.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/LiteralScales.lean",
+      "beforeSHA256": "f028a6fc74a545f2a806dfe681817e602250b67c9d846fec465a5342561a9c93",
+      "afterSHA256": "233955ba948522ebc839f2d6286e9ac4c07a62e90cff194e7485675da7fb3d4f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/NumericalParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/NumericalParameters.lean",
+      "beforeSHA256": "ed7065aea82fb7a5d4a8ee8cc18a7bd955db760fa0ba1a4278956eb0e8dc2524",
+      "afterSHA256": "ed7065aea82fb7a5d4a8ee8cc18a7bd955db760fa0ba1a4278956eb0e8dc2524",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/OriginalQueryReconstruction.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/OriginalQueryReconstruction.lean",
+      "beforeSHA256": "56c526468c53f81ae0d34597808a5b4ec7566b69822255e2549d73597f8afbe9",
+      "afterSHA256": "01bda74feddcf9fa6f37cf52a9d69007884dc6d735b0ca875790591d55fb8931",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/PartitionHeader.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/PartitionHeader.lean",
+      "beforeSHA256": "9cfd59ca7fb6809d5c2c0e52237d5d6aa78f971bb39845c9925f6cd728b209d9",
+      "afterSHA256": "9cfd59ca7fb6809d5c2c0e52237d5d6aa78f971bb39845c9925f6cd728b209d9",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/RealTailFiberCore.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/RealTailFiberCore.lean",
+      "beforeSHA256": "bde23fa1abd4d9754b293d959bd0792a2603c1e03dcb10194937bdfbaf0710a9",
+      "afterSHA256": "351dedb26bc1874068575bd2c2c080e80bcd540484e3b3a0ac845ca3436d75d3",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FaithfulCounting/ScalarNormalization.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FaithfulCounting/ScalarNormalization.lean",
+      "beforeSHA256": "35db657f1f00abbc6c36ded58d3674c63b84fa97015c10ba666926e934b69a60",
+      "afterSHA256": "15574f849349e0a0433371890b935764a1d6b1217bca2e1c0b6ddb0d255c3ef7",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FiniteTwoGeneratorBound.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FiniteTwoGeneratorBound.lean",
+      "beforeSHA256": "9921ca0ca2172a88a998620186a85947527e21696bb6ebd474710d8210623970",
+      "afterSHA256": "2ca7eb831432ceeaa63a6411688f42895029bdfda742c17722251cd36b2bf174",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/FirstUpper.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/FirstUpper.lean",
+      "beforeSHA256": "6dc63b05154e771fdd39665679bf92f0f32f67426461f37d0d5a9277a697c893",
+      "afterSHA256": "6a66dbf75a05cb3de58de55db70f924b940f0840bd76e50434d0a5d36039d2f1",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/GeneralCounting.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/GeneralCounting.lean",
+      "beforeSHA256": "c9d351f8cf93b1582945a4586469f3a6b43922c3bd0cd638811c2065a087a4b3",
+      "afterSHA256": "e4c014ebe385384cbf49329b174081842c9ad958d3608850b8eed6edcda34275",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/LiteralBlockMatching.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/LiteralBlockMatching.lean",
+      "beforeSHA256": "8f6c0b6af92e9204e3729db5e94f9635a7a083b579ae671191b3229d334d62f1",
+      "afterSHA256": "ae84f6f7341612e98f1667ad2f2fbe678b708e0bd4cd620b6025b2c7a028f1de",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/LiteralUpperParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/LiteralUpperParameters.lean",
+      "beforeSHA256": "0de25d7578d5f12bb2999ab09b59c5fd737ba84ea50d2774e55125d33064b630",
+      "afterSHA256": "c4ac409db065d8f6b6299288e46d03ae5a77afa5b6ec3be42f23f2d2ff6ab023",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/MainSemantics.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/MainSemantics.lean",
+      "beforeSHA256": "586d84c0ee0072fc134e07c12a910bd4630850865cd06376d198cdd7b1b4e947",
+      "afterSHA256": "6715b1868f2468c01a479850188c212b39b7bc737869bd80863a614f98f89d1b",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/PatternGadget.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/PatternGadget.lean",
+      "beforeSHA256": "b4ee720e4abdfb76f25b69bb61686176630f2dd6a73f8d86aac35314947bfb2d",
+      "afterSHA256": "d782e8e270312c7f445e5873187d8c74e2d42540555e00a90894183a4e9aed97",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/RealDensity.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/RealDensity.lean",
+      "beforeSHA256": "0bea8c0b41937c9530389c15c1cc74299329cc064d8d746e1539f14a7fda3cd6",
+      "afterSHA256": "f3930e8b63527369da160996ef21ecd5c918cd9e368b79a26dc9c23c4d76c03f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Representation.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Representation.lean",
+      "beforeSHA256": "aadfe8a3a8679f4bb0b7da430158e4fcb2725ed19315f01f42e512649e3f9653",
+      "afterSHA256": "2670899f9f28820760f34e5e28aabdc34973adb5667f936314076a4afae87c39",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Results.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Results.lean",
+      "beforeSHA256": "2cfb58dd8f6336290fa487902143fc234fbb023bf2821a2c3cc9bd607aaa3fdd",
+      "afterSHA256": "8f27bd3bedc1cf2aa844e470737dfcaccd88adb97fbce19b6e3a9712013fbcc6",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Scale.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Scale.lean",
+      "beforeSHA256": "9429da6ac32dbc62c82c628864dce54aa385088d72cb57e8f0ed20ff2b300d7c",
+      "afterSHA256": "c3d29133641b3996aa11e5292a78ec7d776a47aebea54a1904770780af34812b",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Statements.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Statements.lean",
+      "beforeSHA256": "28cd28b9107b5a570121008d9eb23e2d37d8e2c5118911c7b183c9a1e7175b25",
+      "afterSHA256": "6d62cc173c6a153821868dfa6d3da330128759942ff33998d6bc5c5c4a164c7e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/Typical.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/Typical.lean",
+      "beforeSHA256": "d67d2c9078a78876c724ec0944a3a141f2235696306d6f3b258ee9d9120ded34",
+      "afterSHA256": "c08596adf658f160376ec04145e86aa910167b283cb81d460aae4837b3f285e0",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/TypicalGoodEvent.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/TypicalGoodEvent.lean",
+      "beforeSHA256": "93c5cfa80677e3fcf5004cb2bde43fcfe218100b286b66fccde842c2ccb1b7a6",
+      "afterSHA256": "b14f8df745a191acc27526a6422a28741566b6685d4df20964b7a28d2d817478",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/TypicalProbability.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/TypicalProbability.lean",
+      "beforeSHA256": "2a02e86ffa0d55d25b9eafdee029c9f4c317a70e11700322cfb38ec619aefc94",
+      "afterSHA256": "49206968abe29945c00cbfc02093982b5bc1da5b0d9e4a09a408bbc8f7fa05ec",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/UpperConstructionBounds.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/UpperConstructionBounds.lean",
+      "beforeSHA256": "7cccaf932ad0930d8c96f181118f509514511eeef1a26da8ca865eb38b989d69",
+      "afterSHA256": "1861fd02f98005c8bb1c38d5341469b582b8853d705a762a8ea477b1ed10ecc0",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/UpperConstructionCore.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/UpperConstructionCore.lean",
+      "beforeSHA256": "55c33cb4e5f33cbd5d38a30448b0de25ecf2672295fd7a67946176117357ca42",
+      "afterSHA256": "934260ffdb9792ee2688228c3b2870b522ed6c18c502493bc8a9684f6cb732bc",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/UpperConstructionGeometry.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/UpperConstructionGeometry.lean",
+      "beforeSHA256": "9158bdd1f4f7bd8017c58428c640235214726235d8f6774fd8446e00af6790e0",
+      "afterSHA256": "7b0424f8cfa9c7395c2057ffe73e0a777085a77125afcc95c9d79b0698618fb8",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/UpperConstructionIncrement.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/UpperConstructionIncrement.lean",
+      "beforeSHA256": "4cc5343eaa5651eb47b6f0836633e69b29d008b6c88ec0326960f3335242e9f2",
+      "afterSHA256": "7c98d165b73e7456b27ca682856a33f547ff9db6eb3e0246d3d66f35a145d602",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/UpperConstructionSteps.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/UpperConstructionSteps.lean",
+      "beforeSHA256": "178ee106170e35a607f428b993da2a429686cdb0992c4c8a10d48955bb2c41c4",
+      "afterSHA256": "011fa4fe48eaa805e1fd8953ef201b4462fd2952d4c10d52673da0c56727aa0a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Paper/UpperParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/Paper/UpperParameters.lean",
+      "beforeSHA256": "ff71872dface60a3a2d7ebbdffd23602ce66ae55ed626d1710fd0369477193d5",
+      "afterSHA256": "88c3d59e971c13224984eacbc00c9afe888eef9e8eab88d53c668df68a8dd6fd",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/RangeArithmetic.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/RangeArithmetic.lean",
+      "beforeSHA256": "9012b063868b934a30c95ae515b0592cbd43c7b85f412f907f68fac3a7632ea0",
+      "afterSHA256": "077ea7b502296c1de3d1cc5fd332c44f5a158ca08c11d50d504cdf69f03502ee",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/RangeReduction.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/RangeReduction.lean",
+      "beforeSHA256": "0ace0429da078d93b4f27472cce138e54aa3218b46e814a56a3117201e58d156",
+      "afterSHA256": "50b234644d34b3474e58b95a8912ac5c65b8e071e38d93af7fbfac55a3d77747",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/Address.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/Address.lean",
+      "beforeSHA256": "a6e13e6bf5e6ada2a03d0bcd5b3644192cb258d3e8e4a63b12d525efc95fb1e2",
+      "afterSHA256": "7ac5838d9d6679a48933f6d30aa170d7ac83222a081c58f1b946ace97a3448dd",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/Blocks.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/Blocks.lean",
+      "beforeSHA256": "6d6852499a4979a3f53560b2631d1294e069d1fb88b8ff85fcd3e410e40cc096",
+      "afterSHA256": "24d61f2aaaea0fdf6bd657e0df5da4c92767e02217284d2ae142baf39ae508e3",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/Construction.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/Construction.lean",
+      "beforeSHA256": "23325bdcd70c9594be1f6ebee1a130b13afcd6d3d4bbd45c5a4ed5e45b4388e8",
+      "afterSHA256": "b4987be71a768a48e3949e63d28e4c8ea924acd4d28b7543a9d4564d8fbd147e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/Core.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/Core.lean",
+      "beforeSHA256": "2724dad777047e0e78afd617b601c63117208c00c586e1b95d71309e9b06983f",
+      "afterSHA256": "2724dad777047e0e78afd617b601c63117208c00c586e1b95d71309e9b06983f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/IndexedBounds.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/IndexedBounds.lean",
+      "beforeSHA256": "acf751b8f470b30d4114fe0fa14ffa7de4e45f6d565d5e11cf90d2f50b71f68e",
+      "afterSHA256": "0d70abbce07c9031e0dc709d966db7638e1c13bc954ba84243dabb893a117016",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/ModularIncrement.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/ModularIncrement.lean",
+      "beforeSHA256": "cfa65179a92810b0cee0fb1705813de499269df2c415ce9834b3f81b5f9d82ca",
+      "afterSHA256": "c02269d3ea32ea514d66cd0bec0e1aaf4695ed0ca8c9b02a78c8b63897fca09a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/NatParameters.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/NatParameters.lean",
+      "beforeSHA256": "37e8095b60854bdc4516708c15c8ebc6df3144880b7bd3ed2ee483957b66ddf4",
+      "afterSHA256": "65e53ef1bccf325c7170c6e046cb7224ae66830c525c1f5b6aeed53bc95fcc7f",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/Remainder.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/Remainder.lean",
+      "beforeSHA256": "a2056877eb83719572a5ad8a4d351bd5263a244a799952e624cfa120ceb3dfae",
+      "afterSHA256": "a2056877eb83719572a5ad8a4d351bd5263a244a799952e624cfa120ceb3dfae",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/StageArithmetic.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/StageArithmetic.lean",
+      "beforeSHA256": "dcd98181a9a25dcc47750b03ae16529ebaec08e602a85857075ea81205123f61",
+      "afterSHA256": "dcd98181a9a25dcc47750b03ae16529ebaec08e602a85857075ea81205123f61",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/StageBridge.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/StageBridge.lean",
+      "beforeSHA256": "3cadf404081a46d4078ab127fbda8afcb78fb746872876850dc4df42d5cec4c8",
+      "afterSHA256": "f704f775aadb3fa7e75f2c17135ee74aa8d715fa06a329af5b3f955f989b939a",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Section6/Survivors.lean",
+      "after": "AntichainOfGivenSize/Analysis/Section6/Survivors.lean",
+      "beforeSHA256": "216215373bc53278c60b346d302eaa3ff453d675fdb5320eeed8601cd8d023ec",
+      "afterSHA256": "87f791dec6c6f6733e908494c8bd243dde3715c2d33c1148b6a04cc09f4c7c9e",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSize/Theorem.lean",
+      "after": "AntichainOfGivenSize/Analysis/Supporting/Theorem.lean",
+      "beforeSHA256": "1fe60480c2832cf246e360727ed524b576b7058c8e6d8758f59da267e04b07d3",
+      "afterSHA256": "861076cb569af4f4275568a5b64e8651ca4b54f44c7720299dbc26f0936dde46",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSizeTest.lean",
+      "after": "AntichainOfGivenSizeTest.lean",
+      "beforeSHA256": "394bd77679dd39f7e78684cf2f493318db606db116cbdef24d0a80bb4ec6f36c",
+      "afterSHA256": "394bd77679dd39f7e78684cf2f493318db606db116cbdef24d0a80bb4ec6f36c",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSizeTest/CostSealBreaches.lean",
+      "after": "AntichainOfGivenSizeTest/CostSealBreaches.lean",
+      "beforeSHA256": "be12dd5f35a49e9baeb10b3853e1ab42902921feb4aee35b83a31f06ad240580",
+      "afterSHA256": "be12dd5f35a49e9baeb10b3853e1ab42902921feb4aee35b83a31f06ad240580",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "AntichainOfGivenSizeTest/ModelClosure.lean",
+      "after": "AntichainOfGivenSizeTest/ModelClosure.lean",
+      "beforeSHA256": "bbb76f53bbe922737f50774fab8c0cca89980735a74e3a9a5bfd73fb6eb361d7",
+      "afterSHA256": "bbb76f53bbe922737f50774fab8c0cca89980735a74e3a9a5bfd73fb6eb361d7",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    },
+    {
+      "before": "scripts/CheckAxioms.lean",
+      "after": "scripts/CheckAxioms.lean",
+      "beforeSHA256": "df6c4cddc3d78bb5ff66253eea35c608370f33798639fafa16545789948e3448",
+      "afterSHA256": "f9a4978b76fa5a8f2b145e232c00459b5c127c95b2833d7ddcc35cbba82ee5d2",
+      "onlyImportPathsChanged": false,
+      "registryOnlyBeyondImports": true
+    },
+    {
+      "before": "scripts/CheckPaperStatements.lean",
+      "after": "scripts/CheckPaperStatements.lean",
+      "beforeSHA256": "a0bfcc0dfa7e0ecc940e11ff6bebb624e0b603ffefa9f11d8fa22f50e4e16a58",
+      "afterSHA256": "a0bfcc0dfa7e0ecc940e11ff6bebb624e0b603ffefa9f11d8fa22f50e4e16a58",
+      "onlyImportPathsChanged": true,
+      "registryOnlyBeyondImports": false
+    }
+  ],
+  "moduleMap": {
+    "AntichainOfGivenSize.AntichainReduction": "AntichainOfGivenSize.Analysis.Supporting.AntichainReduction",
+    "AntichainOfGivenSize.AsymptoticBridge": "AntichainOfGivenSize.Analysis.Supporting.AsymptoticBridge",
+    "AntichainOfGivenSize.BasicLemmas": "AntichainOfGivenSize.Analysis.Supporting.BasicLemmas",
+    "AntichainOfGivenSize.BlockCount.AssembleClusters": "AntichainOfGivenSize.Analysis.BlockCount.AssembleClusters",
+    "AntichainOfGivenSize.BlockCount.AssembledError": "AntichainOfGivenSize.Analysis.BlockCount.AssembledError",
+    "AntichainOfGivenSize.BlockCount.AssembledGrid": "AntichainOfGivenSize.Analysis.BlockCount.AssembledGrid",
+    "AntichainOfGivenSize.BlockCount.Binary": "AntichainOfGivenSize.Analysis.BlockCount.Binary",
+    "AntichainOfGivenSize.BlockCount.ClusterGrid": "AntichainOfGivenSize.Analysis.BlockCount.ClusterGrid",
+    "AntichainOfGivenSize.BlockCount.ClusterPartition": "AntichainOfGivenSize.Analysis.BlockCount.ClusterPartition",
+    "AntichainOfGivenSize.BlockCount.ErrorArithmetic": "AntichainOfGivenSize.Analysis.BlockCount.ErrorArithmetic",
+    "AntichainOfGivenSize.BlockCount.ErrorToGrid": "AntichainOfGivenSize.Analysis.BlockCount.ErrorToGrid",
+    "AntichainOfGivenSize.BlockCount.ExplicitWitness": "AntichainOfGivenSize.Analysis.BlockCount.ExplicitWitness",
+    "AntichainOfGivenSize.BlockCount.ExtremalRecursion": "AntichainOfGivenSize.Analysis.BlockCount.ExtremalRecursion",
+    "AntichainOfGivenSize.BlockCount.FiniteExponents": "AntichainOfGivenSize.Analysis.BlockCount.FiniteExponents",
+    "AntichainOfGivenSize.BlockCount.FiniteIncrement": "AntichainOfGivenSize.Analysis.BlockCount.FiniteIncrement",
+    "AntichainOfGivenSize.BlockCount.FiniteScales": "AntichainOfGivenSize.Analysis.BlockCount.FiniteScales",
+    "AntichainOfGivenSize.BlockCount.GapArithmetic": "AntichainOfGivenSize.Analysis.BlockCount.GapArithmetic",
+    "AntichainOfGivenSize.BlockCount.ReductionCertificate": "AntichainOfGivenSize.Analysis.BlockCount.ReductionCertificate",
+    "AntichainOfGivenSize.BlockCount.ScaledIdeals": "AntichainOfGivenSize.Analysis.BlockCount.ScaledIdeals",
+    "AntichainOfGivenSize.BlockCount.SingletonBound": "AntichainOfGivenSize.Analysis.BlockCount.SingletonBound",
+    "AntichainOfGivenSize.BlockCount.TermGap": "AntichainOfGivenSize.Analysis.BlockCount.TermGap",
+    "AntichainOfGivenSize.BlockCount.Tight": "AntichainOfGivenSize.Analysis.BlockCount.Tight",
+    "AntichainOfGivenSize.BlockCount.Upper": "AntichainOfGivenSize.Analysis.BlockCount.Upper",
+    "AntichainOfGivenSize.BlockCount.ValuationBounds": "AntichainOfGivenSize.Analysis.BlockCount.ValuationBounds",
+    "AntichainOfGivenSize.Definitions": "AntichainOfGivenSize.Analysis.Supporting.Definitions",
+    "AntichainOfGivenSize.LowerBound.BinaryBlocks": "AntichainOfGivenSize.Analysis.LowerBound.BinaryBlocks",
+    "AntichainOfGivenSize.LowerBound.BoundedProfiles": "AntichainOfGivenSize.Analysis.LowerBound.BoundedProfiles",
+    "AntichainOfGivenSize.LowerBound.CarrySensitive": "AntichainOfGivenSize.Analysis.LowerBound.CarrySensitive",
+    "AntichainOfGivenSize.LowerBound.ClusterCore": "AntichainOfGivenSize.Analysis.LowerBound.ClusterCore",
+    "AntichainOfGivenSize.LowerBound.ClusterEncoding": "AntichainOfGivenSize.Analysis.LowerBound.ClusterEncoding",
+    "AntichainOfGivenSize.LowerBound.ClusterFiber": "AntichainOfGivenSize.Analysis.LowerBound.ClusterFiber",
+    "AntichainOfGivenSize.LowerBound.ClusterImageBound": "AntichainOfGivenSize.Analysis.LowerBound.ClusterImageBound",
+    "AntichainOfGivenSize.LowerBound.ClusterParameters": "AntichainOfGivenSize.Analysis.LowerBound.ClusterParameters",
+    "AntichainOfGivenSize.LowerBound.ClusterProfileCodes": "AntichainOfGivenSize.Analysis.LowerBound.ClusterProfileCodes",
+    "AntichainOfGivenSize.LowerBound.ClusterSparsityAssembly": "AntichainOfGivenSize.Analysis.LowerBound.ClusterSparsityAssembly",
+    "AntichainOfGivenSize.LowerBound.ClusterState": "AntichainOfGivenSize.Analysis.LowerBound.ClusterState",
+    "AntichainOfGivenSize.LowerBound.ClusterStateConstruction": "AntichainOfGivenSize.Analysis.LowerBound.ClusterStateConstruction",
+    "AntichainOfGivenSize.LowerBound.Conductor": "AntichainOfGivenSize.Analysis.LowerBound.Conductor",
+    "AntichainOfGivenSize.LowerBound.FiniteFiberBound": "AntichainOfGivenSize.Analysis.LowerBound.FiniteFiberBound",
+    "AntichainOfGivenSize.LowerBound.IdealBlockCount": "AntichainOfGivenSize.Analysis.LowerBound.IdealBlockCount",
+    "AntichainOfGivenSize.LowerBound.InfinitelyOften": "AntichainOfGivenSize.Analysis.LowerBound.InfinitelyOften",
+    "AntichainOfGivenSize.LowerBound.Matching": "AntichainOfGivenSize.Analysis.LowerBound.Matching",
+    "AntichainOfGivenSize.LowerBound.ProfilePadding": "AntichainOfGivenSize.Analysis.LowerBound.ProfilePadding",
+    "AntichainOfGivenSize.LowerBound.QuadraticLogEndpoint": "AntichainOfGivenSize.Analysis.LowerBound.QuadraticLogEndpoint",
+    "AntichainOfGivenSize.LowerBound.SignedPowers": "AntichainOfGivenSize.Analysis.LowerBound.SignedPowers",
+    "AntichainOfGivenSize.LowerBound.SparseEncoding": "AntichainOfGivenSize.Analysis.LowerBound.SparseEncoding",
+    "AntichainOfGivenSize.LowerBound.ThresholdFiltration": "AntichainOfGivenSize.Analysis.LowerBound.ThresholdFiltration",
+    "AntichainOfGivenSize.LowerBound.VennProfiles": "AntichainOfGivenSize.Analysis.LowerBound.VennProfiles",
+    "AntichainOfGivenSize.MainStatement": "AntichainOfGivenSize.Analysis.Supporting.MainStatement",
+    "AntichainOfGivenSize.MainTheorems": "AntichainOfGivenSize.Analysis.Supporting.MainTheorems",
+    "AntichainOfGivenSize.MatchingParameters": "AntichainOfGivenSize.Analysis.Supporting.MatchingParameters",
+    "AntichainOfGivenSize.Paper.AlmostAll": "AntichainOfGivenSize.Analysis.Paper.AlmostAll",
+    "AntichainOfGivenSize.Paper.BasicResults": "AntichainOfGivenSize.Analysis.Paper.BasicResults",
+    "AntichainOfGivenSize.Paper.BitMatching": "AntichainOfGivenSize.Analysis.Paper.BitMatching",
+    "AntichainOfGivenSize.Paper.CountingEstimates": "AntichainOfGivenSize.Analysis.Paper.CountingEstimates",
+    "AntichainOfGivenSize.Paper.CountingParameters": "AntichainOfGivenSize.Analysis.Paper.CountingParameters",
+    "AntichainOfGivenSize.Paper.Density": "AntichainOfGivenSize.Analysis.Paper.Density",
+    "AntichainOfGivenSize.Paper.DirectReduction": "AntichainOfGivenSize.Analysis.Paper.DirectReduction",
+    "AntichainOfGivenSize.Paper.Extremal": "AntichainOfGivenSize.Analysis.Paper.Extremal",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.ActualCounting": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ActualCounting",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.CanonicalHeader": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.CanonicalHeader",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.ClaimBundles": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ClaimBundles",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.CompleteCounting",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.ConnectedSubset": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ConnectedSubset",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ExactClaimBundles",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.HeaderExistence": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.HeaderExistence",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.IncidenceCount": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.IncidenceCount",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.LiteralScales": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.LiteralScales",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.NumericalParameters": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.NumericalParameters",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.OriginalQueryReconstruction": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.OriginalQueryReconstruction",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.PartitionHeader": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.PartitionHeader",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.RealTailFiberCore": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.RealTailFiberCore",
+    "AntichainOfGivenSize.Paper.FaithfulCounting.ScalarNormalization": "AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ScalarNormalization",
+    "AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound": "AntichainOfGivenSize.Analysis.Paper.FiniteTwoGeneratorBound",
+    "AntichainOfGivenSize.Paper.FirstUpper": "AntichainOfGivenSize.Analysis.Paper.FirstUpper",
+    "AntichainOfGivenSize.Paper.GeneralCounting": "AntichainOfGivenSize.Analysis.Paper.GeneralCounting",
+    "AntichainOfGivenSize.Paper.LiteralBlockMatching": "AntichainOfGivenSize.Analysis.Paper.LiteralBlockMatching",
+    "AntichainOfGivenSize.Paper.LiteralUpperParameters": "AntichainOfGivenSize.Analysis.Paper.LiteralUpperParameters",
+    "AntichainOfGivenSize.Paper.MainSemantics": "AntichainOfGivenSize.Analysis.Paper.MainSemantics",
+    "AntichainOfGivenSize.Paper.PatternGadget": "AntichainOfGivenSize.Analysis.Paper.PatternGadget",
+    "AntichainOfGivenSize.Paper.RealDensity": "AntichainOfGivenSize.Analysis.Paper.RealDensity",
+    "AntichainOfGivenSize.Paper.Representation": "AntichainOfGivenSize.Analysis.Paper.Representation",
+    "AntichainOfGivenSize.Paper.Results": "AntichainOfGivenSize.Analysis.Paper.Results",
+    "AntichainOfGivenSize.Paper.Scale": "AntichainOfGivenSize.Analysis.Paper.Scale",
+    "AntichainOfGivenSize.Paper.Statements": "AntichainOfGivenSize.Analysis.Paper.Statements",
+    "AntichainOfGivenSize.Paper.Typical": "AntichainOfGivenSize.Analysis.Paper.Typical",
+    "AntichainOfGivenSize.Paper.TypicalGoodEvent": "AntichainOfGivenSize.Analysis.Paper.TypicalGoodEvent",
+    "AntichainOfGivenSize.Paper.TypicalProbability": "AntichainOfGivenSize.Analysis.Paper.TypicalProbability",
+    "AntichainOfGivenSize.Paper.UpperConstructionBounds": "AntichainOfGivenSize.Analysis.Paper.UpperConstructionBounds",
+    "AntichainOfGivenSize.Paper.UpperConstructionCore": "AntichainOfGivenSize.Analysis.Paper.UpperConstructionCore",
+    "AntichainOfGivenSize.Paper.UpperConstructionGeometry": "AntichainOfGivenSize.Analysis.Paper.UpperConstructionGeometry",
+    "AntichainOfGivenSize.Paper.UpperConstructionIncrement": "AntichainOfGivenSize.Analysis.Paper.UpperConstructionIncrement",
+    "AntichainOfGivenSize.Paper.UpperConstructionSteps": "AntichainOfGivenSize.Analysis.Paper.UpperConstructionSteps",
+    "AntichainOfGivenSize.Paper.UpperParameters": "AntichainOfGivenSize.Analysis.Paper.UpperParameters",
+    "AntichainOfGivenSize.RangeArithmetic": "AntichainOfGivenSize.Analysis.Supporting.RangeArithmetic",
+    "AntichainOfGivenSize.RangeReduction": "AntichainOfGivenSize.Analysis.Supporting.RangeReduction",
+    "AntichainOfGivenSize.Section6.Address": "AntichainOfGivenSize.Analysis.Section6.Address",
+    "AntichainOfGivenSize.Section6.Blocks": "AntichainOfGivenSize.Analysis.Section6.Blocks",
+    "AntichainOfGivenSize.Section6.Construction": "AntichainOfGivenSize.Analysis.Section6.Construction",
+    "AntichainOfGivenSize.Section6.Core": "AntichainOfGivenSize.Analysis.Section6.Core",
+    "AntichainOfGivenSize.Section6.IndexedBounds": "AntichainOfGivenSize.Analysis.Section6.IndexedBounds",
+    "AntichainOfGivenSize.Section6.ModularIncrement": "AntichainOfGivenSize.Analysis.Section6.ModularIncrement",
+    "AntichainOfGivenSize.Section6.NatParameters": "AntichainOfGivenSize.Analysis.Section6.NatParameters",
+    "AntichainOfGivenSize.Section6.Remainder": "AntichainOfGivenSize.Analysis.Section6.Remainder",
+    "AntichainOfGivenSize.Section6.StageArithmetic": "AntichainOfGivenSize.Analysis.Section6.StageArithmetic",
+    "AntichainOfGivenSize.Section6.StageBridge": "AntichainOfGivenSize.Analysis.Section6.StageBridge",
+    "AntichainOfGivenSize.Section6.Survivors": "AntichainOfGivenSize.Analysis.Section6.Survivors",
+    "AntichainOfGivenSize.Theorem": "AntichainOfGivenSize.Analysis.Supporting.Theorem"
+  }
+}

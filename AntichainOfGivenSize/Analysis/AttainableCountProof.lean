@@ -1,7 +1,7 @@
 import AntichainOfGivenSize.Model.Prelude
 import AntichainOfGivenSize.Model.Prior
 import AntichainOfGivenSize.Meta.ModelClosure
-import AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles
+import AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ExactClaimBundles
 
 /-- PAPER: paper/Generating_Antichains_Simplified.tex:987-997
 Proof-side owner for `AntichainOfGivenSize.attainable_count`.

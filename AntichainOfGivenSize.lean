@@ -1,18 +1,18 @@
-import AntichainOfGivenSize.BlockCount.Tight
-import AntichainOfGivenSize.BlockCount.ExplicitWitness
-import AntichainOfGivenSize.LowerBound.InfinitelyOften
-import AntichainOfGivenSize.LowerBound.CarrySensitive
-import AntichainOfGivenSize.LowerBound.ThresholdFiltration
-import AntichainOfGivenSize.LowerBound.VennProfiles
-import AntichainOfGivenSize.LowerBound.Conductor
-import AntichainOfGivenSize.MainTheorems
-import AntichainOfGivenSize.Paper.Results
-import AntichainOfGivenSize.Paper.FaithfulCounting.CompleteCounting
+import AntichainOfGivenSize.Analysis.BlockCount.Tight
+import AntichainOfGivenSize.Analysis.BlockCount.ExplicitWitness
+import AntichainOfGivenSize.Analysis.LowerBound.InfinitelyOften
+import AntichainOfGivenSize.Analysis.LowerBound.CarrySensitive
+import AntichainOfGivenSize.Analysis.LowerBound.ThresholdFiltration
+import AntichainOfGivenSize.Analysis.LowerBound.VennProfiles
+import AntichainOfGivenSize.Analysis.LowerBound.Conductor
+import AntichainOfGivenSize.Analysis.Supporting.MainTheorems
+import AntichainOfGivenSize.Analysis.Paper.Results
+import AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.CompleteCounting
 import AntichainOfGivenSize.Meta.Audit
-import AntichainOfGivenSize.Paper.TypicalGoodEvent
-import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
-import AntichainOfGivenSize.Paper.FaithfulCounting.ExactClaimBundles
-import AntichainOfGivenSize.Paper.TypicalProbability
+import AntichainOfGivenSize.Analysis.Paper.TypicalGoodEvent
+import AntichainOfGivenSize.Analysis.Paper.FiniteTwoGeneratorBound
+import AntichainOfGivenSize.Analysis.Paper.FaithfulCounting.ExactClaimBundles
+import AntichainOfGivenSize.Analysis.Paper.TypicalProbability
 
 /-!
 # Antichain of a Given Size

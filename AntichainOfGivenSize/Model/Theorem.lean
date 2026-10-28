@@ -1,6 +1,6 @@
 import AntichainOfGivenSize.Analysis.TheoremProof
 import AntichainOfGivenSize.Model.Prelude
-import AntichainOfGivenSize.Paper.RealDensity
+import AntichainOfGivenSize.Analysis.Paper.RealDensity
 import AntichainOfGivenSize.Model.Prior
 import AntichainOfGivenSize.Meta.ModelClosure
 import AntichainOfGivenSize.Analysis.AttainableCountProof
@@ -8,10 +8,10 @@ import AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof
 import AntichainOfGivenSize.Analysis.AlphaEventualUpperProof
 import AntichainOfGivenSize.Analysis.AlphaLowerDensityOneProof
 import AntichainOfGivenSize.Analysis.AlphaMaximumOrderProof
-import AntichainOfGivenSize.Paper.MainSemantics
-import AntichainOfGivenSize.Paper.TypicalGoodEvent
-import AntichainOfGivenSize.Paper.FiniteTwoGeneratorBound
-import AntichainOfGivenSize.Paper.TypicalProbability
+import AntichainOfGivenSize.Analysis.Paper.MainSemantics
+import AntichainOfGivenSize.Analysis.Paper.TypicalGoodEvent
+import AntichainOfGivenSize.Analysis.Paper.FiniteTwoGeneratorBound
+import AntichainOfGivenSize.Analysis.Paper.TypicalProbability
 import AntichainOfGivenSize.Analysis.AlphaSplittingProof
 
 /-!

@@ -1,6 +1,6 @@
-ℹ [3525/3548] Replayed AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof
+ℹ [3518/3548] Replayed AntichainOfGivenSize.Analysis.AlphaSimultaneousDensityOneProof
 info: AntichainOfGivenSize/Analysis/AlphaSimultaneousDensityOneProof.lean:121:0: OK — the STATEMENT is under Model/ or an admitted module (9)
-ℹ [3530/3548] Replayed AntichainOfGivenSize.Model.Theorem
+ℹ [3525/3548] Replayed AntichainOfGivenSize.Model.Theorem
 info: AntichainOfGivenSize/Model/Theorem.lean:135:0: OK — the STATEMENT is under Model/ or an admitted module (18)
 info: AntichainOfGivenSize/Model/Theorem.lean:136:0: OK — the STATEMENT is under Model/ or an admitted module (17)
 info: AntichainOfGivenSize/Model/Theorem.lean:137:0: 'AntichainOfGivenSize.attainable_count' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -31,6 +31,6 @@ info: AntichainOfGivenSize/Model/Theorem.lean:169:0: OK — the STATEMENT is und
 info: AntichainOfGivenSize/Model/Theorem.lean:170:0: OK — the STATEMENT is under Model/ or an admitted module (22)
 info: AntichainOfGivenSize/Model/Theorem.lean:171:0: OK — the STATEMENT is under Model/ or an admitted module (29)
 info: AntichainOfGivenSize/Model/Theorem.lean:172:0: OK — the STATEMENT is under Model/ or an admitted module (29)
-ℹ [3531/3548] Replayed AntichainOfGivenSize.Meta.Audit
+ℹ [3526/3548] Replayed AntichainOfGivenSize.Meta.Audit
 info: AntichainOfGivenSize/Meta/Audit.lean:136:0: OK — every author-written constant under AntichainOfGivenSize.Model is reached by its claims (166 reached).
 Build completed successfully (3548 jobs).

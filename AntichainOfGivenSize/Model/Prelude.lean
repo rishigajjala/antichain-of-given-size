@@ -1,5 +1,5 @@
 import AntichainOfGivenSize.Model.ProblemSetting
-import AntichainOfGivenSize.Paper.Representation
+import AntichainOfGivenSize.Analysis.Paper.Representation
 import AntichainOfGivenSize.Analysis.AttainableValuesMembershipProof
 
 /-!

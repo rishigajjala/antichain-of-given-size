@@ -1,4 +1,4 @@
-import AntichainOfGivenSize.BasicLemmas
+import AntichainOfGivenSize.Analysis.Supporting.BasicLemmas
 import AntichainOfGivenSize.Model.Prior
 
 -- The fixed interface retains hypotheses not needed by the stronger reused lemma.

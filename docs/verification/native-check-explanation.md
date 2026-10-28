@@ -1,6 +1,10 @@
 # Native check diagnostics
 
-The [current native `/check` output](compatibility/logs/native-check-after-helper-20261027.txt)
+This report describes the native check before the proof files were moved under
+`Analysis/`. Its log and source fingerprint are preserved. The reorganized
+sources have separate [Lean verification records](../../.blueprint/verification/checks.json).
+
+The [saved native `/check` output](compatibility/logs/native-check-after-helper-20261027.txt)
 was recorded after the helper relocation, on source fingerprint `197605d3…`
 (commit `420d09b`). It reports successful compilation, standard axioms for all
 37 registered declarations, no proof placeholders or added axioms, and passing
@@ -9,7 +13,7 @@ and `hypothesis-is-in-the-bundle`. The [earlier native output](native-check-2026
 is preserved as historical evidence.
 
 The first heuristic counts indented lines after a declaration starts, including
-its multiline type. Reproducing the unchanged native functions on the current
+its multiline type. Reproducing the unchanged native functions on that revision's
 four Model files finds **six** affected wrappers, each with a single `exact`
 proof: `attainableValues_membership`, `attainable_count`, `alpha_eventual_upper`,
 `alpha_lower_density_one`, `alpha_maximum_order`, and `alpha_asymptotic_order`.

@@ -5,6 +5,9 @@ current manuscript's stronger counting and density-one statements, and
 their independent statement audit, are documented in
 [the manuscript correspondence](current-paper.md). Historical counts below
 refer to the audited revision; the final section also describes current checks.
+Source links point to the present locations of the preserved declarations under
+`Analysis/`. The original README exposition is retained in
+[Related results](related-results.md).
 
 Audit date: 23 September 2026. The starting revision was
 [`6075c1c`](https://github.com/rishigajjala/antichain-of-given-size/tree/6075c1cbd35b568e37721257b39c82d61428acae).
@@ -12,7 +15,7 @@ The accompanying changes correct two comments and add this audit; they do
 not change any mathematical definition, theorem type, or proof.
 
 **Result:** no substantive mismatch was found between the nine public
-statements and the mathematics advertised in the README. This conclusion
+statements and the mathematics then advertised in the README (now in [Related results](related-results.md)). This conclusion
 comes from reading the definitions and proof connections, as well as
 checking Lean's proof dependencies. A successful build alone would not
 establish that the intended problem had been formalized.
@@ -20,8 +23,8 @@ establish that the intended problem had been formalized.
 ## What the main statements actually say
 
 All names below have prefix `AntichainOfGivenSize`. Their propositions
-are defined in [MainStatement.lean](../AntichainOfGivenSize/MainStatement.lean)
-and their proofs are in [MainTheorems.lean](../AntichainOfGivenSize/MainTheorems.lean).
+are defined in [MainStatement.lean](../AntichainOfGivenSize/Analysis/Supporting/MainStatement.lean)
+and their proofs are in [MainTheorems.lean](../AntichainOfGivenSize/Analysis/Supporting/MainTheorems.lean).
 Here `bl(n)` counts maximal runs of ones in the binary expansion of `n`,
 and `alpha(n)` is the minimum number of generators of an ideal of size `n`.
 
@@ -59,20 +62,20 @@ count; it does **not** say that every such integer needs `b+1` generators.
 2. **The minimum is attained.**
    Lean assigns a value even to an infimum of an empty set of natural
    numbers. That convention does not create a loophole here:
-   [BasicLemmas.lean](../AntichainOfGivenSize/BasicLemmas.lean) proves that
+   [BasicLemmas.lean](../AntichainOfGivenSize/Analysis/Supporting/BasicLemmas.lean) proves that
    every input has a representation (`hasGeneratorCount_nonempty`), that
    `alpha` is attained (`alpha_hasGeneratorCount`), and that it is at most
    every feasible generator count (`alpha_le_of_hasGeneratorCount`).
    The empty ideal gives the explicitly documented extension `alpha(0)=0`.
 
 3. **Redundant generators do not change the minimum.**
-   [AntichainReduction.lean](../AntichainOfGivenSize/AntichainReduction.lean)
+   [AntichainReduction.lean](../AntichainOfGivenSize/Analysis/Supporting/AntichainReduction.lean)
    removes generators contained in other generators, proves that the
    ideal is unchanged, and obtains an antichain with exactly `alpha(n)`
    members. The implementation is not minimizing a different quantity.
 
 4. **The binary recursion really counts runs.**
-   [BinaryBlocks.lean](../AntichainOfGivenSize/LowerBound/BinaryBlocks.lean)
+   [BinaryBlocks.lean](../AntichainOfGivenSize/Analysis/LowerBound/BinaryBlocks.lean)
    defines a run count on lists of bits and proves that `binaryBlockCount`
    agrees with it on `Nat.bits`. It therefore matches the paper's
    [Definition 1.2](https://arxiv.org/html/2506.07268v1#S1), rather than
@@ -84,7 +87,7 @@ count; it does **not** say that every such integer needs `b+1` generators.
    For every positive input `n`, `hasDyadicIdealSum_alpha` gives a
    representation in this larger class of value `n` and cost at most
    `alpha(n)`, in
-   [ScaledIdeals.lean](../AntichainOfGivenSize/BlockCount/ScaledIdeals.lean).
+   [ScaledIdeals.lean](../AntichainOfGivenSize/Analysis/BlockCount/ScaledIdeals.lean).
    Excluding low-cost representations in the larger class therefore
    excludes them in the original problem. The explicit recurrence and
    induction indices agree with the [block-count guide](block-count.md).
@@ -92,18 +95,18 @@ count; it does **not** say that every such integer needs `b+1` generators.
 6. **The internal assumptions are discharged.**
    Some helper theorems state implications whose hypotheses package a
    construction or estimate. The final proofs supply those hypotheses:
-   `ExactStageIncrement` in [Theorem.lean](../AntichainOfGivenSize/Theorem.lean),
+   `ExactStageIncrement` in [Theorem.lean](../AntichainOfGivenSize/Analysis/Supporting/Theorem.lean),
    `EventuallySparseDyadicProfiles` in
-   [ClusterSparsityAssembly.lean](../AntichainOfGivenSize/LowerBound/ClusterSparsityAssembly.lean),
+   [ClusterSparsityAssembly.lean](../AntichainOfGivenSize/Analysis/LowerBound/ClusterSparsityAssembly.lean),
    and `FiniteGeometricBound` and `DyadicCostReduction` in
-   [Tight.lean](../AntichainOfGivenSize/BlockCount/Tight.lean).
+   [Tight.lean](../AntichainOfGivenSize/Analysis/BlockCount/Tight.lean).
    None remains as an assumption of a public certificate.
 
 7. **The counting lower bound covers all relevant ideals.**
-   [BoundedProfiles.lean](../AntichainOfGivenSize/LowerBound/BoundedProfiles.lean)
+   [BoundedProfiles.lean](../AntichainOfGivenSize/Analysis/LowerBound/BoundedProfiles.lean)
    converts every minimum-generator representation of an integer below
    the size cutoff into a counted record of generator membership.
-   [ProfilePadding.lean](../AntichainOfGivenSize/LowerBound/ProfilePadding.lean)
+   [ProfilePadding.lean](../AntichainOfGivenSize/Analysis/LowerBound/ProfilePadding.lean)
    permits repeated generators when extending a shorter indexed family.
    Thus the counting proof does not silently restrict the set systems.
 
@@ -111,7 +114,7 @@ count; it does **not** say that every such integer needs `b+1` generators.
    Lean's real logarithm and division are defined at every input.
    Nevertheless, `g(n)>0` for `n≥5`. The upper bound eventually concerns
    only these inputs, and the lower theorem supplies unbounded inputs.
-   The README's requirement `n≥max(N,5)` follows by applying the formal
+   The related-results overview's requirement `n≥max(N,5)` follows by applying the formal
    lower statement with cutoff `max N 5`. Its constant uses real division.
 
 ## Auxiliary statements and corrections
@@ -123,8 +126,8 @@ and positive-parameter assumptions appear where needed. The first-missing
 integer is proved to exist before its minimum is used.
 
 The power-bound propositions in
-[VennProfiles.lean](../AntichainOfGivenSize/LowerBound/VennProfiles.lean)
-and [Conductor.lean](../AntichainOfGivenSize/LowerBound/Conductor.lean)
+[VennProfiles.lean](../AntichainOfGivenSize/Analysis/LowerBound/VennProfiles.lean)
+and [Conductor.lean](../AntichainOfGivenSize/Analysis/LowerBound/Conductor.lean)
 include target definitions and equivalences. Defining a proposition does
 not prove it. These files distinguish these targets from the unconditional
 matching lower bound, and the main proofs do not assume those targets.
@@ -179,7 +182,7 @@ independently verify the implementation of Lean or its underlying logic.
 
 The conclusions concern ideal generators and `alpha`. Boolean formula
 semantics and the paper's unrestricted parameter `beta` are not defined
-in this Lean development. Their relationship in the README is cited
+in this Lean development. Their relationship in the related-results overview is cited
 background, not a formally verified equivalence in this repository.
 The block theorem does not resolve the paper's conjecture about `beta`.
 
