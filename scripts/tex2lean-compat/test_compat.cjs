@@ -41,7 +41,7 @@ assert(closureSource.includes([
 ].join('\n')));
 const modules = context.uhe({}, [
   'AntichainOfGivenSize/Model/Theorem.lean',
-  'AntichainOfGivenSize/Paper/Results.lean',
+  'AntichainOfGivenSize/Analysis/Paper/Results.lean',
   'AntichainOfGivenSize/Analysis/AttainableCountProof.lean',
   'AntichainOfGivenSize/Meta/Audit.lean',
   'AntichainOfGivenSizeTest/CostSealBreaches.lean',
@@ -51,8 +51,8 @@ const modules = context.uhe({}, [
 ], 'AntichainOfGivenSize');
 assert.deepEqual(Array.from(modules), [
   'AntichainOfGivenSize.Analysis.AttainableCountProof',
+  'AntichainOfGivenSize.Analysis.Paper.Results',
   'AntichainOfGivenSize.Model.Theorem',
-  'AntichainOfGivenSize.Paper.Results',
 ]);
 const cfg = {codexModel: 'gpt-6-astra', anthropicEffort: 'high'};
 assert.deepEqual(Array.from(context.nk('codex', cfg)), [
@@ -85,10 +85,10 @@ assert.deepEqual(Array.from(context.yX('AntichainOfGivenSize', 'AntichainOfGiven
   '#programSeal AntichainOfGivenSize.Program', '#executableModule AntichainOfGivenSize.Model.Program',
 ]);
 const globalAudit = context.XA('AntichainOfGivenSize', [
-  'AntichainOfGivenSize.Model.Theorem', 'AntichainOfGivenSize.Paper.Results',
+  'AntichainOfGivenSize.Model.Theorem', 'AntichainOfGivenSize.Analysis.Paper.Results',
 ], theoremClaims);
 assert(globalAudit.includes('#surplusIn AntichainOfGivenSize.Model from ' + theoremClaims.join(' ')));
-assert(globalAudit.includes('import AntichainOfGivenSize.Paper.Results'));
+assert(globalAudit.includes('import AntichainOfGivenSize.Analysis.Paper.Results'));
 assert.equal((globalAudit.match(/#surplusIn/g) ?? []).length, 1);
 assert(context.TX('AntichainOfGivenSize').includes('import AntichainOfGivenSize.Meta.Audit'));
 const sealContext = vm.createContext({p3:6, Lhe:['programSeal', 'executableModule', 'surplusIn']});
@@ -131,7 +131,7 @@ const planningContext = vm.createContext({
   x: () => ({fsPath:'/isolated-workspace/lean'}),
   Vc: async () => ({complete:true, files:[
     'AntichainOfGivenSize/Model/Theorem.lean',
-    'AntichainOfGivenSize/Paper/Results.lean',
+    'AntichainOfGivenSize/Analysis/Paper/Results.lean',
   ]}),
   uhe: context.uhe,
   k8: async (workspace, config) => {
@@ -157,7 +157,7 @@ async function checkPlanningClaims() {
     'AntichainOfGivenSize.currentClaim',
   ]);
   assert.deepEqual(Array.from(planningCalls[0].options.modules), [
-    'AntichainOfGivenSize.Model.Theorem', 'AntichainOfGivenSize.Paper.Results',
+    'AntichainOfGivenSize.Analysis.Paper.Results', 'AntichainOfGivenSize.Model.Theorem',
   ]);
   assert(planningCalls[0].audit.includes('#surplusIn AntichainOfGivenSize.Model from AntichainOfGivenSize.previousClaim AntichainOfGivenSize.membership AntichainOfGivenSize.currentClaim'));
 }

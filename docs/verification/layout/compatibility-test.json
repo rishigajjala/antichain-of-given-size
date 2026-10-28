@@ -1,0 +1,13 @@
+{
+  "schema": "antichain.layout-compatibility-test/1",
+  "recordedAtUTC": "2026-10-28T10:55:58.734817+00:00",
+  "command": [
+    "node",
+    "scripts/tex2lean-compat/test_compat.cjs",
+    "<preserved-v17-main>/out/cli.cjs"
+  ],
+  "exitCode": 0,
+  "testedScriptSHA256": "45368c92694bf5773df4565b3ef92999f2f5b8b4065863267298ab001ba18370",
+  "runtimeBundleSHA256": "3ad5d8e73e524e1f24618c01718857e4d0aba12eacab6ad7979bfbb5e62f2ed0",
+  "purpose": "Existing compatibility-helper regression tests updated for relocated module inputs and sorted output module names. Actual local execution passed; no Lean workflow, provider, or native certification was run by this test."
+}

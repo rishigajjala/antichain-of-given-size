@@ -1,5 +1,5 @@
 import AntichainOfGivenSize.Model.Prelude
-import AntichainOfGivenSize.Paper.RealDensity
+import AntichainOfGivenSize.Analysis.Paper.RealDensity
 import AntichainOfGivenSize.Model.Prior
 import AntichainOfGivenSize.Meta.ModelClosure
 import AntichainOfGivenSize.Analysis.AttainableCountProof

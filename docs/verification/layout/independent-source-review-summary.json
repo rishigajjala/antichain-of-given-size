@@ -1,0 +1,35 @@
+{
+  "schema": "antichain.independent-layout-review/1",
+  "reviewedAtUTC": "2026-10-28T10:54:43.862797+00:00",
+  "baselineCommit": "684d670720ebd84433189c6dc0ad4ffb3a1b17cd",
+  "verdict": "pass",
+  "scope": "Independent Git-blob byte comparison; only import module paths and the explicit axiom-audit module-name registry may differ. Does not rerun Lean or native Tex2Lean.",
+  "movedModules": 108,
+  "leanFilesChecked": 129,
+  "registryModuleCount": 124,
+  "sourceInventoryExact": true,
+  "projectImportsResolve": true,
+  "migrationReportBeforeHashesMatchGitBlobs": true,
+  "migrationReportAfterHashesMatchCurrentBytes": true,
+  "allDefinitionsStatementsProofsAndNamespacesSourceBytesUnchangedExceptAuthorizedModuleReferences": true,
+  "historicalEvidenceFilesChecked": 745,
+  "historicalEvidenceExactBytesPreserved": true,
+  "limitations": [
+    "Source-level comparison does not assert byte-identical elaborated terms; relocated private declarations can acquire different generated names.",
+    "Current strict Lean checks must be run by integration owner after final edits.",
+    "Immutable native receipts remain historical and are not certificates for the relocated tree."
+  ],
+  "detailedReport": {
+    "file": "independent-source-review.json",
+    "sha256": "79cf391ac4e94bb8803bd6b7a380858d538fa06c792a6a70c15a4cacf566aed2"
+  },
+  "compatibilityFixtureChange": {
+    "file": "scripts/tex2lean-compat/test_compat.cjs",
+    "twoInputFilePathsAndExpectedModuleIdentifiersUpdated": true,
+    "expectedModuleListsRetainLexicographicOrder": true,
+    "allOtherBytesUnchanged": true,
+    "toolImplementationChanged": false,
+    "beforeSHA256": "9e745fcb5604eb6d8f21add219ae1863eb0fc7bc12be445735f9c3f7f7a6d980",
+    "afterSHA256": "45368c92694bf5773df4565b3ef92999f2f5b8b4065863267298ab001ba18370"
+  }
+}

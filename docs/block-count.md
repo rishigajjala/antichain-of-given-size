@@ -39,9 +39,9 @@ $n_b$ with $\mathrm{bl}(n_b)=b$.
 The case $b=0$ has only $n=0$, with $\alpha(0)=0$.
 
 The formal definitions and all main theorem claims are in
-[MainStatement.lean](../AntichainOfGivenSize/MainStatement.lean).
+[MainStatement.lean](../AntichainOfGivenSize/Analysis/Supporting/MainStatement.lean).
 The certificates are in
-[MainTheorems.lean](../AntichainOfGivenSize/MainTheorems.lean).
+[MainTheorems.lean](../AntichainOfGivenSize/Analysis/Supporting/MainTheorems.lean).
 
 ## The logarithmic lower bound
 
@@ -61,7 +61,7 @@ There are $2^q-1$ nonempty subfamilies.
 A nonnegative signed sum of $r$ powers of two has at most $r$ binary
 blocks. This follows by tracking binary carries and borrows; the precise
 arithmetic lemma is in
-[SignedPowers.lean](../AntichainOfGivenSize/LowerBound/SignedPowers.lean).
+[SignedPowers.lean](../AntichainOfGivenSize/Analysis/LowerBound/SignedPowers.lean).
 Consequently,
 
 $$
@@ -77,7 +77,7 @@ $$
 
 where $\lceil x\rceil$ is the least integer at least $x$.
 The Lean theorem `clog_binaryBlockCount_le_alpha` proves this integer
-version in [IdealBlockCount.lean](../AntichainOfGivenSize/LowerBound/IdealBlockCount.lean).
+version in [IdealBlockCount.lean](../AntichainOfGivenSize/Analysis/LowerBound/IdealBlockCount.lean).
 
 ## The upper bound: one extra generator per new run
 
@@ -116,14 +116,14 @@ When $p$ ends in zero, this creates a new run. Each later run therefore
 adds at most one generator. Starting from at most two generators for the
 first run gives $b+1$ for $b$ runs.
 
-See [BasicLemmas.lean](../AntichainOfGivenSize/BasicLemmas.lean) for the
-two operations and [Upper.lean](../AntichainOfGivenSize/BlockCount/Upper.lean)
+See [BasicLemmas.lean](../AntichainOfGivenSize/Analysis/Supporting/BasicLemmas.lean) for the
+two operations and [Upper.lean](../AntichainOfGivenSize/Analysis/BlockCount/Upper.lean)
 for the complete induction.
 
 ## The explicit integers
 
 The following recurrence is exactly the numerical construction in
-[MainStatement.lean](../AntichainOfGivenSize/MainStatement.lean).
+[MainStatement.lean](../AntichainOfGivenSize/Analysis/Supporting/MainStatement.lean).
 
 For nonnegative integers $p,k$, define
 
@@ -214,7 +214,7 @@ $t\geq T(p,k)$, a scaled ideal sum representing $2^t p+1$ at cost at most
 $k$ yields a scaled ideal sum representing $p$ at cost at most $k-1$.
 Its Lean name is
 `BlockCount.finiteThreshold_costReduction_proved` in
-[Tight.lean](../AntichainOfGivenSize/BlockCount/Tight.lean).
+[Tight.lean](../AntichainOfGivenSize/Analysis/BlockCount/Tight.lean).
 The proof constructs finitely many thresholds and uses an interval with
 no relevant exponents to separate the leading integer from the small
 remainder. The [repository guide](proof-guide.md) maps the proof files.
@@ -233,4 +233,4 @@ The upper bound and $\mathrm{bl}(n_b)=b$ give the reverse inequality.
 
 This proves both $\alpha(n_b)=b+1$ and the claimed exact maximum.
 The induction is formalized in
-[ExplicitWitness.lean](../AntichainOfGivenSize/BlockCount/ExplicitWitness.lean).
+[ExplicitWitness.lean](../AntichainOfGivenSize/Analysis/BlockCount/ExplicitWitness.lean).

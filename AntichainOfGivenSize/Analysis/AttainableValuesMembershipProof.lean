@@ -1,5 +1,5 @@
 import AntichainOfGivenSize.Model.ProblemSetting
-import AntichainOfGivenSize.Paper.Representation
+import AntichainOfGivenSize.Analysis.Paper.Representation
 
 /-- PAPER: paper/Generating_Antichains_Simplified.tex:981-986
 Proof-side owner for `AntichainOfGivenSize.Model.attainableValues_membership`.
